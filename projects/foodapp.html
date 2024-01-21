@@ -4,17 +4,28 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdn.tailwindcss.com"></script>
-    <link
+    <!-- <link
       href="https://fonts.googleapis.com/css?family=Nunito"
       rel="stylesheet"
+    /> -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap"
+      rel="stylesheet"
     />
-    <title>food</title>
+    <title>alberthodo</title>
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="/images/favicon_io/favicon.ico"
+    />
     <meta
       name="Description"
       content="Hello! my name is Albert Senyo Hodo and I’m an Interface Design Engineer
-  from Ghana 🇬🇭.
-  I explore innovation through emerging technologies while designing
-  sustainable experiences for this blue planet we call home🌏"
+    from Ghana 🇬🇭.
+    I explore innovation through emerging technologies while designing
+    sustainable experiences for this blue planet we call home🌏"
     />
     <meta
       name="Keyword"
@@ -42,73 +53,157 @@
       gtag("config", "G-3DYQ9HJK1Z");
     </script>
   </head>
-  <body class="ml-24 mr-24 mt-6">
-    <div class="nav flex justify-between">
+  <body class="ml-auto mr-auto w-[80%] mt-6">
+    <nav class="nav flex justify-between">
       <div class="logo sm:text-xl">
-        <s>
-          <a href="/index.html"> albert hodo </a>
-        </s>
+        <a href="/index.html">
+          <img
+            class="w-10 h-10 mt-4 sm:mt-0 sm:w-20 sm:h-20 rounded-full"
+            src="/images/logo.png"
+          />
+        </a>
       </div>
-      <div class="links flex items-center">
-        <div class="home">
-          <a href="../index.html" class="mr-4">Selected Projects</a>
+      <div class="navigation mt-8">
+        <div class="lg:hidden flex justify-end">
+          <button class="navbar-burger">
+            <svg
+              class="h-4 w-4 fill-current"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <title>Mobile menu</title>
+              <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
+            </svg>
+          </button>
         </div>
-        <div class="playground mr-4"><a href="/playground.html" class="">Playground</a></div>
+        <div class="links invisible lg:visible flex items-center">
+          <div class="home">
+            <a
+              href="/index.html"
+              class="font-normal underline underline-offset-[5px] decoration-2 mr-[10px] sm:mr-4"
+              >Featured</a
+            >
+          </div>
+          <!-- <div class="playground mr-4">
+            <a href="/playground.html" class="">Archive</a>
+          </div> -->
+          <div class="about mr-4"><a href="/about.html" class="">About</a></div>
+        </div>
+        <!-- navigation menu -->
+        <div class="navbar-menu relative z-50 hidden">
+          <div
+            class="navbar-backdrop fixed inset-0 bg-gray-800 opacity-25"
+          ></div>
+          <nav
+            class="fixed top-0 left-0 bottom-0 flex flex-col w-5/6 max-w-sm py-6 px-6 bg-white border-r overflow-y-auto"
+          >
+            <div class="flex items-center mb-8">
+              <a class="mr-auto text-3xl font-bold leading-none" href="#">
+                <img class="w-10 h-10 rounded-full" src="/images/logo.png" />
+              </a>
 
-        <div class="about"><a href="../about.html" class="">About</a></div>
-        <div class="ml-4 resume">
+              <button class="navbar-close">
+                <svg
+                  class="h-6 w-6 text-gray-400 cursor-pointer hover:text-gray-500"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M6 18L18 6M6 6l12 12"
+                  ></path>
+                </svg>
+              </button>
+            </div>
+            <div>
+              <ul>
+                <li class="mb-1">
+                  <a
+                    class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded"
+                    href="/index.html"
+                    >Featured</a
+                  >
+                </li>
+                <!-- <li class="mb-1">
+                  <a
+                    class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded"
+                    href="/playground.html"
+                    >Archive</a
+                  >
+                </li> -->
+                <li class="mb-1">
+                  <a
+                    class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded"
+                    href="/about.html"
+                    >About</a
+                  >
+                </li>
+              </ul>
+            </div>
+            <div class="mt-auto">
+              <p class="my-4 text-xs text-center text-gray-400">
+                <span>© Albert Hodo, updated in 2023</span>
+              </p>
+            </div>
+          </nav>
+        </div>
+        <!-- <div class="resume">
           <a href="./pdfs/albert design portfolio.pdf" target="_blank" class=""
             >Pdf Portfolio</a
           >
-        </div>
+        </div> -->
       </div>
-    </div>
+    </nav>
+    <!-- END OF NAVIGATION -->
     <div
       class="projectSummary grid grid-cols-1 md:grid-cols-3 gap-4 mt-12 mb-8"
     >
       <div class="introText col-span-2">
-        <div class="contributionHeading font-bold mb-4">Chakula</div>
-        <p>
+        <div class="contributionHeading text-[24px] mt-4 sm:mt-0 sm:text-[38px]">Chakula</div>
+        <p class=" text-[14px] sm:text-[18px]">
           Chakula is an application designed specifically for the Ashesi
-          community, enabling individuals to<br />
-          conveniently place orders at any of the campus cafeterias.<br /><br />The
+          community, enabling individuals to
+          conveniently place orders at any of the campus cafeterias.<br/><br/>The
           primary goal behind its creation was to minimize the waiting time
-          experienced<br />
-          by people at the different cafeterias . <br /><br />
-          <span class="font-bold">
+          experienced
+          by people at the different cafeterias . <br />
+          
             Ashesi students wasted several hours on average a day at the school
-            cafeteria <br />
+            cafeteria 
             because of the long queues and they had no reliable means of
-            knowing<br />
+            knowing
             what meals are available until it was their turn to order.
-          </span>
+          
           <br /><br />
           This project seeks to streamlines the process whether they prefer
-          dining in, picking up their orders,<br />
+          dining in, picking up their orders,
           or opting for delivery.
         </p>
       </div>
-      <div class="details col">
-        2021
-        <div class="contributionHeading font-bold mb-4">
+      <div class="details  text-[14px] sm:text-[18px] col">
+        2021 [2 weeks]
+        <div class="contributionHeading text-[14px] sm:text-[16px] mt-[2px] sm:mt-4 font-bold text-[#2E59C0] ">
           Organized a product design sprint at Ashesi University.
         </div>
-
-        <div class="contributionHeading text-lg mb-2">Contribution</div>
+        <div>Worked in a team of 4.</div>
+        <div class="contributionHeading text-[14px] sm:text-[16px] mt-[2px] sm:mt-4 font-bold text-[#2E59C0] mb-2">Contribution</div>
         <p>
-          Worked in a team of 4.<br />
-          <span class="font-bold">
-            Managed a 4 day sprint at Ashesi University<br />
-          </span>
-          Supervised site research and helped design the app.<br />
-          Tested solutions with participants at various stages in the<br />
-          design. Designed UI elecments.
+          
+          
+            Organized a 4 day sprint at Ashesi University.
+         
+          Supervised site research and design of the app.
+          Tested solutions with participants at various stages.
         </p>
-        <div class="contributionHeading text-lg mt-4 mb-2">Tools</div>
+        <div class="contributionHeading text-[14px] sm:text-[16px] mt-[2px] sm:mt-4 font-bold text-[#2E59C0] mt-4 mb-2">Tools</div>
         <p>
-          Sprint master<br />
-          User research: ethnogrphic research and site interviews. <br />
-          Design: user interface design, focus group testing.
+        
+          Ethnogrphic research and site interviews.
+          User interface design, focus group testing.
         </p>
       </div>
     </div>
@@ -150,8 +245,8 @@
       src="/images/food/brand.jpg"
       alt="project image"
     />
-    <div class="process mt-[100px] mb-4">
-      Prototyped end to end process in figma with a focus group
+    <div class="process mt-[100px] text-[14px] sm:text-[18px] mb-4">
+      Prototyped end to end process in figma with focus groups.
     </div>
     <img
       class="w-full mb-40 col-span-2 object-cover"
@@ -161,5 +256,48 @@
     <!-- </div> -->
 
     <div class="footer text-center mb-4">© Albert Hodo, updated in 2023</div>
-  </body>
+  </footer>
+</body>
+<script>
+  // Burger menus
+  document.addEventListener("DOMContentLoaded", function () {
+    // open
+    const burger = document.querySelectorAll(".navbar-burger");
+    const menu = document.querySelectorAll(".navbar-menu");
+
+    if (burger.length && menu.length) {
+      for (var i = 0; i < burger.length; i++) {
+        burger[i].addEventListener("click", function () {
+          for (var j = 0; j < menu.length; j++) {
+            menu[j].classList.toggle("hidden");
+          }
+        });
+      }
+    }
+
+    // close
+    const close = document.querySelectorAll(".navbar-close");
+    const backdrop = document.querySelectorAll(".navbar-backdrop");
+
+    if (close.length) {
+      for (var i = 0; i < close.length; i++) {
+        close[i].addEventListener("click", function () {
+          for (var j = 0; j < menu.length; j++) {
+            menu[j].classList.toggle("hidden");
+          }
+        });
+      }
+    }
+
+    if (backdrop.length) {
+      for (var i = 0; i < backdrop.length; i++) {
+        backdrop[i].addEventListener("click", function () {
+          for (var j = 0; j < menu.length; j++) {
+            menu[j].classList.toggle("hidden");
+          }
+        });
+      }
+    }
+  });
+</script>
 </html>
