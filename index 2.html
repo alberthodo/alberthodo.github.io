@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- <link
+      href="https://fonts.googleapis.com/css?family=Nunito"
+      rel="stylesheet"
+    /> -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap"
+      rel="stylesheet"
+    />
+    <title>alberthodo</title>
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="/images/favicon_io/favicon.ico"
+    />
+    <meta
+      name="Description"
+      content="Hello! my name is Albert Senyo Hodo and I’m an Interface Design Engineer
+    from Ghana 🇬🇭.
+    I explore innovation through emerging technologies while designing
+    sustainable experiences for this blue planet we call home🌏"
+    />
+    <meta
+      name="Keyword"
+      content=" Albert Senyo Hodo, Designer, Engineer, Prototyping,Design Engineer,"
+    />
+    <meta name="author" content="Albert Hodo" />
+    <style>
+      body {
+        font-family: "Nunito";
+        font-size: 14px;
+      }
+    </style>
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-3DYQ9HJK1Z"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-3DYQ9HJK1Z");
+    </script>
+  </head>
+  <body class="ml-auto mr-auto w-[80%] mt-6">
+    <nav class="nav flex justify-between">
+      <div class="logo sm:text-xl">
+        <a href="/index.html">
+          <img
+            class="w-10 h-10 mt-4 sm:mt-0 sm:w-20 sm:h-20 rounded-full"
+            src="/images/logo.png"
+          />
+        </a>
+      </div>
+      <div class="navigation mt-8">
+        <div class="lg:hidden flex justify-end">
+          <button class="navbar-burger">
+            <svg
+              class="h-4 w-4 fill-current"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <title>Mobile menu</title>
+              <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
+            </svg>
+          </button>
+        </div>
+        <div class="links invisible lg:visible flex items-center">
+          <div class="home">
+            <a
+              href="#"
+              class="font-normal underline underline-offset-[5px] decoration-2 mr-[10px] sm:mr-4"
+              >Featured</a
+            >
+          </div>
+          <!-- <div class="playground mr-4">
+            <a href="/playground.html" class="">Archive</a>
+          </div> -->
+          <div class="about mr-4"><a href="/about.html" class="">About</a></div>
+        </div>
+        <!-- navigation menu -->
+        <div class="navbar-menu relative z-50 hidden">
+          <div
+            class="navbar-backdrop fixed inset-0 bg-gray-800 opacity-25"
+          ></div>
+          <nav
+            class="fixed top-0 left-0 bottom-0 flex flex-col w-5/6 max-w-sm py-6 px-6 bg-white border-r overflow-y-auto"
+          >
+            <div class="flex items-center mb-8">
+              <a class="mr-auto text-3xl font-bold leading-none" href="#">
+                <img class="w-10 h-10 rounded-full" src="/images/logo.png" />
+              </a>
+
+              <button class="navbar-close">
+                <svg
+                  class="h-6 w-6 text-gray-400 cursor-pointer hover:text-gray-500"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M6 18L18 6M6 6l12 12"
+                  ></path>
+                </svg>
+              </button>
+            </div>
+            <div>
+              <ul>
+                <li class="mb-1">
+                  <a
+                    class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded"
+                    href="#"
+                    >Featured</a
+                  >
+                </li>
+                <!-- <li class="mb-1">
+                  <a
+                    class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded"
+                    href="/playground.html"
+                    >Archive</a
+                  >
+                </li> -->
+                <li class="mb-1">
+                  <a
+                    class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded"
+                    href="/about.html"
+                    >About</a
+                  >
+                </li>
+              </ul>
+            </div>
+            <div class="mt-auto">
+              <p class="my-4 text-xs text-center text-gray-400">
+                <span>© Albert Hodo, updated in 2023</span>
+              </p>
+            </div>
+          </nav>
+        </div>
+        <!-- <div class="resume">
+          <a href="./pdfs/albert design portfolio.pdf" target="_blank" class=""
+            >Pdf Portfolio</a
+          >
+        </div> -->
+      </div>
+    </nav>
+    <!-- END OF NAVIGATION -->
+    <div class="introText mt-12 mb-[60px] sm:mb-[150px]">
+      <h1 class="text-[32px] sm:text-[52px] text-[#808080]">
+        Hi, I'm <span class="text-black">Hodo</span>.
+      </h1>
+      <h5 class="mt-[-10px] sm:text-[20px] text-[#808080]">
+        Inventor | Designer | Prototyper
+      </h5>
+      <!-- <h2
+        class="mt-[28px] text-[24px] sm:text-[38px] font-regular text-[#808080]"
+      >
+        I translate <span class="text-black">empathy</span> &
+        <span class="text-black">emerging technology</span> into user
+        experiences <span class="text-black">on and beyond</span> the screen to
+        make this planet a <span class="text-black">little better</span>.<br />
+      </h2> -->
+      <h2
+        class="mt-[28px] text-[24px] sm:text-[38px] font-regular text-[#808080]"
+      >
+        Infusing <span class="text-black">empathy</span> &
+        <span class="text-black">intuition</span> into user experiences
+        <span class="text-black">on and beyond</span> the screen to make life a
+        little<span class="text-black"> comfortable</span>.<br />
+      </h2>
+    </div>
+    <!-- <div class="type font-semibold mt-[70px]">
+      Outside the Mainstream Design Sphere
+    </div>
+    <div class="thesistext mb-4">
+      Exploring underrepresented cultures and beliefs through speculative design
+      practices. <br />
+    </div> -->
+    <div class="projects grid grid-cols-1 gap-[60px]">
+      <!-- projects start here -->
+    </div>
+    <!-- project -->
+    <div class="col mb-[60px] sm:mb-[160px]">
+      <div class="sm:flex w-full project">
+        <div class="photo w-full h-[240px] sm:w-[60vw] sm:h-[470px]">
+          <a href="/projects/foodapp.html" class="">
+            <!-- <div
+              class="absolute bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden bg-white bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-40"
+            ></div> -->
+            <img
+              class="h-full w-full rounded-md object-cover"
+              src="/images/food.jpeg"
+              alt="project image"
+            />
+          </a>
+        </div>
+        <div class="text sm:w-[40vw] mt-auto mb-auto align-middle sm:ml-[40px]">
+          <h2 class="text-[24px] mt-4 sm:mt-0 sm:text-[38px]">Chakula</h2>
+          <p class="text-[14px] sm:text-[16px] mt-[4px] sm:mt-4 text-[#808080]">
+            Design Sprint | Length: 2 weeks
+          </p>
+          <p
+            class="text-[14px] sm:text-[16px] mt-[2px] sm:mt-4 font-bold text-[#2E59C0]"
+          >
+            UX Research & Design
+          </p>
+          <p class="text-[18px] sm:text-[24px] mt-[2px] sm:mt-2">
+            An end-to-end food ordering experience for students at Ashesi
+            University to reduce the queues at the cafeterias.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!-- project end -->
+    <!-- project -->
+    <div class="col mb-[60px] sm:mb-[160px]">
+      <div class="sm:flex w-full project">
+        <div class="photo w-full h-[240px] sm:w-[60vw] sm:h-[470px]">
+          <a href="/projects/vitsapp.html" class="">
+            <!-- <div
+              class="absolute bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden bg-white bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-40"
+            ></div> -->
+            <img
+              class="h-full w-full rounded-md object-cover"
+              src="/images/vits.jpeg"
+              alt="project image"
+            />
+          </a>
+        </div>
+        <div class="text sm:w-[40vw] mt-auto mb-auto align-middle sm:ml-[40px]">
+          <h2 class="text-[24px] mt-4 sm:mt-0 sm:text-[38px]">
+            Vitz Health Companion
+          </h2>
+          <p class="text-[14px] sm:text-[16px] mt-[4px] sm:mt-4 text-[#808080]">
+            Passion Project | Length: 3 mos
+          </p>
+          <p
+            class="text-[14px] sm:text-[16px] mt-[2px] sm:mt-4 font-bold text-[#2E59C0]"
+          >
+            UX Research & Design
+          </p>
+          <p class="text-[18px] sm:text-[24px] mt-[2px] sm:mt-2">
+            A personal companion that monitors the health of immunocompromised
+            patients at all times.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!-- project end -->
+    <!-- project -->
+    <div class="col mb-[60px] sm:mb-[160px]">
+      <div class="sm:flex w-full project">
+        <div class="photo w-full h-[240px] sm:w-[60vw] sm:h-[470px]">
+          <a href="/projects/tangible.html" class="">
+            <!-- <div
+              class="absolute bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden bg-white bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-40"
+            ></div> -->
+            <img
+              class="h-full w-full rounded-md object-cover"
+              src="/images/dynamic.jpeg"
+              alt="project image"
+            />
+          </a>
+        </div>
+        <div class="text sm:w-[40vw] mt-auto mb-auto align-middle sm:ml-[40px]">
+          <h2 class="text-[24px] mt-4 sm:mt-0 sm:text-[38px]">
+            Dynamic Tangible Interfaces
+          </h2>
+          <p class="text-[14px] sm:text-[16px] mt-[4px] sm:mt-4 text-[#808080]">
+            Academic Project | Length: 2 mos
+          </p>
+          <p
+            class="text-[14px] sm:text-[16px] mt-[2px] sm:mt-4 font-bold text-[#2E59C0]"
+          >
+            Speculative Design | Soft Robotics | IoT Sensing
+          </p>
+          <p class="text-[18px] sm:text-[24px] mt-[2px] sm:mt-2">
+            Apps on screens can change appearance and functions when needed.
+            What if physical devices could do the same?
+          </p>
+        </div>
+      </div>
+    </div>
+    <!-- project end -->
+    <!-- project -->
+    <div class="col mb-[60px] sm:mb-[160px]">
+      <div class="sm:flex w-full project">
+        <div class="photo w-full h-[240px] sm:w-[60vw] sm:h-[470px]">
+          <a href="/projects/mushroom.html" class="">
+            <!-- <div
+              class="absolute bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden bg-white bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-40"
+            ></div> -->
+            <img
+              class="h-full w-full rounded-md object-cover"
+              src="/images/mycorrpic1.jpeg"
+              alt="project image"
+            />
+          </a>
+        </div>
+        <div class="text sm:w-[40vw] mt-auto mb-auto align-middle sm:ml-[40px]">
+          <h2 class="text-[24px] mt-4 sm:mt-0 sm:text-[38px]">Mycorrhizae</h2>
+          <p class="text-[14px] sm:text-[16px] mt-[4px] sm:mt-4 text-[#808080]">
+            Academic Project | Length: 3 mos
+          </p>
+          <p
+            class="text-[14px] sm:text-[16px] mt-[2px] sm:mt-4 font-bold text-[#2E59C0]"
+          >
+            Speculative Design | Interactive Instalation | Computer Vision
+            Programming
+          </p>
+          <p class="text-[18px] sm:text-[24px] mt-[2px] sm:mt-2">
+            Plants are always communicating though fungi and mycelium. We
+            visualized this in the hopes of making humans more environmentally
+            conscious.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!-- project end -->
+    <!-- project -->
+    <div class="col mb-[60px] sm:mb-[160px]">
+      <div class="sm:flex w-full project">
+        <div class="photo w-full h-[240px] sm:w-[60vw] sm:h-[470px]">
+          <!-- <a href="/projects/afrotechnohistory.html" class=""> -->
+          <!-- <div
+              class="absolute bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden bg-white bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-40"
+            ></div> -->
+          <img
+            class="h-full w-full rounded-md object-cover"
+            src="/images/afro.png"
+            alt="project image"
+          />
+          <!-- </a> -->
+        </div>
+        <div class="text sm:w-[40vw] mt-auto mb-auto align-middle sm:ml-[40px]">
+          <div class="lock flex">
+            <img
+              class="w-[20px] h-[20px]"
+              src="/images/lock.png"
+              alt="linked"
+            />
+            <p class="ml-2 text-red-700 font-bold text-[16px]">
+              Available upon request.
+            </p>
+          </div>
+
+          <h2 class="text-[24px] mt-4 sm:mt-0 sm:text-[38px]">
+            Afro-Techno-History
+          </h2>
+          <p class="text-[14px] sm:text-[16px] mt-[4px] sm:mt-4 text-[#808080]">
+            Masters Thesis | Length: 3 mos
+          </p>
+          <p
+            class="text-[14px] sm:text-[16px] mt-[2px] sm:mt-4 font-bold text-[#2E59C0]"
+          >
+            Speculative Design | Archival Research | Product Design
+          </p>
+          <p class="text-[18px] sm:text-[24px] mt-[2px] sm:mt-2">
+            What would West-African technologies look like in the 21st century
+            if colonization had not taken place?<br />
+          </p>
+        </div>
+      </div>
+    </div>
+    <!-- project end -->
+    <div
+      class="back mb-[60px] sm:mb-[160px] ml-auto mr-auto w-[50%] sm:w-[20%]"
+    >
+      <a class="flex" href="#top">
+        <img class="w-[20px] sm:mt-[3px] h-[20px]" src="/images/top.png" />
+        <p class="font-bold ml-4 sm:text-[18px]">back to the top</p>
+      </a>
+    </div>
+
+    <!-- <div class="col">
+        <div class="relative project">
+          <a href="/projects/knackApp.html" class="">
+            <div
+              class="absolute bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden bg-white bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-40"
+            ></div>
+            <img
+              class="inset-0 hover:opacity-0 z-0 duration-300 h-[348px] w-full object-cover"
+              src="/images/knack.png"
+              alt="project image"
+            />
+          </a>
+        </div>
+      </div> -->
+    <!-- <div class="type font-semibold">Publications and Theses</div> -->
+    <!-- <div class="thesistext mb-4"> -->
+    <!-- Selected Undergraduate and Graduate projects with papers yet to be
+      published. <br /> -->
+    <!-- </div> -->
+    <!-- <div -->
+    <!-- class="projects mb-40 grid grid-cols-1 sm:grid-cols-2 grid-row-4 gap-3" -->
+    <!-- > -->
+    <!-- project -->
+    <!-- <div class="col"> -->
+    <!-- <div class="relative project">
+          <a class="" disabled> -->
+    <!--  -->
+    <!-- <div
+              class="absolute mt-60 text-center h-full w-full text-white opacity-100"
+            >
+              <div class="big text-2xl">2023</div>
+              <div class="big text-xl">M.Sc Technology Design Thesis</div>
+              <div class="big text-lime-200 text-xl">
+                <a
+                  href="./pdfs/albert hodo design thesis.pdf"
+                  target="_blank"
+                  class=""
+                  >[pdf]</a
+                >
+              </div>
+            </div> -->
+    <!-- <div
+              class="absolute bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden bg-white bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-40"
+            ></div> -->
+    <!-- <img
+              class="inset-0 z-0 h-[348px] w-full object-cover"
+              src="/images/afro.png"
+              alt="project image"
+            />
+          </a> -->
+    <!-- </div> -->
+    <!-- </div> -->
+    <!-- project -->
+    <!-- <div class="col"> -->
+    <!-- <div class="relative project">
+          <a class="" disabled>
+            <div
+              class="absolute mt-60 text-center h-full w-full text-white opacity-100"
+            >
+              <div class="big text-2xl">2023</div>
+              <div class="big text-xl">M.Sc Computer Science Thesis</div>
+              <div class="big text-lime-200 text-xl">
+                <a
+                  href="./pdfs/albert hodo cs thesis.pdf"
+                  target="_blank"
+                  class=""
+                  >[pdf]</a
+                >
+              </div>
+            </div> -->
+    <!--  -->
+
+    <!-- <div
+              class="absolute bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden bg-white bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-40"
+            ></div> -->
+    <!-- <img
+              class="inset-0 z-0 h-[348px] w-full object-cover"
+              src="/images/privacy.jpeg"
+              alt="project image"
+            />
+          </a>
+        </div> -->
+    <!-- </div> -->
+
+    <!-- end of projects -->
+    <!-- </div> -->
+    <footer class="footer sm:flex justify-between mb-4">
+      <div class="text-center mb-4 sm:mb-0 mt-4">
+        © Albert Hodo, updated in 2023
+      </div>
+      <div class="socials justify-center flex">
+        <a href="mailto:alberthododesign@gmail.com">
+          <img class="w-[40px] h-[40px]" src="/images/mail.png" alt="email"
+        /></a>
+        <a href="https://www.instagram.com/_h.o.d.o/" target="_blank"
+          ><img
+            class="w-[40px] ml-4 h-[40px]"
+            src="/images/ig.png"
+            alt="instagram"
+        /></a>
+
+        <a href="https://github.com/alberthodo" target="_blank"
+          ><img
+            class="w-[40px] ml-4 h-[40px]"
+            src="/images/ghub.png"
+            alt="github"
+        /></a>
+
+        <a href="https://www.linkedin.com/in/viewalbertpage/" target="_blank"
+          ><img
+            class="w-[40px] ml-4 h-[40px]"
+            src="/images/in.png"
+            alt="linked"
+        /></a>
+      </div>
+    </footer>
+  </body>
+  <script>
+    // Burger menus
+    document.addEventListener("DOMContentLoaded", function () {
+      // open
+      const burger = document.querySelectorAll(".navbar-burger");
+      const menu = document.querySelectorAll(".navbar-menu");
+
+      if (burger.length && menu.length) {
+        for (var i = 0; i < burger.length; i++) {
+          burger[i].addEventListener("click", function () {
+            for (var j = 0; j < menu.length; j++) {
+              menu[j].classList.toggle("hidden");
+            }
+          });
+        }
+      }
+
+      // close
+      const close = document.querySelectorAll(".navbar-close");
+      const backdrop = document.querySelectorAll(".navbar-backdrop");
+
+      if (close.length) {
+        for (var i = 0; i < close.length; i++) {
+          close[i].addEventListener("click", function () {
+            for (var j = 0; j < menu.length; j++) {
+              menu[j].classList.toggle("hidden");
+            }
+          });
+        }
+      }
+
+      if (backdrop.length) {
+        for (var i = 0; i < backdrop.length; i++) {
+          backdrop[i].addEventListener("click", function () {
+            for (var j = 0; j < menu.length; j++) {
+              menu[j].classList.toggle("hidden");
+            }
+          });
+        }
+      }
+    });
+  </script>
+</html>
