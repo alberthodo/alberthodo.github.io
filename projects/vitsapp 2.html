@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- <link
+      href="https://fonts.googleapis.com/css?family=Nunito"
+      rel="stylesheet"
+    /> -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap"
+      rel="stylesheet"
+    />
+    <title>alberthodo</title>
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="/images/favicon_io/favicon.ico"
+    />
+    <meta
+      name="Description"
+      content="Hello! my name is Albert Senyo Hodo and I’m an Interface Design Engineer
+    from Ghana 🇬🇭.
+    I explore innovation through emerging technologies while designing
+    sustainable experiences for this blue planet we call home🌏"
+    />
+    <meta
+      name="Keyword"
+      content=" Albert Senyo Hodo, Designer, Engineer, Prototyping,Design Engineer,"
+    />
+    <meta name="author" content="Albert Hodo" />
+    <style>
+      body {
+        font-family: "Nunito";
+        font-size: 14px;
+      }
+    </style>
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-3DYQ9HJK1Z"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-3DYQ9HJK1Z");
+    </script>
+  </head>
+  <body class="ml-auto mr-auto w-[80%] mt-6">
+    <nav class="nav flex justify-between">
+      <div class="logo sm:text-xl">
+        <a href="/index.html">
+          <img
+            class="w-10 h-10 mt-4 sm:mt-0 sm:w-20 sm:h-20 rounded-full"
+            src="/images/logo.png"
+          />
+        </a>
+      </div>
+      <div class="navigation mt-8">
+        <div class="lg:hidden flex justify-end">
+          <button class="navbar-burger">
+            <svg
+              class="h-4 w-4 fill-current"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <title>Mobile menu</title>
+              <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
+            </svg>
+          </button>
+        </div>
+        <div class="links invisible lg:visible flex items-center">
+          <div class="home">
+            <a
+              href="/index.html"
+              class="font-normal underline underline-offset-[5px] decoration-2 mr-[10px] sm:mr-4"
+              >Featured</a
+            >
+          </div>
+          <!-- <div class="playground mr-4">
+            <a href="/playground.html" class="">Archive</a>
+          </div> -->
+          <div class="about mr-4"><a href="/about.html" class="">About</a></div>
+        </div>
+        <!-- navigation menu -->
+        <div class="navbar-menu relative z-50 hidden">
+          <div
+            class="navbar-backdrop fixed inset-0 bg-gray-800 opacity-25"
+          ></div>
+          <nav
+            class="fixed top-0 left-0 bottom-0 flex flex-col w-5/6 max-w-sm py-6 px-6 bg-white border-r overflow-y-auto"
+          >
+            <div class="flex items-center mb-8">
+              <a class="mr-auto text-3xl font-bold leading-none" href="#">
+                <img class="w-10 h-10 rounded-full" src="/images/logo.png" />
+              </a>
+
+              <button class="navbar-close">
+                <svg
+                  class="h-6 w-6 text-gray-400 cursor-pointer hover:text-gray-500"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M6 18L18 6M6 6l12 12"
+                  ></path>
+                </svg>
+              </button>
+            </div>
+            <div>
+              <ul>
+                <li class="mb-1">
+                  <a
+                    class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded"
+                    href="/index.html"
+                    >Featured</a
+                  >
+                </li>
+                <!-- <li class="mb-1">
+                  <a
+                    class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded"
+                    href="/playground.html"
+                    >Archive</a
+                  >
+                </li> -->
+                <li class="mb-1">
+                  <a
+                    class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded"
+                    href="/about.html"
+                    >About</a
+                  >
+                </li>
+              </ul>
+            </div>
+            <div class="mt-auto">
+              <p class="my-4 text-xs text-center text-gray-400">
+                <span>© Albert Hodo, updated in 2023</span>
+              </p>
+            </div>
+          </nav>
+        </div>
+        <!-- <div class="resume">
+          <a href="./pdfs/albert design portfolio.pdf" target="_blank" class=""
+            >Pdf Portfolio</a
+          >
+        </div> -->
+      </div>
+    </nav>
+    <!-- END OF NAVIGATION -->
+    <div
+      class="projectSummary grid grid-cols-1 md:grid-cols-3 gap-4 mt-12 mb-8"
+    >
+      <div class="introText col-span-2">
+        <div
+          class="contributionHeading text-[24px] mt-4 sm:mt-0 sm:text-[38px]"
+        >
+          Vitz Health Companion
+        </div>
+        <p class="text-[14px] sm:text-[18px]">
+          I grew up with a friend who has special health needs. She has a
+          compromized immune system and has to record her health data
+          regurlarly. We also needed the constant attention of health
+          professionals. She has several devices to monitor various health
+          conditions and she hates documenting them on paper or an excel file
+          multiple times daily. <br />
+          Vitz companion is a health buddy I designed to help cater for her
+          health needs regularly by tracking her data on one device and
+          providing easy access to doctors. <br />
+
+          It has 3 main components that make it unique. <br />
+          - It gives her personalized lifestyle tips. <br />
+          - It allows her to call her doctor or an ambulance when in
+          emergencies.<br />
+          - It gives her control of all her health devices on one interface.
+
+          <br /><br />
+          This project took over a year of iterations and has undergone 3 life
+          cycles. It has been designed from the ground up each time. It is
+          currently being developed.
+        </p>
+      </div>
+      <div class="details text-[14px] sm:text-[18px] col">
+        2020 current iteration [3 months]
+        <div
+          class="contributionHeading text-[14px] sm:text-[16px] sm:mt-4 font-bold text-[#2E59C0]"
+        >
+          Personal passion project for a friend.
+        </div>
+        <p class="">Worked in a team of 3</p>
+        <div
+          class="contributionHeading text-[14px] sm:text-[16px] mt-[2px] sm:mt-4 font-bold text-[#2E59C0] mb-2"
+        >
+          Contribution
+        </div>
+        <p>
+          Product management and product ux reserach. Scenario analysis and user
+          need research.<br />
+          UI design in figma.
+        </p>
+        <div
+          class="contributionHeading text-[14px] sm:text-[16px] mt-[2px] sm:mt-4 font-bold text-[#2E59C0] mt-4 mb-2"
+        >
+          Tools
+        </div>
+        <p>
+          Ethnographic research and scenario analysis. <br />
+          Design & testing: lo-fi and hi-fi designs, usability testing.
+        </p>
+      </div>
+    </div>
+    <div class="gallery mt-20 mb-20">
+      <div class="main">
+        <img
+          class="w-full sm:h-[85vh] object-cover"
+          src="/images/health/vits.png"
+          alt="project image"
+        />
+      </div>
+    </div>
+    <div class="photos mb-40 mt-[100px]">
+      <div class="process text-center mt-10 text-[14px] sm:text-[18px] mb-4">
+        Gifs of App Features.
+      </div>
+      <div
+        class="projectGif mt-[100px] grid bg-[#5B67CA] pt-[100px] sm:grid-cols-2"
+      >
+        <div class="txt text-white sm:ml-[200px]">
+          <!-- <div class="title text-[50px] mt-[100px]">01</div> -->
+          <div class="title text-2xl sm:mt-[100px]">
+            Scan vitals in 2 steps.
+          </div>
+          <p class="mt-4 mb-4 sm:mb-0">
+            One station to use different devices and have all information
+            readily<br />
+            available to you when you or your doctor needs it.
+          </p>
+        </div>
+
+        <img
+          class="sm:h-[550px] sm:ml-[100px] mb-[130px]"
+          src="/images/health/vits scan.gif"
+          alt="project image"
+        />
+      </div>
+      <div
+        class="projectGif mt-[100px] grid bg-[#E0E3F9] pt-[100px] sm:grid-cols-2"
+      >
+        <div class="txt order-last">
+          <!-- <div class="title text-[50px] mt-[100px]">02</div> -->
+          <div class="title text-2xl sm:mt-[100px]">
+            Have the professionals on standby.
+          </div>
+          <p class="mt-4 mb-4 sm:mb-0">
+            Speak with a health professional in 2 minutes when you need to<br />
+            Or request for an ambulance with 3 taps.<br />
+          </p>
+        </div>
+
+        <img
+          class="sm:ml-[200px] sm:h-[550px] mb-[130px]"
+          src="/images/health/vits emergency.gif"
+          alt="project image"
+        />
+      </div>
+      <div
+        class="projectGif mt-[100px] grid bg-[#5B67CA] pt-[100px] sm:grid-cols-2"
+      >
+        <div class="txt text-white sm:ml-[200px]">
+          <div class="title text-2xl sm:mt-[100px]">
+            All your monitors in one space.
+          </div>
+          <p class="mt-4 mb-4 sm:mb-0">
+            Add new health devices by auto detecting them near you or add<br />
+            them manually.
+          </p>
+        </div>
+
+        <img
+          class="sm:h-[550px] sm:ml-[100px] mb-[130px]"
+          src="/images/health/vits pair.gif"
+          alt="project image"
+        />
+      </div>
+      <div
+        class="projectGif mt-[100px] grid bg-[#E0E3F9] pt-[100px] sm:grid-cols-2"
+      >
+        <div class="txt order-last">
+          <div class="title text-2xl sm:mt-[100px]">
+            Track your health status.
+          </div>
+          <p class="mt-4 mb-4 sm:mb-0">
+            Easily export health data for your doctors or allow our intelligent
+            algorithm<br />
+            recommend personalized health tips for you.
+          </p>
+        </div>
+
+        <img
+          class="sm:ml-[200px] sm:h-[550px] mb-[130px]"
+          src="/images/health/vits records.gif"
+          alt="project image"
+        />
+      </div>
+      <div
+        class="projectGif mt-[100px] grid bg-[#5B67CA] pt-[100px] sm:grid-cols-2"
+      >
+        <div class="txt text-white sm:ml-[200px]">
+          <div class="title text-2xl sm:mt-[100px]">
+            Personalized health tips.
+          </div>
+          <p class="mt-4 mb-4 sm:mb-0">
+            Allow our smart system give you personalized tips to improve your<br />
+            lifestyle. Lets help take care of you.
+          </p>
+        </div>
+
+        <img
+          class="sm:h-[550px] sm:ml-[100px] mb-[130px]"
+          src="/images/health/vits tips.gif"
+          alt="project image"
+        />
+      </div>
+      <div
+        class="projectGif mt-[100px] grid bg-[#E0E3F9] pt-[100px] sm:grid-cols-2"
+      >
+        <div class="txt order-last">
+          <div class="title text-2xl sm:mt-[100px]">Your health profile.</div>
+          <p class="mt-4 mb-4 sm:mb-0">
+            All important health information at one place for easy access <br />
+            in an emergency<br />
+            1.Health card data <br />
+            2.Allergy information<br />
+            3.Emergency contact data <br /><br />
+            Also employs gamification in health tracking through badges to<br />
+            motivate a healthy lifestyle.
+          </p>
+        </div>
+
+        <img
+          class="sm:ml-[200px] sm:h-[550px] mb-[130px]"
+          src="/images/health/vits profile.gif"
+          alt="project image"
+        />
+      </div>
+      <div
+        class="projectGif mt-[100px] grid bg-[#5B67CA] pt-[100px] sm:grid-cols-2"
+      >
+        <div class="txt text-white sm:ml-[200px]">
+          <div class="title text-2xl sm:mt-[100px]">
+            No complex forms when getting started.
+          </div>
+          <p class="mt-4 mb-4 sm:mb-0">
+            A simple onboarding process that eliminates the long form<br />
+            and allows you to fill that in the profile section.
+          </p>
+        </div>
+
+        <img
+          class="sm:h-[550px] sm:ml-[100px] mb-[130px]"
+          src="/images/health/vits onboarding.gif"
+          alt="project image"
+        />
+      </div>
+    </div>
+
+    <!-- <div class="photos grid  mb-40 grid-cols-2 gap-2">  -->
+    <!-- <img
+        class="w-full h-full object-cover"
+        src="/images/mushroom/mush_6.png"
+        alt="project image"
+      /> -->
+
+    <!-- </div> -->
+
+    <footer class="footer sm:flex justify-between mb-4">
+      <div class="text-center mb-4 sm:mb-0 mt-4">
+        © Albert Hodo, updated in 2023
+      </div>
+      <div class="socials justify-center flex">
+        <a href="mailto:alberthododesign@gmail.com">
+          <img class="w-[40px] h-[40px]" src="/images/mail.png" alt="email"
+        /></a>
+        <a href="https://www.instagram.com/_h.o.d.o/" target="_blank"
+          ><img
+            class="w-[40px] ml-4 h-[40px]"
+            src="/images/ig.png"
+            alt="instagram"
+        /></a>
+
+        <a href="https://github.com/alberthodo" target="_blank"
+          ><img
+            class="w-[40px] ml-4 h-[40px]"
+            src="/images/ghub.png"
+            alt="github"
+        /></a>
+
+        <a href="https://www.linkedin.com/in/viewalbertpage/" target="_blank"
+          ><img
+            class="w-[40px] ml-4 h-[40px]"
+            src="/images/in.png"
+            alt="linked"
+        /></a>
+      </div>
+    </footer>
+  </body>
+  <script>
+    // Burger menus
+    document.addEventListener("DOMContentLoaded", function () {
+      // open
+      const burger = document.querySelectorAll(".navbar-burger");
+      const menu = document.querySelectorAll(".navbar-menu");
+
+      if (burger.length && menu.length) {
+        for (var i = 0; i < burger.length; i++) {
+          burger[i].addEventListener("click", function () {
+            for (var j = 0; j < menu.length; j++) {
+              menu[j].classList.toggle("hidden");
+            }
+          });
+        }
+      }
+
+      // close
+      const close = document.querySelectorAll(".navbar-close");
+      const backdrop = document.querySelectorAll(".navbar-backdrop");
+
+      if (close.length) {
+        for (var i = 0; i < close.length; i++) {
+          close[i].addEventListener("click", function () {
+            for (var j = 0; j < menu.length; j++) {
+              menu[j].classList.toggle("hidden");
+            }
+          });
+        }
+      }
+
+      if (backdrop.length) {
+        for (var i = 0; i < backdrop.length; i++) {
+          backdrop[i].addEventListener("click", function () {
+            for (var j = 0; j < menu.length; j++) {
+              menu[j].classList.toggle("hidden");
+            }
+          });
+        }
+      }
+    });
+  </script>
+</html>
