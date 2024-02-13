@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- <link
+      href="https://fonts.googleapis.com/css?family=Nunito"
+      rel="stylesheet"
+    /> -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap"
+      rel="stylesheet"
+    />
+    <title>alberthodo</title>
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="/images/favicon_io/favicon.ico"
+    />
+    <meta
+      name="Description"
+      content="Hello! my name is Albert Senyo Hodo and I’m an Interface Design Engineer
+    from Ghana 🇬🇭.
+    I explore innovation through emerging technologies while designing
+    sustainable experiences for this blue planet we call home🌏"
+    />
+    <meta
+      name="Keyword"
+      content=" Albert Senyo Hodo, Designer, Engineer, Prototyping,Design Engineer,"
+    />
+    <meta name="author" content="Albert Hodo" />
+    <style>
+      body {
+        font-family: "Nunito";
+        font-size: 14px;
+      }
+    </style>
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-3DYQ9HJK1Z"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-3DYQ9HJK1Z");
+    </script>
+  </head>
+  <body class="ml-auto mr-auto w-[80%] mt-6">
+    <nav class="nav flex justify-between">
+      <div class="logo sm:text-xl">
+        <a href="/index.html">
+          <img
+            class="w-10 h-10 mt-4 sm:mt-0 sm:w-20 sm:h-20 rounded-full"
+            src="/images/logo.png"
+          />
+        </a>
+      </div>
+      <div class="navigation mt-8">
+        <div class="lg:hidden flex justify-end">
+          <button class="navbar-burger">
+            <svg
+              class="h-4 w-4 fill-current"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <title>Mobile menu</title>
+              <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
+            </svg>
+          </button>
+        </div>
+        <div class="links invisible lg:visible flex items-center">
+          <div class="home">
+            <a href="/index.html" class="font-normal mr-[10px] sm:mr-4"
+              >Featured projects</a
+            >
+          </div>
+          <!-- <div class="playground mr-4">
+            <a href="/playground.html" class="">Archive</a>
+          </div> -->
+          <div class="about mr-4">
+            <a href="./lab.html" class="">Experimental lab</a>
+          </div>
+          <div class="about underline underline-offset-[5px] decoration-2 mr-4">
+            <a href="#" class="">About</a>
+          </div>
+          <div class="resume mr-4">
+            <a href="./pdfs/albert hodo cv.pdf" target="_blank" class=""
+              >Resume</a
+            >
+          </div>
+        </div>
+        <!-- navigation menu -->
+        <div class="navbar-menu relative z-50 hidden">
+          <div
+            class="navbar-backdrop fixed inset-0 bg-gray-800 opacity-25"
+          ></div>
+          <nav
+            class="fixed top-0 left-0 bottom-0 flex flex-col w-5/6 max-w-sm py-6 px-6 bg-white border-r overflow-y-auto"
+          >
+            <div class="flex items-center mb-8">
+              <a class="mr-auto text-3xl font-bold leading-none" href="#">
+                <img class="w-10 h-10 rounded-full" src="/images/logo.png" />
+              </a>
+
+              <button class="navbar-close">
+                <svg
+                  class="h-6 w-6 text-gray-400 cursor-pointer hover:text-gray-500"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M6 18L18 6M6 6l12 12"
+                  ></path>
+                </svg>
+              </button>
+            </div>
+            <div>
+              <ul>
+                <li class="mb-1">
+                  <a
+                    class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded"
+                    href="/index.html"
+                    >Featured projects</a
+                  >
+                </li>
+                <li class="mb-1">
+                  <a
+                    class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded"
+                    href="/lab.html"
+                    >Experimental lab
+                  </a>
+                </li>
+                <!-- <li class="mb-1">
+                  <a
+                    class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded"
+                    href="/playground.html"
+                    >Archive</a
+                  >
+                </li> -->
+                <li class="mb-1">
+                  <a
+                    class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded"
+                    href="#"
+                    >About</a
+                  >
+                </li>
+                <li class="mb-1">
+                  <a
+                    class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded"
+                    href="./pdfs/albert hodo cv.pdf"
+                    target="_blank"
+                    >Resume</a
+                  >
+                </li>
+              </ul>
+            </div>
+            <div class="mt-auto">
+              <p class="my-4 text-xs text-center text-gray-400">
+                <span>© Albert Hodo, updated in 2023</span>
+              </p>
+            </div>
+          </nav>
+        </div>
+        <!-- <div class="resume">
+          <a href="./pdfs/albert design portfolio.pdf" target="_blank" class=""
+            >Pdf Portfolio</a
+          >
+        </div> -->
+      </div>
+    </nav>
+    <!-- END OF NAVIGATION -->
+    <div class="aboutme text-[#808080]">
+      <div class="group mt-[60px] mb-[20px] md:flex">
+        <div class="picture sm:w-[50vw]">
+          <img
+            class="w-[200px] ml-auto mr-auto rounded-[22px] h-[300px] sm:h-auto sm:w-[400px]"
+            src="./images/albert.png"
+            alt="albert hodo"
+          />
+        </div>
+        <div class="text sm:w-[50vw] sm:ml-[10px]">
+          <h1 class="text-[24px] text-black sm:text-[38px]">
+            Albert Senyo Hodo.
+          </h1>
+          <p class="text-[14px] sm:text-[18px]">
+            I enhance human experiences, though experimental design and
+            research, based on attributes found in nature. I use a blend of
+            software and hardware to prompt people to reconsider humanities
+            place on this earth. Taking an approach of questioning larger
+            systems at play, I present ideas as more palpable and practical<br /><br />
+
+            I have experiences working with and collaborationg with agencies
+            such as
+            <a
+              class="text-[#2E59C0] underline"
+              href="https://about.meta.com"
+              target="_blank"
+              >Meta</a
+            >
+            ,
+            <a
+              class="text-[#2E59C0] underline"
+              href="https://mastercardfdn.org"
+              target="_blank"
+              >MasterCard Foundation</a
+            >,
+            <a
+              class="text-[#2E59C0] underline"
+              href="https://jacobsinstitute.berkeley.edu"
+              target="_blank"
+              >Jacobs Institute of Design</a
+            >,
+            <a
+              class="text-[#2E59C0] underline"
+              href="https://knackapp.com"
+              target="_blank"
+              >KnackApp</a
+            >,
+            <a
+              class="text-[#2E59C0] underline"
+              href="https://www.exploratorium.edu"
+              target="_blank"
+              >Exploratorium</a
+            >
+            , etc. I have a unique background that allows me to explore
+            interface design and prototype ideas through software programming,
+            IoT Tinkering and New Media Design.
+
+            <br /><br />I enjoy building interactive pieces, designing intuitive
+            user interfaces, programming soft robotics and 3D systems. I am open
+            to new opportunities and meeting new people, kindly reach out if you
+            are interested to know about my work.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- <div class="aboutPage mt-[120px]">
+      <div class="aboutSection mt-12 mb-20">
+        <h2 class="introtext-[24px] mt-4 sm:mt-0 sm:text-[38px]">
+          Introduction
+        </h2> -->
+
+    <!-- <div class="aboutHeading text-xl mb-4">About</div> -->
+
+    <!-- <div class="row sm:flex">
+          <div class="col mr-4 w-full">
+            <img
+              class="object-cover object-top w-[500px]"
+              src="/images/albert.jpeg"
+              alt="albert image"
+            />
+          </div>
+          <div class="col w-full">
+            <div class="aboutText mt-[50px] sm:mt-0">
+              Hello! my name is Albert Senyo Hodo and I’m an<br />
+              Interface Design Engineer from Ghana.<br /><br />
+              I have a bachelors in computer science and IoT design<br />
+              from Ashesi University. I also have a masters in design with a
+              <br />
+              concentration in HCI and emerging technologies from <br />
+              University of California, Berkeley. <br /><br />
+              My research and design practice explores innovation through<br />
+              emerging technologies while adhering to the UN’s 2050 <br />
+              Sustainable Development Goals. <br /><br />
+              Want to know more?
+
+              <span
+                class="text-[#0044AB] hover:text-violet-700 underline underline-offset-[5px]"
+              >
+                <a href="mailto:albert.hodo@icloud.com">Lets chat!</a>
+              </span>
+
+              <img class="w-[330px] mt-6" src="/images/interests.png" />
+            </div>
+          </div>
+        </div> -->
+    <!-- </div> -->
+    <!-- <div class="professionalSection mb-20">
+        <div class="professionalHeading text-xl mb-4">Professional</div>
+        <div class="professionalTexts">
+          <p class="">
+            Sep 2021 - Aug 2022. Lead Product Designer UI UX. MasterCard
+            Foundation & Ashesi University, Ghana<br />
+            Oct 2019 - Jan 2021. Unity & C# Engineer. KnackApp. CA, USA<br />
+            Jul 2020 - Oct 2020. Facebook Software Engineering Mentee. Meta. CA,
+            USA
+          </p>
+        </div>
+      </div> -->
+    <!-- <div class="teachingSection mb-20">
+        <div class="teachingHeading text-xl mb-4">Teaching</div>
+        <div class="teachingTexts">
+          <p class="">
+            2023 Summer. Graduate Student Instructor, Creative programming and
+            electronics, UC Berkeley. CA USA<br />
+            2022 Spring. Undergraduate Teaching Assistant, Cloud Computing,
+            Ashesi University, Ghana<br />
+            2022 Spring. Undergraduate Teaching Assistant, Intermediate
+            Programming, Ashesi University, Ghana<br />
+            2022 Fall. Undergraduate Teaching Assistant, Human Computer
+            Interaction, Ashesi University, Ghana<br />
+            2022 Fall. Undergraduate Teaching Assistant, Programming with
+            Python, Ashesi University, Ghana
+          </p>
+        </div>
+      </div> -->
+    <!-- <div class="thesisSection mb-20">
+        <div class="thesisHeading text-xl mb-4">Theses & Publications</div>
+        <div class="educationTexts">
+          <p class="">
+            2023 MDes Thesis- Afro-Techno-History [A framework for designing
+            African Technologies], not yet published
+            <a
+              href="./pdfs/albert hodo design thesis.pdf"
+              target="_blank"
+              class="text-sky-700"
+              >[PDF]</a
+            ><br />
+            2021 BSc Thesis- Privacy in IoT [exploring the limitations of GDPR
+            on IoT Adoption], not yet published
+            <a
+              href="./pdfs/albert hodo cs thesis.pdf"
+              target="_blank"
+              class="text-sky-700"
+              >[PDF]</a
+            ><br />
+          </p>
+        </div>
+      </div> -->
+    <!-- <div class="educationSection mb-20">
+        <div class="educationHeading text-xl mb-4">Education</div>
+        <div class="educationTexts">
+          <p class="">
+            Aug 2022 - Dec 2023. Msc Design [HCI & Emerging Technologies], UC
+            Berkeley, CA USA<br />
+            Sep 2017 - Jun 2021. BSc Computer Science, Ashesi University, Ghana
+          </p>
+        </div>
+      </div> -->
+    <!-- </div>
+    <div class="footer text-center mb-4">© Albert Hodo,updated in 2023</div> -->
+    <!-- </div> -->
+    <footer class="footer mt-[60px] justify-between mb-4">
+      <div class="socials justify-center flex">
+        <a href="mailto:alberthododesign@gmail.com">
+          <img class="w-[30px] h-[30px]" src="/images/mail.png" alt="email"
+        /></a>
+        <a href="https://www.instagram.com/_h.o.d.o/" target="_blank"
+          ><img
+            class="w-[30px] ml-2 h-[30px]"
+            src="/images/ig.png"
+            alt="instagram"
+        /></a>
+
+        <a href="https://github.com/alberthodo" target="_blank"
+          ><img
+            class="w-[30px] ml-2 h-[30px]"
+            src="/images/ghub.png"
+            alt="github"
+        /></a>
+
+        <a href="https://www.linkedin.com/in/viewalbertpage/" target="_blank"
+          ><img
+            class="w-[30px] ml-2 h-[30px]"
+            src="/images/in.png"
+            alt="linked"
+        /></a>
+      </div>
+      <div class="text-center mb-4 sm:mb-0 mt-4">
+        © Albert Hodo, updated in 2023
+      </div>
+    </footer>
+  </body>
+  <script>
+    // Burger menus
+    document.addEventListener("DOMContentLoaded", function () {
+      // open
+      const burger = document.querySelectorAll(".navbar-burger");
+      const menu = document.querySelectorAll(".navbar-menu");
+
+      if (burger.length && menu.length) {
+        for (var i = 0; i < burger.length; i++) {
+          burger[i].addEventListener("click", function () {
+            for (var j = 0; j < menu.length; j++) {
+              menu[j].classList.toggle("hidden");
+            }
+          });
+        }
+      }
+
+      // close
+      const close = document.querySelectorAll(".navbar-close");
+      const backdrop = document.querySelectorAll(".navbar-backdrop");
+
+      if (close.length) {
+        for (var i = 0; i < close.length; i++) {
+          close[i].addEventListener("click", function () {
+            for (var j = 0; j < menu.length; j++) {
+              menu[j].classList.toggle("hidden");
+            }
+          });
+        }
+      }
+
+      if (backdrop.length) {
+        for (var i = 0; i < backdrop.length; i++) {
+          backdrop[i].addEventListener("click", function () {
+            for (var j = 0; j < menu.length; j++) {
+              menu[j].classList.toggle("hidden");
+            }
+          });
+        }
+      }
+    });
+  </script>
+</html>
