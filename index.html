@@ -119,6 +119,7 @@
             src="./images/dynamic.jpeg"
           />
         </div>
+
         <div
           type="button"
           class="card w-full mb-6 lg:mb-0 afro-modal"
@@ -139,26 +140,7 @@
             src="./images/mycorrpic1.jpeg"
           />
         </div>
-        <div
-          class="card w-full mb-6 lg:mb-0 vits-modal"
-          type="button"
-          onclick="openModal('vits-modal')"
-        >
-          <img
-            class="rounded-md sm:h-[300px] lg:h-[370px] sm:w-full object-cover hover:scale-[1.01]"
-            src="./images/vits.jpeg"
-          />
-        </div>
-        <div
-          class="card w-full mb-6 lg:mb-0 meta-modal"
-          type="button"
-          onclick="openModal('meta-modal')"
-        >
-          <img
-            class="rounded-md sm:h-[300px] lg:h-[370px] sm:w-full object-cover hover:scale-[1.01]"
-            src="./images/meta.png"
-          />
-        </div>
+
         <div
           type="button"
           class="card w-full mb-6 lg:mb-0 quantum-modal"
@@ -170,13 +152,44 @@
           />
         </div>
         <div
-          class="card w-full mb-6 lg:mb-0 cha-modal"
           type="button"
-          onclick="openModal('cha-modal')"
+          class="card w-full mb-6 lg:mb-0 shooter-modal"
+          onclick="openModal('shooter-modal')"
         >
           <img
             class="rounded-md sm:h-[300px] lg:h-[370px] sm:w-full object-cover hover:scale-[1.01]"
-            src="./images/food.jpeg"
+            src="./images/vr game gif.gif"
+          />
+        </div>
+        <div
+          class="card fun-modal w-full mb-6 lg:mb-0"
+          type="button"
+          onclick="openModal('fun-modal')"
+        >
+          <img
+            class="rounded-md sm:h-[300px] lg:h-[370px] sm:w-full object-cover hover:scale-[1.01]"
+            src="./images/blender.gif"
+          />
+        </div>
+
+        <div
+          class="card w-full mb-6 lg:mb-0 meta-modal"
+          type="button"
+          onclick="openModal('meta-modal')"
+        >
+          <img
+            class="rounded-md sm:h-[300px] lg:h-[370px] sm:w-full object-cover hover:scale-[1.01]"
+            src="./images/meta.png"
+          />
+        </div>
+        <div
+          class="card w-full mb-6 lg:mb-0 vits-modal"
+          type="button"
+          onclick="openModal('vits-modal')"
+        >
+          <img
+            class="rounded-md sm:h-[300px] lg:h-[370px] sm:w-full object-cover hover:scale-[1.01]"
+            src="./images/vits.jpeg"
           />
         </div>
         <div
@@ -190,6 +203,17 @@
           />
         </div>
         <div
+          class="card w-full mb-6 lg:mb-0 cha-modal"
+          type="button"
+          onclick="openModal('cha-modal')"
+        >
+          <img
+            class="rounded-md sm:h-[300px] lg:h-[370px] sm:w-full object-cover hover:scale-[1.01]"
+            src="./images/food.jpeg"
+          />
+        </div>
+
+        <div
           class="card pico-modal w-full mb-6 lg:mb-0"
           type="button"
           onclick="openModal('pico-modal')"
@@ -197,16 +221,6 @@
           <img
             class="rounded-md sm:h-[300px] lg:h-[370px] sm:w-full object-cover hover:scale-[1.01]"
             src="./images/pico.png"
-          />
-        </div>
-        <div
-          class="card fun-modal w-full mb-6 lg:mb-0"
-          type="button"
-          onclick="openModal('fun-modal')"
-        >
-          <img
-            class="rounded-md sm:h-[300px] lg:h-[370px] sm:w-full object-cover hover:scale-[1.01]"
-            src="./images/blender.gif"
           />
         </div>
 
@@ -1252,6 +1266,109 @@
                 </div>
 
                 <div class="text-[#EB455A] p-4 md:p-5">
+                  <a class="flex mb-6" href="">
+                    <p class="text-lg">Send me an email</p>
+                    <img
+                      class="ml-2 w-[20px] mt-[5px] h-[20px]"
+                      src="./images/mail.png"
+                      alt=""
+                    />
+                  </a>
+                  <hr class="bg-[#7E7E7E]" />
+                </div>
+                <!-- Modal footer -->
+                <div
+                  class="text-[#EB455A] mt-[120px] flex justify-center p-4 md:p-5"
+                >
+                  <button
+                    type="button"
+                    class="modal-close bg-[#131313] hover:bg-black text-white pl-4 pr-4 p-2 mb-[120px] rounded-full"
+                  >
+                    Back
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--Modal shooter-->
+        <div
+          id="shooter-modal"
+          class="modal shooter-modal opacity-0 pointer-events-none fixed w-full h-full top-0 left-0 flex items-center justify-center"
+        >
+          <div
+            class="modal-overlay absolute w-full h-full bg-zinc-900 blur-5xl opacity-95"
+          ></div>
+
+          <div class="modal-container fixed w-full h-full z-50 overflow-y-auto">
+            <div
+              class="modal-close absolute top-0 left-0 cursor-pointer flex flex-col items-center mt-4 ml-8 text-black text-sm z-50"
+            >
+              <img class="w-[23px] mt-8" src="./images/x.png" />
+            </div>
+
+            <!-- Add margin if you want to see grey behind the modal-->
+            <div
+              class="modal-content container mx-auto border max-w-5xl border-[#3C3C3C] h-auto text-left mt-12"
+            >
+              <!--Body-->
+              <div class="bg-[#181818] rounded-lg shadow">
+                <img
+                  class="w-full h-[500px] lg:max-h-[600px]"
+                  src="./images/mwul.jpg"
+                  alt=""
+                />
+                <!-- Modal header -->
+                <div class="p-4 md:p-5">
+                  <h5
+                    class="text-xs mb-1 tracking-[3px] text-[#7E7E7E] font-thin"
+                  >
+                    VR / AR / UNITY /
+                  </h5>
+                  <h3 class="text-2xl text-white font-regular">
+                    Rapid Game Prototypes
+                  </h3>
+                  <hr class="mt-4 bg-[#7E7E7E]" />
+                </div>
+                <!-- Modal body -->
+                <div class="p-4 md:p-5 space-y-4">
+                  <p class="text-base mb-6 leading-relaxed text-white">
+                    Some rapid XR game prototypes made over time in no partcular
+                    order.
+                  </p>
+                  <hr class="bg-[#7E7E7E]" />
+                </div>
+
+                <div class="p-4 md:p-5 space-y-4">
+                  <div class="extraData">
+                    <video class="rounded w-full h-[90vh]" controls>
+                      <source src="./images/vr shooter.MP4" type="video/mp4" />
+                      Your browser does not support the video tag.
+                    </video>
+
+                    <p class="text-base mt-2 text-white">
+                      A vr shooter game prototyped with Unity and Meta Quest 3.
+                    </p>
+                  </div>
+                  <!-- <div class="extraData pt-[60px]">
+                    <iframe
+                      class="ml-auto mr-auto rounded w-full h-[70vh]"
+                      src="https://www.youtube.com/embed/MHOGDTubniw?si=ItAzI1_GJtCIeUjq"
+                      title="YouTube video player"
+                      frameborder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      allowfullscreen
+                    ></iframe>
+                    <p class="text-base mt-2 text-white">
+                      An add for a new outfit in a 3D / VR game concept.
+                    </p>
+                  </div> -->
+
+                  <hr class="bg-[#7E7E7E]" />
+                </div>
+
+                <div class="text-[#EB455A] p-4 md:p-5">
+                  <p class="text-lg mt-2 text-white">More coming Soon!</p>
                   <a class="flex mb-6" href="">
                     <p class="text-lg">Send me an email</p>
                     <img
