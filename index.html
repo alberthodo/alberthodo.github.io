@@ -129,13 +129,13 @@
         </div>
 
         <div
+          class="card w-full mb-6 lg:mb-0 vits-modal"
           type="button"
-          class="card w-full mb-6 lg:mb-0 afro-modal"
-          onclick="openModal('afro-modal')"
+          onclick="openModal('vits-modal')"
         >
           <img
             class="rounded-md sm:h-[300px] lg:h-[290px] sm:w-full object-cover hover:scale-[1.01]"
-            src="./images/afro.png"
+            src="./images/vits.jpeg"
           />
         </div>
         <div
@@ -148,7 +148,6 @@
             src="./images/mycorrpic1.jpeg"
           />
         </div>
-
         <div
           type="button"
           class="card w-full mb-6 lg:mb-0 quantum-modal"
@@ -160,6 +159,17 @@
           />
         </div>
         <div
+          class="card w-full mb-6 lg:mb-0 meta-modal"
+          type="button"
+          onclick="openModal('meta-modal')"
+        >
+          <img
+            class="rounded-md sm:h-[300px] lg:h-[290px] sm:w-full object-cover hover:scale-[1.01]"
+            src="./images/meta.jpeg"
+          />
+        </div>
+
+        <div
           type="button"
           class="card w-full mb-6 lg:mb-0 shooter-modal"
           onclick="openModal('shooter-modal')"
@@ -167,6 +177,16 @@
           <img
             class="rounded-md sm:h-[300px] lg:h-[290px] sm:w-full object-cover hover:scale-[1.01]"
             src="./images/vr game gif.gif"
+          />
+        </div>
+        <div
+          type="button"
+          class="card w-full mb-6 lg:mb-0 afro-modal"
+          onclick="openModal('afro-modal')"
+        >
+          <img
+            class="rounded-md sm:h-[300px] lg:h-[290px] sm:w-full object-cover hover:scale-[1.01]"
+            src="./images/afro.png"
           />
         </div>
         <div
@@ -179,37 +199,6 @@
             src="./images/blender1.gif"
           />
         </div>
-
-        <div
-          class="card w-full mb-6 lg:mb-0 meta-modal"
-          type="button"
-          onclick="openModal('meta-modal')"
-        >
-          <img
-            class="rounded-md sm:h-[300px] lg:h-[290px] sm:w-full object-cover hover:scale-[1.01]"
-            src="./images/meta.jpeg"
-          />
-        </div>
-        <div
-          class="card w-full mb-6 lg:mb-0 vits-modal"
-          type="button"
-          onclick="openModal('vits-modal')"
-        >
-          <img
-            class="rounded-md sm:h-[300px] lg:h-[290px] sm:w-full object-cover hover:scale-[1.01]"
-            src="./images/vits.jpeg"
-          />
-        </div>
-        <div
-          class="card w-full mb-6 lg:mb-0 knack-modal"
-          type="button"
-          onclick="openModal('knack-modal')"
-        >
-          <img
-            class="rounded-md sm:h-[300px] lg:h-[290px] sm:w-full object-cover hover:scale-[1.01]"
-            src="./images/knack.jpg"
-          />
-        </div>
         <div
           class="card w-full mb-6 lg:mb-0 cha-modal"
           type="button"
@@ -218,6 +207,17 @@
           <img
             class="rounded-md sm:h-[300px] lg:h-[290px] sm:w-full object-cover hover:scale-[1.01]"
             src="./images/food.jpeg"
+          />
+        </div>
+
+        <div
+          class="card w-full mb-6 lg:mb-0 knack-modal"
+          type="button"
+          onclick="openModal('knack-modal')"
+        >
+          <img
+            class="rounded-md sm:h-[300px] lg:h-[290px] sm:w-full object-cover hover:scale-[1.01]"
+            src="./images/knack.jpg"
           />
         </div>
 
@@ -251,7 +251,7 @@
 
             <!-- Add margin if you want to see grey behind the modal-->
             <div
-              class="modal-content mb-20 container mx-auto border max-w-5xl border-[#3C3C3C] h-auto text-left mt-12 "
+              class="modal-content mb-20 container mx-auto border max-w-5xl border-[#3C3C3C] h-auto text-left mt-12"
             >
               <!--Body-->
               <div class="bg-sinc-400 rounded-lg shadow">
@@ -269,7 +269,6 @@
                     XR & HARDWARE PROTOTYPING
                   </h5>
                   <h3 class="text-2xl text-white font-regular">Quantum-XR</h3>
-                 
                 </div>
                 <!-- Modal body -->
                 <div class="p-4 md:p-5 space-y-4">
@@ -281,57 +280,59 @@
                     phenomena in controlled environments. We focused on a proof
                     of concept for simulating quantum properties.
                   </p>
-                 
                 </div>
                 <div class="p-4 md:p-5 space-y-4">
                   <div class="cards md:flex md:justify-between">
                     <div class="smallCard">
-                      <h3 class="text-lg text-white ">Timeline</h3>
+                      <h3 class="text-lg text-white">Timeline</h3>
                       <p class="text-base mt-2 mb-6 text-white">
                         Jan 26 - 29 2024
                       </p>
                     </div>
 
                     <div class="smallCard">
-                      <h3 class="text-lg text-white ">Team - Hackathon Project</h3>
+                      <h3 class="text-lg text-white">
+                        Team - Hackathon Project
+                      </h3>
                       <p class="text-base mt-2 mb-6 text-white">
                         2 Designers <br />1 Developer<br />1 Prototyper (myself)
                       </p>
                     </div>
                     <div class="smallCard">
-                      <h3 class="text-lg text-white ">Tools</h3>
+                      <h3 class="text-lg text-white">Tools</h3>
                       <p class="text-base mt-2 mb-6 text-white">
                         Unity 3D / XR <br />Arduino<br />Vuforia
                       </p>
                     </div>
                     <div class="smallCard md:pr-[50px]">
-                      <h3 class="text-lg text-white ">Disciplines</h3>
+                      <h3 class="text-lg text-white">Disciplines</h3>
                       <p class="text-base mt-2 mb-6 text-white">
                         Unity XR prototyping <br />Hardware prototyping<br />Sensor
                         testing
                       </p>
                     </div>
                   </div>
-                 
                 </div>
                 <div class="p-4 md:p-5">
                   <video class="rounded" controls>
                     <source src="./images/quantumXR.mp4" type="video/mp4" />
                     Your browser does not support the video tag.
                   </video>
+                  <p class="text-lg text-white">
+                    A brief recap of the MIT hackathon.
+                  </p>
                 </div>
 
-                <div class="text-[sky-700] p-4 md:p-5">
+                <!-- <div class="text-[sky-700] p-4 md:p-5">
                   <a class="flex mb-6" href="">
-                    <p class="text-lg text-white ">Send me an email</p>
+                    <p class="text-lg text-white">Send me an email</p>
                     <img
                       class="ml-2 w-[20px] mt-[5px] h-[20px]"
                       src="./images/mail.png"
                       alt=""
                     />
                   </a>
-                 
-                </div>
+                </div> -->
                 <!-- Modal footer -->
                 <div
                   class="text-[sky-700] mt-[120px] flex justify-center p-4 md:p-5"
@@ -384,7 +385,6 @@
                   <h3 class="text-2xl text-white font-regular">
                     Dynamic Tangible UI
                   </h3>
-                 
                 </div>
                 <!-- Modal body -->
                 <div class="p-4 md:p-5 space-y-4">
@@ -394,36 +394,36 @@
                     project explores inflatable interfaces and speculates what
                     smart loT interfaces could be at the home.
                   </p>
-                 
                 </div>
                 <div class="p-4 md:p-5 space-y-4">
                   <div class="cards md:flex md:justify-between">
                     <div class="smallCard">
-                      <h3 class="text-lg text-white ">Timeline</h3>
+                      <h3 class="text-lg text-white">Timeline</h3>
                       <p class="text-base mt-2 mb-6 text-white">Aug-Oct 2023</p>
                     </div>
 
                     <div class="smallCard">
-                      <h3 class="text-lg text-white ">Team - Academic Project</h3>
+                      <h3 class="text-lg text-white">
+                        Team - Academic Project
+                      </h3>
                       <p class="text-base mt-2 mb-6 text-white">
                         John Brechbill <br />Albert Hodo (myself)
                       </p>
                     </div>
                     <div class="smallCard">
-                      <h3 class="text-lg text-white ">Tools</h3>
+                      <h3 class="text-lg text-white">Tools</h3>
                       <p class="text-base mt-2 mb-6 text-white">
                         Fuion 360 <br />Soft materials<br />Microcontrollers
                       </p>
                     </div>
                     <div class="smallCard md:pr-[50px]">
-                      <h3 class="text-lg text-white ">Disciplines</h3>
+                      <h3 class="text-lg text-white">Disciplines</h3>
                       <p class="text-base mt-2 mb-6 text-white">
                         Electronics Programming <br />Silicon Casting<br />Physical
                         Fabrication
                       </p>
                     </div>
                   </div>
-                 
                 </div>
                 <div class="p-4 md:p-5 space-y-4">
                   <div class="extraData mb-[60px]">
@@ -438,12 +438,27 @@
                     </p>
                     <img
                       class="w-full mt-24 rounded object-cover"
-                      src="./images/dtui2.jpg"
+                      src="./images/switch.gif"
                       alt=""
                     />
                     <p class="text-base mt-2 mb-6 text-white">
-                      A dynamic remote that only shows different buttons based
-                      on your needs at different times.
+                      Pneumatic tactile buttons that only appear when needed.
+                    </p>
+                    <img
+                      class="w-full mt-24 rounded object-cover"
+                      src="./images/remote.gif"
+                      alt=""
+                    />
+                    <p class="text-base mt-2 mb-6 text-white">
+                      A tv remote with different button modes for everyone.
+                    </p>
+                    <img
+                      class="w-full mt-24 rounded object-cover"
+                      src="./images/signage.gif"
+                      alt=""
+                    />
+                    <p class="text-base mt-2 mb-6 text-white">
+                      Animated signage that morphs.
                     </p>
                     <img
                       class="w-full mt-24 rounded object-cover"
@@ -454,19 +469,19 @@
                       An example of the exploded view of components used.
                     </p>
                   </div>
-                 
                 </div>
 
-                <div class="text-[sky-700] p-4 md:p-5">
-                  <a class="flex mb-6" href="">
-                    <p class="text-lg text-white ">Full case study coming soon</p>
-                    <!-- <img
+                <div class="text-[sky-700] flex justify-center p-4 md:p-5">
+                  <!-- <a class="flex mb-6" href=""> -->
+                  <p class="text-lg text-white">
+                    Ask me about the case study and process.
+                  </p>
+                  <!-- <img
                 class="ml-2 w-[20px] mt-[5px] h-[20px]"
                 src="./images/arrow-up-right.png"
                 alt=""
               /> -->
-                  </a>
-                 
+                  <!-- </a> -->
                 </div>
                 <!-- Modal footer -->
                 <div
@@ -520,28 +535,32 @@
                   <h3 class="text-2xl text-white font-regular">
                     AfroTechnoHistory
                   </h3>
-                 
                 </div>
                 <!-- Modal body -->
                 <div class="p-4 md:p-5 space-y-4">
                   <p class="text-base mb-6 leading-relaxed text-white">
                     AfroTechnoHistory is an ongoing research project that
                     speculates consumer technologies driven by futuristic
-                    pre-colonial West African design movements.
+                    pre-colonial West African design movements. This is inspired
+                    by environmental sustainability and explores designing
+                    robotics and future tech with cultural heritage to enhance
+                    adoption in robotics.
                   </p>
-                 
                 </div>
 
-                <div class="text-[sky-700] p-4 md:p-5">
-                  <a class="flex mb-6" href="">
-                    <p class="text-lg text-white ">Send me an email</p>
-                    <img
-                      class="ml-2 w-[20px] mt-[5px] h-[20px]"
-                      src="./images/mail.png"
-                      alt=""
-                    />
-                  </a>
-                 
+                <div class="text-[sky-700] flex justify-center p-4 md:p-5">
+                  <!-- <a class="flex mb-6" href=""> -->
+                  <p class="text-lg text-white">
+                    Pending publication. Research and prototypes available upon
+                    request.
+                  </p>
+
+                  <!-- <img
+                class="ml-2 w-[20px] mt-[5px] h-[20px]"
+                src="./images/arrow-up-right.png"
+                alt=""
+              /> -->
+                  <!-- </a> -->
                 </div>
                 <!-- Modal footer -->
                 <div
@@ -593,7 +612,6 @@
                     INTERACTIVE INSTALLATION
                   </h5>
                   <h3 class="text-2xl text-white font-regular">Mycorrhizae</h3>
-                 
                 </div>
                 <!-- Modal body -->
                 <div class="p-4 md:p-5 space-y-4">
@@ -603,37 +621,37 @@
                     underground forest ecosystem, known as the Mycorrhizal
                     network.
                   </p>
-                 
                 </div>
                 <div class="p-4 md:p-5 space-y-4">
                   <div class="cards md:flex md:justify-between">
                     <div class="smallCard">
-                      <h3 class="text-lg text-white ">Timeline</h3>
+                      <h3 class="text-lg text-white">Timeline</h3>
                       <p class="text-base mt-2 mb-6 text-white">Sep-Dec 2022</p>
                     </div>
 
                     <div class="smallCard">
-                      <h3 class="text-lg text-white ">Team - Academic Project</h3>
+                      <h3 class="text-lg text-white">
+                        Team - Academic Project
+                      </h3>
                       <p class="text-base mt-2 mb-6 text-white">
                         2 UX Researchers <br />1 Interaction Designer<br />2
                         Creative Technologists
                       </p>
                     </div>
                     <div class="smallCard">
-                      <h3 class="text-lg text-white ">Tools</h3>
+                      <h3 class="text-lg text-white">Tools</h3>
                       <p class="text-base mt-2 mb-6 text-white">
                         P5.js / Python / OpenCV <br />MQTT<br />Microcontrollers
                       </p>
                     </div>
                     <div class="smallCard md:pr-[50px]">
-                      <h3 class="text-lg text-white ">Disciplines</h3>
+                      <h3 class="text-lg text-white">Disciplines</h3>
                       <p class="text-base mt-2 mb-6 text-white">
                         Electronics Programming <br />Computer Vision<br />Projection
                         Mapping
                       </p>
                     </div>
                   </div>
-                 
                 </div>
                 <div class="p-4 md:p-5 space-y-4">
                   <div class="extraData mb-[60px]">
@@ -664,24 +682,24 @@
                       src="./images/mush_3.jpg"
                       alt=""
                     />
-                    <!-- <p class="text-base mt-2 mb-6 text-white">
-                      An example of the exploded view of components used.
-                    </p> -->
+                    <p class="text-base mt-2 mb-6 text-white">
+                      Tiny printed mushroom souvenirs for participants.
+                    </p>
                   </div>
-                 
                 </div>
 
-                <div class="text-[sky-700] p-4 md:p-5">
-                  <a class="flex mb-6" href="">
-                    <p class="text-lg text-white ">Full case study coming soon</p>
-                    <!-- <img
+                <!-- <div class="text-[sky-700] p-4 md:p-5">
+                  <a class="flex mb-6" href=""> -->
+                <!-- <p class="text-lg text-white">
+                      Full case study coming soon
+                    </p> -->
+                <!-- <img
                 class="ml-2 w-[20px] mt-[5px] h-[20px]"
                 src="./images/arrow-up-right.png"
                 alt=""
               /> -->
-                  </a>
-                 
-                </div>
+                <!-- </a>
+                </div> -->
                 <!-- Modal footer -->
                 <div
                   class="text-[sky-700] mt-[120px] flex justify-center p-4 md:p-5"
@@ -734,7 +752,6 @@
                   <h3 class="text-2xl text-white font-regular">
                     Vits Health Companion
                   </h3>
-                 
                 </div>
                 <!-- Modal body -->
                 <div class="p-4 md:p-5 space-y-4">
@@ -743,49 +760,112 @@
                     users in Ghana with a virtual central hub to connect and
                     control all home medical devices from one place.
                   </p>
-                 
                 </div>
                 <div class="p-4 md:p-5 space-y-4">
                   <div class="cards md:flex md:justify-between">
                     <div class="smallCard">
-                      <h3 class="text-lg text-white ">Timeline</h3>
+                      <h3 class="text-lg text-white">Timeline</h3>
                       <p class="text-base mt-2 mb-6 text-white">
                         Mar - Jun 2019
                       </p>
                     </div>
 
                     <div class="smallCard">
-                      <h3 class="text-lg text-white ">Team - Personal Project</h3>
+                      <h3 class="text-lg text-white">
+                        Team - Personal Project
+                      </h3>
                       <p class="text-base mt-2 mb-6 text-white">Albert Hodo</p>
                     </div>
                     <div class="smallCard">
-                      <h3 class="text-lg text-white ">Tools</h3>
+                      <h3 class="text-lg text-white">Tools</h3>
                       <p class="text-base mt-2 mb-6 text-white">
-                        Figma <br />Origami Studio
+                        Figma <br />Qualitative analysis
                       </p>
                     </div>
                     <div class="smallCard md:pr-[50px]">
-                      <h3 class="text-lg text-white ">Disciplines</h3>
+                      <h3 class="text-lg text-white">Disciplines</h3>
                       <p class="text-base mt-2 mb-6 text-white">
                         Interaction Design <br />Visual Design<br />Product
                         Strategy
                       </p>
                     </div>
                   </div>
-                 
+                </div>
+                <div class="p-4 md:p-5 space-y-4">
+                  <div class="extraData mb-[60px]">
+                    <div class="several sm:ml-[60px] sm:mr-[60px]">
+                      <div class="images sm:flex sm:justify-around">
+                        <img
+                          class="w-[300px] mt-24 rounded object-contain"
+                          src="./images/vits_start.gif"
+                          alt=""
+                        />
+                        <img
+                          class="w-[300px] mt-24 rounded object-contain"
+                          src="./images/vits profile.gif"
+                          alt=""
+                        />
+                      </div>
+                      <p class="text-base mt-2 mb-6 text-white">
+                        A simplified onboarding and profile section for storing
+                        health information.
+                      </p>
+                    </div>
+
+                    <div class="several mt-[120px] sm:ml-[60px] sm:mr-[60px]">
+                      <div class="images sm:flex sm:justify-around">
+                        <img
+                          class="w-[300px] mt-24 rounded object-contain"
+                          src="./images/vits tips.gif"
+                          alt=""
+                        />
+                        <img
+                          class="w-[300px] mt-24 rounded object-contain"
+                          src="./images/vits pair.gif"
+                          alt=""
+                        />
+                      </div>
+                      <p class="text-base mt-2 mb-6 text-white">
+                        A personalized health plan and a simple way to pair all
+                        devices.
+                      </p>
+                    </div>
+
+                    <div class="several mt-[120px] sm:ml-[60px] sm:mr-[60px]">
+                      <div class="images sm:flex sm:justify-around">
+                        <img
+                          class="w-[300px] mt-24 rounded object-contain"
+                          src="./images/vits records.gif"
+                          alt=""
+                        />
+                        <img
+                          class="w-[300px] mt-24 rounded object-contain"
+                          src="./images/vits scan.gif"
+                          alt=""
+                        />
+                      </div>
+                      <p class="text-base mt-2 mb-6 text-white">
+                        Monitor your health with one click and an easy data
+                        storage for your doctor.
+                      </p>
+                    </div>
+
+                    <div class="several mt-[120px] sm:ml-[60px] sm:mr-[60px]">
+                      <div class="images sm:flex sm:ml-[50px] sm:justify-start">
+                        <img
+                          class="w-[300px] mt-24 rounded object-contain"
+                          src="./images/vits emergency.gif"
+                          alt=""
+                        />
+                      </div>
+                      <p class="text-base mt-2 mb-6 text-white">
+                        Have a doctor on standby or request an ambulance with
+                        one swipe.
+                      </p>
+                    </div>
+                  </div>
                 </div>
 
-                <div class="text-[sky-700] p-4 md:p-5">
-                  <a class="flex mb-6" href="">
-                    <p class="text-lg text-white ">Full case study coming soon</p>
-                    <!-- <img
-               class="ml-2 w-[20px] mt-[5px] h-[20px]"
-               src="./images/arrow-up-right.png"
-               alt=""
-             /> -->
-                  </a>
-                 
-                </div>
                 <!-- Modal footer -->
                 <div
                   class="text-[sky-700] mt-[120px] flex justify-center p-4 md:p-5"
@@ -836,7 +916,6 @@
                     SOFTWARE ENGINEERING
                   </h5>
                   <h3 class="text-2xl text-white font-regular">Meta</h3>
-                 
                 </div>
                 <!-- Modal body -->
                 <div class="p-4 md:p-5 space-y-4">
@@ -845,20 +924,18 @@
                     developers, researchers and mentors on coming up with
                     solutions for common algorithmic problems.
                   </p>
-                 
                 </div>
 
-                <div class="text-[sky-700] p-4 md:p-5">
+                <!-- <div class="text-[sky-700] p-4 md:p-5">
                   <a class="flex mb-6" href="">
-                    <p class="text-lg text-white ">Send me an email</p>
+                    <p class="text-lg text-white">Send me an email</p>
                     <img
                       class="ml-2 w-[20px] mt-[5px] h-[20px]"
                       src="./images/mail.png"
                       alt=""
                     />
                   </a>
-                 
-                </div>
+                </div> -->
                 <!-- Modal footer -->
                 <div
                   class="text-[sky-700] mt-[120px] flex justify-center p-4 md:p-5"
@@ -911,7 +988,6 @@
                   <h3 class="text-2xl text-white font-regular">
                     Chakula Tracking - Food Ordering
                   </h3>
-                 
                 </div>
                 <!-- Modal body -->
                 <div class="p-4 md:p-5 space-y-4">
@@ -922,46 +998,47 @@
                     wanted to redesign part of the system as a way to reflect on
                     past design choices.
                   </p>
-                 
                 </div>
                 <div class="p-4 md:p-5 space-y-4">
                   <div class="cards md:flex md:justify-between">
                     <div class="smallCard">
-                      <h3 class="text-lg text-white ">Timeline</h3>
+                      <h3 class="text-lg text-white">Timeline</h3>
                       <p class="text-base mt-2 mb-6 text-white">Dec 2023</p>
                     </div>
 
                     <div class="smallCard">
-                      <h3 class="text-lg text-white ">Team - Personal Project</h3>
+                      <h3 class="text-lg text-white">
+                        Team - Personal Project
+                      </h3>
                       <p class="text-base mt-2 mb-6 text-white">Albert Hodo</p>
                     </div>
                     <div class="smallCard">
-                      <h3 class="text-lg text-white ">Tools</h3>
+                      <h3 class="text-lg text-white">Tools</h3>
                       <p class="text-base mt-2 mb-6 text-white">
                         Figma <br />Origami Studio
                       </p>
                     </div>
                     <div class="smallCard md:pr-[50px]">
-                      <h3 class="text-lg text-white ">Disciplines</h3>
+                      <h3 class="text-lg text-white">Disciplines</h3>
                       <p class="text-base mt-2 mb-6 text-white">
                         Interaction Design <br />Visual Design<br />Product
                         Strategy
                       </p>
                     </div>
                   </div>
-                 
                 </div>
 
                 <div class="text-[sky-700] p-4 md:p-5">
                   <a class="flex mb-6" href="">
-                    <p class="text-lg text-white ">Full case study coming soon</p>
+                    <p class="text-lg text-white">
+                      Full case study coming soon
+                    </p>
                     <!-- <img
               class="ml-2 w-[20px] mt-[5px] h-[20px]"
               src="./images/arrow-up-right.png"
               alt=""
             /> -->
                   </a>
-                 
                 </div>
                 <!-- Modal footer -->
                 <div
@@ -1015,7 +1092,6 @@
                   <h3 class="text-2xl text-white font-regular">
                     KnackApp - Super Smash
                   </h3>
-                 
                 </div>
                 <!-- Modal body -->
                 <div class="p-4 md:p-5 space-y-4">
@@ -1025,19 +1101,17 @@
                     software usability in low internet regions. I also led the
                     development of the Super Smash game for the platform.
                   </p>
-                 
                 </div>
 
                 <div class="text-[sky-700] p-4 md:p-5">
                   <a class="flex mb-6" href="">
-                    <p class="text-lg text-white ">Send me an email</p>
+                    <p class="text-lg text-white">Send me an email</p>
                     <img
                       class="ml-2 w-[20px] mt-[5px] h-[20px]"
                       src="./images/mail.png"
                       alt=""
                     />
                   </a>
-                 
                 </div>
                 <!-- Modal footer -->
                 <div
@@ -1091,7 +1165,6 @@
                   <h3 class="text-2xl text-white font-regular">
                     Pico can Dance
                   </h3>
-                 
                 </div>
                 <!-- Modal body -->
                 <div class="p-4 md:p-5 space-y-4">
@@ -1102,35 +1175,33 @@
                     the design maker space to cheer people up and keep them
                     company. 
                   </p>
-                 
                 </div>
                 <div class="p-4 md:p-5 space-y-4">
                   <div class="cards md:flex md:justify-between">
                     <div class="smallCard">
-                      <h3 class="text-lg text-white ">Timeline</h3>
+                      <h3 class="text-lg text-white">Timeline</h3>
                       <p class="text-base mt-2 mb-6 text-white">Oct 2022</p>
                     </div>
 
                     <div class="smallCard">
-                      <h3 class="text-lg text-white ">Team - Fun Project</h3>
+                      <h3 class="text-lg text-white">Team - Fun Project</h3>
                       <p class="text-base mt-2 mb-6 text-white">
                         Haesung Park <br />Albert Hodo
                       </p>
                     </div>
                     <div class="smallCard">
-                      <h3 class="text-lg text-white ">Tools</h3>
+                      <h3 class="text-lg text-white">Tools</h3>
                       <p class="text-base mt-2 mb-6 text-white">
                         Arduino <br />Laser Cutter
                       </p>
                     </div>
                     <div class="smallCard md:pr-[50px]">
-                      <h3 class="text-lg text-white ">Disciplines</h3>
+                      <h3 class="text-lg text-white">Disciplines</h3>
                       <p class="text-base mt-2 mb-6 text-white">
                         Programming <br />3D Fabrication<br />Robotics
                       </p>
                     </div>
                   </div>
-                 
                 </div>
                 <div class="p-4 md:p-5 space-y-4">
                   <div class="extraData mb-[60px]">
@@ -1139,19 +1210,17 @@
                       Your browser does not support the video tag.
                     </video>
                   </div>
-                 
                 </div>
 
                 <div class="text-[sky-700] p-4 md:p-5">
                   <a class="flex mb-6" href="">
-                    <p class="text-lg text-white ">Send me an email</p>
+                    <p class="text-lg text-white">Send me an email</p>
                     <img
                       class="ml-2 w-[20px] mt-[5px] h-[20px]"
                       src="./images/mail.png"
                       alt=""
                     />
                   </a>
-                 
                 </div>
                 <!-- Modal footer -->
                 <div
@@ -1205,14 +1274,12 @@
                   <h3 class="text-2xl text-white font-regular">
                     3D Content & CGI
                   </h3>
-                 
                 </div>
                 <!-- Modal body -->
                 <div class="p-4 md:p-5 space-y-4">
                   <p class="text-base mb-6 leading-relaxed text-white">
                     Some fun CGI concepts made over time in no partcular order.
                   </p>
-                 
                 </div>
 
                 <div class="p-4 md:p-5 space-y-4">
@@ -1269,20 +1336,18 @@
                       its my voice?
                     </p>
                   </div>
-                 
                 </div>
 
-                <div class="text-[sky-700] p-4 md:p-5">
+                <!-- <div class="text-[sky-700] p-4 md:p-5">
                   <a class="flex mb-6" href="">
-                    <p class="text-lg text-white ">Send me an email</p>
+                    <p class="text-lg text-white">Send me an email</p>
                     <img
                       class="ml-2 w-[20px] mt-[5px] h-[20px]"
                       src="./images/mail.png"
                       alt=""
                     />
                   </a>
-                 
-                </div>
+                </div> -->
                 <!-- Modal footer -->
                 <div
                   class="text-[sky-700] mt-[120px] flex justify-center p-4 md:p-5"
@@ -1335,7 +1400,6 @@
                   <h3 class="text-2xl text-white font-regular">
                     Rapid Game Prototypes
                   </h3>
-                 
                 </div>
                 <!-- Modal body -->
                 <div class="p-4 md:p-5 space-y-4">
@@ -1343,7 +1407,6 @@
                     Some rapid XR game prototypes made over time in no partcular
                     order.
                   </p>
-                 
                 </div>
 
                 <div class="p-4 md:p-5 space-y-4">
@@ -1370,21 +1433,18 @@
                       An add for a new outfit in a 3D / VR game concept.
                     </p>
                   </div> -->
-
-                 
                 </div>
 
-                <div class="text-[sky-700] p-4 md:p-5">
+                <div class="text-[sky-700] flex justify-center p-4 md:p-5">
                   <p class="text-lg mt-2 text-white">More coming Soon!</p>
-                  <a class="flex mb-6" href="">
-                    <p class="text-lg text-white ">Send me an email</p>
+                  <!-- <a class="flex mb-6" href="">
+                    <p class="text-lg text-white">Send me an email</p>
                     <img
                       class="ml-2 w-[20px] mt-[5px] h-[20px]"
                       src="./images/mail.png"
                       alt=""
                     />
-                  </a>
-                 
+                  </a> -->
                 </div>
                 <!-- Modal footer -->
                 <div
