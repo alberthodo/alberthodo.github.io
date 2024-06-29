@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+
     <style>
       body,
       h1,
@@ -24,7 +25,7 @@
         overflow-y: visible !important;
       }
       .opacity-95 {
-        opacity: 0.95;
+        opacity: 0.25;
       }
     </style>
     <title>alberthodo</title>
@@ -35,8 +36,8 @@
     />
     <meta
       name="Description"
-      content="Hodo is a human first engineer and
-    designer who explores experimental interfaces, based on research in nature."
+      content="I'm a creative technologist who designs tangible experiences
+                for humans with machines and the environment."
     />
     <meta
       name="Keyword"
@@ -47,35 +48,69 @@
   </head>
   <body
     id="all"
-    class="bg-white all text-[#181818] snap-y snap-mandatory lg:p-[40px] lg:pl-[80px] lg:pr-[80px] pl-6 pr-6"
+    class="bg-white cursor-grab all text-[#181818] snap-y snap-mandatory lg:p-[40px] lg:pl-[80px] lg:pr-[80px] pl-6 pr-6"
   >
     <section>
       <div id="about" class="about z-50 mt-4 snap-center">
         <div class="firstSection flex items-end">
-          <div class="tagline">
+          <!-- <div class="tagline">
             <h5 class="text-sm text-gray-400 lg:text-lg">
               Human First | Designer | Engineer
             </h5>
-          </div>
+          </div> -->
           <!-- <div class="logo w-[80px] lg:w-[100px] ml-auto">
             <img class="animate-pulse" src="./images/HODO DESIGNS.png" />
           </div> -->
         </div>
         <div class="AboutMain">
-          <h1 class="text-2xl lg:text-[26px] lg:font-thin mt-4 font-bold">
-            Hodo
+          <h1 class="text-2xl text-gray-400 lg:text-4xl mt-8 font-bold">
             <!-- <span class="inline-block"
               ><img class="w-16 lg:w-18" src="./images/(Hodo).png"
             /></span> -->
-            is a human first engineer and designer who explores experimental
+            <!-- Hodo is a human first engineer and designer who explores experimental
             interfaces, based on research in nature. His work ranges from
             developing software to prototyping pre-colonial futuristic
             technologies like AfroTechnoHistory. He has a degree in Computer
             Science from Ashesi University and a masters in Design from UC
-            Berkeley’s College of Engineering.
+            Berkeley’s College of Engineering. -->
+            <div class="first lg:leading-relaxed mb-8">
+              <span class="text-black"
+                >I'm a creative technologist who designs tangible experiences
+                for humans with machines and the environment.</span
+              >
+              I love driving along the coast of california while blasting 1980's
+              country hits.
+            </div>
+            <!-- <div class="second mb-8">
+              I love driving the coast of california while blasting 1980 country
+              hits. I play basketball as well as soccer.
+            </div> -->
+            <div class="third lg:leading-relaxed mb-8">
+              I have a master's in Design with a focus on emerging technology
+              from UC Berkeley. I also have a bachelors in Computer Science with
+              a focus on IoT from Ashesi University. Previous game dev @
+              <a
+                class="text-green-600"
+                href="https://knackapp.com"
+                target="_blank"
+                >KnackApp</a
+              >
+              and swe @
+              <a class="text-[#0081FB]" href="https://meta.com" target="_blank"
+                >Meta</a
+              >.
+            </div>
+            <div class="forth lg:leading-relaxed">
+              I am
+              <span class="animate-pulse text-gray-800"
+                >currently seeking opportunities</span
+              >
+              to create amazing experiences. My interest areas are UX for ML/AI,
+              IoT and XR.
+            </div>
           </h1>
           <img
-            class="w-[200px] mt-[80px]"
+            class="w-[200px] mt-[40px]"
             src="./images/mylogo.png"
             alt="signage"
           />
@@ -114,103 +149,183 @@
       class="glass absolute w-full h-full z-10 bg-black/70 backdrop-blur-lg"
     ></div> -->
     <section>
-      <div
-        class="projects pt-8 sm:grid grid-cols-2 gap-4 lg:grid-cols-3 snap-center mt-[60px] lg:mt-[30vh]"
-      >
+      <div class="projects pt-8 flex flex-col mt-[60px] lg:mt-[30vh]">
         <div
           type="button"
-          class="card w-full mb-6 lg:mb-0 dynamic-modal"
+          class="card rounded-md hover:bg-gray-50 p-4 lg:flex w-full mt-[120px] mb-[160px] hover:scale-[1.01] dynamic-modal"
           onclick="openModal('dynamic-modal')"
         >
           <img
-            class="rounded-md sm:h-[300px] lg:h-[290px] sm:w-full object-cover hover:scale-[1.01]"
+            class="rounded-md sm:h-[300px] w-full lg:h-[55vh] lg:w-[55vw] object-cover"
             src="./images/dynamic.jpeg"
           />
+          <div class="info ml-4 lg:ml-8 mb-8 mt-8">
+            <p class="text-2xl font-semibold">Dynamic Tangible UI</p>
+            <p class="text-lg lg:w-[20vw] text-gray-400 mt-2">
+              Simulating App experiences with interactive physical spaces.
+            </p>
+            <div class="mt-8 text-gray-400 text-lg flex flex-col">
+              <p>- Arduino Programming</p>
+              <p>- Silicone Casting</p>
+              <p>- Physical Fabrication</p>
+            </div>
+          </div>
         </div>
-
         <div
-          class="card w-full mb-6 lg:mb-0 vits-modal"
+          class="card rounded-md hover:bg-gray-50 p-4 lg:flex w-full mt-[120px] mb-[160px] hover:scale-[1.01] vits-modal"
           type="button"
           onclick="openModal('vits-modal')"
         >
           <img
-            class="rounded-md sm:h-[300px] lg:h-[290px] sm:w-full object-cover hover:scale-[1.01]"
+            class="rounded-md sm:h-[300px] w-full lg:h-[55vh] lg:w-[55vw] object-cover"
             src="./images/vits.jpeg"
           />
-        </div>
-        <div
-          class="card w-full mb-6 lg:mb-0 mycor-modal"
-          type="button"
-          onclick="openModal('mycor-modal')"
-        >
-          <img
-            class="rounded-md sm:h-[300px] lg:h-[290px] sm:w-full object-cover hover:scale-[1.01]"
-            src="./images/mycorrpic1.jpeg"
-          />
-        </div>
-        <div
-          type="button"
-          class="card w-full mb-6 lg:mb-0 quantum-modal"
-          onclick="openModal('quantum-modal')"
-        >
-          <img
-            class="rounded-md sm:h-[300px] lg:h-[290px] sm:w-full object-cover hover:scale-[1.01]"
-            src="./images/qubit.gif"
-          />
-        </div>
-        <div
-          class="card w-full mb-6 lg:mb-0 meta-modal"
-          type="button"
-          onclick="openModal('meta-modal')"
-        >
-          <img
-            class="rounded-md sm:h-[300px] lg:h-[290px] sm:w-full object-cover hover:scale-[1.01]"
-            src="./images/meta.jpeg"
-          />
-        </div>
-
-        <div
-          type="button"
-          class="card w-full mb-6 lg:mb-0 shooter-modal"
-          onclick="openModal('shooter-modal')"
-        >
-          <img
-            class="rounded-md sm:h-[300px] lg:h-[290px] sm:w-full object-cover hover:scale-[1.01]"
-            src="./images/vr game gif.gif"
-          />
+          <div class="info ml-4 lg:ml-8 mb-8 mt-8">
+            <p class="text-2xl font-semibold">Vits Health Companion</p>
+            <p class="text-lg lg:w-[20vw] text-gray-400 mt-2">
+              A smart app for everything health.
+            </p>
+            <div class="mt-8 text-gray-400 text-lg flex flex-col">
+              <p>- UX Research</p>
+              <p>- UI Design</p>
+              <p>- User studies</p>
+            </div>
+          </div>
         </div>
         <div
           type="button"
-          class="card w-full mb-6 lg:mb-0 afro-modal"
+          class="card rounded-md hover:bg-gray-50 p-4 lg:flex w-full mt-[120px] mb-[160px] hover:scale-[1.01] afro-modal"
           onclick="openModal('afro-modal')"
         >
           <img
-            class="rounded-md sm:h-[300px] lg:h-[290px] sm:w-full object-cover hover:scale-[1.01]"
+            class="rounded-md sm:h-[300px] w-full lg:h-[55vh] lg:w-[55vw] object-cover"
             src="./images/afro.png"
           />
+          <div class="info ml-4 lg:ml-8 mb-8 mt-8">
+            <p class="text-2xl font-semibold">AfroTechnoHistory</p>
+            <p class="text-lg lg:w-[25vw] text-gray-400 mt-2">
+              An approach to designing technologies based on cultural heritage
+              to rethink our relationship with consumer goods.
+            </p>
+            <div class="mt-8 text-gray-400 text-lg flex flex-col">
+              <p>- Product Strategy</p>
+              <p>- Speculative Design</p>
+              <p>- Physical Fabrication</p>
+            </div>
+          </div>
         </div>
         <div
-          class="card fun-modal w-full mb-6 lg:mb-0"
-          type="button"
-          onclick="openModal('fun-modal')"
-        >
-          <img
-            class="rounded-md sm:h-[300px] lg:h-[290px] sm:w-full object-cover hover:scale-[1.01]"
-            src="./images/blender1.gif"
-          />
-        </div>
-        <div
-          class="card w-full mb-6 lg:mb-0 cha-modal"
+          class="card rounded-md hover:bg-gray-50 p-4 lg:flex w-full mt-[120px] mb-[160px] hover:scale-[1.01] cha-modal"
           type="button"
           onclick="openModal('cha-modal')"
         >
           <img
-            class="rounded-md sm:h-[300px] lg:h-[290px] sm:w-full object-cover hover:scale-[1.01]"
+            class="rounded-md sm:h-[300px] w-full lg:h-[55vh] lg:w-[55vw] object-cover"
             src="./images/food.jpeg"
           />
+          <div class="info ml-4 lg:ml-8 mb-8 mt-8">
+            <p class="text-2xl font-semibold">Chakula Food App</p>
+            <p class="text-lg lg:w-[25vw] text-gray-400 mt-2">
+              A system that solves an absurd delay in ordering food at Ashesi
+              University.
+            </p>
+            <div class="mt-8 text-gray-400 text-lg flex flex-col">
+              <p>- User Studies</p>
+              <p>- UX Design</p>
+              <p>- Service Design</p>
+            </div>
+          </div>
+        </div>
+        <div
+          class="card rounded-md hover:bg-gray-50 p-4 lg:flex w-full mt-[120px] mb-[160px] hover:scale-[1.01] mycor-modal"
+          type="button"
+          onclick="openModal('mycor-modal')"
+        >
+          <img
+            class="rounded-md sm:h-[300px] w-full lg:h-[55vh] lg:w-[55vw] object-cover"
+            src="./images/mycorrpic1.jpeg"
+          />
+          <div class="info ml-4 lg:ml-8 mb-8 mt-8">
+            <p class="text-2xl font-semibold">Mycorrhizae</p>
+            <p class="text-lg lg:w-[20vw] text-gray-400 mt-2">
+              An interractive exhibiton simulating plant communication via
+              fungi.
+            </p>
+            <div class="mt-8 text-gray-400 text-lg flex flex-col">
+              <p>- Computer Vision Programming</p>
+              <p>- Experience Design</p>
+              <p>- Projection Mapping</p>
+            </div>
+          </div>
+        </div>
+        <!-- <div
+        type="button"
+        class="card w-full mb-6 lg:mb-0 quantum-modal"
+        onclick="openModal('quantum-modal')"
+      >
+        <img
+          class="rounded-md sm:h-[300px] lg:h-[290px] sm:w-full object-cover hover:scale-[1.01]"
+          src="./images/qubit.gif"
+        />
+      </div> -->
+
+        <!-- <div
+        type="button"
+        class="card w-full mb-6 lg:mb-0 shooter-modal"
+        onclick="openModal('shooter-modal')"
+      >
+        <img
+          class="rounded-md sm:h-[300px] lg:h-[290px] sm:w-full object-cover hover:scale-[1.01]"
+          src="./images/vr game gif.gif"
+        />
+      </div> -->
+
+        <div
+          class="card rounded-md hover:bg-gray-50 p-4 lg:flex w-full mt-[120px] mb-[160px] hover:scale-[1.01] fun-modal"
+          type="button"
+          onclick="openModal('fun-modal')"
+        >
+          <img
+            class="rounded-md sm:h-[300px] w-full lg:h-[55vh] lg:w-[55vw] object-cover"
+            src="./images/blender1.gif"
+          />
+          <div class="info ml-4 lg:ml-8 mb-8 mt-8">
+            <p class="text-2xl font-semibold">CGI Animations</p>
+            <p class="text-lg lg:w-[25vw] text-gray-400 mt-2">
+              A series of computer graphics experiments created in Blender.
+            </p>
+            <div class="mt-8 text-gray-400 text-lg flex flex-col">
+              <p>- Blender</p>
+              <p>- Computer Graphic Animations</p>
+              <p>- Sound Design</p>
+            </div>
+          </div>
         </div>
 
         <div
+          class="card rounded-md hover:bg-gray-50 p-4 lg:flex w-full mt-[120px] mb-[160px] hover:scale-[1.01] meta-modal"
+          type="button"
+          onclick="openModal('meta-modal')"
+        >
+          <img
+            class="rounded-md sm:h-[300px] w-full lg:h-[55vh] lg:w-[55vw] object-cover"
+            src="./images/meta.jpeg"
+          />
+          <div class="info ml-4 lg:ml-8 mb-8 mt-8">
+            <p class="text-2xl font-semibold">Meta Apprentiship</p>
+            <p class="text-lg lg:w-[20vw] text-gray-400 mt-2">
+              A software engineering apprentiship where I was mentored by Meta
+              engineers.
+            </p>
+            <div class="mt-8 text-gray-400 text-lg flex flex-col">
+              <p>- Algorithm Design</p>
+              <p>- Code Optimization</p>
+              <p>- Software Engineering</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- <div
           class="card w-full mb-6 lg:mb-0 knack-modal"
           type="button"
           onclick="openModal('knack-modal')"
@@ -219,9 +334,9 @@
             class="rounded-md sm:h-[300px] lg:h-[290px] sm:w-full object-cover hover:scale-[1.01]"
             src="./images/knack.jpg"
           />
-        </div>
+        </div> -->
 
-        <div
+        <!-- <div
           class="card w-full mb-6 pico-modal lg:mb-0"
           type="button"
           onclick="openModal('pico-modal')"
@@ -230,7 +345,7 @@
             class="rounded-md sm:h-[300px] lg:h-[290px] sm:w-full object-cover hover:scale-[1.01]"
             src="./images/pico.png"
           />
-        </div>
+        </div> -->
 
         <!-- new modal -->
         <!--Modal quantum-->
@@ -1504,71 +1619,6 @@
         });
         body.classList.remove("modal-active");
       }
-    </script>
-    <script>
-      gsap.registerPlugin(ScrollTrigger);
-
-      // Function to apply initial blur effect to the "projects" section
-      function initialBlur() {
-        const projectsSection = document.querySelector(".projects");
-        const aboutSection = document.querySelector("#all"); //about to all
-
-        // Apply CSS filter property to blur the "projects" section
-        //....
-        //gsap.set(projectsSection, {
-        //  filter: "blur(10px)", // Blur effect with 10px radius
-        //});
-        //.....
-
-        // Animate away the blur effect when user scrolls down
-        ScrollTrigger.create({
-          trigger: projectsSection,
-          start: "top center", // Start animation when the top of the "projects" section reaches the center of the viewport
-          onEnter: () => {
-            //...gsap.to(projectsSection, {
-            //  filter: "none", // Remove the blur effect
-            // duration: 1, // Duration of the animation
-            //  ease: "power4.inOut", // Easing function
-            // });
-            // Scroll to the projects section when the blur goes away
-            window.scrollTo({
-              top: projectsSection.offsetTop,
-              behavior: "smooth", // Smooth scrolling behavior
-            });
-          },
-        });
-
-        // Animate opacity of the "about" section on scroll down
-        //... ScrollTrigger.create({
-        //  trigger: aboutSection,
-        //  start: "top top", // Start the animation when the top of the "about" section reaches the top of the viewport
-        //  end: "bottom top", // End the animation when the bottom of the "about" section reaches the top of the viewport
-        //  scrub: true, // Smoothly transition the opacity as the user scrolls
-        //  ease: "power4.inOut",
-        //  onUpdate: (self) => {
-        //    if (self.direction === -1) {
-        // Check if scrolling direction is up
-        // Reapply the initial blur effect when scrolling back up
-
-        //gsap.to(projectsSection, {
-        //filter: "blur(10px)", // Reapply the blur effect
-        // duration: 1, // Duration of the animation
-        // ease: "power4.inOut", // Easing function
-        //});
-        //  }
-        //},
-        //...});
-
-        // Animate opacity of the "about" section when the site opens or reloads
-        gsap.fromTo(
-          aboutSection,
-          { opacity: 0 }, // Initial state: opacity set to 0
-          { opacity: 1, duration: 1.5, ease: "power4.inOut" } // Final state: opacity animated to 1
-        );
-      }
-
-      // Call the initialBlur function when the document is loaded
-      document.addEventListener("DOMContentLoaded", initialBlur);
     </script>
 
     <!-- Your HTML content -->
