@@ -23,7 +23,7 @@
         font-size: 2em;
         z-index: 1000; /* Make sure it's on top */
         opacity: 0; /* Start invisible */
-        animation: fadeIn 1s forwards; /* Fade in animation */
+        animation: fadeIn 300ms forwards; /* Fade in animation */
       }
 
       /* Keyframes for fade in */
@@ -1370,7 +1370,7 @@
       window.addEventListener("load", () => {
         setTimeout(() => {
           const splashScreen = document.getElementById("splash-screen");
-          splashScreen.style.animation = "fadeOut 1s forwards";
+          splashScreen.style.animation = "fadeOut 300ms forwards";
 
           // Wait for the fade-out animation to finish before displaying the main content
           splashScreen.addEventListener("animationend", () => {
