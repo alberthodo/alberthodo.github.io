@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script> -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script> -->
 
     <style>
       /* Make the splash screen cover the entire viewport */
@@ -349,7 +349,7 @@
               </div>
             </div>
           </div>
-
+          <!-- meta modal -->
           <div
             class="card rounded-md hover:bg-gray-50 p-4 lg:flex w-full mt-[120px] mb-[160px] hover:scale-[1.01] meta-modal"
             type="button"
@@ -396,125 +396,7 @@
           </div> -->
 
           <!-- new modal -->
-          <!--Modal quantum-->
-          <div
-            id="quantum-modal"
-            class="modal quantum-modal opacity-0 pointer-events-none fixed w-full h-full top-0 left-0 flex items-center justify-center"
-          >
-            <div
-              class="modal-overlay absolute w-full h-full bg-zinc-900 blur-7xl opacity-95"
-            ></div>
 
-            <div
-              class="modal-container fixed w-full h-full z-50 overflow-y-auto"
-            >
-              <div
-                class="modal-close fixed top-0 left-0 cursor-pointer flex flex-col items-center mt-4 ml-8 text-black text-sm z-50"
-              >
-                <img class="w-[23px] mt-8" src="./images/x.png" />
-              </div>
-
-              <!-- Add margin if you want to see grey behind the modal-->
-              <div
-                class="modal-content mb-20 container mx-auto border max-w-5xl border-[#3C3C3C] h-auto text-left mt-12"
-              >
-                <!--Body-->
-                <div class="bg-sinc-400 rounded-lg shadow">
-                  <img
-                    class="w-full lg:max-h-[600px]"
-                    src="./images/qubit.gif"
-                    alt=""
-                  />
-
-                  <!-- Modal header -->
-                  <div class="p-4 md:p-5">
-                    <h5
-                      class="text-xs mb-1 tracking-[3px] text-[#7E7E7E] font-thin"
-                    >
-                      XR & HARDWARE PROTOTYPING
-                    </h5>
-                    <h3 class="text-2xl text-white font-regular">Quantum-XR</h3>
-                  </div>
-                  <!-- Modal body -->
-                  <div class="p-4 md:p-5 space-y-4">
-                    <p class="text-base mb-6 leading-relaxed text-white">
-                      For MIT Reality Hack 2024, my team was interested in
-                      Quantum-XR. It is an open source citizen science concept
-                      platform that allows the scientific community to
-                      collaborate with XR enthusiasts to create simulations of
-                      quantum physics phenomena in controlled environments. We
-                      focused on a proof of concept for simulating quantum
-                      properties.
-                    </p>
-                  </div>
-                  <div class="p-4 md:p-5 space-y-4">
-                    <div class="cards md:flex md:justify-between">
-                      <div class="smallCard">
-                        <h3 class="text-lg text-white">Timeline</h3>
-                        <p class="text-base mt-2 mb-6 text-white">
-                          Jan 26 - 29 2024
-                        </p>
-                      </div>
-
-                      <div class="smallCard">
-                        <h3 class="text-lg text-white">
-                          Team - Hackathon Project
-                        </h3>
-                        <p class="text-base mt-2 mb-6 text-white">
-                          2 Designers <br />1 Developer<br />1 Prototyper
-                          (myself)
-                        </p>
-                      </div>
-                      <div class="smallCard">
-                        <h3 class="text-lg text-white">Tools</h3>
-                        <p class="text-base mt-2 mb-6 text-white">
-                          Unity 3D / XR <br />Arduino<br />Vuforia
-                        </p>
-                      </div>
-                      <div class="smallCard md:pr-[50px]">
-                        <h3 class="text-lg text-white">Disciplines</h3>
-                        <p class="text-base mt-2 mb-6 text-white">
-                          Unity XR prototyping <br />Hardware prototyping<br />Sensor
-                          testing
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="p-4 md:p-5">
-                    <video class="rounded" controls>
-                      <source src="./images/quantumXR.mp4" type="video/mp4" />
-                      Your browser does not support the video tag.
-                    </video>
-                    <p class="text-lg text-white">
-                      A brief recap of the MIT hackathon.
-                    </p>
-                  </div>
-
-                  <!-- <div class="text-[sky-700] p-4 md:p-5">
-                    <a class="flex mb-6" href="">
-                      <p class="text-lg text-white">Send me an email</p>
-                      <img
-                        class="ml-2 w-[20px] mt-[5px] h-[20px]"
-                        src="./images/mail.png"
-                        alt=""
-                      />
-                    </a>
-                  </div> -->
-                  <!-- Modal footer -->
-                  <div
-                    class="text-[sky-700] mt-[120px] flex justify-center p-4 md:p-5"
-                  >
-                    <button
-                      type="button"
-                      class="modal-close bg-[#131313] hover:bg-black text-white pl-4 pr-4 p-2 mb-[120px] rounded-full"
-                    >
-                      Back
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
           <!--Modal dynamic-->
           <div
             id="dynamic-modal"
@@ -1348,192 +1230,7 @@
               </div>
             </div>
           </div>
-          <!--Modal knack-->
-          <div
-            id="knack-modal"
-            class="modal meta-modal opacity-0 pointer-events-none fixed w-full h-full top-0 left-0 flex items-center justify-center"
-          >
-            <div
-              class="modal-overlay absolute w-full h-full bg-zinc-900 blur-7xl opacity-95"
-            ></div>
 
-            <div
-              class="modal-container fixed w-full h-full z-50 overflow-y-auto"
-            >
-              <div
-                class="modal-close fixed top-0 left-0 cursor-pointer flex flex-col items-center mt-4 ml-8 text-black text-sm z-50"
-              >
-                <img class="w-[23px] mt-8" src="./images/x.png" />
-              </div>
-
-              <!-- Add margin if you want to see grey behind the modal-->
-              <div
-                class="modal-content mb-20 container mx-auto border max-w-5xl border-[#3C3C3C] h-auto text-left mt-12"
-              >
-                <!--Body-->
-                <div class="bg-sinc-400 rounded-lg shadow">
-                  <img
-                    class="w-full object-cover lg:max-h-[600px]"
-                    src="./images/knack.jpeg"
-                    alt=""
-                  />
-                  <!-- Modal header -->
-                  <div class="p-4 md:p-5">
-                    <h5
-                      class="text-xs mb-1 tracking-[3px] text-[#7E7E7E] font-thin"
-                    >
-                      GAME DEVELOPMENT
-                    </h5>
-                    <h3 class="text-2xl text-white font-regular">
-                      KnackApp - Super Smash
-                    </h3>
-                  </div>
-                  <!-- Modal body -->
-                  <div class="p-4 md:p-5 space-y-4">
-                    <p class="text-base mb-6 leading-relaxed text-white">
-                      During my time at KnackApp, I was a developer on the Games
-                      Team where I worked on several projects to improve the
-                      software usability in low internet regions. I also led the
-                      development of the Super Smash game for the platform.
-                    </p>
-                  </div>
-
-                  <div class="text-[sky-700] p-4 md:p-5">
-                    <a class="flex mb-6" href="">
-                      <p class="text-lg text-white">Send me an email</p>
-                      <img
-                        class="ml-2 w-[20px] mt-[5px] h-[20px]"
-                        src="./images/mail.png"
-                        alt=""
-                      />
-                    </a>
-                  </div>
-                  <!-- Modal footer -->
-                  <div
-                    class="text-[sky-700] mt-[120px] flex justify-center p-4 md:p-5"
-                  >
-                    <button
-                      type="button"
-                      class="modal-close bg-[#131313] hover:bg-black text-white pl-4 pr-4 p-2 mb-[120px] rounded-full"
-                    >
-                      Back
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!--Modal pico-->
-          <div
-            id="pico-modal"
-            class="modal pico-modal opacity-0 pointer-events-none fixed w-full h-full top-0 left-0 flex items-center justify-center"
-          >
-            <div
-              class="modal-overlay absolute w-full h-full bg-zinc-900 blur-7xl opacity-95"
-            ></div>
-
-            <div
-              class="modal-container fixed w-full h-full z-50 overflow-y-auto"
-            >
-              <div
-                class="modal-close fixed top-0 left-0 cursor-pointer flex flex-col items-center mt-4 ml-8 text-black text-sm z-50"
-              >
-                <img class="w-[23px] mt-8" src="./images/x.png" />
-              </div>
-
-              <!-- Add margin if you want to see grey behind the modal-->
-              <div
-                class="modal-content mb-20 container mx-auto border max-w-5xl border-[#3C3C3C] h-auto text-left mt-12"
-              >
-                <!--Body-->
-                <div class="bg-sinc-400 rounded-lg shadow">
-                  <img
-                    class="w-full lg:max-h-[600px]"
-                    src="./images/pico.png"
-                    alt=""
-                  />
-                  <!-- Modal header -->
-                  <div class="p-4 md:p-5">
-                    <h5
-                      class="text-xs mb-1 tracking-[3px] text-[#7E7E7E] font-thin"
-                    >
-                      ROBOTICS
-                    </h5>
-                    <h3 class="text-2xl text-white font-regular">
-                      Pico can Dance
-                    </h3>
-                  </div>
-                  <!-- Modal body -->
-                  <div class="p-4 md:p-5 space-y-4">
-                    <p class="text-base mb-6 leading-relaxed text-white">
-                      Pico is a lovely 2D robot dog who enjoys dancing in the
-                      maker studio / fabrication lab when he hears the sound of
-                      music. The aim of this project was to create a 2D pet for
-                      the design maker space to cheer people up and keep them
-                      company. 
-                    </p>
-                  </div>
-                  <div class="p-4 md:p-5 space-y-4">
-                    <div class="cards md:flex md:justify-between">
-                      <div class="smallCard">
-                        <h3 class="text-lg text-white">Timeline</h3>
-                        <p class="text-base mt-2 mb-6 text-white">Oct 2022</p>
-                      </div>
-
-                      <div class="smallCard">
-                        <h3 class="text-lg text-white">Team - Fun Project</h3>
-                        <p class="text-base mt-2 mb-6 text-white">
-                          Haesung Park <br />Albert Hodo
-                        </p>
-                      </div>
-                      <div class="smallCard">
-                        <h3 class="text-lg text-white">Tools</h3>
-                        <p class="text-base mt-2 mb-6 text-white">
-                          Arduino <br />Laser Cutter
-                        </p>
-                      </div>
-                      <div class="smallCard md:pr-[50px]">
-                        <h3 class="text-lg text-white">Disciplines</h3>
-                        <p class="text-base mt-2 mb-6 text-white">
-                          Programming <br />3D Fabrication<br />Robotics
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="p-4 md:p-5 space-y-4">
-                    <div class="extraData mb-[60px]">
-                      <video class="rounded" controls>
-                        <source src="./images/pcd.mp4" type="video/mp4" />
-                        Your browser does not support the video tag.
-                      </video>
-                    </div>
-                  </div>
-
-                  <div class="text-[sky-700] p-4 md:p-5">
-                    <a class="flex mb-6" href="">
-                      <p class="text-lg text-white">Send me an email</p>
-                      <img
-                        class="ml-2 w-[20px] mt-[5px] h-[20px]"
-                        src="./images/mail.png"
-                        alt=""
-                      />
-                    </a>
-                  </div>
-                  <!-- Modal footer -->
-                  <div
-                    class="text-[sky-700] mt-[120px] flex justify-center p-4 md:p-5"
-                  >
-                    <button
-                      type="button"
-                      class="modal-close bg-[#131313] hover:bg-black text-white pl-4 pr-4 p-2 mb-[120px] rounded-full"
-                    >
-                      Back
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
           <!--Modal fun-->
           <div
             id="fun-modal"
@@ -1663,110 +1360,6 @@
               </div>
             </div>
           </div>
-          <!--Modal shooter-->
-          <div
-            id="shooter-modal"
-            class="modal shooter-modal opacity-0 pointer-events-none fixed w-full h-full top-0 left-0 flex items-center justify-center"
-          >
-            <div
-              class="modal-overlay absolute w-full h-full bg-zinc-900 blur-7xl opacity-95"
-            ></div>
-
-            <div
-              class="modal-container fixed w-full h-full z-50 overflow-y-auto"
-            >
-              <div
-                class="modal-close fixed top-0 left-0 cursor-pointer flex flex-col items-center mt-4 ml-8 text-black text-sm z-50"
-              >
-                <img class="w-[23px] mt-8" src="./images/x.png" />
-              </div>
-
-              <!-- Add margin if you want to see grey behind the modal-->
-              <div
-                class="modal-content mb-20 container mx-auto border max-w-5xl border-[#3C3C3C] h-auto text-left mt-12"
-              >
-                <!--Body-->
-                <div class="bg-sinc-400 rounded-lg shadow">
-                  <img
-                    class="w-full h-[500px] lg:max-h-[600px]"
-                    src="./images/mwul.jpg"
-                    alt=""
-                  />
-                  <!-- Modal header -->
-                  <div class="p-4 md:p-5">
-                    <h5
-                      class="text-xs mb-1 tracking-[3px] text-[#7E7E7E] font-thin"
-                    >
-                      VR / AR / UNITY /
-                    </h5>
-                    <h3 class="text-2xl text-white font-regular">
-                      Rapid Game Prototypes
-                    </h3>
-                  </div>
-                  <!-- Modal body -->
-                  <div class="p-4 md:p-5 space-y-4">
-                    <p class="text-base mb-6 leading-relaxed text-white">
-                      Some rapid XR game prototypes made over time in no
-                      partcular order.
-                    </p>
-                  </div>
-
-                  <div class="p-4 md:p-5 space-y-4">
-                    <div class="extraData">
-                      <video class="rounded w-full h-[90vh]" controls>
-                        <source
-                          src="./images/vr shooter.MP4"
-                          type="video/mp4"
-                        />
-                        Your browser does not support the video tag.
-                      </video>
-
-                      <p class="text-base mt-2 text-white">
-                        A vr shooter game prototyped with Unity and Meta Quest
-                        3.
-                      </p>
-                    </div>
-                    <!-- <div class="extraData pt-[60px]">
-                      <iframe
-                        class="ml-auto mr-auto rounded w-full h-[70vh]"
-                        src="https://www.youtube.com/embed/MHOGDTubniw?si=ItAzI1_GJtCIeUjq"
-                        title="YouTube video player"
-                        frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        allowfullscreen
-                      ></iframe>
-                      <p class="text-base mt-2 text-white">
-                        An add for a new outfit in a 3D / VR game concept.
-                      </p>
-                    </div> -->
-                  </div>
-
-                  <div class="text-[sky-700] flex justify-center p-4 md:p-5">
-                    <p class="text-lg mt-2 text-white">More coming Soon!</p>
-                    <!-- <a class="flex mb-6" href="">
-                      <p class="text-lg text-white">Send me an email</p>
-                      <img
-                        class="ml-2 w-[20px] mt-[5px] h-[20px]"
-                        src="./images/mail.png"
-                        alt=""
-                      />
-                    </a> -->
-                  </div>
-                  <!-- Modal footer -->
-                  <div
-                    class="text-[sky-700] mt-[120px] flex justify-center p-4 md:p-5"
-                  >
-                    <button
-                      type="button"
-                      class="modal-close bg-[#131313] hover:bg-black text-white pl-4 pr-4 p-2 mb-[120px] rounded-full"
-                    >
-                      Back
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
       </section>
     </div>
@@ -1784,7 +1377,7 @@
             splashScreen.style.display = "none";
             document.getElementById("main-content").style.display = "block";
           });
-        }, 1000); // Change the delay as needed
+        }, 100); // Change the delay as needed
       });
     </script>
     <script>
