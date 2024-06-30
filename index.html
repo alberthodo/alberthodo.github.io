@@ -8,41 +8,6 @@
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script> -->
 
     <style>
-      /* Make the splash screen cover the entire viewport */
-      #splash-screen {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: white; /* Background color */
-        color: black; /* Text color */
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-size: 2em;
-        z-index: 1000; /* Make sure it's on top */
-        opacity: 0; /* Start invisible */
-        animation: fadeIn 300ms forwards; /* Fade in animation */
-      }
-
-      /* Keyframes for fade in */
-      @keyframes fadeIn {
-        to {
-          opacity: 1;
-        }
-      }
-
-      /* Keyframes for fade out */
-      @keyframes fadeOut {
-        from {
-          opacity: 1;
-        }
-        to {
-          opacity: 0;
-        }
-      }
-
       /* Initially hide the main content */
       #main-content {
         display: none;
@@ -89,11 +54,11 @@
     id="all"
     class="bg-white cursor-grab all text-[#181818] snap-y snap-mandatory lg:p-[40px] lg:pl-[80px] lg:pr-[80px] pl-6 pr-6"
   >
-    <div id="splash-screen">
+    <!-- <div id="splash-screen">
       <h1 class="text-gray-400 font-bold lg:text-4xl text-2xl">
         Hodo's Portfolio!
-      </h1>
-    </div>
+      </h1> -->
+    <!-- </div> -->
     <div id="main-content" class="main">
       <section>
         <div id="about" class="about z-50 mt-4 snap-center">
@@ -1365,7 +1330,7 @@
     </div>
 
     <!-- <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script> -->
-    <script>
+    <!-- <script>
       // Hide the splash screen after 3 seconds with a fade-out effect
       window.addEventListener("load", () => {
         setTimeout(() => {
@@ -1379,7 +1344,7 @@
           });
         }, 50); // Change the delay as needed
       });
-    </script>
+    </script> -->
     <script>
       function openModal(modalId) {
         const body = document.querySelector("body");
