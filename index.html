@@ -9,7 +9,7 @@
 
     <style>
       /* Initially hide the main content */
-      
+
       body,
       h1,
       h2,
@@ -60,27 +60,8 @@
     <div id="main-content" class="main">
       <section>
         <div id="about" class="about z-50 mt-4 snap-center">
-          <div class="firstSection flex items-end">
-            <!-- <div class="tagline">
-              <h5 class="text-sm text-gray-400 lg:text-lg">
-                Human First | Designer | Engineer
-              </h5>
-            </div> -->
-            <!-- <div class="logo w-[80px] lg:w-[100px] ml-auto">
-              <img class="animate-pulse" src="./images/HODO DESIGNS.png" />
-            </div> -->
-          </div>
           <div class="AboutMain">
             <h1 class="text-2xl text-gray-400 lg:text-4xl mt-8 font-bold">
-              <!-- <span class="inline-block"
-                ><img class="w-16 lg:w-18" src="./images/(Hodo).png"
-              /></span> -->
-              <!-- Hodo is a human first engineer and designer who explores experimental
-              interfaces, based on research in nature. His work ranges from
-              developing software to prototyping pre-colonial futuristic
-              technologies like AfroTechnoHistory. He has a degree in Computer
-              Science from Ashesi University and a masters in Design from UC
-              Berkeley’s College of Engineering. -->
               <div class="first lg:leading-relaxed mb-8">
                 <span class="text-black"
                   >I'm a creative technologist who designs tangible experiences
@@ -160,179 +141,145 @@
         class="glass absolute w-full h-full z-10 bg-black/70 backdrop-blur-lg"
       ></div> -->
       <section>
-        <div class="projects pt-8 flex flex-col mt-[60px] lg:mt-[30vh]">
+        <div
+          class="projects pt-8 flex flex-col md:grid gap-2 lg:gap-8 md:grid-cols-2 xl:grid-cols-3 mt-[60px] lg:mt-[30vh]"
+        >
           <div
             type="button"
-            class="card rounded-md hover:bg-gray-50 p-4 lg:flex w-full mt-[120px] mb-[160px] hover:scale-[1.01] dynamic-modal"
+            class="card rounded-md w-full lg:w-[430px] hover:scale-[1.01] dynamic-modal"
             onclick="openModal('dynamic-modal')"
           >
             <img
-              class="rounded-md sm:h-[300px] w-full lg:h-[55vh] lg:w-[55vw] object-cover"
+              class="rounded-md sm:h-[300px] w-full lg:h-[300px] object-cover"
               src="./images/dynamic.jpeg"
             />
-            <div class="info ml-4 lg:ml-8 mb-8 mt-8">
-              <p class="text-2xl font-semibold">Dynamic Tangible UI</p>
-              <p class="text-lg lg:w-[20vw] text-gray-400 mt-2">
-                Simulating App experiences with interactive physical spaces.
-              </p>
-              <div class="mt-8 text-gray-400 text-lg flex flex-col">
-                <p>- Arduino Programming</p>
-                <p>- Silicone Casting</p>
-                <p>- Physical Fabrication</p>
+            <div class="info mt-2 ml-2 mr-4">
+              <div class="topicanddate flex justify-between">
+                <p class="text-xl text-gray-500 font-semibold">
+                  Dynamic Tangible UI
+                </p>
+                <div class="text-gray-500 text-base">
+                  <p>2023</p>
+                </div>
               </div>
+              <p class="text-base text-gray-400">
+                Arduino Programming, Silicone Casting, Fabrication.
+              </p>
             </div>
           </div>
           <div
-            class="card rounded-md hover:bg-gray-50 p-4 lg:flex w-full mt-[120px] mb-[160px] hover:scale-[1.01] vits-modal"
+            class="card rounded-md w-full lg:w-[430px] hover:scale-[1.01] vits-modal"
             type="button"
             onclick="openModal('vits-modal')"
           >
             <img
-              class="rounded-md sm:h-[300px] w-full lg:h-[55vh] lg:w-[55vw] object-cover"
+              class="rounded-md sm:h-[300px] w-full lg:h-[300px] object-cover"
               src="./images/vits.jpeg"
             />
-            <div class="info ml-4 lg:ml-8 mb-8 mt-8">
-              <p class="text-2xl font-semibold">Vits Health Companion</p>
-              <p class="text-lg lg:w-[20vw] text-gray-400 mt-2">
-                A smart app for everything health.
-              </p>
-              <div class="mt-8 text-gray-400 text-lg flex flex-col">
-                <p>- UX Research</p>
-                <p>- UI Design</p>
-                <p>- User studies</p>
+            <div class="info mt-2 ml-2 mr-4">
+              <div class="topicanddate flex justify-between">
+                <p class="text-xl text-gray-500 font-semibold">
+                  Vits Health Companion
+                </p>
+                <div class="text-gray-500 text-base">
+                  <p>2019</p>
+                </div>
               </div>
+              <p class="text-base text-gray-400">
+                UX Research, UI Design, User studies.
+              </p>
             </div>
           </div>
           <div
             type="button"
-            class="card rounded-md hover:bg-gray-50 p-4 lg:flex w-full mt-[120px] mb-[160px] hover:scale-[1.01] afro-modal"
+            class="card rounded-md w-full lg:w-[430px] hover:scale-[1.01] afro-modal"
             onclick="openModal('afro-modal')"
           >
             <img
-              class="rounded-md sm:h-[300px] w-full lg:h-[55vh] lg:w-[55vw] object-cover"
+              class="rounded-md sm:h-[300px] w-full lg:h-[300px] object-cover"
               src="./images/afro.png"
             />
-            <div class="info ml-4 lg:ml-8 mb-8 mt-8">
-              <p class="text-2xl font-semibold">AfroTechnoHistory</p>
-              <p class="text-lg lg:w-[25vw] text-gray-400 mt-2">
-                An approach to designing technologies based on cultural heritage
-                to rethink our relationship with consumer goods.
-              </p>
-              <div class="mt-8 text-gray-400 text-lg flex flex-col">
-                <p>- Product Strategy</p>
-                <p>- Speculative Design</p>
-                <p>- Physical Fabrication</p>
+            <div class="info mt-2 ml-2 mr-4">
+              <div class="topicanddate flex justify-between">
+                <p class="text-xl text-gray-500 font-semibold">
+                  AfroTechnoHistory
+                </p>
+                <div class="text-gray-500 text-base">
+                  <p>2023</p>
+                </div>
               </div>
+              <p class="text-base text-gray-400">
+                Product Strategy, Speculative Design, Physical Fabrication.
+              </p>
             </div>
           </div>
           <div
-            class="card rounded-md hover:bg-gray-50 p-4 lg:flex w-full mt-[120px] mb-[160px] hover:scale-[1.01] cha-modal"
+            class="card rounded-md w-full lg:w-[430px] hover:scale-[1.01] cha-modal"
             type="button"
             onclick="openModal('cha-modal')"
           >
             <img
-              class="rounded-md sm:h-[300px] w-full lg:h-[55vh] lg:w-[55vw] object-cover"
+              class="rounded-md sm:h-[300px] w-full lg:h-[300px] object-cover"
               src="./images/food.jpeg"
             />
-            <div class="info ml-4 lg:ml-8 mb-8 mt-8">
-              <p class="text-2xl font-semibold">Chakula Food App</p>
-              <p class="text-lg lg:w-[25vw] text-gray-400 mt-2">
-                A system that solves an absurd delay in ordering food at Ashesi
-                University.
-              </p>
-              <div class="mt-8 text-gray-400 text-lg flex flex-col">
-                <p>- User Studies</p>
-                <p>- UX Design</p>
-                <p>- Service Design</p>
+            <div class="info mt-2 ml-2 mr-4">
+              <div class="topicanddate flex justify-between">
+                <p class="text-xl text-gray-500 font-semibold">
+                  Chakula Food App
+                </p>
+                <div class="text-gray-500 text-base">
+                  <p>2021</p>
+                </div>
               </div>
+              <p class="text-base text-gray-400">
+                UI Design, User Studies, Service Design.
+              </p>
             </div>
           </div>
+          <!-- meta -->
           <div
-            class="card rounded-md hover:bg-gray-50 p-4 lg:flex w-full mt-[120px] mb-[160px] hover:scale-[1.01] mycor-modal"
-            type="button"
-            onclick="openModal('mycor-modal')"
-          >
-            <img
-              class="rounded-md sm:h-[300px] w-full lg:h-[55vh] lg:w-[55vw] object-cover"
-              src="./images/mycorrpic1.jpeg"
-            />
-            <div class="info ml-4 lg:ml-8 mb-8 mt-8">
-              <p class="text-2xl font-semibold">Mycorrhizae</p>
-              <p class="text-lg lg:w-[20vw] text-gray-400 mt-2">
-                An interractive exhibiton simulating plant communication via
-                fungi.
-              </p>
-              <div class="mt-8 text-gray-400 text-lg flex flex-col">
-                <p>- Computer Vision Programming</p>
-                <p>- Experience Design</p>
-                <p>- Projection Mapping</p>
-              </div>
-            </div>
-          </div>
-          <!-- <div
-          type="button"
-          class="card w-full mb-6 lg:mb-0 quantum-modal"
-          onclick="openModal('quantum-modal')"
-        >
-          <img
-            class="rounded-md sm:h-[300px] lg:h-[290px] sm:w-full object-cover hover:scale-[1.01]"
-            src="./images/qubit.gif"
-          />
-        </div> -->
-
-          <!-- <div
-          type="button"
-          class="card w-full mb-6 lg:mb-0 shooter-modal"
-          onclick="openModal('shooter-modal')"
-        >
-          <img
-            class="rounded-md sm:h-[300px] lg:h-[290px] sm:w-full object-cover hover:scale-[1.01]"
-            src="./images/vr game gif.gif"
-          />
-        </div> -->
-
-          <div
-            class="card rounded-md hover:bg-gray-50 p-4 lg:flex w-full mt-[120px] mb-[160px] hover:scale-[1.01] fun-modal"
-            type="button"
-            onclick="openModal('fun-modal')"
-          >
-            <img
-              class="rounded-md sm:h-[300px] w-full lg:h-[55vh] lg:w-[55vw] object-cover"
-              src="./images/blender1.gif"
-            />
-            <div class="info ml-4 lg:ml-8 mb-8 mt-8">
-              <p class="text-2xl font-semibold">CGI Animations</p>
-              <p class="text-lg lg:w-[25vw] text-gray-400 mt-2">
-                A series of computer graphics experiments created in Blender.
-              </p>
-              <div class="mt-8 text-gray-400 text-lg flex flex-col">
-                <p>- Blender</p>
-                <p>- Computer Graphic Animations</p>
-                <p>- Sound Design</p>
-              </div>
-            </div>
-          </div>
-          <!-- meta modal -->
-          <div
-            class="card rounded-md hover:bg-gray-50 p-4 lg:flex w-full mt-[120px] mb-[160px] hover:scale-[1.01] meta-modal"
+            class="card rounded-md w-full lg:w-[430px] hover:scale-[1.01] meta-modal"
             type="button"
             onclick="openModal('meta-modal')"
           >
             <img
-              class="rounded-md sm:h-[300px] w-full lg:h-[55vh] lg:w-[55vw] object-cover"
+              class="rounded-md sm:h-[300px] w-full lg:h-[300px] object-cover"
               src="./images/meta.jpeg"
             />
-            <div class="info ml-4 lg:ml-8 mb-8 mt-8">
-              <p class="text-2xl font-semibold">Meta Apprentiship</p>
-              <p class="text-lg lg:w-[20vw] text-gray-400 mt-2">
-                A software engineering apprentiship where I was mentored by Meta
-                engineers.
-              </p>
-              <div class="mt-8 text-gray-400 text-lg flex flex-col">
-                <p>- Algorithm Design</p>
-                <p>- Code Optimization</p>
-                <p>- Software Engineering</p>
+            <div class="info mt-2 ml-2 mr-4">
+              <div class="topicanddate flex justify-between">
+                <p class="text-xl text-gray-500 font-semibold">
+                  Meta Swe Internship
+                </p>
+                <div class="text-gray-500 text-base">
+                  <p>2020</p>
+                </div>
               </div>
+              <p class="text-base text-gray-400">
+                Software Engineering, Code Optimization, Algorithm Design.
+              </p>
+            </div>
+          </div>
+          <!-- micor -->
+          <div
+            class="card rounded-md w-full lg:w-[430px] hover:scale-[1.01] mycor-modal"
+            type="button"
+            onclick="openModal('mycor-modal')"
+          >
+            <img
+              class="rounded-md sm:h-[300px] w-full lg:h-[300px] object-cover"
+              src="./images/mycorrpic1.jpeg"
+            />
+            <div class="info mt-2 ml-2 mr-4">
+              <div class="topicanddate flex justify-between">
+                <p class="text-xl text-gray-500 font-semibold">Mycorrhizae</p>
+                <div class="text-gray-500 text-base">
+                  <p>2022</p>
+                </div>
+              </div>
+              <p class="text-base text-gray-400">
+                Computer Vision, Experience Design, Projection Mapping.
+              </p>
             </div>
           </div>
 
@@ -1323,6 +1270,68 @@
               </div>
             </div>
           </div>
+        </div>
+      </section>
+      <section>
+        <div class="third sector pt-8 flex flex-col mt-[60px] lg:mt-[30vh]">
+          <div class="textsecond">
+            <h1 class="text-2xl text-gray-400 lg:text-4xl mt-8 font-bold">
+              <div class="first lg:leading-relaxed mb-8">
+                <span class="text-black"
+                  >"We don’t stop playing because we grow old; we grow old
+                  because we stop playing." — George Bernard Shaw.</span
+                >
+                Design is curious. Design is play. Design is experiment. I play
+                and keep my inner child alive.
+              </div>
+              <div class="second mb-8">
+                I like to pick up a new tool and play with it to build random
+                artifacts.
+              </div>
+            </h1>
+          </div>
+          <div
+            class="card rounded-md hover:bg-gray-50 p-4 lg:flex w-full lg:mt-[30vh] mt-[120px] mb-[160px] fun-modal"
+            type="button"
+            onclick="openModal('fun-modal')"
+          >
+            <img
+              class="rounded-md sm:h-[300px] w-full lg:h-[55vh] lg:w-[55vw] object-cover"
+              src="./images/blender1.gif"
+            />
+            <div class="info ml-4 lg:ml-8 mb-8 mt-8">
+              <p class="text-2xl text-gray-500 font-semibold">CGI Animations</p>
+              <p class="text-lg lg:w-[25vw] text-gray-400 mt-2">
+                A series of computer graphics experiments created in Blender.
+              </p>
+              <div class="mt-8 text-gray-400 text-lg flex flex-col">
+                <p>- Blender</p>
+                <p>- Computer Graphic Animations</p>
+                <p>- Sound Design</p>
+              </div>
+            </div>
+          </div>
+          <!-- <div
+            class="card rounded-md hover:bg-gray-50 p-4 lg:flex w-full mt-[60px] mb-[160px] hover:scale-[1.01] fun-modal"
+            type="button"
+            onclick="openModal('pico-modal')"
+          >
+            <img
+              class="rounded-md sm:h-[300px] w-full lg:h-[55vh] lg:w-[55vw] object-cover"
+              src="./images/pico.png"
+            />
+            <div class="info ml-4 lg:ml-8 mb-8 mt-8">
+              <p class="text-2xl font-semibold">Pico can dance</p>
+              <p class="text-lg lg:w-[25vw] text-gray-400 mt-2">
+                A 2D dog robot that dances in a makerspace.
+              </p>
+              <div class="mt-8 text-gray-400 text-lg flex flex-col">
+                <p>- Arduino programming</p>
+                <p>- Laser cutting</p>
+                <p>- Fabrication</p>
+              </div>
+            </div>
+          </div> -->
         </div>
       </section>
     </div>
