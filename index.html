@@ -145,28 +145,29 @@
           class="projects pt-8 flex flex-col md:grid gap-2 lg:gap-8 md:grid-cols-2 xl:grid-cols-3 mt-[60px] lg:mt-[30vh]"
         >
           <div
+            class="card rounded-md w-full lg:w-[430px] hover:scale-[1.01] cha-modal"
             type="button"
-            class="card rounded-md w-full lg:w-[430px] hover:scale-[1.01] dynamic-modal"
-            onclick="openModal('dynamic-modal')"
+            onclick="openModal('cha-modal')"
           >
             <img
               class="rounded-md sm:h-[300px] w-full lg:h-[300px] object-cover"
-              src="./images/dynamic.jpeg"
+              src="./images/food.jpeg"
             />
             <div class="info mt-2 ml-2 mr-4">
               <div class="topicanddate flex justify-between">
                 <p class="text-xl text-gray-500 font-semibold">
-                  Dynamic Tangible UI
+                  Chakula Food App
                 </p>
                 <div class="text-gray-500 text-base">
-                  <p>2023</p>
+                  <p>2021</p>
                 </div>
               </div>
               <p class="text-base text-gray-400">
-                Arduino Programming, Silicone Casting, Fabrication.
+                UI Design, User Studies, Service Design.
               </p>
             </div>
           </div>
+
           <div
             class="card rounded-md w-full lg:w-[430px] hover:scale-[1.01] vits-modal"
             type="button"
@@ -187,52 +188,6 @@
               </div>
               <p class="text-base text-gray-400">
                 UX Research, UI Design, User studies.
-              </p>
-            </div>
-          </div>
-          <div
-            type="button"
-            class="card rounded-md w-full lg:w-[430px] hover:scale-[1.01] afro-modal"
-            onclick="openModal('afro-modal')"
-          >
-            <img
-              class="rounded-md sm:h-[300px] w-full lg:h-[300px] object-cover"
-              src="./images/afro.png"
-            />
-            <div class="info mt-2 ml-2 mr-4">
-              <div class="topicanddate flex justify-between">
-                <p class="text-xl text-gray-500 font-semibold">
-                  AfroTechnoHistory
-                </p>
-                <div class="text-gray-500 text-base">
-                  <p>2023</p>
-                </div>
-              </div>
-              <p class="text-base text-gray-400">
-                Product Strategy, Speculative Design, Physical Fabrication.
-              </p>
-            </div>
-          </div>
-          <div
-            class="card rounded-md w-full lg:w-[430px] hover:scale-[1.01] cha-modal"
-            type="button"
-            onclick="openModal('cha-modal')"
-          >
-            <img
-              class="rounded-md sm:h-[300px] w-full lg:h-[300px] object-cover"
-              src="./images/food.jpeg"
-            />
-            <div class="info mt-2 ml-2 mr-4">
-              <div class="topicanddate flex justify-between">
-                <p class="text-xl text-gray-500 font-semibold">
-                  Chakula Food App
-                </p>
-                <div class="text-gray-500 text-base">
-                  <p>2021</p>
-                </div>
-              </div>
-              <p class="text-base text-gray-400">
-                UI Design, User Studies, Service Design.
               </p>
             </div>
           </div>
@@ -260,6 +215,30 @@
               </p>
             </div>
           </div>
+          <div
+            type="button"
+            class="card rounded-md w-full lg:w-[430px] hover:scale-[1.01] dynamic-modal"
+            onclick="openModal('dynamic-modal')"
+          >
+            <img
+              class="rounded-md sm:h-[300px] w-full lg:h-[300px] object-cover"
+              src="./images/dynamic.jpeg"
+            />
+            <div class="info mt-2 ml-2 mr-4">
+              <div class="topicanddate flex justify-between">
+                <p class="text-xl text-gray-500 font-semibold">
+                  Dynamic Tangible UI
+                </p>
+                <div class="text-gray-500 text-base">
+                  <p>2023</p>
+                </div>
+              </div>
+              <p class="text-base text-gray-400">
+                Arduino Programming, Silicone Casting, Fabrication.
+              </p>
+            </div>
+          </div>
+
           <!-- micor -->
           <div
             class="card rounded-md w-full lg:w-[430px] hover:scale-[1.01] mycor-modal"
@@ -279,6 +258,29 @@
               </div>
               <p class="text-base text-gray-400">
                 Computer Vision, Experience Design, Projection Mapping.
+              </p>
+            </div>
+          </div>
+          <div
+            type="button"
+            class="card rounded-md w-full lg:w-[430px] hover:scale-[1.01] afro-modal"
+            onclick="openModal('afro-modal')"
+          >
+            <img
+              class="rounded-md sm:h-[300px] w-full lg:h-[300px] object-cover"
+              src="./images/afro.png"
+            />
+            <div class="info mt-2 ml-2 mr-4">
+              <div class="topicanddate flex justify-between">
+                <p class="text-xl text-gray-500 font-semibold">
+                  AfroTechnoHistory
+                </p>
+                <div class="text-gray-500 text-base">
+                  <p>2023</p>
+                </div>
+              </div>
+              <p class="text-base text-gray-400">
+                Product Strategy, Speculative Design, Physical Fabrication.
               </p>
             </div>
           </div>
@@ -1199,6 +1201,27 @@
                         <h3
                           class="text-base mt-24 mb-1 tracking-[3px] text-[#7E7E7E] font-thin"
                         >
+                          COMPONENTS
+                        </h3>
+                        <p class="text-base mt-2 mb-6 text-[#E4E4E4]">
+                          Sample UI components used.
+                        </p>
+                        <img
+                          class="w-full rounded object-cover"
+                          src="./images/foodcomp_hl.png"
+                          alt=""
+                        />
+
+                        <p
+                          class="text-sm font-bold flex justify-end mt-2 mb-6 text-white"
+                        >
+                          00. Sample UI components in the system.
+                        </p>
+                      </div>
+                      <div class="extraData mb-[60px]">
+                        <h3
+                          class="text-base mt-24 mb-1 tracking-[3px] text-[#7E7E7E] font-thin"
+                        >
                           ONBOARDING
                         </h3>
                         <p class="text-base mt-2 mb-6 text-[#E4E4E4]">
@@ -1300,8 +1323,93 @@
                         <p
                           class="text-sm font-bold flex justify-end mt-2 mb-6 text-white"
                         >
-                          05.Pages for checkout. DineIn, pickUp or get it
+                          05. Pages for checkout. DineIn, pickUp or get it
                           delivered.
+                        </p>
+                      </div>
+                      <div class="extraData mb-[60px]">
+                        <h3
+                          class="text-base mt-24 mb-1 tracking-[3px] text-[#7E7E7E] font-thin"
+                        >
+                          TRACK YOUR ORDER
+                        </h3>
+                        <p class="text-base mt-2 mb-6 text-[#E4E4E4]">
+                          A live update way to follow your meal from preparation
+                          to delivery.
+                        </p>
+                        <img
+                          class="w-full rounded object-cover"
+                          src="./images/foodtro_hl.png"
+                          alt=""
+                        />
+
+                        <p
+                          class="text-sm font-bold flex justify-end mt-2 mb-6 text-white"
+                        >
+                          06. Pages to track your food or the rider.
+                        </p>
+                      </div>
+                      <div class="extraData mb-[60px]">
+                        <h3
+                          class="text-base mt-24 mb-1 tracking-[3px] text-[#7E7E7E] font-thin"
+                        >
+                          MENU
+                        </h3>
+                        <p class="text-base mt-2 mb-6 text-[#E4E4E4]">
+                          A side menu and a way to pass on complaints easily.
+                        </p>
+                        <img
+                          class="w-full rounded object-cover"
+                          src="./images/foodmnu_hl.png"
+                          alt=""
+                        />
+
+                        <p
+                          class="text-sm font-bold flex justify-end mt-2 mb-6 text-white"
+                        >
+                          07. Menu section and complaint form section.
+                        </p>
+                      </div>
+                      <div class="extraData mb-[60px]">
+                        <h3
+                          class="text-base mt-24 mb-1 tracking-[3px] text-[#7E7E7E] font-thin"
+                        >
+                          AUTHENTICATION
+                        </h3>
+                        <p class="text-base mt-2 mb-6 text-[#E4E4E4]">
+                          Recover your account easily with a simple OTP.
+                        </p>
+                        <img
+                          class="w-full rounded object-cover"
+                          src="./images/foodpsd_hl.png"
+                          alt=""
+                        />
+
+                        <p
+                          class="text-sm font-bold flex justify-end mt-2 mb-6 text-white"
+                        >
+                          08. Authentication pages for password reset.
+                        </p>
+                      </div>
+                      <div class="extraData mb-[60px]">
+                        <h3
+                          class="text-base mt-24 mb-1 tracking-[3px] text-[#7E7E7E] font-thin"
+                        >
+                          COMMUNITY
+                        </h3>
+                        <p class="text-base mt-2 mb-6 text-[#E4E4E4]">
+                          A solution made for the community by the community.
+                        </p>
+                        <img
+                          class="w-full rounded object-cover"
+                          src="./images/foodpromo_hl.png"
+                          alt=""
+                        />
+
+                        <p
+                          class="text-sm font-bold flex justify-end mt-2 mb-6 text-white"
+                        >
+                          09. Splash screen and onboarding screen.
                         </p>
                       </div>
                     </div>
@@ -1309,9 +1417,9 @@
 
                   <div class="text-[sky-700] p-4 md:p-5">
                     <a class="flex mb-6" href="">
-                      <p class="text-lg text-white">
+                      <!-- <p class="text-lg text-white">
                         This page is being updated. Check for updates soon!
-                      </p>
+                      </p> -->
                       <!-- <img
                 class="ml-2 w-[20px] mt-[5px] h-[20px]"
                 src="./images/arrow-up-right.png"
