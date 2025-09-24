@@ -24,6 +24,102 @@
       .opacity-95 {
         opacity: 0.95;
       }
+      
+      /* Bento Grid Styles */
+      .bento-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-auto-rows: minmax(200px, auto);
+        gap: 1.5rem;
+      }
+      
+      .bento-item {
+        position: relative;
+        border-radius: 1.5rem;
+        overflow: hidden;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      }
+      
+      .bento-item:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+      }
+      
+      .bento-hero {
+        grid-column: span 2;
+        grid-row: span 2;
+        min-height: 400px;
+      }
+      
+      .bento-medium {
+        grid-column: span 1;
+        grid-row: span 2;
+        min-height: 400px;
+      }
+      
+      .bento-small {
+        grid-column: span 1;
+        grid-row: span 1;
+        min-height: 200px;
+      }
+      
+      .bento-content {
+        position: relative;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+      }
+      
+      .bento-content img {
+        transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      
+      .bento-item:hover .bento-content img {
+        transform: scale(1.05);
+      }
+      
+      /* Responsive Design */
+      @media (max-width: 1024px) {
+        .bento-grid {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 1rem;
+        }
+        
+        .bento-hero {
+          grid-column: span 2;
+          grid-row: span 1;
+          min-height: 300px;
+        }
+        
+        .bento-medium {
+          grid-column: span 1;
+          grid-row: span 1;
+          min-height: 200px;
+        }
+        
+        .bento-small {
+          grid-column: span 1;
+          grid-row: span 1;
+          min-height: 200px;
+        }
+      }
+      
+      @media (max-width: 640px) {
+        .bento-grid {
+          grid-template-columns: 1fr;
+          gap: 0.75rem;
+        }
+        
+        .bento-hero,
+        .bento-medium,
+        .bento-small {
+          grid-column: span 1;
+          grid-row: span 1;
+          min-height: 250px;
+        }
+      }
     </style>
     <title>Document</title>
     <script type="module" src="index.js"></script>
@@ -93,97 +189,188 @@
     ></div> -->
     <section>
       <div
-        class="projects pt-8 sm:grid grid-cols-2 gap-4 lg:grid-cols-3 snap-center mt-[60px] lg:mt-[30vh]"
+        class="projects pt-8 snap-center mt-[60px] lg:mt-[30vh]"
       >
-        <div
-          type="button"
-          class="card w-full mb-6 lg:mb-0 dynamic-modal"
-          onclick="openModal('dynamic-modal')"
-        >
-          <img
-            class="rounded-md sm:h-[300px] lg:h-[370px] sm:w-full object-cover hover:scale-[1.01]"
-            src="./images/dynamic.jpeg"
-          />
-        </div>
-        <div
-          type="button"
-          class="card w-full mb-6 lg:mb-0 afro-modal"
-          onclick="openModal('afro-modal')"
-        >
-          <img
-            class="rounded-md sm:h-[300px] lg:h-[370px] sm:w-full object-cover hover:scale-[1.01]"
-            src="./images/afro.png"
-          />
-        </div>
-        <div
-          class="card w-full mb-6 lg:mb-0 mycor-modal"
-          type="button"
-          onclick="openModal('mycor-modal')"
-        >
-          <img
-            class="rounded-md sm:h-[300px] lg:h-[370px] sm:w-full object-cover hover:scale-[1.01]"
-            src="./images/mycorrpic1.jpeg"
-          />
-        </div>
-        <div
-          class="card w-full mb-6 lg:mb-0 vits-modal"
-          type="button"
-          onclick="openModal('vits-modal')"
-        >
-          <img
-            class="rounded-md sm:h-[300px] lg:h-[370px] sm:w-full object-cover hover:scale-[1.01]"
-            src="./images/vits.jpeg"
-          />
-        </div>
-        <div
-          class="card w-full mb-6 lg:mb-0 meta-modal"
-          type="button"
-          onclick="openModal('meta-modal')"
-        >
-          <img
-            class="rounded-md sm:h-[300px] lg:h-[370px] sm:w-full object-cover hover:scale-[1.01]"
-            src="./images/meta.png"
-          />
-        </div>
-        <div
-          class="card w-full mb-6 lg:mb-0 cha-modal"
-          type="button"
-          onclick="openModal('cha-modal')"
-        >
-          <img
-            class="rounded-md sm:h-[300px] lg:h-[370px] sm:w-full object-cover hover:scale-[1.01]"
-            src="./images/food.jpeg"
-          />
-        </div>
-        <div
-          class="card w-full mb-6 lg:mb-0 knack-modal"
-          type="button"
-          onclick="openModal('knack-modal')"
-        >
-          <img
-            class="rounded-md sm:h-[300px] lg:h-[370px] sm:w-full object-cover hover:scale-[1.01]"
-            src="./images/knack.jpeg"
-          />
-        </div>
-        <div
-          class="card pico-modal w-full mb-6 lg:mb-0"
-          type="button"
-          onclick="openModal('pico-modal')"
-        >
-          <img
-            class="rounded-md sm:h-[300px] lg:h-[370px] sm:w-full object-cover hover:scale-[1.01]"
-            src="./images/pico.png"
-          />
-        </div>
-        <div
-          class="card fun-modal w-full mb-6 lg:mb-0"
-          type="button"
-          onclick="openModal('fun-modal')"
-        >
-          <img
-            class="rounded-md sm:h-[300px] lg:h-[370px] sm:w-full object-cover hover:scale-[1.01]"
-            src="./images/blender.gif"
-          />
+        <!-- Bento Grid Container -->
+        <div class="bento-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
+          
+          <!-- Hero Project - Dynamic Tangible UI (2x2) -->
+          <div
+            type="button"
+            class="bento-item bento-hero col-span-1 sm:col-span-2 lg:col-span-2 lg:row-span-2 dynamic-modal group cursor-pointer"
+            onclick="openModal('dynamic-modal')"
+          >
+            <div class="bento-content h-full relative overflow-hidden rounded-2xl bg-gradient-to-br from-gray-800 to-gray-900">
+              <img
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                src="./images/dynamic.jpeg"
+                alt="Dynamic Tangible UI"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+              <div class="absolute bottom-6 left-6 text-white">
+                <h3 class="text-xl lg:text-2xl font-semibold mb-2">Dynamic Tangible UI</h3>
+                <p class="text-sm lg:text-base text-gray-300">Soft Robotics Interface Design</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Medium Project - Mycorrhizae (1x2) -->
+          <div
+            class="bento-item bento-medium col-span-1 lg:col-span-1 lg:row-span-2 mycor-modal group cursor-pointer"
+            type="button"
+            onclick="openModal('mycor-modal')"
+          >
+            <div class="bento-content h-full relative overflow-hidden rounded-2xl bg-gradient-to-br from-green-800 to-green-900">
+              <img
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                src="./images/mycorrpic1.jpeg"
+                alt="Mycorrhizae"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+              <div class="absolute bottom-4 left-4 text-white">
+                <h3 class="text-lg font-semibold mb-1">Mycorrhizae</h3>
+                <p class="text-sm text-gray-300">Interactive Installation</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Small Projects Row 1 -->
+          <div
+            class="bento-item bento-small col-span-1 afro-modal group cursor-pointer"
+            type="button"
+            onclick="openModal('afro-modal')"
+          >
+            <div class="bento-content h-full relative overflow-hidden rounded-2xl bg-gradient-to-br from-purple-800 to-purple-900">
+              <img
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                src="./images/afro.png"
+                alt="AfroTechnoHistory"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+              <div class="absolute bottom-4 left-4 text-white">
+                <h3 class="text-base font-semibold mb-1">AfroTechnoHistory</h3>
+                <p class="text-xs text-gray-300">Speculative Design</p>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="bento-item bento-small col-span-1 vits-modal group cursor-pointer"
+            type="button"
+            onclick="openModal('vits-modal')"
+          >
+            <div class="bento-content h-full relative overflow-hidden rounded-2xl bg-gradient-to-br from-blue-800 to-blue-900">
+              <img
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                src="./images/vits.jpeg"
+                alt="Vits Health Companion"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+              <div class="absolute bottom-4 left-4 text-white">
+                <h3 class="text-base font-semibold mb-1">Vits Health</h3>
+                <p class="text-xs text-gray-300">UX Design</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Small Projects Row 2 -->
+          <div
+            class="bento-item bento-small col-span-1 meta-modal group cursor-pointer"
+            type="button"
+            onclick="openModal('meta-modal')"
+          >
+            <div class="bento-content h-full relative overflow-hidden rounded-2xl bg-gradient-to-br from-indigo-800 to-indigo-900">
+              <img
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                src="./images/meta.png"
+                alt="Meta"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+              <div class="absolute bottom-4 left-4 text-white">
+                <h3 class="text-base font-semibold mb-1">Meta</h3>
+                <p class="text-xs text-gray-300">Software Engineering</p>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="bento-item bento-small col-span-1 cha-modal group cursor-pointer"
+            type="button"
+            onclick="openModal('cha-modal')"
+          >
+            <div class="bento-content h-full relative overflow-hidden rounded-2xl bg-gradient-to-br from-orange-800 to-orange-900">
+              <img
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                src="./images/food.jpeg"
+                alt="Chakula Tracking"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+              <div class="absolute bottom-4 left-4 text-white">
+                <h3 class="text-base font-semibold mb-1">Chakula</h3>
+                <p class="text-xs text-gray-300">Food Ordering</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Small Projects Row 3 -->
+          <div
+            class="bento-item bento-small col-span-1 knack-modal group cursor-pointer"
+            type="button"
+            onclick="openModal('knack-modal')"
+          >
+            <div class="bento-content h-full relative overflow-hidden rounded-2xl bg-gradient-to-br from-red-800 to-red-900">
+              <img
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                src="./images/knack.jpeg"
+                alt="KnackApp"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+              <div class="absolute bottom-4 left-4 text-white">
+                <h3 class="text-base font-semibold mb-1">KnackApp</h3>
+                <p class="text-xs text-gray-300">Game Development</p>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="bento-item bento-small col-span-1 pico-modal group cursor-pointer"
+            type="button"
+            onclick="openModal('pico-modal')"
+          >
+            <div class="bento-content h-full relative overflow-hidden rounded-2xl bg-gradient-to-br from-pink-800 to-pink-900">
+              <img
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                src="./images/pico.png"
+                alt="Pico can Dance"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+              <div class="absolute bottom-4 left-4 text-white">
+                <h3 class="text-base font-semibold mb-1">Pico</h3>
+                <p class="text-xs text-gray-300">Robotics</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Final Small Project -->
+          <div
+            class="bento-item bento-small col-span-1 sm:col-span-2 lg:col-span-1 fun-modal group cursor-pointer"
+            type="button"
+            onclick="openModal('fun-modal')"
+          >
+            <div class="bento-content h-full relative overflow-hidden rounded-2xl bg-gradient-to-br from-teal-800 to-teal-900">
+              <img
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                src="./images/blender.gif"
+                alt="3D Content & CGI"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+              <div class="absolute bottom-4 left-4 text-white">
+                <h3 class="text-base font-semibold mb-1">3D Content</h3>
+                <p class="text-xs text-gray-300">CGI & Animation</p>
+              </div>
+            </div>
+          </div>
+
         </div>
 
         <!-- new modal -->
