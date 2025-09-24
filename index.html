@@ -4,12 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script> -->
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script> -->
-
     <style>
-      /* Initially hide the main content */
-
       body,
       h1,
       h2,
@@ -27,140 +22,1168 @@
         overflow-y: visible !important;
       }
       .opacity-95 {
-        opacity: 0.25;
+        opacity: 0.95;
       }
     </style>
-    <title>alberthodo</title>
-    <link
-      rel="icon"
-      type="image/x-icon"
-      href="/images/favicon_io/favicon.ico"
-    />
-    <meta
-      name="Description"
-      content="I'm a creative technologist who designs tangible experiences
-                for humans with machines and the environment."
-    />
-    <meta
-      name="Keyword"
-      content=" Hodo,Albert Senyo Hodo, Designer, Engineer, Prototyping,Creative Technologist,"
-    />
-    <meta name="author" content="Albert Hodo" />
-    <!-- <script type="module" src="index.js"></script> -->
+    <title>Document</title>
+    <script type="module" src="index.js"></script>
   </head>
   <body
-    id="all"
-    class="bg-white cursor-grab all text-[#181818] snap-y snap-mandatory lg:p-[40px] lg:pl-[80px] lg:pr-[80px] pl-6 pr-6"
+    class="bg-[#181818] snap-y snap-mandatory text-white lg:p-[40px] lg:pl-[80px] lg:pr-[80px] pl-6 pr-6"
   >
-    <!-- <div id="splash-screen">
-      <h1 class="text-gray-400 font-bold lg:text-4xl text-2xl">
-        Hodo's Portfolio!
-      </h1> -->
-    <!-- </div> -->
-    <div id="main-content " class="main">
-      <section>
-        <div id="about" class="about z-50 mt-[20vh] snap-center">
-          <div class="AboutMain">
-            <h1 class="text-xl text-gray-400 lg:text-xl mt-8 font-md">
-              <div class="first lg:leading-relaxed mb-8">
-                <span class="text-black"
-                  >Albert is is a product design leader who loves exploring how
-                  humans interact with new and emerging technologies to solve
-                  complex everyday problems.</span
-                >
-                <br />Albert believes a successful design must stay
-                user-centered and must seamlessly integrate with the users way
-                of life.
-              </div>
-              <!-- <div class="second mb-8">
-                I love driving the coast of california while blasting 1980 country
-                hits. I play basketball as well as soccer.
-              </div> -->
-              <!-- <div class="third lg:leading-relaxed mb-8">
-                I have a master's in Design with a focus on emerging technology
-                from UC Berkeley. I also have a bachelors in Computer Science
-                with a focus on IoT from Ashesi University. Previous game dev @
-                <a
-                  class="text-green-600"
-                  href="https://knackapp.com"
-                  target="_blank"
-                  >KnackApp</a
-                >
-                and swe @
-                <a
-                  class="text-[#0081FB]"
-                  href="https://meta.com"
-                  target="_blank"
-                  >Meta</a
-                >.
-              </div> -->
-              <div class="forth lg:leading-relaxed">
-                I am
-                <span class="animate-pulse text-gray-800"
-                  >currently seeking opportunities</span
-                >
-                to create amazing experiences. My interest areas are Human
-                Factors, ux design as well as XR.
-              </div>
-            </h1>
-            <div class="final text-xl text-black-400 lg:text-xl mt-8 font-md">
-              The web portfolio is undergoing a redesign, view sample projects
-              <span>
-                <a
-                  class="hover:text-sky-700 font-bold underline animate-pulse text-green-800 text-black"
-                  href="https://drive.google.com/file/d/1B6TSLKQ3ukOW99N6GjhAPw6yn3Ly_6sK/view?usp=sharing"
-                  target="_blank"
-                >
-                  here
-                </a></span
-              >
-              for now!
+    <section>
+      <div id="about" class="about z-50 mt-4 snap-center">
+        <div class="firstSection lg:mb-8 flex items-end">
+          <div class="tagline">
+            <h5 class="text-sm lg:text-lg">
+              Human First | Designer | Engineer
+            </h5>
+          </div>
+          <div class="logo w-[80px] lg:w-[120px] ml-auto">
+            <img class="animate-pulse" src="./images/HODO DESIGNS.png" />
+          </div>
+        </div>
+        <div class="AboutMain">
+          <h1 class="text-2xl lg:text-4xl lg:font-thin mt-4 font-bold">
+            I'm Hodo
+            <span class="inline-block"
+              ><img class="w-16 lg:w-24" src="./images/(Hodo).png"
+            /></span>
+            <br>
+            <br> A multidisciplinary designer and software engineer with a background in AI, IoT, and creative technologies. I build interactive systems that blend the digital and physical, with a particular focus on assistive and brain-computer interface technologies. I enjoy turning complex ideas into practical, human-centered experiences that empower people and explore new ways to interact with technology.
+          </h1>
+          <div class="outsideNavs text-lg lg:text-xl lg:mt-14 mt-8">
+            <a
+              class="hover:text-[#EB455A]"
+              href="https://read.cv/hodo"
+              target="_blank"
+              >Resume
+              <!-- <img
+                  class="inline-block w-[20px]"
+                  src="./images/arrow-up-right.png"
+                /> -->
+            </a>
+            |
+            <a
+              class="hover:text-[#EB455A]"
+              href="https://www.linkedin.com/in/viewalbertpage/"
+              target="_blank"
+              >LinkedIn
+            </a>
+            |
+            <a class="hover:text-[#EB455A]" href="mailto: alberthododesign.com"
+              >Email
+            </a>
+            |
+            <a
+              class="hover:text-[#EB455A]"
+              href="https://github.com/alberthodo"
+              target="_blank"
+              >Github
+            </a>
+            <!-- <a class="hover:text-[#EB455A]" href="./test.html"
+              >test
+            </a> -->
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- <div
+      class="glass absolute w-full h-full z-10 bg-black/70 backdrop-blur-lg"
+    ></div> -->
+    <section>
+      <div
+        class="projects pt-8 sm:grid grid-cols-2 gap-4 lg:grid-cols-3 snap-center mt-[60px] lg:mt-[30vh]"
+      >
+        <div
+          type="button"
+          class="card w-full mb-6 lg:mb-0 dynamic-modal"
+          onclick="openModal('dynamic-modal')"
+        >
+          <img
+            class="rounded-md sm:h-[300px] lg:h-[370px] sm:w-full object-cover hover:scale-[1.01]"
+            src="./images/dynamic.jpeg"
+          />
+        </div>
+        <div
+          type="button"
+          class="card w-full mb-6 lg:mb-0 afro-modal"
+          onclick="openModal('afro-modal')"
+        >
+          <img
+            class="rounded-md sm:h-[300px] lg:h-[370px] sm:w-full object-cover hover:scale-[1.01]"
+            src="./images/afro.png"
+          />
+        </div>
+        <div
+          class="card w-full mb-6 lg:mb-0 mycor-modal"
+          type="button"
+          onclick="openModal('mycor-modal')"
+        >
+          <img
+            class="rounded-md sm:h-[300px] lg:h-[370px] sm:w-full object-cover hover:scale-[1.01]"
+            src="./images/mycorrpic1.jpeg"
+          />
+        </div>
+        <div
+          class="card w-full mb-6 lg:mb-0 vits-modal"
+          type="button"
+          onclick="openModal('vits-modal')"
+        >
+          <img
+            class="rounded-md sm:h-[300px] lg:h-[370px] sm:w-full object-cover hover:scale-[1.01]"
+            src="./images/vits.jpeg"
+          />
+        </div>
+        <div
+          class="card w-full mb-6 lg:mb-0 meta-modal"
+          type="button"
+          onclick="openModal('meta-modal')"
+        >
+          <img
+            class="rounded-md sm:h-[300px] lg:h-[370px] sm:w-full object-cover hover:scale-[1.01]"
+            src="./images/meta.png"
+          />
+        </div>
+        <div
+          class="card w-full mb-6 lg:mb-0 cha-modal"
+          type="button"
+          onclick="openModal('cha-modal')"
+        >
+          <img
+            class="rounded-md sm:h-[300px] lg:h-[370px] sm:w-full object-cover hover:scale-[1.01]"
+            src="./images/food.jpeg"
+          />
+        </div>
+        <div
+          class="card w-full mb-6 lg:mb-0 knack-modal"
+          type="button"
+          onclick="openModal('knack-modal')"
+        >
+          <img
+            class="rounded-md sm:h-[300px] lg:h-[370px] sm:w-full object-cover hover:scale-[1.01]"
+            src="./images/knack.jpeg"
+          />
+        </div>
+        <div
+          class="card pico-modal w-full mb-6 lg:mb-0"
+          type="button"
+          onclick="openModal('pico-modal')"
+        >
+          <img
+            class="rounded-md sm:h-[300px] lg:h-[370px] sm:w-full object-cover hover:scale-[1.01]"
+            src="./images/pico.png"
+          />
+        </div>
+        <div
+          class="card fun-modal w-full mb-6 lg:mb-0"
+          type="button"
+          onclick="openModal('fun-modal')"
+        >
+          <img
+            class="rounded-md sm:h-[300px] lg:h-[370px] sm:w-full object-cover hover:scale-[1.01]"
+            src="./images/blender.gif"
+          />
+        </div>
+
+        <!-- new modal -->
+        <!--Modal dynamic-->
+        <div
+          id="dynamic-modal"
+          class="modal dynamic-modal opacity-0 pointer-events-none fixed w-full h-full top-0 left-0 flex items-center justify-center"
+        >
+          <div
+            class="modal-overlay absolute w-full h-full bg-zinc-900 blur-5xl opacity-95"
+          ></div>
+
+          <div class="modal-container fixed w-full h-full z-50 overflow-y-auto">
+            <div
+              class="modal-close absolute top-0 left-0 cursor-pointer flex flex-col items-center mt-4 ml-8 text-black text-sm z-50"
+            >
+              <img class="w-[23px] mt-8" src="./images/x.png" />
             </div>
-            <img
-              class="w-[200px] mt-[40px]"
-              src="./images/mylogo.png"
-              alt="signage"
-            />
-            <div class="outsideNavs text-lg mt-2">
-              <a
-                class="hover:text-sky-700 text-gray-400"
-                href="https://drive.google.com/file/d/1lgKIbTqEUYcEmknRnZ5EQkqVxpeWQnmi/view?usp=sharing"
-                target="_blank"
-                >Resume
-                <!-- <img
-                    class="inline-block w-[20px]"
-                    src="./images/arrow-up-right.png"
-                  /> -->
-              </a>
-              |
-              <a
-                class="hover:text-sky-700 text-gray-400"
-                href="https://www.linkedin.com/in/viewalbertpage/"
-                target="_blank"
-                >LinkedIn
-              </a>
-              |
-              <a
-                class="hover:text-sky-700 text-gray-400"
-                href="mailto: alberthododesign.com"
-                >Email
-              </a>
-              |
-              <a
-                class="hover:text-sky-700 text-gray-400"
-                href="https://drive.google.com/file/d/1B6TSLKQ3ukOW99N6GjhAPw6yn3Ly_6sK/view?usp=sharing"
-                >Sample projects
-              </a>
-              <!-- <a class="hover:text-[sky-700]" href="./test.html"
-                >test
-              </a> -->
+
+            <!-- Add margin if you want to see grey behind the modal-->
+            <div
+              class="modal-content container mx-auto border max-w-5xl border-[#3C3C3C] h-auto text-left mt-12"
+            >
+              <!--Body-->
+              <div class="bg-[#181818] rounded-lg shadow">
+                <img
+                  class="w-full lg:max-h-[600px]"
+                  src="./images/dynamic.jpeg"
+                  alt=""
+                />
+                <!-- Modal header -->
+                <div class="p-4 md:p-5">
+                  <h5
+                    class="text-xs mb-1 tracking-[3px] text-[#7E7E7E] font-thin"
+                  >
+                    SOFT ROBOTICS INTERFACE DESIGN
+                  </h5>
+                  <h3 class="text-2xl text-white font-regular">
+                    Dynamic Tangible UI
+                  </h3>
+                  <hr class="mt-4 bg-[#7E7E7E]" />
+                </div>
+                <!-- Modal body -->
+                <div class="p-4 md:p-5 space-y-4">
+                  <p class="text-base mb-6 leading-relaxed text-white">
+                    Apps on screens can change appearance and functions when
+                    needed. What if physical devices could do the same? This
+                    project explores inflatable interfaces and speculates what
+                    smart loT interfaces could be at the home.
+                  </p>
+                  <hr class="bg-[#7E7E7E]" />
+                </div>
+                <div class="p-4 md:p-5 space-y-4">
+                  <div class="cards md:flex md:justify-between">
+                    <div class="smallCard">
+                      <h3 class="text-lg">Timeline</h3>
+                      <p class="text-base mt-2 mb-6 text-white">Aug-Oct 2023</p>
+                    </div>
+
+                    <div class="smallCard">
+                      <h3 class="text-lg">Team - Academic Project</h3>
+                      <p class="text-base mt-2 mb-6 text-white">
+                        John Brechbill <br />Albert Hodo (myself)
+                      </p>
+                    </div>
+                    <div class="smallCard">
+                      <h3 class="text-lg">Tools</h3>
+                      <p class="text-base mt-2 mb-6 text-white">
+                        Fuion 360 <br />Soft materials<br />Microcontrollers
+                      </p>
+                    </div>
+                    <div class="smallCard md:pr-[50px]">
+                      <h3 class="text-lg">Disciplines</h3>
+                      <p class="text-base mt-2 mb-6 text-white">
+                        Electronics Programming <br />Silicon Casting<br />Physical
+                        Fabrication
+                      </p>
+                    </div>
+                  </div>
+                  <hr class="bg-[#7E7E7E]" />
+                </div>
+                <div class="p-4 md:p-5 space-y-4">
+                  <div class="extraData mb-[60px]">
+                    <video class="rounded" controls>
+                      <source src="./images/dtui.mp4" type="video/mp4" />
+                      Your browser does not support the video tag.
+                    </video>
+
+                    <p class="text-base mt-2 mb-6 text-white">
+                      This project was exhibited at the Jacobs Spring Design
+                      Showcase’ 23.
+                    </p>
+                    <img
+                      class="w-full mt-24 rounded object-cover"
+                      src="./images/dtui2.jpg"
+                      alt=""
+                    />
+                    <p class="text-base mt-2 mb-6 text-white">
+                      A dynamic remote that only shows different buttons based
+                      on your needs at different times.
+                    </p>
+                    <img
+                      class="w-full mt-24 rounded object-cover"
+                      src="./images/dtui3.jpg"
+                      alt=""
+                    />
+                    <p class="text-base mt-2 mb-6 text-white">
+                      An example of the exploded view of components used.
+                    </p>
+                  </div>
+                  <hr class="bg-[#7E7E7E]" />
+                </div>
+
+                <div class="text-[#EB455A] p-4 md:p-5">
+                  <a class="flex mb-6" href="">
+                    <p class="text-lg">Full case study coming soon</p>
+                    <!-- <img
+                class="ml-2 w-[20px] mt-[5px] h-[20px]"
+                src="./images/arrow-up-right.png"
+                alt=""
+              /> -->
+                  </a>
+                  <hr class="bg-[#7E7E7E]" />
+                </div>
+                <!-- Modal footer -->
+                <div
+                  class="text-[#EB455A] mt-[120px] flex justify-center p-4 md:p-5"
+                >
+                  <button
+                    type="button"
+                    class="modal-close bg-[#131313] hover:bg-black text-white pl-4 pr-4 p-2 mb-[120px] rounded-full"
+                  >
+                    Back
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </section>
-      <!-- <div
-        class="glass absolute w-full h-full z-10 bg-black/70 backdrop-blur-lg"
-      ></div> -->
-    </div>
+        <!--Modal afro-->
+        <div
+          id="afro-modal"
+          class="modal afro-modal opacity-0 pointer-events-none fixed w-full h-full top-0 left-0 flex items-center justify-center"
+        >
+          <div
+            class="modal-overlay absolute w-full h-full bg-zinc-900 blur-5xl opacity-95"
+          ></div>
+
+          <div class="modal-container fixed w-full h-full z-50 overflow-y-auto">
+            <div
+              class="modal-close absolute top-0 left-0 cursor-pointer flex flex-col items-center mt-4 ml-8 text-black text-sm z-50"
+            >
+              <img class="w-[23px] mt-8" src="./images/x.png" />
+            </div>
+
+            <!-- Add margin if you want to see grey behind the modal-->
+            <div
+              class="modal-content container mx-auto border max-w-5xl border-[#3C3C3C] h-auto text-left mt-12"
+            >
+              <!--Body-->
+              <div class="bg-[#181818] rounded-lg shadow">
+                <img
+                  class="w-full object-cover lg:max-h-[600px]"
+                  src="./images/afro.png"
+                  alt=""
+                />
+                <!-- Modal header -->
+                <div class="p-4 md:p-5">
+                  <h5
+                    class="text-xs mb-1 tracking-[3px] text-[#7E7E7E] font-thin"
+                  >
+                    SPECULATIVE PRODUCT DESIGN
+                  </h5>
+                  <h3 class="text-2xl text-white font-regular">
+                    AfroTechnoHistory
+                  </h3>
+                  <hr class="mt-4 bg-[#7E7E7E]" />
+                </div>
+                <!-- Modal body -->
+                <div class="p-4 md:p-5 space-y-4">
+                  <p class="text-base mb-6 leading-relaxed text-white">
+                    AfroTechnoHistory is an ongoing research project that
+                    speculates consumer technologies driven by futuristic
+                    pre-colonial West African design movements.
+                  </p>
+                  <hr class="bg-[#7E7E7E]" />
+                </div>
+
+                <div class="text-[#EB455A] p-4 md:p-5">
+                  <a class="flex mb-6" href="">
+                    <p class="text-lg">Send me an email</p>
+                    <img
+                      class="ml-2 w-[20px] mt-[5px] h-[20px]"
+                      src="./images/mail.png"
+                      alt=""
+                    />
+                  </a>
+                  <hr class="bg-[#7E7E7E]" />
+                </div>
+                <!-- Modal footer -->
+                <div
+                  class="text-[#EB455A] mt-[120px] flex justify-center p-4 md:p-5"
+                >
+                  <button
+                    type="button"
+                    class="modal-close bg-[#131313] hover:bg-black text-white pl-4 pr-4 p-2 mb-[120px] rounded-full"
+                  >
+                    Back
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--Modal mycor-->
+        <div
+          id="mycor-modal"
+          class="modal mycor-modal opacity-0 pointer-events-none fixed w-full h-full top-0 left-0 flex items-center justify-center"
+        >
+          <div
+            class="modal-overlay absolute w-full h-full bg-zinc-900 blur-5xl opacity-95"
+          ></div>
+
+          <div class="modal-container fixed w-full h-full z-50 overflow-y-auto">
+            <div
+              class="modal-close absolute top-0 left-0 cursor-pointer flex flex-col items-center mt-4 ml-8 text-black text-sm z-50"
+            >
+              <img class="w-[23px] mt-8" src="./images/x.png" />
+            </div>
+
+            <!-- Add margin if you want to see grey behind the modal-->
+            <div
+              class="modal-content container mx-auto border max-w-5xl border-[#3C3C3C] h-auto text-left mt-12"
+            >
+              <!--Body-->
+              <div class="bg-[#181818] rounded-lg shadow">
+                <img
+                  class="w-full lg:max-h-[600px]"
+                  src="./images/bigMush.png"
+                  alt=""
+                />
+                <!-- Modal header -->
+                <div class="p-4 md:p-5">
+                  <h5
+                    class="text-xs mb-1 tracking-[3px] text-[#7E7E7E] font-thin"
+                  >
+                    INTERACTIVE INSTALLATION
+                  </h5>
+                  <h3 class="text-2xl text-white font-regular">Mycorrhizae</h3>
+                  <hr class="mt-4 bg-[#7E7E7E]" />
+                </div>
+                <!-- Modal body -->
+                <div class="p-4 md:p-5 space-y-4">
+                  <p class="text-base mb-6 leading-relaxed text-white">
+                    Mycorrhizae is an interactive exhibit highlighting the
+                    hidden communication between plants, mushrooms and the
+                    underground forest ecosystem, known as the Mycorrhizal
+                    network.
+                  </p>
+                  <hr class="bg-[#7E7E7E]" />
+                </div>
+                <div class="p-4 md:p-5 space-y-4">
+                  <div class="cards md:flex md:justify-between">
+                    <div class="smallCard">
+                      <h3 class="text-lg">Timeline</h3>
+                      <p class="text-base mt-2 mb-6 text-white">Sep-Dec 2022</p>
+                    </div>
+
+                    <div class="smallCard">
+                      <h3 class="text-lg">Team - Academic Project</h3>
+                      <p class="text-base mt-2 mb-6 text-white">
+                        2 UX Researchers <br />1 Interaction Designer<br />2
+                        Creative Technologists
+                      </p>
+                    </div>
+                    <div class="smallCard">
+                      <h3 class="text-lg">Tools</h3>
+                      <p class="text-base mt-2 mb-6 text-white">
+                        P5.js / Python / OpenCV <br />MQTT<br />Microcontrollers
+                      </p>
+                    </div>
+                    <div class="smallCard md:pr-[50px]">
+                      <h3 class="text-lg">Disciplines</h3>
+                      <p class="text-base mt-2 mb-6 text-white">
+                        Electronics Programming <br />Computer Vision<br />Projection
+                        Mapping
+                      </p>
+                    </div>
+                  </div>
+                  <hr class="bg-[#7E7E7E]" />
+                </div>
+                <div class="p-4 md:p-5 space-y-4">
+                  <div class="extraData mb-[60px]">
+                    <img
+                      class="w-full mt-24 rounded object-cover"
+                      src="./images/mush_1.GIF"
+                      alt=""
+                    />
+
+                    <p class="text-base mt-2 mb-6 text-white">
+                      This project was exhibited at the Jacobs Winter Design
+                      Showcase’ 22.
+                    </p>
+
+                    <img
+                      class="w-full mt-24 rounded object-cover"
+                      src="./images/mush_4.jpg"
+                      alt=""
+                    />
+                    <p class="text-base mt-2 mb-6 text-white">
+                      Create a link of communication between both plants by
+                      moving the mushrooms around the garden. You get feedback
+                      through projection mapping and synthesized mushroom
+                      sounds.
+                    </p>
+                    <img
+                      class="w-full mt-24 rounded object-cover"
+                      src="./images/mush_3.jpg"
+                      alt=""
+                    />
+                    <!-- <p class="text-base mt-2 mb-6 text-white">
+                      An example of the exploded view of components used.
+                    </p> -->
+                  </div>
+                  <hr class="bg-[#7E7E7E]" />
+                </div>
+
+                <div class="text-[#EB455A] p-4 md:p-5">
+                  <a class="flex mb-6" href="">
+                    <p class="text-lg">Full case study coming soon</p>
+                    <!-- <img
+                class="ml-2 w-[20px] mt-[5px] h-[20px]"
+                src="./images/arrow-up-right.png"
+                alt=""
+              /> -->
+                  </a>
+                  <hr class="bg-[#7E7E7E]" />
+                </div>
+                <!-- Modal footer -->
+                <div
+                  class="text-[#EB455A] mt-[120px] flex justify-center p-4 md:p-5"
+                >
+                  <button
+                    type="button"
+                    class="modal-close bg-[#131313] hover:bg-black text-white pl-4 pr-4 p-2 mb-[120px] rounded-full"
+                  >
+                    Back
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--Modal vits-->
+        <div
+          id="vits-modal"
+          class="modal mycor-modal opacity-0 pointer-events-none fixed w-full h-full top-0 left-0 flex items-center justify-center"
+        >
+          <div
+            class="modal-overlay absolute w-full h-full bg-zinc-900 blur-5xl opacity-95"
+          ></div>
+
+          <div class="modal-container fixed w-full h-full z-50 overflow-y-auto">
+            <div
+              class="modal-close absolute top-0 left-0 cursor-pointer flex flex-col items-center mt-4 ml-8 text-black text-sm z-50"
+            >
+              <img class="w-[23px] mt-8" src="./images/x.png" />
+            </div>
+
+            <!-- Add margin if you want to see grey behind the modal-->
+            <div
+              class="modal-content container mx-auto border max-w-5xl border-[#3C3C3C] h-auto text-left mt-12"
+            >
+              <!--Body-->
+              <div class="bg-[#181818] rounded-lg shadow">
+                <img
+                  class="w-full object-cover lg:max-h-[600px]"
+                  src="./images/vits.jpeg"
+                  alt=""
+                />
+                <!-- Modal header -->
+                <div class="p-4 md:p-5">
+                  <h5
+                    class="text-xs mb-1 tracking-[3px] text-[#7E7E7E] font-thin"
+                  >
+                    UX DESIGN
+                  </h5>
+                  <h3 class="text-2xl text-white font-regular">
+                    Vits Health Companion
+                  </h3>
+                  <hr class="mt-4 bg-[#7E7E7E]" />
+                </div>
+                <!-- Modal body -->
+                <div class="p-4 md:p-5 space-y-4">
+                  <p class="text-base mb-6 leading-relaxed text-white">
+                    An unsolicited design of a health application that provides
+                    users in Ghana with a virtual central hub to connect and
+                    control all home medical devices from one place.
+                  </p>
+                  <hr class="bg-[#7E7E7E]" />
+                </div>
+                <div class="p-4 md:p-5 space-y-4">
+                  <div class="cards md:flex md:justify-between">
+                    <div class="smallCard">
+                      <h3 class="text-lg">Timeline</h3>
+                      <p class="text-base mt-2 mb-6 text-white">
+                        Mar - Jun 2019
+                      </p>
+                    </div>
+
+                    <div class="smallCard">
+                      <h3 class="text-lg">Team - Personal Project</h3>
+                      <p class="text-base mt-2 mb-6 text-white">Albert Hodo</p>
+                    </div>
+                    <div class="smallCard">
+                      <h3 class="text-lg">Tools</h3>
+                      <p class="text-base mt-2 mb-6 text-white">
+                        Figma <br />Origami Studio
+                      </p>
+                    </div>
+                    <div class="smallCard md:pr-[50px]">
+                      <h3 class="text-lg">Disciplines</h3>
+                      <p class="text-base mt-2 mb-6 text-white">
+                        Interaction Design <br />Visual Design<br />Product
+                        Strategy
+                      </p>
+                    </div>
+                  </div>
+                  <hr class="bg-[#7E7E7E]" />
+                </div>
+
+                <div class="text-[#EB455A] p-4 md:p-5">
+                  <a class="flex mb-6" href="">
+                    <p class="text-lg">Full case study coming soon</p>
+                    <!-- <img
+               class="ml-2 w-[20px] mt-[5px] h-[20px]"
+               src="./images/arrow-up-right.png"
+               alt=""
+             /> -->
+                  </a>
+                  <hr class="bg-[#7E7E7E]" />
+                </div>
+                <!-- Modal footer -->
+                <div
+                  class="text-[#EB455A] mt-[120px] flex justify-center p-4 md:p-5"
+                >
+                  <button
+                    type="button"
+                    class="modal-close bg-[#131313] hover:bg-black text-white pl-4 pr-4 p-2 mb-[120px] rounded-full"
+                  >
+                    Back
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--Modal meta-->
+        <div
+          id="meta-modal"
+          class="modal meta-modal opacity-0 pointer-events-none fixed w-full h-full top-0 left-0 flex items-center justify-center"
+        >
+          <div
+            class="modal-overlay absolute w-full h-full bg-zinc-900 blur-5xl opacity-95"
+          ></div>
+
+          <div class="modal-container fixed w-full h-full z-50 overflow-y-auto">
+            <div
+              class="modal-close absolute top-0 left-0 cursor-pointer flex flex-col items-center mt-4 ml-8 text-black text-sm z-50"
+            >
+              <img class="w-[23px] mt-8" src="./images/x.png" />
+            </div>
+
+            <!-- Add margin if you want to see grey behind the modal-->
+            <div
+              class="modal-content container mx-auto border max-w-5xl border-[#3C3C3C] h-auto text-left mt-12"
+            >
+              <!--Body-->
+              <div class="bg-[#181818] rounded-lg shadow">
+                <img
+                  class="w-full object-cover lg:max-h-[600px]"
+                  src="./images/meta.png"
+                  alt=""
+                />
+                <!-- Modal header -->
+                <div class="p-4 md:p-5">
+                  <h5
+                    class="text-xs mb-1 tracking-[3px] text-[#7E7E7E] font-thin"
+                  >
+                    SOFTWARE ENGINEERING
+                  </h5>
+                  <h3 class="text-2xl text-white font-regular">Meta</h3>
+                  <hr class="mt-4 bg-[#7E7E7E]" />
+                </div>
+                <!-- Modal body -->
+                <div class="p-4 md:p-5 space-y-4">
+                  <p class="text-base mb-6 leading-relaxed text-white">
+                    During my apprenticeship at Meta in 2020, I worked with
+                    developers, researchers and mentors on coming up with
+                    solutions for common algorithmic problems on the Facebook
+                    platform.
+                  </p>
+                  <hr class="bg-[#7E7E7E]" />
+                </div>
+
+                <div class="text-[#EB455A] p-4 md:p-5">
+                  <a class="flex mb-6" href="">
+                    <p class="text-lg">Send me an email</p>
+                    <img
+                      class="ml-2 w-[20px] mt-[5px] h-[20px]"
+                      src="./images/mail.png"
+                      alt=""
+                    />
+                  </a>
+                  <hr class="bg-[#7E7E7E]" />
+                </div>
+                <!-- Modal footer -->
+                <div
+                  class="text-[#EB455A] mt-[120px] flex justify-center p-4 md:p-5"
+                >
+                  <button
+                    type="button"
+                    class="modal-close bg-[#131313] hover:bg-black text-white pl-4 pr-4 p-2 mb-[120px] rounded-full"
+                  >
+                    Back
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--Modal cha-->
+        <div
+          id="cha-modal"
+          class="modal mycor-modal opacity-0 pointer-events-none fixed w-full h-full top-0 left-0 flex items-center justify-center"
+        >
+          <div
+            class="modal-overlay absolute w-full h-full bg-zinc-900 blur-5xl opacity-95"
+          ></div>
+
+          <div class="modal-container fixed w-full h-full z-50 overflow-y-auto">
+            <div
+              class="modal-close absolute top-0 left-0 cursor-pointer flex flex-col items-center mt-4 ml-8 text-black text-sm z-50"
+            >
+              <img class="w-[23px] mt-8" src="./images/x.png" />
+            </div>
+
+            <!-- Add margin if you want to see grey behind the modal-->
+            <div
+              class="modal-content container mx-auto border max-w-5xl border-[#3C3C3C] h-auto text-left mt-12"
+            >
+              <!--Body-->
+              <div class="bg-[#181818] rounded-lg shadow">
+                <img
+                  class="w-full object-cover lg:max-h-[600px]"
+                  src="./images/food.jpeg"
+                  alt=""
+                />
+                <!-- Modal header -->
+                <div class="p-4 md:p-5">
+                  <h5
+                    class="text-xs mb-1 tracking-[3px] text-[#7E7E7E] font-thin"
+                  >
+                    UX DESIGN
+                  </h5>
+                  <h3 class="text-2xl text-white font-regular">
+                    Chakula Tracking - Food Ordering
+                  </h3>
+                  <hr class="mt-4 bg-[#7E7E7E]" />
+                </div>
+                <!-- Modal body -->
+                <div class="p-4 md:p-5 space-y-4">
+                  <p class="text-base mb-6 leading-relaxed text-white">
+                    I redesigned the food tracking process of Chakula. A food
+                    ordering platform for Ashesi University in Ghana. An old
+                    campus startup that did not survive. As a founding member, I
+                    wanted to redesign part of the system as a way to reflect on
+                    past design choices.
+                  </p>
+                  <hr class="bg-[#7E7E7E]" />
+                </div>
+                <div class="p-4 md:p-5 space-y-4">
+                  <div class="cards md:flex md:justify-between">
+                    <div class="smallCard">
+                      <h3 class="text-lg">Timeline</h3>
+                      <p class="text-base mt-2 mb-6 text-white">Dec 2023</p>
+                    </div>
+
+                    <div class="smallCard">
+                      <h3 class="text-lg">Team - Personal Project</h3>
+                      <p class="text-base mt-2 mb-6 text-white">Albert Hodo</p>
+                    </div>
+                    <div class="smallCard">
+                      <h3 class="text-lg">Tools</h3>
+                      <p class="text-base mt-2 mb-6 text-white">
+                        Figma <br />Origami Studio
+                      </p>
+                    </div>
+                    <div class="smallCard md:pr-[50px]">
+                      <h3 class="text-lg">Disciplines</h3>
+                      <p class="text-base mt-2 mb-6 text-white">
+                        Interaction Design <br />Visual Design<br />Product
+                        Strategy
+                      </p>
+                    </div>
+                  </div>
+                  <hr class="bg-[#7E7E7E]" />
+                </div>
+
+                <div class="text-[#EB455A] p-4 md:p-5">
+                  <a class="flex mb-6" href="">
+                    <p class="text-lg">Full case study coming soon</p>
+                    <!-- <img
+              class="ml-2 w-[20px] mt-[5px] h-[20px]"
+              src="./images/arrow-up-right.png"
+              alt=""
+            /> -->
+                  </a>
+                  <hr class="bg-[#7E7E7E]" />
+                </div>
+                <!-- Modal footer -->
+                <div
+                  class="text-[#EB455A] mt-[120px] flex justify-center p-4 md:p-5"
+                >
+                  <button
+                    type="button"
+                    class="modal-close bg-[#131313] hover:bg-black text-white pl-4 pr-4 p-2 mb-[120px] rounded-full"
+                  >
+                    Back
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--Modal knack-->
+        <div
+          id="knack-modal"
+          class="modal meta-modal opacity-0 pointer-events-none fixed w-full h-full top-0 left-0 flex items-center justify-center"
+        >
+          <div
+            class="modal-overlay absolute w-full h-full bg-zinc-900 blur-5xl opacity-95"
+          ></div>
+
+          <div class="modal-container fixed w-full h-full z-50 overflow-y-auto">
+            <div
+              class="modal-close absolute top-0 left-0 cursor-pointer flex flex-col items-center mt-4 ml-8 text-black text-sm z-50"
+            >
+              <img class="w-[23px] mt-8" src="./images/x.png" />
+            </div>
+
+            <!-- Add margin if you want to see grey behind the modal-->
+            <div
+              class="modal-content container mx-auto border max-w-5xl border-[#3C3C3C] h-auto text-left mt-12"
+            >
+              <!--Body-->
+              <div class="bg-[#181818] rounded-lg shadow">
+                <img
+                  class="w-full object-cover lg:max-h-[600px]"
+                  src="./images/knack.jpeg"
+                  alt=""
+                />
+                <!-- Modal header -->
+                <div class="p-4 md:p-5">
+                  <h5
+                    class="text-xs mb-1 tracking-[3px] text-[#7E7E7E] font-thin"
+                  >
+                    GAME DEVELOPMENT
+                  </h5>
+                  <h3 class="text-2xl text-white font-regular">
+                    KnackApp - Super Smash
+                  </h3>
+                  <hr class="mt-4 bg-[#7E7E7E]" />
+                </div>
+                <!-- Modal body -->
+                <div class="p-4 md:p-5 space-y-4">
+                  <p class="text-base mb-6 leading-relaxed text-white">
+                    During my time at KnackApp, I was a developer on the Games
+                    Team where I worked on several projects to improve the
+                    software usability in low internet regions. I also led the
+                    development of the Super Smash game for the platform.
+                  </p>
+                  <hr class="bg-[#7E7E7E]" />
+                </div>
+
+                <div class="text-[#EB455A] p-4 md:p-5">
+                  <a class="flex mb-6" href="">
+                    <p class="text-lg">Send me an email</p>
+                    <img
+                      class="ml-2 w-[20px] mt-[5px] h-[20px]"
+                      src="./images/mail.png"
+                      alt=""
+                    />
+                  </a>
+                  <hr class="bg-[#7E7E7E]" />
+                </div>
+                <!-- Modal footer -->
+                <div
+                  class="text-[#EB455A] mt-[120px] flex justify-center p-4 md:p-5"
+                >
+                  <button
+                    type="button"
+                    class="modal-close bg-[#131313] hover:bg-black text-white pl-4 pr-4 p-2 mb-[120px] rounded-full"
+                  >
+                    Back
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--Modal pico-->
+        <div
+          id="pico-modal"
+          class="modal pico-modal opacity-0 pointer-events-none fixed w-full h-full top-0 left-0 flex items-center justify-center"
+        >
+          <div
+            class="modal-overlay absolute w-full h-full bg-zinc-900 blur-5xl opacity-95"
+          ></div>
+
+          <div class="modal-container fixed w-full h-full z-50 overflow-y-auto">
+            <div
+              class="modal-close absolute top-0 left-0 cursor-pointer flex flex-col items-center mt-4 ml-8 text-black text-sm z-50"
+            >
+              <img class="w-[23px] mt-8" src="./images/x.png" />
+            </div>
+
+            <!-- Add margin if you want to see grey behind the modal-->
+            <div
+              class="modal-content container mx-auto border max-w-5xl border-[#3C3C3C] h-auto text-left mt-12"
+            >
+              <!--Body-->
+              <div class="bg-[#181818] rounded-lg shadow">
+                <img
+                  class="w-full lg:max-h-[600px]"
+                  src="./images/pico.png"
+                  alt=""
+                />
+                <!-- Modal header -->
+                <div class="p-4 md:p-5">
+                  <h5
+                    class="text-xs mb-1 tracking-[3px] text-[#7E7E7E] font-thin"
+                  >
+                    ROBOTICS
+                  </h5>
+                  <h3 class="text-2xl text-white font-regular">
+                    Pico can Dance
+                  </h3>
+                  <hr class="mt-4 bg-[#7E7E7E]" />
+                </div>
+                <!-- Modal body -->
+                <div class="p-4 md:p-5 space-y-4">
+                  <p class="text-base mb-6 leading-relaxed text-white">
+                    Pico is a lovely 2D robot dog who enjoys dancing in the
+                    maker studio / fabrication lab when he hears the sound of
+                    music. The aim of this project was to create a 2D pet for
+                    the design maker space to cheer people up and keep them
+                    company. 
+                  </p>
+                  <hr class="bg-[#7E7E7E]" />
+                </div>
+                <div class="p-4 md:p-5 space-y-4">
+                  <div class="cards md:flex md:justify-between">
+                    <div class="smallCard">
+                      <h3 class="text-lg">Timeline</h3>
+                      <p class="text-base mt-2 mb-6 text-white">Oct 2022</p>
+                    </div>
+
+                    <div class="smallCard">
+                      <h3 class="text-lg">Team - Fun Project</h3>
+                      <p class="text-base mt-2 mb-6 text-white">
+                        Haesung Park <br />Albert Hodo
+                      </p>
+                    </div>
+                    <div class="smallCard">
+                      <h3 class="text-lg">Tools</h3>
+                      <p class="text-base mt-2 mb-6 text-white">
+                        Arduino <br />Laser Cutter
+                      </p>
+                    </div>
+                    <div class="smallCard md:pr-[50px]">
+                      <h3 class="text-lg">Disciplines</h3>
+                      <p class="text-base mt-2 mb-6 text-white">
+                        Programming <br />3D Fabrication<br />Robotics
+                      </p>
+                    </div>
+                  </div>
+                  <hr class="bg-[#7E7E7E]" />
+                </div>
+                <div class="p-4 md:p-5 space-y-4">
+                  <div class="extraData mb-[60px]">
+                    <video class="rounded" controls>
+                      <source src="./images/pcd.mp4" type="video/mp4" />
+                      Your browser does not support the video tag.
+                    </video>
+                  </div>
+                  <hr class="bg-[#7E7E7E]" />
+                </div>
+
+                <div class="text-[#EB455A] p-4 md:p-5">
+                  <a class="flex mb-6" href="">
+                    <p class="text-lg">Send me an email</p>
+                    <img
+                      class="ml-2 w-[20px] mt-[5px] h-[20px]"
+                      src="./images/mail.png"
+                      alt=""
+                    />
+                  </a>
+                  <hr class="bg-[#7E7E7E]" />
+                </div>
+                <!-- Modal footer -->
+                <div
+                  class="text-[#EB455A] mt-[120px] flex justify-center p-4 md:p-5"
+                >
+                  <button
+                    type="button"
+                    class="modal-close bg-[#131313] hover:bg-black text-white pl-4 pr-4 p-2 mb-[120px] rounded-full"
+                  >
+                    Back
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--Modal fun-->
+        <div
+          id="fun-modal"
+          class="modal fun-modal opacity-0 pointer-events-none fixed w-full h-full top-0 left-0 flex items-center justify-center"
+        >
+          <div
+            class="modal-overlay absolute w-full h-full bg-zinc-900 blur-5xl opacity-95"
+          ></div>
+
+          <div class="modal-container fixed w-full h-full z-50 overflow-y-auto">
+            <div
+              class="modal-close absolute top-0 left-0 cursor-pointer flex flex-col items-center mt-4 ml-8 text-black text-sm z-50"
+            >
+              <img class="w-[23px] mt-8" src="./images/x.png" />
+            </div>
+
+            <!-- Add margin if you want to see grey behind the modal-->
+            <div
+              class="modal-content container mx-auto border max-w-5xl border-[#3C3C3C] h-auto text-left mt-12"
+            >
+              <!--Body-->
+              <div class="bg-[#181818] rounded-lg shadow">
+                <img
+                  class="w-full lg:max-h-[600px]"
+                  src="./images/blender.gif"
+                  alt=""
+                />
+                <!-- Modal header -->
+                <div class="p-4 md:p-5">
+                  <h5
+                    class="text-xs mb-1 tracking-[3px] text-[#7E7E7E] font-thin"
+                  >
+                    3D MODELING & ANIMATION
+                  </h5>
+                  <h3 class="text-2xl text-white font-regular">
+                    3D Content & CGI
+                  </h3>
+                  <hr class="mt-4 bg-[#7E7E7E]" />
+                </div>
+                <!-- Modal body -->
+                <div class="p-4 md:p-5 space-y-4">
+                  <p class="text-base mb-6 leading-relaxed text-white">
+                    Some fun CGI concepts made over time in no partcular order.
+                  </p>
+                  <hr class="bg-[#7E7E7E]" />
+                </div>
+
+                <div class="p-4 md:p-5 space-y-4">
+                  <div class="extraData">
+                    <iframe
+                      class="ml-auto mr-auto rounded w-full h-[70vh]"
+                      src="https://www.youtube-nocookie.com/embed/MF2JtWuHGLA?si=SYT8AOsRogRPoKCe"
+                      title="YouTube video player"
+                      frameborder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      allowfullscreen
+                    ></iframe>
+                    <p class="text-base mt-2 text-white">
+                      An ocean with West African sounds in the background.
+                    </p>
+                  </div>
+                  <div class="extraData pt-[60px]">
+                    <iframe
+                      class="ml-auto mr-auto rounded w-full h-[70vh]"
+                      src="https://www.youtube.com/embed/MHOGDTubniw?si=ItAzI1_GJtCIeUjq"
+                      title="YouTube video player"
+                      frameborder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      allowfullscreen
+                    ></iframe>
+                    <p class="text-base mt-2 text-white">
+                      An add for a new outfit in a 3D / VR game concept.
+                    </p>
+                  </div>
+                  <div class="extraData pt-[60px]">
+                    <iframe
+                      class="ml-auto mr-auto rounded w-full h-[70vh]"
+                      src="https://www.youtube.com/embed/xR6FPPbMHeI?si=KnJQlXV87HJ4blyv"
+                      title="YouTube video player"
+                      frameborder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      allowfullscreen
+                    ></iframe>
+                    <p class="text-base mt-2 text-white">
+                      A parody of an old alien spider pacing.
+                    </p>
+                  </div>
+                  <div class="extraData pb-[60px] pt-[60px]">
+                    <iframe
+                      class="ml-auto mr-auto rounded w-full h-[70vh]"
+                      src="https://www.youtube.com/embed/WbwSu7yXRZI?si=a_cDVNuReHReu5ZV"
+                      title="YouTube video player"
+                      frameborder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      allowfullscreen
+                    ></iframe>
+                    <p class="text-base mt-2 text-white">
+                      Character design and lip sync of a god. PS: Can you tell
+                      its my voice?
+                    </p>
+                  </div>
+                  <hr class="bg-[#7E7E7E]" />
+                </div>
+
+                <div class="text-[#EB455A] p-4 md:p-5">
+                  <a class="flex mb-6" href="">
+                    <p class="text-lg">Send me an email</p>
+                    <img
+                      class="ml-2 w-[20px] mt-[5px] h-[20px]"
+                      src="./images/mail.png"
+                      alt=""
+                    />
+                  </a>
+                  <hr class="bg-[#7E7E7E]" />
+                </div>
+                <!-- Modal footer -->
+                <div
+                  class="text-[#EB455A] mt-[120px] flex justify-center p-4 md:p-5"
+                >
+                  <button
+                    type="button"
+                    class="modal-close bg-[#131313] hover:bg-black text-white pl-4 pr-4 p-2 mb-[120px] rounded-full"
+                  >
+                    Back
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+
+    <script>
+      function openModal(modalId) {
+        const body = document.querySelector("body");
+        const modal = document.getElementById(modalId);
+        modal.classList.toggle("opacity-0");
+        modal.classList.toggle("pointer-events-none");
+        body.classList.toggle("modal-active");
+      }
+
+      const overlay = document.querySelector(".modal-overlay");
+      overlay.addEventListener("click", closeModal);
+
+      var closemodal = document.querySelectorAll(".modal-close");
+      for (var i = 0; i < closemodal.length; i++) {
+        closemodal[i].addEventListener("click", closeModal);
+      }
+
+      document.onkeydown = function (evt) {
+        evt = evt || window.event;
+        var isEscape = false;
+        if ("key" in evt) {
+          isEscape = evt.key === "Escape" || evt.key === "Esc";
+        } else {
+          isEscape = evt.keyCode === 27;
+        }
+        if (isEscape && document.body.classList.contains("modal-active")) {
+          closeModal();
+        }
+      };
+
+      function closeModal() {
+        const body = document.querySelector("body");
+        const modals = document.querySelectorAll(".modal");
+        modals.forEach((modal) => {
+          modal.classList.add("opacity-0");
+          modal.classList.add("pointer-events-none");
+        });
+        body.classList.remove("modal-active");
+      }
+    </script>
+
+    <!-- Your HTML content -->
   </body>
 </html>
