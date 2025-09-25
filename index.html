@@ -64,6 +64,12 @@
         min-height: 200px;
       }
       
+      .bento-feature {
+        grid-column: span 2;
+        grid-row: span 1;
+        min-height: 200px;
+      }
+      
       .bento-content {
         position: relative;
         height: 100%;
@@ -104,6 +110,12 @@
           grid-row: span 1;
           min-height: 200px;
         }
+        
+        .bento-feature {
+          grid-column: span 2;
+          grid-row: span 1;
+          min-height: 200px;
+        }
       }
       
       @media (max-width: 640px) {
@@ -114,7 +126,8 @@
         
         .bento-hero,
         .bento-medium,
-        .bento-small {
+        .bento-small,
+        .bento-feature {
           grid-column: span 1;
           grid-row: span 1;
           min-height: 250px;
@@ -193,65 +206,65 @@
         class="projects pt-8 snap-center mt-[60px] lg:mt-[30vh]"
       >
         <!-- Bento Grid Container -->
-        <div class="bento-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
+        <div class="bento-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6 mb-16 lg:mb-24">
           
           <!-- Hero Project - Dynamic Tangible UI (2x2) -->
-          <div
-            type="button"
+        <div
+          type="button"
             class="bento-item bento-hero col-span-1 sm:col-span-2 lg:col-span-2 lg:row-span-2 dynamic-modal group cursor-pointer"
-            onclick="openModal('dynamic-modal')"
-          >
+          onclick="openModal('dynamic-modal')"
+        >
             <div class="bento-content h-full relative overflow-hidden rounded-2xl bg-gradient-to-br from-gray-800 to-gray-900">
-              <img
+          <img
                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                src="./images/dynamic.jpeg"
+            src="./images/dynamic.jpeg"
                 alt="Dynamic Tangible UI"
-              />
+          />
               <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
               <div class="absolute bottom-6 left-6 text-white">
                 <h3 class="text-xl lg:text-2xl font-semibold mb-2">Dynamic Tangible UI</h3>
                 <p class="text-sm lg:text-base text-gray-300">Soft Robotics Interface Design</p>
-              </div>
+        </div>
             </div>
           </div>
 
           <!-- Medium Project - Mycorrhizae (1x2) -->
-          <div
+        <div
             class="bento-item bento-medium col-span-1 lg:col-span-1 lg:row-span-2 mycor-modal group cursor-pointer"
-            type="button"
+          type="button"
             onclick="openModal('mycor-modal')"
-          >
+        >
             <div class="bento-content h-full relative overflow-hidden rounded-2xl bg-gradient-to-br from-green-800 to-green-900">
-              <img
+          <img
                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 src="./images/mycorrpic1.jpeg"
                 alt="Mycorrhizae"
-              />
+          />
               <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
               <div class="absolute bottom-4 left-4 text-white">
                 <h3 class="text-lg font-semibold mb-1">Mycorrhizae</h3>
                 <p class="text-sm text-gray-300">Interactive Installation</p>
-              </div>
+        </div>
             </div>
           </div>
 
           <!-- Neuro Feedback Experiments - Third Project -->
-          <div
+        <div
             class="bento-item bento-small col-span-1 neuro-modal group cursor-pointer"
-            type="button"
+          type="button"
             onclick="window.open('https://github.com/alberthodo/bci-experimentations--muse-2', '_blank')"
-          >
+        >
             <div class="bento-content h-full relative overflow-hidden rounded-2xl bg-gradient-to-br from-indigo-800 to-purple-900">
-              <img
+          <img
                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 src="./images/orb.gif"
                 alt="Neuro Feedback Experiments"
-              />
+          />
               <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
               <div class="absolute bottom-4 left-4 text-white">
                 <h3 class="text-base font-semibold mb-1">Neuro Feedback</h3>
                 <p class="text-xs text-gray-300">Prototyping with Muse Headset</p>
-              </div>
+        </div>
             </div>
           </div>
 
@@ -277,111 +290,131 @@
 
           <div
             class="bento-item bento-small col-span-1 vits-modal group cursor-pointer"
-            type="button"
-            onclick="openModal('vits-modal')"
-          >
+          type="button"
+          onclick="openModal('vits-modal')"
+        >
             <div class="bento-content h-full relative overflow-hidden rounded-2xl bg-gradient-to-br from-blue-800 to-blue-900">
-              <img
+          <img
                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                src="./images/vits.jpeg"
+            src="./images/vits.jpeg"
                 alt="Vits Health Companion"
-              />
+          />
               <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
               <div class="absolute bottom-4 left-4 text-white">
                 <h3 class="text-base font-semibold mb-1">Vits Health</h3>
                 <p class="text-xs text-gray-300">UX Design</p>
-              </div>
+        </div>
             </div>
           </div>
-
-          <!-- Small Projects Row 2 -->
+ <!-- Small Projects Row 2 -->
+        <div
+ class="bento-item bento-small col-span-1 meta-modal group cursor-pointer"
+          type="button"
+          onclick="openModal('meta-modal')"
+        >
+ <div class="bento-content h-full relative overflow-hidden rounded-2xl bg-gradient-to-br from-indigo-800 to-indigo-900">
+          <img
+     class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            src="./images/meta.png"
+     alt="Meta"
+          />
+   <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+   <div class="absolute bottom-4 left-4 text-white">
+     <h3 class="text-base font-semibold mb-1">Meta</h3>
+     <p class="text-xs text-gray-300">Software Engineering</p>
+        </div>
+ </div>
+</div>
+          <!-- BCI Research Scout - 2 Column Feature -->
           <div
-            class="bento-item bento-small col-span-1 meta-modal group cursor-pointer"
+            class="bento-item bento-feature col-span-1 sm:col-span-2 lg:col-span-2 bci-rag-modal group cursor-pointer"
             type="button"
-            onclick="openModal('meta-modal')"
+            onclick="openModal('bci-rag-modal')"
           >
-            <div class="bento-content h-full relative overflow-hidden rounded-2xl bg-gradient-to-br from-indigo-800 to-indigo-900">
+            <div class="bento-content h-full relative overflow-hidden rounded-2xl bg-gradient-to-br from-emerald-800 to-emerald-900">
               <img
                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                src="./images/meta.png"
-                alt="Meta"
+                src="./images/bci_rag.png"
+                alt="BCI Research Scout"
               />
               <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-              <div class="absolute bottom-4 left-4 text-white">
-                <h3 class="text-base font-semibold mb-1">Meta</h3>
-                <p class="text-xs text-gray-300">Software Engineering</p>
+              <div class="absolute bottom-6 left-6 text-white">
+                <h3 class="text-xl font-semibold mb-2">BCI Research Scout</h3>
+                <p class="text-sm text-gray-300">AI-Powered Literature Research</p>
               </div>
             </div>
           </div>
 
-          <div
+         
+
+        <div
             class="bento-item bento-small col-span-1 cha-modal group cursor-pointer"
-            type="button"
-            onclick="openModal('cha-modal')"
-          >
+          type="button"
+          onclick="openModal('cha-modal')"
+        >
             <div class="bento-content h-full relative overflow-hidden rounded-2xl bg-gradient-to-br from-orange-800 to-orange-900">
-              <img
+          <img
                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                src="./images/food.jpeg"
+            src="./images/food.jpeg"
                 alt="Chakula Tracking"
-              />
+          />
               <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
               <div class="absolute bottom-4 left-4 text-white">
                 <h3 class="text-base font-semibold mb-1">Chakula</h3>
                 <p class="text-xs text-gray-300">Food Ordering</p>
-              </div>
+        </div>
             </div>
           </div>
 
           <!-- Small Projects Row 3 -->
-          <div
+        <div
             class="bento-item bento-small col-span-1 knack-modal group cursor-pointer"
-            type="button"
-            onclick="openModal('knack-modal')"
-          >
+          type="button"
+          onclick="openModal('knack-modal')"
+        >
             <div class="bento-content h-full relative overflow-hidden rounded-2xl bg-gradient-to-br from-red-800 to-red-900">
-              <img
+          <img
                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                src="./images/knack.jpeg"
+            src="./images/knack.jpeg"
                 alt="KnackApp"
-              />
+          />
               <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
               <div class="absolute bottom-4 left-4 text-white">
                 <h3 class="text-base font-semibold mb-1">KnackApp</h3>
                 <p class="text-xs text-gray-300">Game Development</p>
-              </div>
+        </div>
             </div>
           </div>
 
-          <div
+        <div
             class="bento-item bento-small col-span-1 pico-modal group cursor-pointer"
-            type="button"
-            onclick="openModal('pico-modal')"
-          >
+          type="button"
+          onclick="openModal('pico-modal')"
+        >
             <div class="bento-content h-full relative overflow-hidden rounded-2xl bg-gradient-to-br from-pink-800 to-pink-900">
-              <img
+          <img
                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                src="./images/pico.png"
+            src="./images/pico.png"
                 alt="Pico can Dance"
-              />
+          />
               <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
               <div class="absolute bottom-4 left-4 text-white">
                 <h3 class="text-base font-semibold mb-1">Pico</h3>
                 <p class="text-xs text-gray-300">Robotics</p>
-              </div>
+        </div>
             </div>
           </div>
 
           <!-- Final Small Project -->
-          <div
+        <div
             class="bento-item bento-small col-span-1 sm:col-span-2 lg:col-span-1 fun-modal group cursor-pointer"
-            type="button"
-            onclick="openModal('fun-modal')"
-          >
+          type="button"
+          onclick="openModal('fun-modal')"
+        >
             <div class="bento-content h-full relative overflow-hidden rounded-2xl bg-gradient-to-br from-teal-800 to-teal-900">
-              <img
+          <img
                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                src="./images/blender.gif"
+            src="./images/blender.gif"
                 alt="3D Content & CGI"
               />
               <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
@@ -418,11 +451,11 @@
               <!--Body-->
               <div class="bg-[#181818] rounded-lg shadow">
                 <div class="px-8 py-6 md:px-12 md:py-8">
-                  <img
+                <img
                     class="w-full lg:max-h-[600px] rounded-lg"
-                    src="./images/dynamic.jpeg"
-                    alt=""
-                  />
+                  src="./images/dynamic.jpeg"
+                  alt=""
+                />
                 </div>
                 <!-- Modal header -->
                 <div class="px-8 py-6 md:px-12 md:py-8">
@@ -556,11 +589,11 @@
               <!--Body-->
               <div class="bg-[#181818] rounded-lg shadow">
                 <div class="px-8 py-6 md:px-12 md:py-8">
-                  <img
+                <img
                     class="w-full object-cover lg:max-h-[600px] rounded-lg"
-                    src="./images/afro.png"
-                    alt=""
-                  />
+                  src="./images/afro.png"
+                  alt=""
+                />
                 </div>
                 <!-- Modal header -->
                 <div class="px-8 py-6 md:px-12 md:py-8">
@@ -633,11 +666,11 @@
               <!--Body-->
               <div class="bg-[#181818] rounded-lg shadow">
                 <div class="px-8 py-6 md:px-12 md:py-8">
-                  <img
+                <img
                     class="w-full lg:max-h-[600px] rounded-lg"
-                    src="./images/bigMush.png"
-                    alt=""
-                  />
+                  src="./images/bigMush.png"
+                  alt=""
+                />
                 </div>
                 <!-- Modal header -->
                 <div class="px-8 py-6 md:px-12 md:py-8">
@@ -774,11 +807,11 @@
               <!--Body-->
               <div class="bg-[#181818] rounded-lg shadow">
                 <div class="px-8 py-6 md:px-12 md:py-8">
-                  <img
+                <img
                     class="w-full object-cover lg:max-h-[600px] rounded-lg"
-                    src="./images/vits.jpeg"
-                    alt=""
-                  />
+                  src="./images/vits.jpeg"
+                  alt=""
+                />
                 </div>
                 <!-- Modal header -->
                 <div class="px-8 py-6 md:px-12 md:py-8">
@@ -880,11 +913,11 @@
               <!--Body-->
               <div class="bg-[#181818] rounded-lg shadow">
                 <div class="px-8 py-6 md:px-12 md:py-8">
-                  <img
+                <img
                     class="w-full object-cover lg:max-h-[600px] rounded-lg"
-                    src="./images/meta.png"
-                    alt=""
-                  />
+                  src="./images/meta.png"
+                  alt=""
+                />
                 </div>
                 <!-- Modal header -->
                 <div class="px-8 py-6 md:px-12 md:py-8">
@@ -956,11 +989,11 @@
               <!--Body-->
               <div class="bg-[#181818] rounded-lg shadow">
                 <div class="px-8 py-6 md:px-12 md:py-8">
-                  <img
+                <img
                     class="w-full object-cover lg:max-h-[600px] rounded-lg"
-                    src="./images/food.jpeg"
-                    alt=""
-                  />
+                  src="./images/food.jpeg"
+                  alt=""
+                />
                 </div>
                 <!-- Modal header -->
                 <div class="px-8 py-6 md:px-12 md:py-8">
@@ -1062,11 +1095,11 @@
               <!--Body-->
               <div class="bg-[#181818] rounded-lg shadow">
                 <div class="px-8 py-6 md:px-12 md:py-8">
-                  <img
+                <img
                     class="w-full object-cover lg:max-h-[600px] rounded-lg"
-                    src="./images/knack.jpeg"
-                    alt=""
-                  />
+                  src="./images/knack.jpeg"
+                  alt=""
+                />
                 </div>
                 <!-- Modal header -->
                 <div class="px-8 py-6 md:px-12 md:py-8">
@@ -1140,11 +1173,11 @@
               <!--Body-->
               <div class="bg-[#181818] rounded-lg shadow">
                 <div class="px-8 py-6 md:px-12 md:py-8">
-                  <img
+                <img
                     class="w-full lg:max-h-[600px] rounded-lg"
-                    src="./images/pico.png"
-                    alt=""
-                  />
+                  src="./images/pico.png"
+                  alt=""
+                />
                 </div>
                 <!-- Modal header -->
                 <div class="px-8 py-6 md:px-12 md:py-8">
@@ -1256,11 +1289,11 @@
               <!--Body-->
               <div class="bg-[#181818] rounded-lg shadow">
                 <div class="px-8 py-6 md:px-12 md:py-8">
-                  <img
+                <img
                     class="w-full lg:max-h-[600px] rounded-lg"
-                    src="./images/blender.gif"
-                    alt=""
-                  />
+                  src="./images/blender.gif"
+                  alt=""
+                />
                 </div>
                 <!-- Modal header -->
                 <div class="px-8 py-6 md:px-12 md:py-8">
@@ -1347,6 +1380,136 @@
                       src="./images/mail.png"
                       alt=""
                     />
+                  </a>
+                  <hr class="bg-[#7E7E7E]" />
+                </div>
+                <!-- Modal footer -->
+                <div
+                  class="text-[#EB455A] mt-[120px] flex justify-center px-8 py-6 md:px-12 md:py-8"
+                >
+                  <button
+                    type="button"
+                    class="modal-close bg-[#131313] hover:bg-black text-white pl-4 pr-4 p-2 mb-[120px] rounded-full"
+                  >
+                    Back
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!--Modal BCI Research Scout-->
+        <div
+          id="bci-rag-modal"
+          class="modal bci-rag-modal opacity-0 pointer-events-none fixed w-full h-full top-0 left-0 flex items-center justify-center"
+        >
+          <div
+            class="modal-overlay absolute w-full h-full bg-zinc-900 blur-5xl opacity-95"
+          ></div>
+
+          <div class="modal-container fixed w-full h-full z-50 overflow-y-auto">
+            <div
+              class="modal-close absolute top-0 left-0 cursor-pointer flex flex-col items-center mt-4 ml-8 text-black text-sm z-50"
+            >
+              <img class="w-[23px] mt-8" src="./images/x.png" />
+            </div>
+
+            <!-- Add margin if you want to see grey behind the modal-->
+            <div
+              class="modal-content container mx-auto border max-w-7xl border-[#3C3C3C] h-auto text-left mt-12 px-8"
+            >
+              <!--Body-->
+              <div class="bg-[#181818] rounded-lg shadow">
+                <div class="px-8 py-6 md:px-12 md:py-8">
+                  <img
+                    class="w-full lg:max-h-[600px] rounded-lg"
+                    src="./images/search.gif"
+                    alt="BCI Research Scout Search Interface"
+                  />
+                </div>
+                <!-- Modal header -->
+                <div class="px-8 py-6 md:px-12 md:py-8">
+                  <h5
+                    class="text-xs mb-1 tracking-[3px] text-[#7E7E7E] font-thin"
+                  >
+                    AI-POWERED RESEARCH TOOL
+                  </h5>
+                  <h3 class="text-2xl text-white font-regular">
+                    BCI Research Scout
+                  </h3>
+                  <hr class="mt-4 bg-[#7E7E7E]" />
+                </div>
+                <!-- Modal body -->
+                <div class="px-8 py-6 md:px-12 md:py-8 space-y-4">
+                  <p class="text-base mb-6 leading-relaxed text-white">
+                    A powerful AI-powered research tool that helps Brain-Computer Interface (BCI) researchers discover, analyze, and synthesize the latest scientific literature. Built with modern RAG (Retrieval-Augmented Generation) technology, it provides evidence-backed insights with clickable citations and confidence scores.
+                  </p>
+                  <hr class="bg-[#7E7E7E]" />
+                </div>
+                <div class="px-8 py-6 md:px-12 md:py-8 space-y-4">
+                  <div class="cards md:flex md:justify-between">
+                    <div class="smallCard">
+                      <h3 class="text-lg">Timeline</h3>
+                      <p class="text-base mt-2 mb-6 text-white">Ongoing Development</p>
+                    </div>
+
+                    <div class="smallCard">
+                      <h3 class="text-lg">Team - Personal Project</h3>
+                      <p class="text-base mt-2 mb-6 text-white">Albert Hodo</p>
+                    </div>
+                    <div class="smallCard">
+                      <h3 class="text-lg">Tools</h3>
+                      <p class="text-base mt-2 mb-6 text-white">
+                        FastAPI / React <br />Google Gemini / FAISS<br />Redis / TypeScript
+                      </p>
+                    </div>
+                    <div class="smallCard md:pr-[50px]">
+                      <h3 class="text-lg">Disciplines</h3>
+                      <p class="text-base mt-2 mb-6 text-white">
+                        AI/ML Engineering <br />RAG Systems<br />Research Automation
+                      </p>
+                    </div>
+                  </div>
+                  <hr class="bg-[#7E7E7E]" />
+                </div>
+                <div class="px-8 py-6 md:px-12 md:py-8 space-y-4">
+                  <div class="extraData mb-[60px]">
+                    <h3 class="text-xl font-semibold mb-4 text-white">Key Features</h3>
+                    <ul class="text-base mb-6 leading-relaxed text-white space-y-2">
+                      <li>• <strong>Intelligent Literature Search:</strong> Real-time paper fetching from arXiv, PubMed, and Semantic Scholar</li>
+                      <li>• <strong>AI-Powered Analysis:</strong> Evidence-backed claims with confidence scores and citations</li>
+                      <li>• <strong>Performance Optimized:</strong> Redis caching reduces search times from 60s to 2-4s</li>
+                      <li>• <strong>Modern Interface:</strong> Google-style search experience with dynamic UI transitions</li>
+                    </ul>
+                    
+                    <img
+                      class="w-full mt-8 rounded object-cover"
+                      src="./images/source.gif"
+                      alt="Source and AI Insights Interface"
+                    />
+                    <p class="text-base mt-4 mb-6 text-white">
+                      View all sources and AI insights with confidence scores and clickable citations for evidence-backed research.
+                    </p>
+                    
+                    <img
+                      class="w-full mt-8 rounded object-cover"
+                      src="./images/cite.gif"
+                      alt="Citation and Reference Export"
+                    />
+                    <p class="text-base mt-4 mb-6 text-white">
+                      Copy insights, citations, and references directly for your research workflows with one-click export functionality.
+                    </p>
+                  </div>
+                  <hr class="bg-[#7E7E7E]" />
+                </div>
+
+                <div class="text-[#EB455A] px-8 py-6 md:px-12 md:py-8">
+                  <a class="flex mb-6" href="https://github.com/alberthodo/bci_research_scout" target="_blank">
+                    <p class="text-lg">View on GitHub</p>
+                    <svg class="ml-2 w-[20px] mt-[5px] h-[20px]" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                      <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"></path>
+                    </svg>
                   </a>
                   <hr class="bg-[#7E7E7E]" />
                 </div>
