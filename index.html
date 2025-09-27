@@ -208,42 +208,42 @@
         <!-- Bento Grid Container -->
         <div class="bento-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6 mb-16 lg:mb-24">
           
-          <!-- Hero Project - Dynamic Tangible UI (2x2) -->
+          <!-- Hero Project - Neural Landscape (2x2) -->
         <div
           type="button"
-            class="bento-item bento-hero col-span-1 sm:col-span-2 lg:col-span-2 lg:row-span-2 dynamic-modal group cursor-pointer"
-          onclick="openModal('dynamic-modal')"
+            class="bento-item bento-hero col-span-1 sm:col-span-2 lg:col-span-2 lg:row-span-2 neural-landscape-modal group cursor-pointer"
+          onclick="openModal('neural-landscape-modal')"
         >
-            <div class="bento-content h-full relative overflow-hidden rounded-2xl bg-gradient-to-br from-gray-800 to-gray-900">
+            <div class="bento-content h-full relative overflow-hidden rounded-2xl bg-gradient-to-br from-violet-800 to-violet-900">
           <img
                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-            src="./images/dynamic.jpeg"
-                alt="Dynamic Tangible UI"
+            src="./images/brain.png"
+                alt="Neural Landscape"
           />
               <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
               <div class="absolute bottom-6 left-6 text-white">
-                <h3 class="text-xl lg:text-2xl font-semibold mb-2">Dynamic Tangible UI</h3>
-                <p class="text-sm lg:text-base text-gray-300">Soft Robotics Interface Design</p>
+                <h3 class="text-xl lg:text-2xl font-semibold mb-2">Neural Landscape</h3>
+                <p class="text-sm lg:text-base text-gray-300">Coming Soon</p>
         </div>
             </div>
           </div>
 
-          <!-- Medium Project - Mycorrhizae (1x2) -->
+          <!-- BCI Research Scout - 2 Column Feature -->
         <div
-            class="bento-item bento-medium col-span-1 lg:col-span-1 lg:row-span-2 mycor-modal group cursor-pointer"
+            class="bento-item bento-feature col-span-1 sm:col-span-2 lg:col-span-2 bci-rag-modal group cursor-pointer"
           type="button"
-            onclick="openModal('mycor-modal')"
+            onclick="openModal('bci-rag-modal')"
         >
-            <div class="bento-content h-full relative overflow-hidden rounded-2xl bg-gradient-to-br from-green-800 to-green-900">
+            <div class="bento-content h-full relative overflow-hidden rounded-2xl bg-gradient-to-br from-emerald-800 to-emerald-900">
           <img
                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                src="./images/mycorrpic1.jpeg"
-                alt="Mycorrhizae"
+                src="./images/bci_rag.png"
+                alt="BCI Research Scout"
           />
               <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-              <div class="absolute bottom-4 left-4 text-white">
-                <h3 class="text-lg font-semibold mb-1">Mycorrhizae</h3>
-                <p class="text-sm text-gray-300">Interactive Installation</p>
+              <div class="absolute bottom-6 left-6 text-white">
+                <h3 class="text-xl font-semibold mb-2">BCI Research Scout</h3>
+                <p class="text-sm text-gray-300">AI-Powered Literature Research</p>
         </div>
             </div>
           </div>
@@ -268,7 +268,46 @@
             </div>
           </div>
 
-          <!-- Small Projects Row 1 -->
+          <!-- Mycorrhizae -->
+          <div
+            class="bento-item bento-small col-span-1 mycor-modal group cursor-pointer"
+          type="button"
+          onclick="openModal('mycor-modal')"
+        >
+            <div class="bento-content h-full relative overflow-hidden rounded-2xl bg-gradient-to-br from-green-800 to-green-900">
+          <img
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            src="./images/mycorrpic1.jpeg"
+                alt="Mycorrhizae"
+          />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+              <div class="absolute bottom-4 left-4 text-white">
+                <h3 class="text-base font-semibold mb-1">Mycorrhizae</h3>
+                <p class="text-xs text-gray-300">Interactive Installation</p>
+        </div>
+            </div>
+          </div>
+         
+  <!-- Vits Health - Small Project -->
+  <div
+  class="bento-item bento-small col-span-1 vits-modal group cursor-pointer"
+ type="button"
+ onclick="openModal('vits-modal')"
+ >
+  <div class="bento-content h-full relative overflow-hidden rounded-2xl bg-gradient-to-br from-blue-800 to-blue-900">
+ <img
+      class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+  src="./images/vits.jpeg"
+      alt="Vits Health Companion"
+ />
+    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+    <div class="absolute bottom-4 left-4 text-white">
+      <h3 class="text-base font-semibold mb-1">Vits Health</h3>
+      <p class="text-xs text-gray-300">UX Design</p>
+ </div>
+  </div>
+ </div>
+          <!-- AfroTechnoHistory - Small Project -->
           <div
             class="bento-item bento-small col-span-1 afro-modal group cursor-pointer"
             type="button"
@@ -287,26 +326,28 @@
               </div>
             </div>
           </div>
+  <!-- Dynamic Tangible UI - Feature Project (2x1) -->
+  <div
+  type="button"
+  class="bento-item bento-feature col-span-1 sm:col-span-2 lg:col-span-2 dynamic-modal group cursor-pointer"
+  onclick="openModal('dynamic-modal')"
+ >
+  <div class="bento-content h-full relative overflow-hidden rounded-2xl bg-gradient-to-br from-gray-800 to-gray-900">
+    <img
+      class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+      src="./images/dynamic.jpeg"
+      alt="Dynamic Tangible UI"
+    />
+    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+    <div class="absolute bottom-6 left-6 text-white">
+      <h3 class="text-xl font-semibold mb-2">Dynamic Tangible UI</h3>
+      <p class="text-sm text-gray-300">Soft Robotics Interface Design</p>
+    </div>
+  </div>
+ </div>
+         
 
-          <div
-            class="bento-item bento-small col-span-1 vits-modal group cursor-pointer"
-          type="button"
-          onclick="openModal('vits-modal')"
-        >
-            <div class="bento-content h-full relative overflow-hidden rounded-2xl bg-gradient-to-br from-blue-800 to-blue-900">
-          <img
-                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-            src="./images/vits.jpeg"
-                alt="Vits Health Companion"
-          />
-              <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-              <div class="absolute bottom-4 left-4 text-white">
-                <h3 class="text-base font-semibold mb-1">Vits Health</h3>
-                <p class="text-xs text-gray-300">UX Design</p>
-        </div>
-            </div>
-          </div>
- <!-- Small Projects Row 2 -->
+          <!-- Meta - Small Project -->
         <div
  class="bento-item bento-small col-span-1 meta-modal group cursor-pointer"
           type="button"
@@ -325,27 +366,26 @@
         </div>
  </div>
 </div>
-          <!-- BCI Research Scout - 2 Column Feature -->
-          <div
-            class="bento-item bento-feature col-span-1 sm:col-span-2 lg:col-span-2 bci-rag-modal group cursor-pointer"
-            type="button"
-            onclick="openModal('bci-rag-modal')"
-          >
-            <div class="bento-content h-full relative overflow-hidden rounded-2xl bg-gradient-to-br from-emerald-800 to-emerald-900">
-              <img
-                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                src="./images/bci_rag.png"
-                alt="BCI Research Scout"
-              />
-              <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-              <div class="absolute bottom-6 left-6 text-white">
-                <h3 class="text-xl font-semibold mb-2">BCI Research Scout</h3>
-                <p class="text-sm text-gray-300">AI-Powered Literature Research</p>
-              </div>
-            </div>
-          </div>
 
-         
+                   <!-- KnackApp - Feature Project (2x1) -->
+        <div
+        class="bento-item bento-feature col-span-1 sm:col-span-2 lg:col-span-2 knack-modal group cursor-pointer"
+      type="button"
+      onclick="openModal('knack-modal')"
+    >
+        <div class="bento-content h-full relative overflow-hidden rounded-2xl bg-gradient-to-br from-red-800 to-red-900">
+      <img
+            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+        src="./images/knack.jpeg"
+            alt="KnackApp"
+      />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+          <div class="absolute bottom-6 left-6 text-white">
+            <h3 class="text-xl font-semibold mb-2">KnackApp</h3>
+            <p class="text-sm text-gray-300">Game Development</p>
+    </div>
+        </div>
+      </div>
 
         <div
             class="bento-item bento-small col-span-1 cha-modal group cursor-pointer"
@@ -366,26 +406,9 @@
             </div>
           </div>
 
-          <!-- Small Projects Row 3 -->
-        <div
-            class="bento-item bento-small col-span-1 knack-modal group cursor-pointer"
-          type="button"
-          onclick="openModal('knack-modal')"
-        >
-            <div class="bento-content h-full relative overflow-hidden rounded-2xl bg-gradient-to-br from-red-800 to-red-900">
-          <img
-                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-            src="./images/knack.jpeg"
-                alt="KnackApp"
-          />
-              <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-              <div class="absolute bottom-4 left-4 text-white">
-                <h3 class="text-base font-semibold mb-1">KnackApp</h3>
-                <p class="text-xs text-gray-300">Game Development</p>
-        </div>
-            </div>
-          </div>
 
+
+        <!-- Pico - Small Project -->
         <div
             class="bento-item bento-small col-span-1 pico-modal group cursor-pointer"
           type="button"
@@ -405,9 +428,9 @@
             </div>
           </div>
 
-          <!-- Final Small Project -->
+          <!-- 3D Content - Feature Project (2x1) -->
         <div
-            class="bento-item bento-small col-span-1 sm:col-span-2 lg:col-span-1 fun-modal group cursor-pointer"
+            class="bento-item bento-feature col-span-1 sm:col-span-2 lg:col-span-2 fun-modal group cursor-pointer"
           type="button"
           onclick="openModal('fun-modal')"
         >
@@ -418,32 +441,13 @@
                 alt="3D Content & CGI"
               />
               <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-              <div class="absolute bottom-4 left-4 text-white">
-                <h3 class="text-base font-semibold mb-1">3D Content</h3>
-                <p class="text-xs text-gray-300">CGI & Animation</p>
+              <div class="absolute bottom-6 left-6 text-white">
+                <h3 class="text-xl font-semibold mb-2">3D Content</h3>
+                <p class="text-sm text-gray-300">CGI & Animation</p>
               </div>
             </div>
           </div>
 
-          <!-- Neural Landscape -->
-          <div
-            class="bento-item bento-small col-span-1 neural-landscape-modal group cursor-pointer"
-            type="button"
-            onclick="openModal('neural-landscape-modal')"
-          >
-            <div class="bento-content h-full relative overflow-hidden rounded-2xl bg-gradient-to-br from-violet-800 to-violet-900">
-              <img
-                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                src="./images/brain.png"
-                alt="Neural Landscape"
-              />
-              <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-              <div class="absolute bottom-4 left-4 text-white">
-                <h3 class="text-base font-semibold mb-1">Neural Landscape</h3>
-                <p class="text-xs text-gray-300">Coming Soon</p>
-              </div>
-            </div>
-          </div>
 
         </div>
 
@@ -1634,9 +1638,9 @@
                       <li>• <strong>Educational Tool:</strong> Outreach and training for neuroscience concepts</li>
                     </ul>
                     
-                    <div class="bg-yellow-900/20 border border-yellow-600/30 rounded-lg p-6 mt-8">
-                      <h4 class="text-lg font-semibold text-yellow-400 mb-2">🚧 Coming Soon</h4>
-                      <p class="text-yellow-200">
+                    <div class="bg-gray-800/20 border border-gray-600/30 rounded-lg p-6 mt-8">
+                      <h4 class="text-lg font-semibold text-white mb-2">🚧 Coming Soon</h4>
+                      <p class="text-gray-300">
                         This project is currently in active development. The Neural Landscape will provide unprecedented access to cortical activity visualization, making advanced neuroscience concepts accessible to researchers, educators, and the general public.
                       </p>
                     </div>
