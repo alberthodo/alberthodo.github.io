@@ -509,6 +509,18 @@
             background-color: transparent;
         }
         
+        /* SVG images should not have background */
+        img[src$=".svg"],
+        img[src*=".svg"] {
+            background-color: transparent !important;
+        }
+        
+        /* Lock icon specific styling */
+        .work-project-lock-overlay img {
+            background-color: transparent !important;
+            opacity: 0.6 !important;
+        }
+        
         /* Subtle Loading Pulse */
         @keyframes subtlePulse {
             0%, 100% {
@@ -530,6 +542,85 @@
         
         .preload.loaded {
             visibility: visible;
+        }
+        
+        /* Password Modal */
+        .password-modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(14, 14, 14, 0.4);
+            backdrop-filter: blur(2px);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            animation: fadeIn 0.4s ease-out;
+        }
+        
+        .password-modal {
+            background-color: var(--rice-paper);
+            padding: 60px 40px;
+            max-width: 500px;
+            width: 100%;
+            border-radius: 12px;
+            animation: fadeInUp 0.5s ease-out;
+        }
+        
+        /* Modal button - use grey instead of black */
+        .password-modal .btn-primary {
+            background-color: var(--fog-grey);
+            color: var(--ink-black);
+        }
+        
+        .password-modal .btn-primary:hover {
+            opacity: 0.8;
+            transform: translateY(-1px);
+        }
+        
+        .password-input {
+            width: 100%;
+            padding: 12px 0;
+            border: none;
+            border-bottom: 1px solid var(--fog-grey);
+            background: transparent;
+            font-size: 18px;
+            font-weight: 300;
+            color: var(--ink-black);
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            transition: border-color 0.2s ease;
+            margin-bottom: 8px;
+        }
+        
+        .password-input:focus {
+            outline: none;
+            border-bottom-color: var(--ink-black);
+        }
+        
+        .password-input::placeholder {
+            color: var(--ink-black);
+            opacity: 0.3;
+        }
+        
+        .password-error {
+            color: var(--ink-black);
+            font-size: 14px;
+            margin-top: 12px;
+            opacity: 0;
+            animation: passwordErrorIn 0.3s ease-out forwards;
+            font-weight: 300;
+        }
+        
+        @keyframes passwordErrorIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 0.5;
+            }
         }
         
         /* Button Hover Enhancement */
@@ -761,6 +852,97 @@
             );
         };
 
+        // Password Modal Component
+        const PasswordModal = ({ isOpen, onClose, onSuccess, showError, onError }) => {
+            const [password, setPassword] = useState('');
+            const inputRef = React.useRef(null);
+            
+            useEffect(() => {
+                if (isOpen && inputRef.current) {
+                    inputRef.current.focus();
+                    setPassword('');
+                }
+            }, [isOpen]);
+            
+            const handleSubmit = (e) => {
+                e.preventDefault();
+                if (password === '!HodoDesign') {
+                    onSuccess();
+                    setPassword('');
+                } else {
+                    if (onError) {
+                        onError(true);
+                    }
+                    setPassword('');
+                    if (inputRef.current) {
+                        inputRef.current.focus();
+                    }
+                }
+            };
+            
+            const handleKeyDown = (e) => {
+                if (e.key === 'Escape') {
+                    onClose();
+                }
+            };
+            
+            if (!isOpen) return null;
+            
+            return (
+                <div className="password-modal-overlay" onClick={onClose} onKeyDown={handleKeyDown}>
+                    <div className="password-modal" onClick={(e) => e.stopPropagation()}>
+                        <div className="mb-8 md:mb-12">
+                            <span className="tag text-[10px] md:text-[11px] tracking-[0.2em] font-bold opacity-40 mb-4 block">
+                                Protected Project
+                            </span>
+                            <h3 className="font-light text-3xl md:text-4xl lg:text-[48px] leading-[1.2] tracking-[0.01em] mb-4 md:mb-6 font-[200] text-[#4A4A4A]">
+                                Enter Password
+                            </h3>
+                            <p className="text-sm md:text-base text-[#4A4A4A] opacity-60 font-[300] leading-[1.6]">
+                                This project is password protected. Please enter the password to continue.
+                            </p>
+                        </div>
+                        <form onSubmit={handleSubmit}>
+                            <input
+                                ref={inputRef}
+                                type="password"
+                                className="password-input form-input"
+                                placeholder="Password"
+                                value={password}
+                                onChange={(e) => {
+                                    setPassword(e.target.value);
+                                    if (showError && onError) {
+                                        onError(false); // Clear error when user starts typing
+                                    }
+                                }}
+                                autoFocus
+                            />
+                            {showError && (
+                                <div className="password-error">
+                                    Incorrect password. Please try again.
+                                </div>
+                            )}
+                            <div className="flex flex-col sm:flex-row gap-4 mt-12">
+                                <button
+                                    type="button"
+                                    onClick={onClose}
+                                    className="text-sm md:text-base text-[#4A4A4A] opacity-60 hover:opacity-100 transition-opacity font-[300] px-0 py-2 text-left"
+                                >
+                                    Cancel
+                                </button>
+                                <button
+                                    type="submit"
+                                    className="btn-primary sm:ml-auto"
+                                >
+                                    Unlock
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            );
+        };
+
         // Intersection Observer Hook for Scroll Animations
         const useIntersectionObserver = (ref, options = {}) => {
             const [isIntersecting, setIsIntersecting] = useState(false);
@@ -872,7 +1054,7 @@
                                         />
                                         {(project.id === 2 || project.id === 3) && (
                                             <div className="work-project-lock-overlay absolute inset-0 flex items-center justify-center bg-black bg-opacity-20 rounded-xl opacity-0 transition-opacity duration-300">
-                                                <img src="assets/lock.fill.svg" alt="Locked" className="w-20 h-20 md:w-24 md:h-24 lg:w-32 lg:h-32 opacity-60" />
+                                                <img src="assets/lock.fill.svg" alt="Locked" className="w-20 h-20 md:w-24 md:h-24 lg:w-32 lg:h-32 opacity-60 loaded" />
                                             </div>
                                         )}
                                     </>
@@ -1034,6 +1216,34 @@
         const App = () => {
             const [currentPage, setCurrentPage] = useState('home');
             const [selectedProject, setSelectedProject] = useState(null);
+            const [passwordModalOpen, setPasswordModalOpen] = useState(false);
+            const [pendingProjectId, setPendingProjectId] = useState(null);
+            const [passwordError, setPasswordError] = useState(false);
+            
+            // Get authenticated projects from sessionStorage
+            const getAuthenticatedProjects = () => {
+                const stored = sessionStorage.getItem('authenticatedProjects');
+                return stored ? JSON.parse(stored) : [];
+            };
+            
+            // Set authenticated project in sessionStorage
+            const setAuthenticatedProject = (projectId) => {
+                const authenticated = getAuthenticatedProjects();
+                if (!authenticated.includes(projectId)) {
+                    authenticated.push(projectId);
+                    sessionStorage.setItem('authenticatedProjects', JSON.stringify(authenticated));
+                }
+            };
+            
+            // Check if project is authenticated
+            const isProjectAuthenticated = (projectId) => {
+                return getAuthenticatedProjects().includes(projectId);
+            };
+            
+            // Check if project is locked
+            const isProjectLocked = (projectId) => {
+                return projectId === 2 || projectId === 3;
+            };
 
             useEffect(() => {
                 // Handle initial hash
@@ -1043,10 +1253,16 @@
                     const projectMatch = hash.match(/work\/project-(\d+)/);
                     if (projectMatch) {
                         const projectId = parseInt(projectMatch[1]);
-                        setSelectedProject(projectId);
-                        setCurrentPage('work');
-                        // Scroll to top when opening project from hash
-                        window.scrollTo({ top: 0, behavior: 'instant' });
+                        // Check if project is locked and not authenticated
+                        if (isProjectLocked(projectId) && !isProjectAuthenticated(projectId)) {
+                            setPendingProjectId(projectId);
+                            setPasswordModalOpen(true);
+                            setPasswordError(false);
+                        } else {
+                            setSelectedProject(projectId);
+                            setCurrentPage('work');
+                            window.scrollTo({ top: 0, behavior: 'instant' });
+                        }
                     } else {
                         scrollToSection(hash);
                         setCurrentPage(hash);
@@ -1059,10 +1275,16 @@
                     const projectMatch = newHash.match(/work\/project-(\d+)/);
                     if (projectMatch) {
                         const projectId = parseInt(projectMatch[1]);
-                        setSelectedProject(projectId);
-                        setCurrentPage('work');
-                        // Scroll to top when opening project from hash change
-                        window.scrollTo({ top: 0, behavior: 'instant' });
+                        // Check if project is locked and not authenticated
+                        if (isProjectLocked(projectId) && !isProjectAuthenticated(projectId)) {
+                            setPendingProjectId(projectId);
+                            setPasswordModalOpen(true);
+                            setPasswordError(false);
+                        } else {
+                            setSelectedProject(projectId);
+                            setCurrentPage('work');
+                            window.scrollTo({ top: 0, behavior: 'instant' });
+                        }
                     } else {
                         setSelectedProject(null);
                         scrollToSection(newHash);
@@ -1118,22 +1340,50 @@
             };
 
             const handleProjectSelect = (projectId) => {
-                setSelectedProject(projectId);
-                if (projectId) {
-                    window.location.hash = `work/project-${projectId}`;
-                    setCurrentPage('work');
-                    // Scroll to top immediately when showing project detail
-                    window.scrollTo({ top: 0, behavior: 'instant' });
-                    // Also ensure scroll after a brief delay to handle any layout shifts
-                    setTimeout(() => {
-                        window.scrollTo({ top: 0, behavior: 'instant' });
-                    }, 0);
-                } else {
+                if (!projectId) {
+                    setSelectedProject(null);
                     window.location.hash = 'work';
                     setCurrentPage('work');
-                    // Scroll to work section when going back
                     setTimeout(() => scrollToSection('work'), 100);
+                    return;
                 }
+                
+                // Check if project is locked and not authenticated
+                if (isProjectLocked(projectId) && !isProjectAuthenticated(projectId)) {
+                    setPendingProjectId(projectId);
+                    setPasswordModalOpen(true);
+                    setPasswordError(false);
+                    return;
+                }
+                
+                // Project is unlocked or authenticated, show it
+                setSelectedProject(projectId);
+                window.location.hash = `work/project-${projectId}`;
+                setCurrentPage('work');
+                window.scrollTo({ top: 0, behavior: 'instant' });
+                setTimeout(() => {
+                    window.scrollTo({ top: 0, behavior: 'instant' });
+                }, 0);
+            };
+            
+            const handlePasswordSuccess = () => {
+                if (pendingProjectId) {
+                    setAuthenticatedProject(pendingProjectId);
+                    setPasswordModalOpen(false);
+                    setPasswordError(false);
+                    // Now show the project
+                    setSelectedProject(pendingProjectId);
+                    window.location.hash = `work/project-${pendingProjectId}`;
+                    setCurrentPage('work');
+                    window.scrollTo({ top: 0, behavior: 'instant' });
+                    setPendingProjectId(null);
+                }
+            };
+            
+            const handlePasswordClose = () => {
+                setPasswordModalOpen(false);
+                setPendingProjectId(null);
+                setPasswordError(false);
             };
 
             // Define projects array at App level so it can be shared
@@ -1178,6 +1428,13 @@
 
             return (
                 <div className="min-h-screen bg-rice-paper">
+                    <PasswordModal
+                        isOpen={passwordModalOpen}
+                        onClose={handlePasswordClose}
+                        onSuccess={handlePasswordSuccess}
+                        showError={passwordError}
+                        onError={(show) => setPasswordError(show !== false)}
+                    />
                     <Navigation currentPage={currentPage} onNavigate={handleNavigate} />
                     {/* Left Navigation - Mirror of right nav */}
                     <nav className="fixed left-0 top-0 bottom-0 z-50 w-[120px] py-16 ml-4 md:ml-0 slide-in-left">
