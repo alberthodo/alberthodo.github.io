@@ -1,1838 +1,878 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio — Senior UX Designer & New Media Artist</title>
+    
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-      body,
-      h1,
-      h2,
-      h3,
-      h4,
-      h5,
-      h6 {
-        font-family: Helvetica, sans-serif;
-      }
-      .modal {
-        transition: opacity 0.25s ease;
-      }
-      body.modal-active {
-        overflow-x: hidden;
-        overflow-y: visible !important;
-      }
-      .opacity-95 {
-        opacity: 0.95;
-      }
-      
-      /* Bento Grid Styles */
-      .bento-grid {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        grid-auto-rows: minmax(200px, auto);
-        gap: 1.5rem;
-      }
-      
-      .bento-item {
-        position: relative;
-        border-radius: 1.5rem;
-        overflow: hidden;
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-      }
-      
-      .bento-item:hover {
-        transform: translateY(-4px);
-        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-      }
-      
-      .bento-hero {
-        grid-column: span 2;
-        grid-row: span 2;
-        min-height: 400px;
-      }
-      
-      .bento-medium {
-        grid-column: span 1;
-        grid-row: span 2;
-        min-height: 400px;
-      }
-      
-      .bento-small {
-        grid-column: span 1;
-        grid-row: span 1;
-        min-height: 200px;
-      }
-      
-      .bento-feature {
-        grid-column: span 2;
-        grid-row: span 1;
-        min-height: 200px;
-      }
-      
-      .bento-content {
-        position: relative;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-end;
-      }
-      
-      .bento-content img {
-        transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-      }
-      
-      .bento-item:hover .bento-content img {
-        transform: scale(1.05);
-      }
-      
-      /* Responsive Design */
-      @media (max-width: 1024px) {
-        .bento-grid {
-          grid-template-columns: repeat(2, 1fr);
-          gap: 1rem;
-        }
-        
-        .bento-hero {
-          grid-column: span 2;
-          grid-row: span 1;
-          min-height: 300px;
-        }
-        
-        .bento-medium {
-          grid-column: span 1;
-          grid-row: span 1;
-          min-height: 200px;
-        }
-        
-        .bento-small {
-          grid-column: span 1;
-          grid-row: span 1;
-          min-height: 200px;
-        }
-        
-        .bento-feature {
-          grid-column: span 2;
-          grid-row: span 1;
-          min-height: 200px;
-        }
-      }
-      
-      @media (max-width: 640px) {
-        .bento-grid {
-          grid-template-columns: 1fr;
-          gap: 0.75rem;
-        }
-        
-        .bento-hero,
-        .bento-medium,
-        .bento-small,
-        .bento-feature {
-          grid-column: span 1;
-          grid-row: span 1;
-          min-height: 250px;
-        }
-      }
-    </style>
-    <title>Albert Hodo</title>
-    <script type="module" src="index.js"></script>
-  </head>
-  <body
-    class="snap-y snap-mandatory text-white lg:p-[40px] lg:pl-[80px] lg:pr-[80px] pl-6 pr-6"
-    style="background: linear-gradient(180deg, #000000 0%, #2a2a2a 48%, #2a2a2a 52%, #000000 100%); min-height: 100vh;"
-  >
-    <section>
-      <div id="about" class="about z-50 mt-4 snap-center">
-        <div class="firstSection lg:mb-8 flex items-end">
-          <div class="tagline">
-            <h5 class="text-sm lg:text-lg">
-              Human First | Designer | Engineer
-            </h5>
-          </div>
-          <div class="logo w-[80px] lg:w-[120px] ml-auto">
-            <img class="animate-pulse" src="./images/HODO DESIGNS.png" />
-          </div>
-        </div>
-        <div class="AboutMain">
-          <h1 class="text-2xl lg:text-4xl lg:font-thin mt-4 font-bold">
-            I'm Hodo
-            <span class="inline-block"
-              ><img class="w-16 lg:w-24" src="./images/(Hodo).png"
-            /></span>
-            <br>
-            <br> A multidisciplinary designer and software engineer with a background in AI, IoT, and creative technologies. I build interactive systems that blend the digital and physical, with a particular focus on assistive and brain-computer interface technologies. I enjoy turning complex ideas into practical, human-centered experiences that empower people and explore new ways to interact with technology.
-          </h1>
-          <div class="outsideNavs text-lg lg:text-xl lg:mt-14 mt-8">
-            <a
-              class="hover:text-[#EB455A]"
-              href="https://read.cv/hodo"
-              target="_blank"
-              >Resume
-              <!-- <img
-                  class="inline-block w-[20px]"
-                  src="./images/arrow-up-right.png"
-                /> -->
-            </a>
-            |
-            <a
-              class="hover:text-[#EB455A]"
-              href="https://www.linkedin.com/in/viewalbertpage/"
-              target="_blank"
-              >LinkedIn
-            </a>
-            |
-            <a class="hover:text-[#EB455A]" href="mailto: alberthododesign.com"
-              >Email
-            </a>
-            |
-            <a
-              class="hover:text-[#EB455A]"
-              href="https://github.com/alberthodo"
-              target="_blank"
-              >Github
-            </a>
-            <!-- <a class="hover:text-[#EB455A]" href="./test.html"
-              >test
-            </a> -->
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- <div
-      class="glass absolute w-full h-full z-10 bg-black/70 backdrop-blur-lg"
-    ></div> -->
-    <section>
-      <div
-        class="projects pt-8 snap-center mt-[60px] lg:mt-[30vh]"
-      >
-        <!-- Bento Grid Container -->
-        <div class="bento-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6 mb-16 lg:mb-24">
-          
-          <!-- Hero Project - Neural Landscape (2x2) -->
-        <div
-          type="button"
-            class="bento-item bento-hero col-span-1 sm:col-span-2 lg:col-span-2 lg:row-span-2 neural-landscape-modal group cursor-pointer"
-          onclick="openModal('neural-landscape-modal')"
-        >
-            <div class="bento-content h-full relative overflow-hidden rounded-2xl bg-gradient-to-br from-violet-800 to-violet-900">
-          <img
-                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-            src="./images/brain.png"
-                alt="Neural Landscape"
-          />
-              <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-              <div class="absolute bottom-6 left-6 text-white">
-                <h3 class="text-xl lg:text-2xl font-semibold mb-2">Neural Landscape</h3>
-                <p class="text-sm lg:text-base text-gray-300">Coming Soon</p>
-        </div>
-            </div>
-          </div>
-
-          <!-- BCI Research Scout - 2 Column Feature -->
-        <div
-            class="bento-item bento-feature col-span-1 sm:col-span-2 lg:col-span-2 bci-rag-modal group cursor-pointer"
-          type="button"
-            onclick="openModal('bci-rag-modal')"
-        >
-            <div class="bento-content h-full relative overflow-hidden rounded-2xl bg-gradient-to-br from-emerald-800 to-emerald-900">
-          <img
-                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                src="./images/bci_rag.png"
-                alt="BCI Research Scout"
-          />
-              <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-              <div class="absolute bottom-6 left-6 text-white">
-                <h3 class="text-xl font-semibold mb-2">BCI Research Scout</h3>
-                <p class="text-sm text-gray-300">AI-Powered Literature Research</p>
-        </div>
-            </div>
-          </div>
-
-          <!-- Neuro Feedback Experiments - Third Project -->
-        <div
-            class="bento-item bento-small col-span-1 neuro-modal group cursor-pointer"
-          type="button"
-            onclick="window.open('https://github.com/alberthodo/bci-experimentations--muse-2', '_blank')"
-        >
-            <div class="bento-content h-full relative overflow-hidden rounded-2xl bg-gradient-to-br from-indigo-800 to-purple-900">
-          <img
-                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                src="./images/orb.gif"
-                alt="Neuro Feedback Experiments"
-          />
-              <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-              <div class="absolute bottom-4 left-4 text-white">
-                <h3 class="text-base font-semibold mb-1">Neuro Feedback</h3>
-                <p class="text-xs text-gray-300">Prototyping with Muse Headset</p>
-        </div>
-            </div>
-          </div>
-
-          <!-- Mycorrhizae -->
-          <div
-            class="bento-item bento-small col-span-1 mycor-modal group cursor-pointer"
-          type="button"
-          onclick="openModal('mycor-modal')"
-        >
-            <div class="bento-content h-full relative overflow-hidden rounded-2xl bg-gradient-to-br from-green-800 to-green-900">
-          <img
-                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-            src="./images/mycorrpic1.jpeg"
-                alt="Mycorrhizae"
-          />
-              <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-              <div class="absolute bottom-4 left-4 text-white">
-                <h3 class="text-base font-semibold mb-1">Mycorrhizae</h3>
-                <p class="text-xs text-gray-300">Interactive Installation</p>
-        </div>
-            </div>
-          </div>
-         
-  <!-- Vits Health - Small Project -->
-  <div
-  class="bento-item bento-small col-span-1 vits-modal group cursor-pointer"
- type="button"
- onclick="openModal('vits-modal')"
- >
-  <div class="bento-content h-full relative overflow-hidden rounded-2xl bg-gradient-to-br from-blue-800 to-blue-900">
- <img
-      class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-  src="./images/vits.jpeg"
-      alt="Vits Health Companion"
- />
-    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-    <div class="absolute bottom-4 left-4 text-white">
-      <h3 class="text-base font-semibold mb-1">Vits Health</h3>
-      <p class="text-xs text-gray-300">UX Design</p>
- </div>
-  </div>
- </div>
-          <!-- AfroTechnoHistory - Small Project -->
-          <div
-            class="bento-item bento-small col-span-1 afro-modal group cursor-pointer"
-            type="button"
-            onclick="openModal('afro-modal')"
-          >
-            <div class="bento-content h-full relative overflow-hidden rounded-2xl bg-gradient-to-br from-purple-800 to-purple-900">
-              <img
-                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                src="./images/afro.png"
-                alt="AfroTechnoHistory"
-              />
-              <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-              <div class="absolute bottom-4 left-4 text-white">
-                <h3 class="text-base font-semibold mb-1">AfroTechnoHistory</h3>
-                <p class="text-xs text-gray-300">Speculative Design</p>
-              </div>
-            </div>
-          </div>
-  <!-- Dynamic Tangible UI - Feature Project (2x1) -->
-  <div
-  type="button"
-  class="bento-item bento-feature col-span-1 sm:col-span-2 lg:col-span-2 dynamic-modal group cursor-pointer"
-  onclick="openModal('dynamic-modal')"
- >
-  <div class="bento-content h-full relative overflow-hidden rounded-2xl bg-gradient-to-br from-gray-800 to-gray-900">
-    <img
-      class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-      src="./images/dynamic.jpeg"
-      alt="Dynamic Tangible UI"
-    />
-    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-    <div class="absolute bottom-6 left-6 text-white">
-      <h3 class="text-xl font-semibold mb-2">Dynamic Tangible UI</h3>
-      <p class="text-sm text-gray-300">Soft Robotics Interface Design</p>
-    </div>
-  </div>
- </div>
-         
-
-          <!-- Meta - Small Project -->
-        <div
- class="bento-item bento-small col-span-1 meta-modal group cursor-pointer"
-          type="button"
-          onclick="openModal('meta-modal')"
-        >
- <div class="bento-content h-full relative overflow-hidden rounded-2xl bg-gradient-to-br from-indigo-800 to-indigo-900">
-          <img
-     class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-            src="./images/meta.png"
-     alt="Meta"
-          />
-   <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-   <div class="absolute bottom-4 left-4 text-white">
-     <h3 class="text-base font-semibold mb-1">Meta</h3>
-     <p class="text-xs text-gray-300">Software Engineering</p>
-        </div>
- </div>
-</div>
-
-                   <!-- KnackApp - Feature Project (2x1) -->
-        <div
-        class="bento-item bento-feature col-span-1 sm:col-span-2 lg:col-span-2 knack-modal group cursor-pointer"
-      type="button"
-      onclick="openModal('knack-modal')"
-    >
-        <div class="bento-content h-full relative overflow-hidden rounded-2xl bg-gradient-to-br from-red-800 to-red-900">
-      <img
-            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-        src="./images/knack.jpeg"
-            alt="KnackApp"
-      />
-          <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-          <div class="absolute bottom-6 left-6 text-white">
-            <h3 class="text-xl font-semibold mb-2">KnackApp</h3>
-            <p class="text-sm text-gray-300">Game Development</p>
-    </div>
-        </div>
-      </div>
-
-        <div
-            class="bento-item bento-small col-span-1 cha-modal group cursor-pointer"
-          type="button"
-          onclick="openModal('cha-modal')"
-        >
-            <div class="bento-content h-full relative overflow-hidden rounded-2xl bg-gradient-to-br from-orange-800 to-orange-900">
-          <img
-                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-            src="./images/food.jpeg"
-                alt="Chakula Tracking"
-          />
-              <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-              <div class="absolute bottom-4 left-4 text-white">
-                <h3 class="text-base font-semibold mb-1">Chakula</h3>
-                <p class="text-xs text-gray-300">Food Ordering</p>
-        </div>
-            </div>
-          </div>
-
-
-
-        <!-- Pico - Small Project -->
-        <div
-            class="bento-item bento-small col-span-1 pico-modal group cursor-pointer"
-          type="button"
-          onclick="openModal('pico-modal')"
-        >
-            <div class="bento-content h-full relative overflow-hidden rounded-2xl bg-gradient-to-br from-pink-800 to-pink-900">
-          <img
-                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-            src="./images/pico.png"
-                alt="Pico can Dance"
-          />
-              <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-              <div class="absolute bottom-4 left-4 text-white">
-                <h3 class="text-base font-semibold mb-1">Pico</h3>
-                <p class="text-xs text-gray-300">Robotics</p>
-        </div>
-            </div>
-          </div>
-
-        <!-- VR 3D Game Prototypes - Small Project -->
-        <div
-            class="bento-item bento-small col-span-1 vr-prototypes-modal group cursor-pointer"
-          type="button"
-          onclick="openModal('vr-prototypes-modal')"
-        >
-          <div class="bento-content h-full relative overflow-hidden rounded-2xl bg-gradient-to-br from-cyan-800 to-cyan-900">
-            <img
-              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-              src="./images/vr game gif.gif"
-              alt="VR 3D Game Prototypes"
-            />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-            <div class="absolute bottom-4 left-4 text-white">
-              <h3 class="text-base font-semibold mb-1">VR 3D Game Prototypes</h3>
-              <p class="text-xs text-gray-300">Unity & Bezi</p>
-            </div>
-          </div>
-        </div>
-
-          <!-- 3D Content - Feature Project (2x1) -->
-        <div
-            class="bento-item bento-feature col-span-1 sm:col-span-2 lg:col-span-2 fun-modal group cursor-pointer"
-          type="button"
-          onclick="openModal('fun-modal')"
-        >
-            <div class="bento-content h-full relative overflow-hidden rounded-2xl bg-gradient-to-br from-teal-800 to-teal-900">
-          <img
-                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-            src="./images/blender.gif"
-                alt="3D Content & CGI"
-              />
-              <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-              <div class="absolute bottom-6 left-6 text-white">
-                <h3 class="text-xl font-semibold mb-2">3D Content</h3>
-                <p class="text-sm text-gray-300">CGI & Animation</p>
-              </div>
-            </div>
-          </div>
-
-
-        </div>
-
-        <!-- new modal -->
-        <!--Modal dynamic-->
-        <div
-          id="dynamic-modal"
-          class="modal dynamic-modal opacity-0 pointer-events-none fixed w-full h-full top-0 left-0 flex items-center justify-center"
-        >
-          <div
-            class="modal-overlay absolute w-full h-full bg-zinc-900 blur-5xl opacity-95"
-          ></div>
-
-          <div class="modal-container fixed w-full h-full z-50 overflow-y-auto">
-            <div
-              class="modal-close absolute top-0 left-0 cursor-pointer flex flex-col items-center mt-4 ml-8 text-black text-sm z-50"
-            >
-              <img class="w-[23px] mt-8" src="./images/x.png" />
-            </div>
-
-            <!-- Add margin if you want to see grey behind the modal-->
-            <div
-              class="modal-content container mx-auto border max-w-7xl border-[#3C3C3C] h-auto text-left mt-12 px-8"
-            >
-              <!--Body-->
-              <div class="bg-[#181818] rounded-lg shadow">
-                <div class="px-8 py-6 md:px-12 md:py-8">
-                <img
-                    class="w-full lg:max-h-[600px] rounded-lg"
-                  src="./images/dynamic.jpeg"
-                  alt=""
-                />
-                </div>
-                <!-- Modal header -->
-                <div class="px-8 py-6 md:px-12 md:py-8">
-                  <h5
-                    class="text-xs mb-1 tracking-[3px] text-[#7E7E7E] font-thin"
-                  >
-                    SOFT ROBOTICS INTERFACE DESIGN
-                  </h5>
-                  <h3 class="text-2xl text-white font-regular">
-                    Dynamic Tangible UI
-                  </h3>
-                  <hr class="mt-4 bg-[#7E7E7E]" />
-                </div>
-                <!-- Modal body -->
-                <div class="px-8 py-6 md:px-12 md:py-8 space-y-4">
-                  <p class="text-base mb-6 leading-relaxed text-white">
-                    Apps on screens can change appearance and functions when
-                    needed. What if physical devices could do the same? This
-                    project explores inflatable interfaces and speculates what
-                    smart loT interfaces could be at the home.
-                  </p>
-                  <hr class="bg-[#7E7E7E]" />
-                </div>
-                <div class="px-8 py-6 md:px-12 md:py-8 space-y-4">
-                  <div class="cards md:flex md:justify-between">
-                    <div class="smallCard">
-                      <h3 class="text-lg">Timeline</h3>
-                      <p class="text-base mt-2 mb-6 text-white">Aug-Oct 2023</p>
-                    </div>
-
-                    <div class="smallCard">
-                      <h3 class="text-lg">Team - Academic Project</h3>
-                      <p class="text-base mt-2 mb-6 text-white">
-                        John Brechbill <br />Albert Hodo (myself)
-                      </p>
-                    </div>
-                    <div class="smallCard">
-                      <h3 class="text-lg">Tools</h3>
-                      <p class="text-base mt-2 mb-6 text-white">
-                        Fuion 360 <br />Soft materials<br />Microcontrollers
-                      </p>
-                    </div>
-                    <div class="smallCard md:pr-[50px]">
-                      <h3 class="text-lg">Disciplines</h3>
-                      <p class="text-base mt-2 mb-6 text-white">
-                        Electronics Programming <br />Silicon Casting<br />Physical
-                        Fabrication
-                      </p>
-                    </div>
-                  </div>
-                  <hr class="bg-[#7E7E7E]" />
-                </div>
-                <div class="p-4 md:p-5 space-y-4">
-                  <div class="extraData mb-[60px]">
-                    <video class="rounded" controls>
-                      <source src="./images/dtui.mp4" type="video/mp4" />
-                      Your browser does not support the video tag.
-                    </video>
-
-                    <p class="text-base mt-2 mb-6 text-white">
-                      This project was exhibited at the Jacobs Spring Design
-                      Showcase’ 23.
-                    </p>
-                    <img
-                      class="w-full mt-24 rounded object-cover"
-                      src="./images/dtui2.jpg"
-                      alt=""
-                    />
-                    <p class="text-base mt-2 mb-6 text-white">
-                      A dynamic remote that only shows different buttons based
-                      on your needs at different times.
-                    </p>
-                    <img
-                      class="w-full mt-24 rounded object-cover"
-                      src="./images/dtui3.jpg"
-                      alt=""
-                    />
-                    <p class="text-base mt-2 mb-6 text-white">
-                      An example of the exploded view of components used.
-                    </p>
-                  </div>
-                  <hr class="bg-[#7E7E7E]" />
-                </div>
-
-                <div class="text-[#EB455A] px-8 py-6 md:px-12 md:py-8">
-                  <a class="flex mb-6" href="">
-                    <p class="text-lg">Full case study coming soon</p>
-                    <!-- <img
-                class="ml-2 w-[20px] mt-[5px] h-[20px]"
-                src="./images/arrow-up-right.png"
-                alt=""
-              /> -->
-                  </a>
-                  <hr class="bg-[#7E7E7E]" />
-                </div>
-                <!-- Modal footer -->
-                <div
-                  class="text-[#EB455A] mt-[120px] flex justify-center px-8 py-6 md:px-12 md:py-8"
-                >
-                  <button
-                    type="button"
-                    class="modal-close bg-[#131313] hover:bg-black text-white pl-4 pr-4 p-2 mb-[120px] rounded-full"
-                  >
-                    Back
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!--Modal afro-->
-        <div
-          id="afro-modal"
-          class="modal afro-modal opacity-0 pointer-events-none fixed w-full h-full top-0 left-0 flex items-center justify-center"
-        >
-          <div
-            class="modal-overlay absolute w-full h-full bg-zinc-900 blur-5xl opacity-95"
-          ></div>
-
-          <div class="modal-container fixed w-full h-full z-50 overflow-y-auto">
-            <div
-              class="modal-close absolute top-0 left-0 cursor-pointer flex flex-col items-center mt-4 ml-8 text-black text-sm z-50"
-            >
-              <img class="w-[23px] mt-8" src="./images/x.png" />
-            </div>
-
-            <!-- Add margin if you want to see grey behind the modal-->
-            <div
-              class="modal-content container mx-auto border max-w-7xl border-[#3C3C3C] h-auto text-left mt-12 px-8"
-            >
-              <!--Body-->
-              <div class="bg-[#181818] rounded-lg shadow">
-                <div class="px-8 py-6 md:px-12 md:py-8">
-                <img
-                    class="w-full object-cover lg:max-h-[600px] rounded-lg"
-                  src="./images/afro.png"
-                  alt=""
-                />
-                </div>
-                <!-- Modal header -->
-                <div class="px-8 py-6 md:px-12 md:py-8">
-                  <h5
-                    class="text-xs mb-1 tracking-[3px] text-[#7E7E7E] font-thin"
-                  >
-                    SPECULATIVE PRODUCT DESIGN
-                  </h5>
-                  <h3 class="text-2xl text-white font-regular">
-                    AfroTechnoHistory
-                  </h3>
-                  <hr class="mt-4 bg-[#7E7E7E]" />
-                </div>
-                <!-- Modal body -->
-                <div class="px-8 py-6 md:px-12 md:py-8 space-y-4">
-                  <p class="text-base mb-6 leading-relaxed text-white">
-                    AfroTechnoHistory is an ongoing research project that
-                    speculates consumer technologies driven by futuristic
-                    pre-colonial West African design movements.
-                  </p>
-                  <hr class="bg-[#7E7E7E]" />
-                </div>
-
-                <div class="text-[#EB455A] px-8 py-6 md:px-12 md:py-8">
-                  <a class="flex mb-6" href="">
-                    <p class="text-lg">Send me an email</p>
-                    <img
-                      class="ml-2 w-[20px] mt-[5px] h-[20px]"
-                      src="./images/mail.png"
-                      alt=""
-                    />
-                  </a>
-                  <hr class="bg-[#7E7E7E]" />
-                </div>
-                <!-- Modal footer -->
-                <div
-                  class="text-[#EB455A] mt-[120px] flex justify-center px-8 py-6 md:px-12 md:py-8"
-                >
-                  <button
-                    type="button"
-                    class="modal-close bg-[#131313] hover:bg-black text-white pl-4 pr-4 p-2 mb-[120px] rounded-full"
-                  >
-                    Back
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!--Modal mycor-->
-        <div
-          id="mycor-modal"
-          class="modal mycor-modal opacity-0 pointer-events-none fixed w-full h-full top-0 left-0 flex items-center justify-center"
-        >
-          <div
-            class="modal-overlay absolute w-full h-full bg-zinc-900 blur-5xl opacity-95"
-          ></div>
-
-          <div class="modal-container fixed w-full h-full z-50 overflow-y-auto">
-            <div
-              class="modal-close absolute top-0 left-0 cursor-pointer flex flex-col items-center mt-4 ml-8 text-black text-sm z-50"
-            >
-              <img class="w-[23px] mt-8" src="./images/x.png" />
-            </div>
-
-            <!-- Add margin if you want to see grey behind the modal-->
-            <div
-              class="modal-content container mx-auto border max-w-7xl border-[#3C3C3C] h-auto text-left mt-12 px-8"
-            >
-              <!--Body-->
-              <div class="bg-[#181818] rounded-lg shadow">
-                <div class="px-8 py-6 md:px-12 md:py-8">
-                <img
-                    class="w-full lg:max-h-[600px] rounded-lg"
-                  src="./images/bigMush.png"
-                  alt=""
-                />
-                </div>
-                <!-- Modal header -->
-                <div class="px-8 py-6 md:px-12 md:py-8">
-                  <h5
-                    class="text-xs mb-1 tracking-[3px] text-[#7E7E7E] font-thin"
-                  >
-                    INTERACTIVE INSTALLATION
-                  </h5>
-                  <h3 class="text-2xl text-white font-regular">Mycorrhizae</h3>
-                  <hr class="mt-4 bg-[#7E7E7E]" />
-                </div>
-                <!-- Modal body -->
-                <div class="px-8 py-6 md:px-12 md:py-8 space-y-4">
-                  <p class="text-base mb-6 leading-relaxed text-white">
-                    Mycorrhizae is an interactive exhibit highlighting the
-                    hidden communication between plants, mushrooms and the
-                    underground forest ecosystem, known as the Mycorrhizal
-                    network.
-                  </p>
-                  <hr class="bg-[#7E7E7E]" />
-                </div>
-                <div class="px-8 py-6 md:px-12 md:py-8 space-y-4">
-                  <div class="cards md:flex md:justify-between">
-                    <div class="smallCard">
-                      <h3 class="text-lg">Timeline</h3>
-                      <p class="text-base mt-2 mb-6 text-white">Sep-Dec 2022</p>
-                    </div>
-
-                    <div class="smallCard">
-                      <h3 class="text-lg">Team - Academic Project</h3>
-                      <p class="text-base mt-2 mb-6 text-white">
-                        2 UX Researchers <br />1 Interaction Designer<br />2
-                        Creative Technologists
-                      </p>
-                    </div>
-                    <div class="smallCard">
-                      <h3 class="text-lg">Tools</h3>
-                      <p class="text-base mt-2 mb-6 text-white">
-                        P5.js / Python / OpenCV <br />MQTT<br />Microcontrollers
-                      </p>
-                    </div>
-                    <div class="smallCard md:pr-[50px]">
-                      <h3 class="text-lg">Disciplines</h3>
-                      <p class="text-base mt-2 mb-6 text-white">
-                        Electronics Programming <br />Computer Vision<br />Projection
-                        Mapping
-                      </p>
-                    </div>
-                  </div>
-                  <hr class="bg-[#7E7E7E]" />
-                </div>
-                <div class="p-4 md:p-5 space-y-4">
-                  <div class="extraData mb-[60px]">
-                    <img
-                      class="w-full mt-24 rounded object-cover"
-                      src="./images/mush_1.GIF"
-                      alt=""
-                    />
-
-                    <p class="text-base mt-2 mb-6 text-white">
-                      This project was exhibited at the Jacobs Winter Design
-                      Showcase’ 22.
-                    </p>
-
-                    <img
-                      class="w-full mt-24 rounded object-cover"
-                      src="./images/mush_4.jpg"
-                      alt=""
-                    />
-                    <p class="text-base mt-2 mb-6 text-white">
-                      Create a link of communication between both plants by
-                      moving the mushrooms around the garden. You get feedback
-                      through projection mapping and synthesized mushroom
-                      sounds.
-                    </p>
-                    <img
-                      class="w-full mt-24 rounded object-cover"
-                      src="./images/mush_3.jpg"
-                      alt=""
-                    />
-                    <!-- <p class="text-base mt-2 mb-6 text-white">
-                      An example of the exploded view of components used.
-                    </p> -->
-                  </div>
-                  <hr class="bg-[#7E7E7E]" />
-                </div>
-
-                <div class="text-[#EB455A] px-8 py-6 md:px-12 md:py-8">
-                  <a class="flex mb-6" href="">
-                    <p class="text-lg">Full case study coming soon</p>
-                    <!-- <img
-                class="ml-2 w-[20px] mt-[5px] h-[20px]"
-                src="./images/arrow-up-right.png"
-                alt=""
-              /> -->
-                  </a>
-                  <hr class="bg-[#7E7E7E]" />
-                </div>
-                <!-- Modal footer -->
-                <div
-                  class="text-[#EB455A] mt-[120px] flex justify-center px-8 py-6 md:px-12 md:py-8"
-                >
-                  <button
-                    type="button"
-                    class="modal-close bg-[#131313] hover:bg-black text-white pl-4 pr-4 p-2 mb-[120px] rounded-full"
-                  >
-                    Back
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!--Modal vits-->
-        <div
-          id="vits-modal"
-          class="modal mycor-modal opacity-0 pointer-events-none fixed w-full h-full top-0 left-0 flex items-center justify-center"
-        >
-          <div
-            class="modal-overlay absolute w-full h-full bg-zinc-900 blur-5xl opacity-95"
-          ></div>
-
-          <div class="modal-container fixed w-full h-full z-50 overflow-y-auto">
-            <div
-              class="modal-close absolute top-0 left-0 cursor-pointer flex flex-col items-center mt-4 ml-8 text-black text-sm z-50"
-            >
-              <img class="w-[23px] mt-8" src="./images/x.png" />
-            </div>
-
-            <!-- Add margin if you want to see grey behind the modal-->
-            <div
-              class="modal-content container mx-auto border max-w-7xl border-[#3C3C3C] h-auto text-left mt-12 px-8"
-            >
-              <!--Body-->
-              <div class="bg-[#181818] rounded-lg shadow">
-                <div class="px-8 py-6 md:px-12 md:py-8">
-                <img
-                    class="w-full object-cover lg:max-h-[600px] rounded-lg"
-                  src="./images/vits.jpeg"
-                  alt=""
-                />
-                </div>
-                <!-- Modal header -->
-                <div class="px-8 py-6 md:px-12 md:py-8">
-                  <h5
-                    class="text-xs mb-1 tracking-[3px] text-[#7E7E7E] font-thin"
-                  >
-                    UX DESIGN
-                  </h5>
-                  <h3 class="text-2xl text-white font-regular">
-                    Vits Health Companion
-                  </h3>
-                  <hr class="mt-4 bg-[#7E7E7E]" />
-                </div>
-                <!-- Modal body -->
-                <div class="px-8 py-6 md:px-12 md:py-8 space-y-4">
-                  <p class="text-base mb-6 leading-relaxed text-white">
-                    An unsolicited design of a health application that provides
-                    users in Ghana with a virtual central hub to connect and
-                    control all home medical devices from one place.
-                  </p>
-                  <hr class="bg-[#7E7E7E]" />
-                </div>
-                <div class="px-8 py-6 md:px-12 md:py-8 space-y-4">
-                  <div class="cards md:flex md:justify-between">
-                    <div class="smallCard">
-                      <h3 class="text-lg">Timeline</h3>
-                      <p class="text-base mt-2 mb-6 text-white">
-                        Mar - Jun 2019
-                      </p>
-                    </div>
-
-                    <div class="smallCard">
-                      <h3 class="text-lg">Team - Personal Project</h3>
-                      <p class="text-base mt-2 mb-6 text-white">Albert Hodo</p>
-                    </div>
-                    <div class="smallCard">
-                      <h3 class="text-lg">Tools</h3>
-                      <p class="text-base mt-2 mb-6 text-white">
-                        Figma <br />Origami Studio
-                      </p>
-                    </div>
-                    <div class="smallCard md:pr-[50px]">
-                      <h3 class="text-lg">Disciplines</h3>
-                      <p class="text-base mt-2 mb-6 text-white">
-                        Interaction Design <br />Visual Design<br />Product
-                        Strategy
-                      </p>
-                    </div>
-                  </div>
-                  <hr class="bg-[#7E7E7E]" />
-                </div>
-
-                <div class="text-[#EB455A] px-8 py-6 md:px-12 md:py-8">
-                  <a class="flex mb-6" href="">
-                    <p class="text-lg">Full case study coming soon</p>
-                    <!-- <img
-               class="ml-2 w-[20px] mt-[5px] h-[20px]"
-               src="./images/arrow-up-right.png"
-               alt=""
-             /> -->
-                  </a>
-                  <hr class="bg-[#7E7E7E]" />
-                </div>
-                <!-- Modal footer -->
-                <div
-                  class="text-[#EB455A] mt-[120px] flex justify-center px-8 py-6 md:px-12 md:py-8"
-                >
-                  <button
-                    type="button"
-                    class="modal-close bg-[#131313] hover:bg-black text-white pl-4 pr-4 p-2 mb-[120px] rounded-full"
-                  >
-                    Back
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!--Modal meta-->
-        <div
-          id="meta-modal"
-          class="modal meta-modal opacity-0 pointer-events-none fixed w-full h-full top-0 left-0 flex items-center justify-center"
-        >
-          <div
-            class="modal-overlay absolute w-full h-full bg-zinc-900 blur-5xl opacity-95"
-          ></div>
-
-          <div class="modal-container fixed w-full h-full z-50 overflow-y-auto">
-            <div
-              class="modal-close absolute top-0 left-0 cursor-pointer flex flex-col items-center mt-4 ml-8 text-black text-sm z-50"
-            >
-              <img class="w-[23px] mt-8" src="./images/x.png" />
-            </div>
-
-            <!-- Add margin if you want to see grey behind the modal-->
-            <div
-              class="modal-content container mx-auto border max-w-7xl border-[#3C3C3C] h-auto text-left mt-12 px-8"
-            >
-              <!--Body-->
-              <div class="bg-[#181818] rounded-lg shadow">
-                <div class="px-8 py-6 md:px-12 md:py-8">
-                <img
-                    class="w-full object-cover lg:max-h-[600px] rounded-lg"
-                  src="./images/meta.png"
-                  alt=""
-                />
-                </div>
-                <!-- Modal header -->
-                <div class="px-8 py-6 md:px-12 md:py-8">
-                  <h5
-                    class="text-xs mb-1 tracking-[3px] text-[#7E7E7E] font-thin"
-                  >
-                    SOFTWARE ENGINEERING
-                  </h5>
-                  <h3 class="text-2xl text-white font-regular">Meta</h3>
-                  <hr class="mt-4 bg-[#7E7E7E]" />
-                </div>
-                <!-- Modal body -->
-                <div class="px-8 py-6 md:px-12 md:py-8 space-y-4">
-                  <p class="text-base mb-6 leading-relaxed text-white">
-                    During my apprenticeship at Meta in 2020, I worked with
-                    developers, researchers and mentors on coming up with
-                    solutions for common algorithmic problems on the Facebook
-                    platform.
-                  </p>
-                  <hr class="bg-[#7E7E7E]" />
-                </div>
-
-                <div class="text-[#EB455A] px-8 py-6 md:px-12 md:py-8">
-                  <a class="flex mb-6" href="">
-                    <p class="text-lg">Send me an email</p>
-                    <img
-                      class="ml-2 w-[20px] mt-[5px] h-[20px]"
-                      src="./images/mail.png"
-                      alt=""
-                    />
-                  </a>
-                  <hr class="bg-[#7E7E7E]" />
-                </div>
-                <!-- Modal footer -->
-                <div
-                  class="text-[#EB455A] mt-[120px] flex justify-center px-8 py-6 md:px-12 md:py-8"
-                >
-                  <button
-                    type="button"
-                    class="modal-close bg-[#131313] hover:bg-black text-white pl-4 pr-4 p-2 mb-[120px] rounded-full"
-                  >
-                    Back
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!--Modal cha-->
-        <div
-          id="cha-modal"
-          class="modal mycor-modal opacity-0 pointer-events-none fixed w-full h-full top-0 left-0 flex items-center justify-center"
-        >
-          <div
-            class="modal-overlay absolute w-full h-full bg-zinc-900 blur-5xl opacity-95"
-          ></div>
-
-          <div class="modal-container fixed w-full h-full z-50 overflow-y-auto">
-            <div
-              class="modal-close absolute top-0 left-0 cursor-pointer flex flex-col items-center mt-4 ml-8 text-black text-sm z-50"
-            >
-              <img class="w-[23px] mt-8" src="./images/x.png" />
-            </div>
-
-            <!-- Add margin if you want to see grey behind the modal-->
-            <div
-              class="modal-content container mx-auto border max-w-7xl border-[#3C3C3C] h-auto text-left mt-12 px-8"
-            >
-              <!--Body-->
-              <div class="bg-[#181818] rounded-lg shadow">
-                <div class="px-8 py-6 md:px-12 md:py-8">
-                <img
-                    class="w-full object-cover lg:max-h-[600px] rounded-lg"
-                  src="./images/food.jpeg"
-                  alt=""
-                />
-                </div>
-                <!-- Modal header -->
-                <div class="px-8 py-6 md:px-12 md:py-8">
-                  <h5
-                    class="text-xs mb-1 tracking-[3px] text-[#7E7E7E] font-thin"
-                  >
-                    UX DESIGN
-                  </h5>
-                  <h3 class="text-2xl text-white font-regular">
-                    Chakula Tracking - Food Ordering
-                  </h3>
-                  <hr class="mt-4 bg-[#7E7E7E]" />
-                </div>
-                <!-- Modal body -->
-                <div class="px-8 py-6 md:px-12 md:py-8 space-y-4">
-                  <p class="text-base mb-6 leading-relaxed text-white">
-                    I redesigned the food tracking process of Chakula. A food
-                    ordering platform for Ashesi University in Ghana. An old
-                    campus startup that did not survive. As a founding member, I
-                    wanted to redesign part of the system as a way to reflect on
-                    past design choices.
-                  </p>
-                  <hr class="bg-[#7E7E7E]" />
-                </div>
-                <div class="px-8 py-6 md:px-12 md:py-8 space-y-4">
-                  <div class="cards md:flex md:justify-between">
-                    <div class="smallCard">
-                      <h3 class="text-lg">Timeline</h3>
-                      <p class="text-base mt-2 mb-6 text-white">Dec 2023</p>
-                    </div>
-
-                    <div class="smallCard">
-                      <h3 class="text-lg">Team - Personal Project</h3>
-                      <p class="text-base mt-2 mb-6 text-white">Albert Hodo</p>
-                    </div>
-                    <div class="smallCard">
-                      <h3 class="text-lg">Tools</h3>
-                      <p class="text-base mt-2 mb-6 text-white">
-                        Figma <br />Origami Studio
-                      </p>
-                    </div>
-                    <div class="smallCard md:pr-[50px]">
-                      <h3 class="text-lg">Disciplines</h3>
-                      <p class="text-base mt-2 mb-6 text-white">
-                        Interaction Design <br />Visual Design<br />Product
-                        Strategy
-                      </p>
-                    </div>
-                  </div>
-                  <hr class="bg-[#7E7E7E]" />
-                </div>
-
-                <div class="text-[#EB455A] px-8 py-6 md:px-12 md:py-8">
-                  <a class="flex mb-6" href="">
-                    <p class="text-lg">Full case study coming soon</p>
-                    <!-- <img
-              class="ml-2 w-[20px] mt-[5px] h-[20px]"
-              src="./images/arrow-up-right.png"
-              alt=""
-            /> -->
-                  </a>
-                  <hr class="bg-[#7E7E7E]" />
-                </div>
-                <!-- Modal footer -->
-                <div
-                  class="text-[#EB455A] mt-[120px] flex justify-center px-8 py-6 md:px-12 md:py-8"
-                >
-                  <button
-                    type="button"
-                    class="modal-close bg-[#131313] hover:bg-black text-white pl-4 pr-4 p-2 mb-[120px] rounded-full"
-                  >
-                    Back
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!--Modal knack-->
-        <div
-          id="knack-modal"
-          class="modal meta-modal opacity-0 pointer-events-none fixed w-full h-full top-0 left-0 flex items-center justify-center"
-        >
-          <div
-            class="modal-overlay absolute w-full h-full bg-zinc-900 blur-5xl opacity-95"
-          ></div>
-
-          <div class="modal-container fixed w-full h-full z-50 overflow-y-auto">
-            <div
-              class="modal-close absolute top-0 left-0 cursor-pointer flex flex-col items-center mt-4 ml-8 text-black text-sm z-50"
-            >
-              <img class="w-[23px] mt-8" src="./images/x.png" />
-            </div>
-
-            <!-- Add margin if you want to see grey behind the modal-->
-            <div
-              class="modal-content container mx-auto border max-w-7xl border-[#3C3C3C] h-auto text-left mt-12 px-8"
-            >
-              <!--Body-->
-              <div class="bg-[#181818] rounded-lg shadow">
-                <div class="px-8 py-6 md:px-12 md:py-8">
-                <img
-                    class="w-full object-cover lg:max-h-[600px] rounded-lg"
-                  src="./images/knack.jpeg"
-                  alt=""
-                />
-                </div>
-                <!-- Modal header -->
-                <div class="px-8 py-6 md:px-12 md:py-8">
-                  <h5
-                    class="text-xs mb-1 tracking-[3px] text-[#7E7E7E] font-thin"
-                  >
-                    GAME DEVELOPMENT
-                  </h5>
-                  <h3 class="text-2xl text-white font-regular">
-                    KnackApp - Super Smash
-                  </h3>
-                  <hr class="mt-4 bg-[#7E7E7E]" />
-                </div>
-                <!-- Modal body -->
-                <div class="px-8 py-6 md:px-12 md:py-8 space-y-4">
-                  <p class="text-base mb-6 leading-relaxed text-white">
-                    During my time at KnackApp, I was a developer on the Games
-                    Team where I worked on several projects to improve the
-                    software usability in low internet regions. I also led the
-                    development of the Super Smash game for the platform.
-                  </p>
-                  <hr class="bg-[#7E7E7E]" />
-                </div>
-
-                <div class="text-[#EB455A] px-8 py-6 md:px-12 md:py-8">
-                  <a class="flex mb-6" href="">
-                    <p class="text-lg">Send me an email</p>
-                    <img
-                      class="ml-2 w-[20px] mt-[5px] h-[20px]"
-                      src="./images/mail.png"
-                      alt=""
-                    />
-                  </a>
-                  <hr class="bg-[#7E7E7E]" />
-                </div>
-                <!-- Modal footer -->
-                <div
-                  class="text-[#EB455A] mt-[120px] flex justify-center px-8 py-6 md:px-12 md:py-8"
-                >
-                  <button
-                    type="button"
-                    class="modal-close bg-[#131313] hover:bg-black text-white pl-4 pr-4 p-2 mb-[120px] rounded-full"
-                  >
-                    Back
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!--Modal pico-->
-        <div
-          id="pico-modal"
-          class="modal pico-modal opacity-0 pointer-events-none fixed w-full h-full top-0 left-0 flex items-center justify-center"
-        >
-          <div
-            class="modal-overlay absolute w-full h-full bg-zinc-900 blur-5xl opacity-95"
-          ></div>
-
-          <div class="modal-container fixed w-full h-full z-50 overflow-y-auto">
-            <div
-              class="modal-close absolute top-0 left-0 cursor-pointer flex flex-col items-center mt-4 ml-8 text-black text-sm z-50"
-            >
-              <img class="w-[23px] mt-8" src="./images/x.png" />
-            </div>
-
-            <!-- Add margin if you want to see grey behind the modal-->
-            <div
-              class="modal-content container mx-auto border max-w-7xl border-[#3C3C3C] h-auto text-left mt-12 px-8"
-            >
-              <!--Body-->
-              <div class="bg-[#181818] rounded-lg shadow">
-                <div class="px-8 py-6 md:px-12 md:py-8">
-                <img
-                    class="w-full lg:max-h-[600px] rounded-lg"
-                  src="./images/pico.png"
-                  alt=""
-                />
-                </div>
-                <!-- Modal header -->
-                <div class="px-8 py-6 md:px-12 md:py-8">
-                  <h5
-                    class="text-xs mb-1 tracking-[3px] text-[#7E7E7E] font-thin"
-                  >
-                    ROBOTICS
-                  </h5>
-                  <h3 class="text-2xl text-white font-regular">
-                    Pico can Dance
-                  </h3>
-                  <hr class="mt-4 bg-[#7E7E7E]" />
-                </div>
-                <!-- Modal body -->
-                <div class="px-8 py-6 md:px-12 md:py-8 space-y-4">
-                  <p class="text-base mb-6 leading-relaxed text-white">
-                    Pico is a lovely 2D robot dog who enjoys dancing in the
-                    maker studio / fabrication lab when he hears the sound of
-                    music. The aim of this project was to create a 2D pet for
-                    the design maker space to cheer people up and keep them
-                    company. 
-                  </p>
-                  <hr class="bg-[#7E7E7E]" />
-                </div>
-                <div class="px-8 py-6 md:px-12 md:py-8 space-y-4">
-                  <div class="cards md:flex md:justify-between">
-                    <div class="smallCard">
-                      <h3 class="text-lg">Timeline</h3>
-                      <p class="text-base mt-2 mb-6 text-white">Oct 2022</p>
-                    </div>
-
-                    <div class="smallCard">
-                      <h3 class="text-lg">Team - Fun Project</h3>
-                      <p class="text-base mt-2 mb-6 text-white">
-                        Haesung Park <br />Albert Hodo
-                      </p>
-                    </div>
-                    <div class="smallCard">
-                      <h3 class="text-lg">Tools</h3>
-                      <p class="text-base mt-2 mb-6 text-white">
-                        Arduino <br />Laser Cutter
-                      </p>
-                    </div>
-                    <div class="smallCard md:pr-[50px]">
-                      <h3 class="text-lg">Disciplines</h3>
-                      <p class="text-base mt-2 mb-6 text-white">
-                        Programming <br />3D Fabrication<br />Robotics
-                      </p>
-                    </div>
-                  </div>
-                  <hr class="bg-[#7E7E7E]" />
-                </div>
-                <div class="p-4 md:p-5 space-y-4">
-                  <div class="extraData mb-[60px]">
-                    <video class="rounded" controls>
-                      <source src="./images/pcd.mp4" type="video/mp4" />
-                      Your browser does not support the video tag.
-                    </video>
-                  </div>
-                  <hr class="bg-[#7E7E7E]" />
-                </div>
-
-                <div class="text-[#EB455A] px-8 py-6 md:px-12 md:py-8">
-                  <a class="flex mb-6" href="">
-                    <p class="text-lg">Send me an email</p>
-                    <img
-                      class="ml-2 w-[20px] mt-[5px] h-[20px]"
-                      src="./images/mail.png"
-                      alt=""
-                    />
-                  </a>
-                  <hr class="bg-[#7E7E7E]" />
-                </div>
-                <!-- Modal footer -->
-                <div
-                  class="text-[#EB455A] mt-[120px] flex justify-center px-8 py-6 md:px-12 md:py-8"
-                >
-                  <button
-                    type="button"
-                    class="modal-close bg-[#131313] hover:bg-black text-white pl-4 pr-4 p-2 mb-[120px] rounded-full"
-                  >
-                    Back
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!--Modal VR Prototypes-->
-        <div
-          id="vr-prototypes-modal"
-          class="modal vr-prototypes-modal opacity-0 pointer-events-none fixed w-full h-full top-0 left-0 flex items-center justify-center"
-        >
-          <div
-            class="modal-overlay absolute w-full h-full bg-zinc-900 blur-5xl opacity-95"
-          ></div>
-
-          <div class="modal-container fixed w-full h-full z-50 overflow-y-auto">
-            <div
-              class="modal-close absolute top-0 left-0 cursor-pointer flex flex-col items-center mt-4 ml-8 text-black text-sm z-50"
-            >
-              <img class="w-[23px] mt-8" src="./images/x.png" />
-            </div>
-
-            <!-- Add margin if you want to see grey behind the modal-->
-            <div
-              class="modal-content container mx-auto border max-w-7xl border-[#3C3C3C] h-auto text-left mt-12 px-8"
-            >
-              <!--Body-->
-              <div class="bg-[#181818] rounded-lg shadow">
-                <div class="px-8 py-6 md:px-12 md:py-8">
-                <img
-                    class="w-full lg:max-h-[600px] rounded-lg"
-                  src="./images/vr game gif.gif"
-                  alt="VR 3D Game Prototypes"
-                />
-                </div>
-                <!-- Modal header -->
-                <div class="px-8 py-6 md:px-12 md:py-8">
-                  <h5
-                    class="text-xs mb-1 tracking-[3px] text-[#7E7E7E] font-thin"
-                  >
-                    GAME DEVELOPMENT
-                  </h5>
-                  <h3 class="text-2xl text-white font-regular">
-                    VR 3D Game Prototypes
-                  </h3>
-                  <hr class="mt-4 bg-[#7E7E7E]" />
-                </div>
-                <!-- Modal body -->
-                <div class="px-8 py-6 md:px-12 md:py-8 space-y-4">
-                  <p class="text-base mb-6 leading-relaxed text-white">
-                    A collection of VR game prototypes showcasing different approaches to immersive 3D gameplay. 
-                    These quick prototypes explore various mechanics and interactions in virtual reality environments.
-                  </p>
-                  
-                  <h4 class="text-lg font-semibold text-white mb-4">VR Shooter Game (Unity)</h4>
-                  <div class="px-8 py-6 md:px-12 md:py-8">
-                    <video
-                      class="w-full lg:max-h-[600px] rounded-lg"
-                      controls
-                      preload="metadata"
-                    >
-                      <source src="./images/vr shooter.mp4" type="video/mp4" />
-                      Your browser does not support the video tag.
-                    </video>
-                  </div>
-                  
-                  <h4 class="text-lg font-semibold text-white mb-4">Paper Plane Web 3D Game (Bezi Editor)</h4>
-                  <div class="px-8 py-6 md:px-12 md:py-8">
-                    <video
-                      class="w-full lg:max-h-[600px] rounded-lg"
-                      controls
-                      preload="metadata"
-                    >
-                      <source src="./images/paper_plane.mov" type="video/mp4" />
-                      Your browser does not support the video tag.
-                    </video>
-                  </div>
-                  
-                  <hr class="bg-[#7E7E7E]" />
-                </div>
-
-                <div
-                  class="text-[#EB455A] mt-[120px] flex justify-center px-8 py-6 md:px-12 md:py-8"
-                >
-                  <button
-                    type="button"
-                    class="modal-close bg-[#131313] hover:bg-black text-white pl-4 pr-4 p-2 mb-[120px] rounded-full"
-                  >
-                    Back
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!--Modal fun-->
-        <div
-          id="fun-modal"
-          class="modal fun-modal opacity-0 pointer-events-none fixed w-full h-full top-0 left-0 flex items-center justify-center"
-        >
-          <div
-            class="modal-overlay absolute w-full h-full bg-zinc-900 blur-5xl opacity-95"
-          ></div>
-
-          <div class="modal-container fixed w-full h-full z-50 overflow-y-auto">
-            <div
-              class="modal-close absolute top-0 left-0 cursor-pointer flex flex-col items-center mt-4 ml-8 text-black text-sm z-50"
-            >
-              <img class="w-[23px] mt-8" src="./images/x.png" />
-            </div>
-
-            <!-- Add margin if you want to see grey behind the modal-->
-            <div
-              class="modal-content container mx-auto border max-w-7xl border-[#3C3C3C] h-auto text-left mt-12 px-8"
-            >
-              <!--Body-->
-              <div class="bg-[#181818] rounded-lg shadow">
-                <div class="px-8 py-6 md:px-12 md:py-8">
-                <img
-                    class="w-full lg:max-h-[600px] rounded-lg"
-                  src="./images/blender.gif"
-                  alt=""
-                />
-                </div>
-                <!-- Modal header -->
-                <div class="px-8 py-6 md:px-12 md:py-8">
-                  <h5
-                    class="text-xs mb-1 tracking-[3px] text-[#7E7E7E] font-thin"
-                  >
-                    3D MODELING & ANIMATION
-                  </h5>
-                  <h3 class="text-2xl text-white font-regular">
-                    3D Content & CGI
-                  </h3>
-                  <hr class="mt-4 bg-[#7E7E7E]" />
-                </div>
-                <!-- Modal body -->
-                <div class="px-8 py-6 md:px-12 md:py-8 space-y-4">
-                  <p class="text-base mb-6 leading-relaxed text-white">
-                    Some fun CGI concepts made over time in no partcular order.
-                  </p>
-                  <hr class="bg-[#7E7E7E]" />
-                </div>
-
-                <div class="p-4 md:p-5 space-y-4">
-                  <div class="extraData">
-                    <iframe
-                      class="ml-auto mr-auto rounded w-full h-[70vh]"
-                      src="https://www.youtube-nocookie.com/embed/MF2JtWuHGLA?si=SYT8AOsRogRPoKCe"
-                      title="YouTube video player"
-                      frameborder="0"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                      allowfullscreen
-                    ></iframe>
-                    <p class="text-base mt-2 text-white">
-                      An ocean with West African sounds in the background.
-                    </p>
-                  </div>
-                  <div class="extraData pt-[60px]">
-                    <iframe
-                      class="ml-auto mr-auto rounded w-full h-[70vh]"
-                      src="https://www.youtube.com/embed/MHOGDTubniw?si=ItAzI1_GJtCIeUjq"
-                      title="YouTube video player"
-                      frameborder="0"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                      allowfullscreen
-                    ></iframe>
-                    <p class="text-base mt-2 text-white">
-                      An add for a new outfit in a 3D / VR game concept.
-                    </p>
-                  </div>
-                  <div class="extraData pt-[60px]">
-                    <iframe
-                      class="ml-auto mr-auto rounded w-full h-[70vh]"
-                      src="https://www.youtube.com/embed/xR6FPPbMHeI?si=KnJQlXV87HJ4blyv"
-                      title="YouTube video player"
-                      frameborder="0"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                      allowfullscreen
-                    ></iframe>
-                    <p class="text-base mt-2 text-white">
-                      A parody of an old alien spider pacing.
-                    </p>
-                  </div>
-                  <div class="extraData pb-[60px] pt-[60px]">
-                    <iframe
-                      class="ml-auto mr-auto rounded w-full h-[70vh]"
-                      src="https://www.youtube.com/embed/WbwSu7yXRZI?si=a_cDVNuReHReu5ZV"
-                      title="YouTube video player"
-                      frameborder="0"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                      allowfullscreen
-                    ></iframe>
-                    <p class="text-base mt-2 text-white">
-                      Character design and lip sync of a god. PS: Can you tell
-                      its my voice?
-                    </p>
-                  </div>
-                  <hr class="bg-[#7E7E7E]" />
-                </div>
-
-                <div class="text-[#EB455A] px-8 py-6 md:px-12 md:py-8">
-                  <a class="flex mb-6" href="">
-                    <p class="text-lg">Send me an email</p>
-                    <img
-                      class="ml-2 w-[20px] mt-[5px] h-[20px]"
-                      src="./images/mail.png"
-                      alt=""
-                    />
-                  </a>
-                  <hr class="bg-[#7E7E7E]" />
-                </div>
-                <!-- Modal footer -->
-                <div
-                  class="text-[#EB455A] mt-[120px] flex justify-center px-8 py-6 md:px-12 md:py-8"
-                >
-                  <button
-                    type="button"
-                    class="modal-close bg-[#131313] hover:bg-black text-white pl-4 pr-4 p-2 mb-[120px] rounded-full"
-                  >
-                    Back
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <!--Modal BCI Research Scout-->
-        <div
-          id="bci-rag-modal"
-          class="modal bci-rag-modal opacity-0 pointer-events-none fixed w-full h-full top-0 left-0 flex items-center justify-center"
-        >
-          <div
-            class="modal-overlay absolute w-full h-full bg-zinc-900 blur-5xl opacity-95"
-          ></div>
-
-          <div class="modal-container fixed w-full h-full z-50 overflow-y-auto">
-            <div
-              class="modal-close absolute top-0 left-0 cursor-pointer flex flex-col items-center mt-4 ml-8 text-black text-sm z-50"
-            >
-              <img class="w-[23px] mt-8" src="./images/x.png" />
-            </div>
-
-            <!-- Add margin if you want to see grey behind the modal-->
-            <div
-              class="modal-content container mx-auto border max-w-7xl border-[#3C3C3C] h-auto text-left mt-12 px-8"
-            >
-              <!--Body-->
-              <div class="bg-[#181818] rounded-lg shadow">
-                <div class="px-8 py-6 md:px-12 md:py-8">
-                  <img
-                    class="w-full lg:max-h-[600px] rounded-lg"
-                    src="./images/search.gif"
-                    alt="BCI Research Scout Search Interface"
-                  />
-                </div>
-                <!-- Modal header -->
-                <div class="px-8 py-6 md:px-12 md:py-8">
-                  <h5
-                    class="text-xs mb-1 tracking-[3px] text-[#7E7E7E] font-thin"
-                  >
-                    AI-POWERED RESEARCH TOOL
-                  </h5>
-                  <h3 class="text-2xl text-white font-regular">
-                    BCI Research Scout
-                  </h3>
-                  <hr class="mt-4 bg-[#7E7E7E]" />
-                </div>
-                <!-- Modal body -->
-                <div class="px-8 py-6 md:px-12 md:py-8 space-y-4">
-                  <p class="text-base mb-6 leading-relaxed text-white">
-                    A powerful AI-powered research tool that helps Brain-Computer Interface (BCI) researchers discover, analyze, and synthesize the latest scientific literature. Built with modern RAG (Retrieval-Augmented Generation) technology, it provides evidence-backed insights with clickable citations and confidence scores.
-                  </p>
-                  <hr class="bg-[#7E7E7E]" />
-                </div>
-                <div class="px-8 py-6 md:px-12 md:py-8 space-y-4">
-                  <div class="cards md:flex md:justify-between">
-                    <div class="smallCard">
-                      <h3 class="text-lg">Timeline</h3>
-                      <p class="text-base mt-2 mb-6 text-white">Ongoing Development</p>
-                    </div>
-
-                    <div class="smallCard">
-                      <h3 class="text-lg">Team - Personal Project</h3>
-                      <p class="text-base mt-2 mb-6 text-white">Albert Hodo</p>
-                    </div>
-                    <div class="smallCard">
-                      <h3 class="text-lg">Tools</h3>
-                      <p class="text-base mt-2 mb-6 text-white">
-                        FastAPI / React <br />Google Gemini / FAISS<br />Redis / TypeScript
-                      </p>
-                    </div>
-                    <div class="smallCard md:pr-[50px]">
-                      <h3 class="text-lg">Disciplines</h3>
-                      <p class="text-base mt-2 mb-6 text-white">
-                        AI/ML Engineering <br />RAG Systems<br />Research Automation
-                      </p>
-                    </div>
-                  </div>
-                  <hr class="bg-[#7E7E7E]" />
-                </div>
-                <div class="px-8 py-6 md:px-12 md:py-8 space-y-4">
-                  <div class="extraData mb-[60px]">
-                    <h3 class="text-xl font-semibold mb-4 text-white">Key Features</h3>
-                    <ul class="text-base mb-6 leading-relaxed text-white space-y-2">
-                      <li>• <strong>Intelligent Literature Search:</strong> Real-time paper fetching from arXiv, PubMed, and Semantic Scholar</li>
-                      <li>• <strong>AI-Powered Analysis:</strong> Evidence-backed claims with confidence scores and citations</li>
-                      <li>• <strong>Performance Optimized:</strong> Redis caching reduces search times from 60s to 2-4s</li>
-                      <li>• <strong>Modern Interface:</strong> Google-style search experience with dynamic UI transitions</li>
-                    </ul>
-                    
-                    <img
-                      class="w-full mt-8 rounded object-cover"
-                      src="./images/source.gif"
-                      alt="Source and AI Insights Interface"
-                    />
-                    <p class="text-base mt-4 mb-6 text-white">
-                      View all sources and AI insights with confidence scores and clickable citations for evidence-backed research.
-                    </p>
-                    
-                    <img
-                      class="w-full mt-8 rounded object-cover"
-                      src="./images/cite.gif"
-                      alt="Citation and Reference Export"
-                    />
-                    <p class="text-base mt-4 mb-6 text-white">
-                      Copy insights, citations, and references directly for your research workflows with one-click export functionality.
-                    </p>
-                  </div>
-                  <hr class="bg-[#7E7E7E]" />
-                </div>
-
-                <div class="text-[#EB455A] px-8 py-6 md:px-12 md:py-8">
-                  <a class="flex mb-6" href="https://github.com/alberthodo/bci_research_scout" target="_blank">
-                    <p class="text-lg">View on GitHub</p>
-                    <svg class="ml-2 w-[20px] mt-[5px] h-[20px]" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                      <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"></path>
-                    </svg>
-                  </a>
-                  <hr class="bg-[#7E7E7E]" />
-                </div>
-                <!-- Modal footer -->
-                <div
-                  class="text-[#EB455A] mt-[120px] flex justify-center px-8 py-6 md:px-12 md:py-8"
-                >
-                  <button
-                    type="button"
-                    class="modal-close bg-[#131313] hover:bg-black text-white pl-4 pr-4 p-2 mb-[120px] rounded-full"
-                  >
-                    Back
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <!--Modal Neural Landscape-->
-        <div
-          id="neural-landscape-modal"
-          class="modal neural-landscape-modal opacity-0 pointer-events-none fixed w-full h-full top-0 left-0 flex items-center justify-center"
-        >
-          <div
-            class="modal-overlay absolute w-full h-full bg-zinc-900 blur-5xl opacity-95"
-          ></div>
-
-          <div class="modal-container fixed w-full h-full z-50 overflow-y-auto">
-            <div
-              class="modal-close absolute top-0 left-0 cursor-pointer flex flex-col items-center mt-4 ml-8 text-black text-sm z-50"
-            >
-              <img class="w-[23px] mt-8" src="./images/x.png" />
-            </div>
-
-            <!-- Add margin if you want to see grey behind the modal-->
-            <div
-              class="modal-content container mx-auto border max-w-7xl border-[#3C3C3C] h-auto text-left mt-12 px-8"
-            >
-              <!--Body-->
-              <div class="bg-[#181818] rounded-lg shadow">
-                <div class="px-8 py-6 md:px-12 md:py-8">
-                  <img
-                    class="w-full lg:max-h-[600px] rounded-lg"
-                    src="./images/brain.png"
-                    alt="Neural Landscape - Cortical Activity Visualizer"
-                  />
-                </div>
-                <!-- Modal header -->
-                <div class="px-8 py-6 md:px-12 md:py-8">
-                  <h5
-                    class="text-xs mb-1 tracking-[3px] text-[#7E7E7E] font-thin"
-                  >
-                    NEUROSCIENCE VISUALIZATION
-                  </h5>
-                  <h3 class="text-2xl text-white font-regular">
-                    Neural Landscape
-                  </h3>
-                  <hr class="mt-4 bg-[#7E7E7E]" />
-                </div>
-                <!-- Modal body -->
-                <div class="px-8 py-6 md:px-12 md:py-8 space-y-4">
-                  <p class="text-base mb-6 leading-relaxed text-white">
-                    A large-scale, browser-accessible cortical activity visualizer that combines open anatomical reconstructions with simulated or recorded spike trains. Users can explore spatiotemporal dynamics including propagating waves, synchrony, and oscillations across hierarchical scales. The goal is to demonstrate how next-generation high-channel interfaces might appear in action and to provide an outreach and training tool without requiring invasive data or specialized hardware.
-                  </p>
-                  <hr class="bg-[#7E7E7E]" />
-                </div>
-                <div class="px-8 py-6 md:px-12 md:py-8 space-y-4">
-                  <div class="cards md:flex md:justify-between">
-                    <div class="smallCard">
-                      <h3 class="text-lg">Timeline</h3>
-                      <p class="text-base mt-2 mb-6 text-white">In Development</p>
-                    </div>
-
-                    <div class="smallCard">
-                      <h3 class="text-lg">Team - Personal Research</h3>
-                      <p class="text-base mt-2 mb-6 text-white">Albert Hodo</p>
-                    </div>
-                    <div class="smallCard">
-                      <h3 class="text-lg">Tools</h3>
-                      <p class="text-base mt-2 mb-6 text-white">
-                        WebGL / Three.js <br />Neuroscience APIs<br />Browser Technologies
-                      </p>
-                    </div>
-                    <div class="smallCard md:pr-[50px]">
-                      <h3 class="text-lg">Disciplines</h3>
-                      <p class="text-base mt-2 mb-6 text-white">
-                        Computational Neuroscience <br />Data Visualization<br />Web Development
-                      </p>
-                    </div>
-                  </div>
-                  <hr class="bg-[#7E7E7E]" />
-                </div>
-                <div class="px-8 py-6 md:px-12 md:py-8 space-y-4">
-                  <div class="extraData mb-[60px]">
-                    <h3 class="text-xl font-semibold mb-4 text-white">Key Features</h3>
-                    <ul class="text-base mb-6 leading-relaxed text-white space-y-2">
-                      <li>• <strong>Interactive Visualization:</strong> Real-time exploration of cortical activity patterns</li>
-                      <li>• <strong>Spatiotemporal Dynamics:</strong> Observe propagating waves and neural synchrony</li>
-                      <li>• <strong>Hierarchical Scales:</strong> From single neurons to large-scale network activity</li>
-                      <li>• <strong>Browser Accessible:</strong> No specialized hardware required for exploration</li>
-                      <li>• <strong>Educational Tool:</strong> Outreach and training for neuroscience concepts</li>
-                    </ul>
-                    
-                    <div class="bg-gray-800/20 border border-gray-600/30 rounded-lg p-6 mt-8">
-                      <h4 class="text-lg font-semibold text-white mb-2">🚧 Coming Soon</h4>
-                      <p class="text-gray-300">
-                        This project is currently in active development. The Neural Landscape will provide unprecedented access to cortical activity visualization, making advanced neuroscience concepts accessible to researchers, educators, and the general public.
-                      </p>
-                    </div>
-                  </div>
-                  <hr class="bg-[#7E7E7E]" />
-                </div>
-
-                <div class="text-[#EB455A] px-8 py-6 md:px-12 md:py-8">
-                  <a class="flex mb-6" href="mailto:alberthododesign.com">
-                    <p class="text-lg">Get updates on this project</p>
-                    <img
-                      class="ml-2 w-[20px] mt-[5px] h-[20px]"
-                      src="./images/mail.png"
-                      alt=""
-                    />
-                  </a>
-                  <hr class="bg-[#7E7E7E]" />
-                </div>
-                <!-- Modal footer -->
-                <div
-                  class="text-[#EB455A] mt-[120px] flex justify-center px-8 py-6 md:px-12 md:py-8"
-                >
-                  <button
-                    type="button"
-                    class="modal-close bg-[#131313] hover:bg-black text-white pl-4 pr-4 p-2 mb-[120px] rounded-full"
-                  >
-                    Back
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-    <script src="particles.js"></script>
-
     <script>
-      function openModal(modalId) {
-        const body = document.querySelector("body");
-        const modal = document.getElementById(modalId);
-        modal.classList.toggle("opacity-0");
-        modal.classList.toggle("pointer-events-none");
-        body.classList.toggle("modal-active");
-      }
-
-      // Close modal when clicking on overlay
-      document.addEventListener("click", function(event) {
-        if (event.target.classList.contains("modal-overlay")) {
-          closeModal();
+        tailwind.config = {
+            theme: {
+                extend: {
+                    screens: {
+                        'md': '768px',
+                        'lg': '1024px',
+                    }
+                }
+            }
         }
-      });
-
-      var closemodal = document.querySelectorAll(".modal-close");
-      for (var i = 0; i < closemodal.length; i++) {
-        closemodal[i].addEventListener("click", closeModal);
-      }
-
-      document.onkeydown = function (evt) {
-        evt = evt || window.event;
-        var isEscape = false;
-        if ("key" in evt) {
-          isEscape = evt.key === "Escape" || evt.key === "Esc";
-        } else {
-          isEscape = evt.keyCode === 27;
-        }
-        if (isEscape && document.body.classList.contains("modal-active")) {
-          closeModal();
-        }
-      };
-
-      function closeModal() {
-        const body = document.querySelector("body");
-        const modals = document.querySelectorAll(".modal");
-        modals.forEach((modal) => {
-          modal.classList.add("opacity-0");
-          modal.classList.add("pointer-events-none");
-        });
-        body.classList.remove("modal-active");
-      }
     </script>
+    
+    <!-- React and ReactDOM -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    
+    <!-- Babel Standalone for JSX -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    
+    
+    <style>
+        :root {
+            --ink-black: #0E0E0E;
+            --rice-paper: #FAF8F5;
+            --fog-grey: #D9D6D2;
+            --shu-red: #E34234;
+            --aizome-blue: #26406F;
+            --deep-cedar: #1E3A2E;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            background-color: var(--rice-paper);
+            color: var(--ink-black);
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            font-weight: 300;
+        }
+        
+        h1 {
+            font-weight: 200 !important;
+        }
+        
+        .font-serif {
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-style: italic;
+        }
+        
+        /* Typography Scale - Following brand guidelines */
+        .text-h1 { 
+            font-size: 72px; 
+            font-weight: 300; 
+            line-height: 1.1; 
+            letter-spacing: -0.02em;
+        }
+        .text-h2 { 
+            font-size: 48px; 
+            font-weight: 300; 
+            line-height: 1.2; 
+            letter-spacing: -0.01em;
+        }
+        .text-h3 { 
+            font-size: 32px; 
+            font-weight: 400; 
+            line-height: 1.3; 
+            letter-spacing: -0.01em;
+        }
+        .text-body-l { 
+            font-size: 20px; 
+            font-weight: 400; 
+            line-height: 1.6; 
+        }
+        .text-body-m { 
+            font-size: 18px; 
+            font-weight: 400; 
+            line-height: 1.6; 
+        }
+        .text-body-s { 
+            font-size: 16px; 
+            font-weight: 400; 
+            line-height: 1.6; 
+        }
+        
+        /* Responsive typography scale - using Tailwind breakpoints */
+        @media (max-width: 768px) {
+            .text-h1 { font-size: 48px; }
+            .text-h2 { font-size: 36px; }
+            .text-h3 { font-size: 28px; }
+            .text-body-l { font-size: 18px; }
+        }
+        
+        /* Color System */
+        .text-ink-black { color: var(--ink-black); }
+        .bg-ink-black { background-color: var(--ink-black); }
+        .text-rice-paper { color: var(--rice-paper); }
+        .bg-rice-paper { background-color: var(--rice-paper); }
+        .text-fog-grey { color: var(--fog-grey); }
+        .bg-fog-grey { background-color: var(--fog-grey); }
+        .text-shu-red { color: var(--shu-red); }
+        .bg-shu-red { background-color: var(--shu-red); }
+        
+        /* Container with wide margins - more editorial - mobile first */
+        .container-wide {
+            max-width: 2200px;
+            margin: 0 auto;
+            padding: 0 1rem; /* Mobile: 16px */
+        }
+        
+        @media (min-width: 768px) {
+            .container-wide {
+                padding: 0 2rem; /* Tablet: 32px */
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            .container-wide {
+                padding: 0 60px;
+            }
+        }
+        
+        @media (min-width: 1440px) {
+            .container-wide {
+                padding: 0 70px;
+            }
+        }
+        
+        @media (min-width: 1920px) {
+            .container-wide {
+                padding: 0 80px;
+            }
+        }
+        
+        /* Navigation */
+        .nav-link {
+            position: relative;
+            text-decoration: none;
+            color: var(--ink-black);
+            letter-spacing: 0.03em;
+            font-size: 14px;
+            font-weight: 300;
+            transition: opacity 0.2s ease;
+        }
+        
+        .nav-link:hover {
+            opacity: 0.6;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background-color: var(--ink-black);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .nav-link.active {
+            opacity: 1;
+            color: var(--aizome-blue);
+            font-weight: 500;
+        }
+        
+        .nav-link.active::after {
+            display: none;
+        }
+        
+        .nav-link.active::before {
+            content: '';
+            position: absolute;
+            left: -14px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 4px;
+            height: 4px;
+            background-color: var(--aizome-blue);
+            border: 1px solid var(--aizome-blue);
+            border-radius: 50%;
+            box-shadow: 0 0 0 0.5px var(--aizome-blue);
+        }
+        
+        /* Image Placeholder */
+        .image-placeholder {
+            background-color: var(--fog-grey);
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--ink-black);
+            opacity: 0.2;
+            font-size: 12px;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            font-weight: 300;
+        }
+        
+        /* Tag/Label */
+        .tag {
+            display: inline-block;
+            font-size: 11px;
+            font-weight: 300;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--aizome-blue);
+        }
+        
+        /* Work Project Title - Ensure line-height is applied */
+        .work-project-title {
+            line-height: 1.0 !important;
+        }
+        
+        /* Hover Effects - Tactile */
+        .hover-lift {
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+        
+        .hover-lift:hover {
+            transform: translateY(-2px);
+            opacity: 0.95;
+        }
+        
+        /* Work Project Clickable Styles */
+        .work-project a {
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        .work-project {
+            transition: background-color 0.3s ease;
+        }
+        
+        .work-project-container {
+            padding: 16px 0 0 0;
+            border-radius: 12px;
+            transition: background-color 0.3s ease;
+        }
+        
+        .work-project-content {
+            padding: 0 36px;
+        }
+        
+        .work-project:hover .work-project-container {
+            background-color: rgba(0, 0, 0, 0.015);
+            border-radius: 12px;
+        }
+        
+        .work-project:hover .work-project-image img,
+        .work-project:hover .work-project-image .image-placeholder {
+            transform: scale(1.02);
+            transition: transform 0.3s ease;
+        }
+        
+        .work-project-lock-overlay {
+            pointer-events: none;
+        }
+        
+        .work-project:hover .work-project-lock-overlay {
+            opacity: 1;
+        }
+        
+        /* Page Transitions */
+        .page-transition {
+            animation: fadeIn 0.8s ease-out;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        
+        /* Divider */
+        .divider {
+            height: 1px;
+            background-color: var(--fog-grey);
+        }
+        
+        /* Button */
+        .btn-primary {
+            background-color: var(--ink-black);
+            color: var(--rice-paper);
+            padding: 14px 28px;
+            border-radius: 4px;
+            border: none;
+            font-size: 16px;
+            font-weight: 400;
+            cursor: pointer;
+            transition: opacity 0.2s ease;
+            min-height: 44px;
+            letter-spacing: 0.02em;
+        }
+        
+        .btn-primary:hover {
+            opacity: 0.85;
+        }
+        
+        /* Form Inputs */
+        .form-input {
+            width: 100%;
+            padding: 12px 0;
+            border: none;
+            border-bottom: 1px solid var(--fog-grey);
+            background: transparent;
+            font-size: 18px;
+            font-weight: 300;
+            color: var(--ink-black);
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            transition: border-color 0.2s ease;
+        }
+        
+        .form-input:focus {
+            outline: none;
+            border-bottom-color: var(--ink-black);
+        }
+        
+        .form-input::placeholder {
+            color: var(--ink-black);
+            opacity: 0.3;
+        }
+        
+        /* Editorial Grid - 12 columns */
+        .editorial-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 32px;
+        }
+        
+        @media (max-width: 768px) {
+            .editorial-grid {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
 
-    <!-- Your HTML content -->
-  </body>
+    <script type="text/babel">
+        const { useState, useEffect } = React;
+
+        // Navigation Component - Vertical, editorial style
+        const Navigation = ({ currentPage, onNavigate }) => {
+            const navItems = [
+                { id: 'home', label: 'Home' },
+                { id: 'work', label: 'Work' },
+                { id: 'art', label: 'Art' }
+            ];
+
+            return (
+                <nav className="fixed right-0 top-0 bottom-0 z-50 w-[120px] py-16 mr-4 md:mr-0">
+                    <div className="flex flex-col h-full justify-between">
+                        <div className={`flex flex-col items-end md:items-center ${currentPage !== 'home' ? 'hidden md:flex' : ''}`}>
+                            <div className="[writing-mode:vertical-rl] [text-orientation:mixed] rotate-180">
+                                <div className="text-ink-black text-body-s font-light tracking-[0.2em] opacity-40">
+                                    Portfolio
+                                </div>
+                            </div>
+                        </div>
+                        <div className="flex flex-col gap-8 items-end md:items-center">
+                            {navItems.map(item => (
+                                <div key={item.id} className="relative">
+                                    <a
+                                        href={`#${item.id}`}
+                                        onClick={(e) => {
+                                            e.preventDefault();
+                                            onNavigate(item.id);
+                                        }}
+                                        className={`nav-link text-xs relative ${currentPage === item.id ? 'active' : ''}`}
+                                    >
+                                        {item.label}
+                                    </a>
+                                </div>
+                            ))}
+                            <div className="relative mt-4">
+                                <a
+                                    href="mailto:contact@example.com"
+                                    className="nav-link text-xs relative"
+                                >
+                                    Contact
+                                </a>
+                            </div>
+                        </div>
+                        <div className={`flex flex-col items-end md:items-center gap-0 ${currentPage !== 'home' ? 'hidden md:flex' : ''}`}>
+                            <div className="flex flex-col items-end md:items-center gap-1 mb-2">
+                                {[...Array(8)].map((_, i) => {
+                                    const reversedIndex = 7 - i;
+                                    const opacity = Math.max(0.2, 1 - (reversedIndex * 0.12));
+                                    const isDot = reversedIndex >= 4;
+                                    return (
+                                        <div
+                                            key={i}
+                                            className="w-px bg-[var(--fog-grey)]"
+                                            style={{
+                                                height: isDot ? '2px' : '8px',
+                                                opacity: opacity,
+                                                borderRadius: isDot ? '50%' : '0'
+                                            }}
+                                        />
+                                    );
+                                })}
+                            </div>
+                            <div className="w-px h-16 bg-[var(--fog-grey)] ml-auto md:mx-auto"></div>
+                        </div>
+                    </div>
+                </nav>
+            );
+        };
+
+        // Home/Landing Page - More editorial, less centered
+        const Home = () => {
+            const titleRef = React.useRef(null);
+            const [subtitleWidth, setSubtitleWidth] = React.useState(null);
+            const [letterSpacing, setLetterSpacing] = React.useState(0.65);
+
+            React.useEffect(() => {
+                if (titleRef.current) {
+                    const titleWidth = titleRef.current.offsetWidth;
+                    setSubtitleWidth(titleWidth);
+                    
+                    // Calculate letter spacing to match width
+                    const subtitle = 'INTERACTION DESIGNER & NEW MEDIA ARTIST';
+                    const baseWidth = subtitle.length * 8.4; // approximate character width at 14px
+                    const spacingNeeded = (titleWidth - baseWidth) / (subtitle.length - 1);
+                    const calculatedSpacing = Math.max(0, spacingNeeded / 14); // convert to em
+                    setLetterSpacing(calculatedSpacing);
+                }
+            }, []);
+
+            return (
+                <section id="home" className="min-h-screen page-transition hero-section py-20 px-6 md:py-32 md:px-12 md:mx-4 md:ml-8 lg:px-16 flex flex-col justify-center items-center md:items-start">
+                    <div className="container-wide pl-0 w-full">
+                        <div className="max-w-full md:max-w-[600px] lg:max-w-[1200px] mx-auto text-center md:text-left">
+                            <div className="mb-12 md:mb-20">
+                                <h1 ref={titleRef} className="font-light text-4xl md:text-7xl lg:text-[100px] xl:text-[128px] leading-[1.05] tracking-[0.02em] mb-2 font-[200] inline-block text-[#4A4A4A] whitespace-nowrap">
+                                    Hodo's Design
+                                </h1>
+                                <h1 className="font-light text-4xl md:text-7xl lg:text-[100px] xl:text-[128px] leading-[1.05] tracking-[0.02em] mb-4 md:mb-6 font-[200] text-[#4A4A4A]">
+                                    Portfolio
+                                </h1>
+                                <p className="font-light text-xs md:text-sm tracking-[0.2em] uppercase inline-block text-[#4A4A4A] opacity-70 font-[300]" style={{ letterSpacing: `${letterSpacing}em`, width: subtitleWidth ? `${subtitleWidth}px` : 'auto' }}>
+                                    interaction designer & new media artist
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            );
+        };
+
+        // Project Detail Component
+        const ProjectDetail = ({ project, onBack }) => {
+            // Scroll to top when component mounts
+            useEffect(() => {
+                window.scrollTo({ top: 0, behavior: 'instant' });
+            }, []);
+
+            return (
+                <section id="work" className="page-transition py-20 px-6 md:py-32 md:px-12 md:mx-4 md:ml-8 lg:px-16 xl:px-16 min-h-screen">
+                    <div className="container-wide pl-0 w-full">
+                        <div className="max-w-full md:max-w-[600px] lg:max-w-[1200px] mx-auto">
+                            <button 
+                                onClick={onBack}
+                                className="mb-8 text-sm text-[#4A4A4A] opacity-60 hover:opacity-100 transition-opacity font-[300]"
+                            >
+                                ← Back to Portfolio
+                            </button>
+                            <div className="mb-12 md:mb-20">
+                                <span className="tag text-[10px] md:text-[11px] lg:text-[12px] tracking-[0.2em] font-bold opacity-40">{project.category}</span>
+                            </div>
+                            <div className="mb-8">
+                                <h1 className="font-light text-3xl md:text-5xl lg:text-[64px] leading-[1.2] tracking-[0.01em] mb-4 md:mb-6 font-[200] text-[#4A4A4A]">
+                                    {project.title}
+                                </h1>
+                                <div className="text-sm md:text-base text-[#4A4A4A] opacity-50 font-[300] mb-8">
+                                    {project.year}
+                                </div>
+                            </div>
+                            {project.image && (
+                                <div className="mb-12 md:mb-16">
+                                    <img src={project.image} alt={project.title} className="w-full h-auto rounded-xl" />
+                                </div>
+                            )}
+                            <div className="prose max-w-none">
+                                <p className="font-light mb-8 leading-[1.7] text-base md:text-lg lg:text-xl text-[#4A4A4A] opacity-70 font-[300]">
+                                    {project.quote}
+                                </p>
+                                {/* Add more project detail content here */}
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            );
+        };
+
+        // Work Section - Clean editorial layout
+        const Work = ({ selectedProject, onProjectSelect, projects }) => {
+
+            return (
+                <section id="work" className="page-transition py-20 px-6 md:py-32 md:px-12 md:mx-4 md:ml-8 lg:px-16 xl:px-16">
+                    <div className="container-wide pl-0 w-full">
+                        <div className="max-w-full md:max-w-[600px] lg:max-w-[1200px] mx-auto">
+                            <div className="mb-12 md:mb-20 text-center md:text-left">
+                            <span className="tag text-[10px] md:text-[11px] lg:text-[12px] tracking-[0.2em] font-bold opacity-40">UX & Interaction Design</span>
+                        </div>
+
+                        <div className="flex flex-col gap-16 md:gap-24 lg:gap-48 xl:gap-64">
+                            {projects.map((project, index) => {
+                                return (
+                                    <article key={project.id} className="hover-lift work-project relative cursor-pointer group" data-project-id={project.id}>
+                                        <div 
+                                            onClick={() => onProjectSelect(project.id)}
+                                            className="block cursor-pointer"
+                                        >
+                                        <div className="work-project-container flex flex-col xl:flex-row gap-6 md:gap-8 xl:gap-[60px] items-stretch">
+                                            {/* On mobile/tablet, always show image first. On xl, alternate based on index */}
+                                            <div className={`work-project-image w-full xl:w-[70%] flex items-stretch relative ${index % 2 === 0 ? 'xl:order-1' : 'xl:order-2'}`}>
+                                                {project.image ? (
+                                                    <>
+                                                        <img src={project.image} alt={project.title} className="w-full h-auto min-h-[250px] md:min-h-[300px] xl:h-full xl:min-h-[500px] object-cover rounded-xl" />
+                                                        {(project.id === 2 || project.id === 3) && (
+                                                            <div className="work-project-lock-overlay absolute inset-0 flex items-center justify-center bg-black bg-opacity-20 rounded-xl opacity-0 transition-opacity duration-300">
+                                                                <img src="assets/lock.fill.svg" alt="Locked" className="w-20 h-20 md:w-24 md:h-24 lg:w-32 lg:h-32 opacity-60" />
+                                                            </div>
+                                                        )}
+                                                    </>
+                                                ) : (
+                                                    <div className="image-placeholder w-full h-auto min-h-[250px] md:min-h-[300px] xl:h-full xl:min-h-[500px] rounded-xl">
+                                                        Project Image
+                                                    </div>
+                                                )}
+                                            </div>
+                                            <div className={`work-project-content w-full xl:w-[30%] flex flex-col text-center md:text-left ${index % 2 === 0 ? 'xl:order-2' : 'xl:order-1'}`}>
+                                                <div className="mb-4 md:mb-8">
+                                                    <span className="tag text-[10px] md:text-[11px] lg:text-[12px] tracking-[0.2em]">{project.category}</span>
+                                                </div>
+                                                <h2 className="font-light work-project-title text-2xl md:text-4xl lg:text-[56px] leading-[1.7] tracking-[0.01em] mb-4 md:mb-6 lg:mb-10 font-[200] text-[#4A4A4A]">
+                                                    {project.title}
+                                                </h2>
+                                                <p className="font-light mb-6 md:mb-8 lg:mb-12 leading-[1.7] text-sm md:text-base lg:text-xl text-[#4A4A4A] opacity-70 font-[300]">
+                                                    {project.quote}
+                                                </p>
+                                                <div className="text-xs md:text-sm lg:text-base text-[#4A4A4A] opacity-50 font-[300]">
+                                                    {project.year}
+                                                </div>
+                                            </div>
+                                        </div>
+                                        </div>
+                                    </article>
+                                );
+                            })}
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            );
+        };
+
+        // Art Section - Editorial grid layout
+        const Art = () => {
+            const artworks = [
+                { 
+                    id: 1, 
+                    title: 'Ma: Digital Spaces', 
+                    venue: 'Contemporary Art Gallery, Tokyo', 
+                    year: '2024'
+                },
+                { 
+                    id: 2, 
+                    title: 'Wabi-Sabi Algorithms', 
+                    venue: 'New Media Art Center, Berlin', 
+                    year: '2023'
+                },
+                { 
+                    id: 3, 
+                    title: 'Tactile Interfaces', 
+                    venue: 'Art & Technology Biennial', 
+                    year: '2023'
+                },
+                { 
+                    id: 4, 
+                    title: 'Kanso: Minimal Data', 
+                    venue: 'Museum of Contemporary Digital Art', 
+                    year: '2022'
+                },
+                { 
+                    id: 5, 
+                    title: 'Shibui: Restrained Motion', 
+                    venue: 'Gallery Space, New York', 
+                    year: '2022'
+                },
+                { 
+                    id: 6, 
+                    title: 'Digital Ink Flow', 
+                    venue: 'International Media Art Festival', 
+                    year: '2021'
+                }
+            ];
+
+            return (
+                <section id="art" className="page-transition py-20 px-6 md:py-32 md:px-12 md:mx-4 md:ml-8 lg:px-16 xl:px-16">
+                    <div className="container-wide pl-0 w-full">
+                        <div className="max-w-full md:max-w-[600px] lg:max-w-[1200px] mx-auto">
+                            <div className="mb-12 md:mb-20 text-center md:text-left">
+                            <span className="tag text-[10px] md:text-[11px] lg:text-[12px] tracking-[0.2em] font-bold opacity-40">New Media Art</span>
+                        </div>
+
+                        {/* Editorial grid layout - mobile first: 1 column, then 2, then 3 */}
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 max-w-full">
+                            {artworks.map((artwork, index) => {
+                                return (
+                                    <div 
+                                        key={artwork.id} 
+                                        className="hover-lift text-center md:text-left"
+                                    >
+                                        <div 
+                                            className="image-placeholder aspect-[3/4] mb-4 md:mb-6 w-full max-h-[400px] md:max-h-[500px] lg:max-h-[600px]"
+                                        >
+                                            Artwork Image
+                                        </div>
+                                        <h3 className="font-light mb-2 md:mb-3 lg:mb-4 text-xl md:text-2xl lg:text-[36px] leading-[1.2] tracking-[0.01em] font-[200] text-[#4A4A4A]">
+                                            {artwork.title}
+                                        </h3>
+                                        <p className="text-xs md:text-sm lg:text-base text-[#4A4A4A] opacity-60 mb-1 md:mb-1.5 lg:mb-2 font-[300]">
+                                            {artwork.venue}
+                                        </p>
+                                        <p className="text-xs md:text-sm lg:text-base text-[#4A4A4A] opacity-50 font-[300]">
+                                            {artwork.year}
+                                        </p>
+                                    </div>
+                                );
+                            })}
+                        </div>
+                        </div>
+                    </div>
+                </section>
+            );
+        };
+
+
+
+        // Main App Component
+        const App = () => {
+            const [currentPage, setCurrentPage] = useState('home');
+            const [selectedProject, setSelectedProject] = useState(null);
+
+            useEffect(() => {
+                // Handle initial hash
+                const hash = window.location.hash.slice(1);
+                if (hash) {
+                    // Check if hash is a project link (e.g., work/project-1)
+                    const projectMatch = hash.match(/work\/project-(\d+)/);
+                    if (projectMatch) {
+                        const projectId = parseInt(projectMatch[1]);
+                        setSelectedProject(projectId);
+                        setCurrentPage('work');
+                        // Scroll to top when opening project from hash
+                        window.scrollTo({ top: 0, behavior: 'instant' });
+                    } else {
+                        scrollToSection(hash);
+                        setCurrentPage(hash);
+                    }
+                }
+
+                // Handle hash changes
+                const handleHashChange = () => {
+                    const newHash = window.location.hash.slice(1) || 'home';
+                    const projectMatch = newHash.match(/work\/project-(\d+)/);
+                    if (projectMatch) {
+                        const projectId = parseInt(projectMatch[1]);
+                        setSelectedProject(projectId);
+                        setCurrentPage('work');
+                        // Scroll to top when opening project from hash change
+                        window.scrollTo({ top: 0, behavior: 'instant' });
+                    } else {
+                        setSelectedProject(null);
+                        scrollToSection(newHash);
+                        setCurrentPage(newHash);
+                    }
+                };
+
+                // Handle scroll to update active nav (only when not viewing project detail)
+                const handleScroll = () => {
+                    if (selectedProject) return; // Don't update nav when viewing project detail
+                    
+                    const sections = ['home', 'work', 'art'];
+                    const scrollPosition = window.scrollY + 200;
+
+                    for (let i = sections.length - 1; i >= 0; i--) {
+                        const section = document.getElementById(sections[i]);
+                        if (section && section.offsetTop <= scrollPosition) {
+                            setCurrentPage(sections[i]);
+                            window.history.replaceState(null, '', `#${sections[i]}`);
+                            break;
+                        }
+                    }
+                };
+
+                window.addEventListener('hashchange', handleHashChange);
+                window.addEventListener('scroll', handleScroll, { passive: true });
+
+                return () => {
+                    window.removeEventListener('hashchange', handleHashChange);
+                    window.removeEventListener('scroll', handleScroll);
+                };
+            }, [selectedProject]);
+
+            const scrollToSection = (sectionId) => {
+                const element = document.getElementById(sectionId);
+                if (element) {
+                    const offset = 0;
+                    const elementPosition = element.offsetTop;
+                    const offsetPosition = elementPosition - offset;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            };
+
+            const handleNavigate = (page) => {
+                setCurrentPage(page);
+                setSelectedProject(null);
+                window.location.hash = page;
+                scrollToSection(page);
+            };
+
+            const handleProjectSelect = (projectId) => {
+                setSelectedProject(projectId);
+                if (projectId) {
+                    window.location.hash = `work/project-${projectId}`;
+                    setCurrentPage('work');
+                    // Scroll to top immediately when showing project detail
+                    window.scrollTo({ top: 0, behavior: 'instant' });
+                    // Also ensure scroll after a brief delay to handle any layout shifts
+                    setTimeout(() => {
+                        window.scrollTo({ top: 0, behavior: 'instant' });
+                    }, 0);
+                } else {
+                    window.location.hash = 'work';
+                    setCurrentPage('work');
+                    // Scroll to work section when going back
+                    setTimeout(() => scrollToSection('work'), 100);
+                }
+            };
+
+            // Define projects array at App level so it can be shared
+            const projects = [
+                { 
+                    id: 1, 
+                    title: 'Unified Voice Note Companion', 
+                    category: 'UX Design', 
+                    year: '2025',
+                    quote: 'Reducing task completion time by 80% through intentional information architecture and refined interaction patterns.',
+                    image: 'assets/goodSpeak.png',
+                    link: '#work/project-1'
+                },
+                { 
+                    id: 2, 
+                    title: 'Apple Retail Experience Design', 
+                    category: 'Service Design', 
+                    year: '2024',
+                    quote: 'Identifying customer needs through UX research and designing new service approaches for business clients, contributing to market-leading performance.',
+                    image: 'assets/apple.png',
+                    link: '#work/project-2'
+                },
+                { 
+                    id: 3, 
+                    title: 'Meta Internal Tools', 
+                    category: 'Software Engineering', 
+                    year: '2020',
+                    quote: 'Solving software engineering problems under the guidance of Engineering managers, with focus on technical mentorship and growth.',
+                    image: 'assets/meta.png',
+                    link: '#work/project-3'
+                },
+                { 
+                    id: 4, 
+                    title: 'KnackApp Mobile UX Redesign', 
+                    category: 'UX Design', 
+                    year: '2019',
+                    quote: "Leading the UX design for a multi-award-winning game, driving a 67% increase in user base, and redesigning the platform's app ecosystem.",
+                    image: 'assets/knack.png',
+                    link: '#work/project-4'
+                }
+            ];
+
+            return (
+                <div className="min-h-screen bg-rice-paper">
+                    <Navigation currentPage={currentPage} onNavigate={handleNavigate} />
+                    {/* Left Navigation - Mirror of right nav */}
+                    <nav className="fixed left-0 top-0 bottom-0 z-50 w-[120px] py-16 ml-4 md:ml-0">
+                        <div className="flex flex-col h-full justify-between">
+                            <div className={`flex flex-col items-start md:items-center ${currentPage !== 'home' ? 'hidden md:flex' : ''}`}>
+                                <div className="[writing-mode:vertical-rl] [text-orientation:mixed] rotate-180">
+                                    <div className="text-ink-black text-body-s font-light tracking-[0.2em] opacity-40">
+                                        {currentPage === 'home' ? 'Portfolio' : currentPage === 'work' ? 'Work Experience' : currentPage === 'art' ? 'New Media Interactive Art' : 'Portfolio'}
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="flex flex-col items-start md:items-center">
+                                {/* Empty space for nav items if needed */}
+                            </div>
+                            <div className={`flex flex-col items-start md:items-center gap-0 ${currentPage !== 'home' ? 'hidden md:flex' : ''}`}>
+                                <div className="flex flex-col items-start md:items-center gap-1 mb-2">
+                                    {[...Array(8)].map((_, i) => {
+                                        const reversedIndex = 7 - i;
+                                        const opacity = Math.max(0.2, 1 - (reversedIndex * 0.12));
+                                        const isDot = reversedIndex >= 4;
+                                        return (
+                                            <div
+                                                key={i}
+                                                className="w-px bg-[var(--fog-grey)]"
+                                                style={{
+                                                    height: isDot ? '2px' : '8px',
+                                                    opacity: opacity,
+                                                    borderRadius: isDot ? '50%' : '0'
+                                                }}
+                                            />
+                                        );
+                                    })}
+                                </div>
+                                <div className="w-px h-16 bg-[var(--fog-grey)] mr-auto md:mx-auto"></div>
+                            </div>
+                        </div>
+                    </nav>
+                    <main>
+                        {selectedProject ? (
+                            <ProjectDetail 
+                                project={projects.find(p => p.id === selectedProject)} 
+                                onBack={() => handleProjectSelect(null)} 
+                            />
+                        ) : (
+                            <>
+                                <Home />
+                                <Work selectedProject={selectedProject} onProjectSelect={handleProjectSelect} projects={projects} />
+                                <Art />
+                            </>
+                        )}
+                    </main>
+                </div>
+            );
+        };
+
+        // Render App
+        ReactDOM.render(<App />, document.getElementById('root'));
+    </script>
+</body>
 </html>
