@@ -159,11 +159,12 @@
             letter-spacing: 0.03em;
             font-size: 14px;
             font-weight: 300;
-            transition: opacity 0.2s ease;
+            transition: opacity 0.3s ease, color 0.3s ease, transform 0.2s ease;
         }
         
         .nav-link:hover {
             opacity: 0.6;
+            transform: translateX(-2px);
         }
         
         .nav-link::after {
@@ -174,7 +175,7 @@
             width: 0;
             height: 1px;
             background-color: var(--ink-black);
-            transition: width 0.3s ease;
+            transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
         
         .nav-link:hover::after {
@@ -185,6 +186,7 @@
             opacity: 1;
             color: var(--aizome-blue);
             font-weight: 500;
+            transition: opacity 0.3s ease, color 0.3s ease;
         }
         
         .nav-link.active::after {
@@ -196,13 +198,20 @@
             position: absolute;
             left: -14px;
             top: 50%;
-            transform: translateY(-50%);
+            transform: translateY(-50%) scale(0);
             width: 4px;
             height: 4px;
             background-color: var(--aizome-blue);
             border: 1px solid var(--aizome-blue);
             border-radius: 50%;
             box-shadow: 0 0 0 0.5px var(--aizome-blue);
+            animation: activeDotIn 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+        
+        @keyframes activeDotIn {
+            to {
+                transform: translateY(-50%) scale(1);
+            }
         }
         
         /* Image Placeholder */
@@ -237,12 +246,23 @@
         
         /* Hover Effects - Tactile */
         .hover-lift {
-            transition: transform 0.3s ease, opacity 0.3s ease;
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s ease;
         }
         
         .hover-lift:hover {
-            transform: translateY(-2px);
+            transform: translateY(-3px);
             opacity: 0.95;
+        }
+        
+        /* Smooth Page Section Transitions */
+        section {
+            transition: opacity 0.3s ease-out;
+        }
+        
+        /* Enhanced Image Transitions */
+        .work-project-image img,
+        .work-project-image .image-placeholder {
+            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
         }
         
         /* Work Project Clickable Styles */
@@ -284,6 +304,21 @@
             opacity: 1;
         }
         
+        /* Page Load Animation */
+        body {
+            opacity: 0;
+            animation: pageFadeIn 0.6s ease-out forwards;
+        }
+        
+        @keyframes pageFadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        
         /* Page Transitions */
         .page-transition {
             animation: fadeIn 0.8s ease-out;
@@ -295,6 +330,255 @@
             }
             to {
                 opacity: 1;
+            }
+        }
+        
+        /* Staggered Fade In */
+        .fade-in {
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+        
+        .fade-in-delay-1 {
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out 0.1s forwards;
+        }
+        
+        .fade-in-delay-2 {
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out 0.2s forwards;
+        }
+        
+        .fade-in-delay-3 {
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out 0.3s forwards;
+        }
+        
+        .fade-in-delay-4 {
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out 0.4s forwards;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Slide In from Right */
+        .slide-in-right {
+            opacity: 0;
+            transform: translateX(30px);
+            animation: slideInRight 0.8s ease-out forwards;
+        }
+        
+        @keyframes slideInRight {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        /* Slide In from Left */
+        .slide-in-left {
+            opacity: 0;
+            transform: translateX(-30px);
+            animation: slideInLeft 0.8s ease-out forwards;
+        }
+        
+        @keyframes slideInLeft {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        /* Scale In */
+        .scale-in {
+            opacity: 0;
+            transform: scale(0.95);
+            animation: scaleIn 0.6s ease-out forwards;
+        }
+        
+        @keyframes scaleIn {
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        
+        /* Scroll Reveal - Initially Hidden */
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        
+        .scroll-reveal.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Navigation Animation */
+        .nav-animate {
+            opacity: 0;
+            animation: fadeInRight 1s ease-out 0.3s forwards;
+        }
+        
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        /* Hero Title Animation */
+        .hero-title {
+            opacity: 0;
+            animation: heroTitleIn 1.2s ease-out 0.2s forwards;
+        }
+        
+        @keyframes heroTitleIn {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Hero Subtitle Animation */
+        .hero-subtitle {
+            opacity: 0;
+            animation: heroSubtitleIn 1s ease-out 0.6s forwards;
+        }
+        
+        @keyframes heroSubtitleIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 0.7;
+            }
+        }
+        
+        /* Work Project Stagger */
+        .work-item {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        
+        .work-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Art Grid Item Animation */
+        .art-item {
+            opacity: 0;
+            transform: scale(0.98) translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        
+        .art-item.visible {
+            opacity: 1;
+            transform: scale(1) translateY(0);
+        }
+        
+        /* Smooth Image Load */
+        img {
+            opacity: 0;
+            transition: opacity 0.6s ease-out;
+            background-color: var(--fog-grey);
+        }
+        
+        img.loaded {
+            opacity: 1;
+            background-color: transparent;
+        }
+        
+        /* Subtle Loading Pulse */
+        @keyframes subtlePulse {
+            0%, 100% {
+                opacity: 0.3;
+            }
+            50% {
+                opacity: 0.5;
+            }
+        }
+        
+        img:not(.loaded) {
+            animation: subtlePulse 1.5s ease-in-out infinite;
+        }
+        
+        /* Prevent Flash of Unstyled Content */
+        .preload {
+            visibility: hidden;
+        }
+        
+        .preload.loaded {
+            visibility: visible;
+        }
+        
+        /* Button Hover Enhancement */
+        .btn-primary {
+            transition: opacity 0.2s ease, transform 0.2s ease;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-1px);
+        }
+        
+        /* Tag Animation */
+        .tag-animate {
+            opacity: 0;
+            animation: tagFadeIn 0.8s ease-out forwards;
+        }
+        
+        @keyframes tagFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 0.4;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Back Button Animation */
+        button {
+            transition: opacity 0.3s ease, transform 0.2s ease;
+        }
+        
+        button:hover {
+            transform: translateX(-3px);
+        }
+        
+        /* Smooth Scroll Behavior Enhancement */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
             }
         }
         
@@ -377,18 +661,18 @@
             ];
 
             return (
-                <nav className="fixed right-0 top-0 bottom-0 z-50 w-[120px] py-16 mr-4 md:mr-0">
+                <nav className="fixed right-0 top-0 bottom-0 z-50 w-[120px] py-16 mr-4 md:mr-0 nav-animate">
                     <div className="flex flex-col h-full justify-between">
                         <div className={`flex flex-col items-end md:items-center ${currentPage !== 'home' ? 'hidden md:flex' : ''}`}>
-                            <div className="[writing-mode:vertical-rl] [text-orientation:mixed] rotate-180">
+                            <div className="[writing-mode:vertical-rl] [text-orientation:mixed] rotate-180 fade-in-delay-1">
                                 <div className="text-ink-black text-body-s font-light tracking-[0.2em] opacity-40">
                                     Portfolio
                                 </div>
                             </div>
                         </div>
                         <div className="flex flex-col gap-8 items-end md:items-center">
-                            {navItems.map(item => (
-                                <div key={item.id} className="relative">
+                            {navItems.map((item, index) => (
+                                <div key={item.id} className={`relative fade-in-delay-${Math.min(index + 2, 4)}`}>
                                     <a
                                         href={`#${item.id}`}
                                         onClick={(e) => {
@@ -401,7 +685,7 @@
                                     </a>
                                 </div>
                             ))}
-                            <div className="relative mt-4">
+                            <div className={`relative mt-4 fade-in-delay-4`}>
                                 <a
                                     href="mailto:contact@example.com"
                                     className="nav-link text-xs relative"
@@ -411,7 +695,7 @@
                             </div>
                         </div>
                         <div className={`flex flex-col items-end md:items-center gap-0 ${currentPage !== 'home' ? 'hidden md:flex' : ''}`}>
-                            <div className="flex flex-col items-end md:items-center gap-1 mb-2">
+                            <div className="flex flex-col items-end md:items-center gap-1 mb-2 fade-in-delay-3">
                                 {[...Array(8)].map((_, i) => {
                                     const reversedIndex = 7 - i;
                                     const opacity = Math.max(0.2, 1 - (reversedIndex * 0.12));
@@ -461,13 +745,13 @@
                     <div className="container-wide pl-0 w-full">
                         <div className="max-w-full md:max-w-[600px] lg:max-w-[1200px] mx-auto text-center md:text-left">
                             <div className="mb-12 md:mb-20">
-                                <h1 ref={titleRef} className="font-light text-4xl md:text-7xl lg:text-[100px] xl:text-[128px] leading-[1.05] tracking-[0.02em] mb-2 font-[200] inline-block text-[#4A4A4A] whitespace-nowrap">
+                                <h1 ref={titleRef} className="hero-title font-light text-4xl md:text-7xl lg:text-[100px] xl:text-[128px] leading-[1.05] tracking-[0.02em] mb-2 font-[200] inline-block text-[#4A4A4A] whitespace-nowrap">
                                     Hodo's Design
                                 </h1>
-                                <h1 className="font-light text-4xl md:text-7xl lg:text-[100px] xl:text-[128px] leading-[1.05] tracking-[0.02em] mb-4 md:mb-6 font-[200] text-[#4A4A4A]">
+                                <h1 className="hero-title font-light text-4xl md:text-7xl lg:text-[100px] xl:text-[128px] leading-[1.05] tracking-[0.02em] mb-4 md:mb-6 font-[200] text-[#4A4A4A]" style={{ animationDelay: '0.3s' }}>
                                     Portfolio
                                 </h1>
-                                <p className="font-light text-xs md:text-sm tracking-[0.2em] uppercase inline-block text-[#4A4A4A] opacity-70 font-[300]" style={{ letterSpacing: `${letterSpacing}em`, width: subtitleWidth ? `${subtitleWidth}px` : 'auto' }}>
+                                <p className="hero-subtitle font-light text-xs md:text-sm tracking-[0.2em] uppercase inline-block text-[#4A4A4A] font-[300]" style={{ letterSpacing: `${letterSpacing}em`, width: subtitleWidth ? `${subtitleWidth}px` : 'auto' }}>
                                     interaction designer & new media artist
                                 </p>
                             </div>
@@ -477,8 +761,40 @@
             );
         };
 
+        // Intersection Observer Hook for Scroll Animations
+        const useIntersectionObserver = (ref, options = {}) => {
+            const [isIntersecting, setIsIntersecting] = useState(false);
+            
+            useEffect(() => {
+                const observer = new IntersectionObserver(([entry]) => {
+                    if (entry.isIntersecting) {
+                        setIsIntersecting(true);
+                    }
+                }, {
+                    threshold: 0.1,
+                    rootMargin: '0px 0px -50px 0px',
+                    ...options
+                });
+                
+                if (ref.current) {
+                    observer.observe(ref.current);
+                }
+                
+                return () => {
+                    if (ref.current) {
+                        observer.unobserve(ref.current);
+                    }
+                };
+            }, [ref]);
+            
+            return isIntersecting;
+        };
+
         // Project Detail Component
         const ProjectDetail = ({ project, onBack }) => {
+            const containerRef = React.useRef(null);
+            const isVisible = useIntersectionObserver(containerRef, { threshold: 0 });
+            
             // Scroll to top when component mounts
             useEffect(() => {
                 window.scrollTo({ top: 0, behavior: 'instant' });
@@ -486,18 +802,18 @@
 
             return (
                 <section id="work" className="page-transition py-20 px-6 md:py-32 md:px-12 md:mx-4 md:ml-8 lg:px-16 xl:px-16 min-h-screen">
-                    <div className="container-wide pl-0 w-full">
+                    <div ref={containerRef} className="container-wide pl-0 w-full">
                         <div className="max-w-full md:max-w-[600px] lg:max-w-[1200px] mx-auto">
                             <button 
                                 onClick={onBack}
-                                className="mb-8 text-sm text-[#4A4A4A] opacity-60 hover:opacity-100 transition-opacity font-[300]"
+                                className={`mb-8 text-sm text-[#4A4A4A] opacity-60 hover:opacity-100 transition-opacity font-[300] fade-in ${isVisible ? 'fade-in' : ''}`}
                             >
                                 ← Back to Portfolio
                             </button>
-                            <div className="mb-12 md:mb-20">
-                                <span className="tag text-[10px] md:text-[11px] lg:text-[12px] tracking-[0.2em] font-bold opacity-40">{project.category}</span>
+                            <div className={`mb-12 md:mb-20 fade-in-delay-1 ${isVisible ? 'fade-in-delay-1' : ''}`}>
+                                <span className="tag tag-animate text-[10px] md:text-[11px] lg:text-[12px] tracking-[0.2em] font-bold opacity-40">{project.category}</span>
                             </div>
-                            <div className="mb-8">
+                            <div className={`mb-8 fade-in-delay-2 ${isVisible ? 'fade-in-delay-2' : ''}`}>
                                 <h1 className="font-light text-3xl md:text-5xl lg:text-[64px] leading-[1.2] tracking-[0.01em] mb-4 md:mb-6 font-[200] text-[#4A4A4A]">
                                     {project.title}
                                 </h1>
@@ -506,11 +822,16 @@
                                 </div>
                             </div>
                             {project.image && (
-                                <div className="mb-12 md:mb-16">
-                                    <img src={project.image} alt={project.title} className="w-full h-auto rounded-xl" />
+                                <div className={`mb-12 md:mb-16 scale-in ${isVisible ? 'scale-in' : ''}`} style={{ animationDelay: '0.3s' }}>
+                                    <img 
+                                        src={project.image} 
+                                        alt={project.title} 
+                                        className="w-full h-auto rounded-xl"
+                                        onLoad={(e) => e.target.classList.add('loaded')}
+                                    />
                                 </div>
                             )}
-                            <div className="prose max-w-none">
+                            <div className={`prose max-w-none fade-in-delay-4 ${isVisible ? 'fade-in-delay-4' : ''}`}>
                                 <p className="font-light mb-8 leading-[1.7] text-base md:text-lg lg:text-xl text-[#4A4A4A] opacity-70 font-[300]">
                                     {project.quote}
                                 </p>
@@ -522,66 +843,120 @@
             );
         };
 
+        // Work Item Component with Scroll Animation
+        const WorkItem = ({ project, index, onProjectSelect }) => {
+            const itemRef = React.useRef(null);
+            const isVisible = useIntersectionObserver(itemRef, { threshold: 0.15 });
+            
+            return (
+                <article 
+                    ref={itemRef}
+                    className={`hover-lift work-project work-item relative cursor-pointer group ${isVisible ? 'visible' : ''}`} 
+                    data-project-id={project.id}
+                    style={{ transitionDelay: `${index * 0.1}s` }}
+                >
+                    <div 
+                        onClick={() => onProjectSelect(project.id)}
+                        className="block cursor-pointer"
+                    >
+                        <div className="work-project-container flex flex-col xl:flex-row gap-6 md:gap-8 xl:gap-[60px] items-stretch">
+                            {/* On mobile/tablet, always show image first. On xl, alternate based on index */}
+                            <div className={`work-project-image w-full xl:w-[70%] flex items-stretch relative ${index % 2 === 0 ? 'xl:order-1' : 'xl:order-2'}`}>
+                                {project.image ? (
+                                    <>
+                                        <img 
+                                            src={project.image} 
+                                            alt={project.title} 
+                                            className="w-full h-auto min-h-[250px] md:min-h-[300px] xl:h-full xl:min-h-[500px] object-cover rounded-xl"
+                                            onLoad={(e) => e.target.classList.add('loaded')}
+                                        />
+                                        {(project.id === 2 || project.id === 3) && (
+                                            <div className="work-project-lock-overlay absolute inset-0 flex items-center justify-center bg-black bg-opacity-20 rounded-xl opacity-0 transition-opacity duration-300">
+                                                <img src="assets/lock.fill.svg" alt="Locked" className="w-20 h-20 md:w-24 md:h-24 lg:w-32 lg:h-32 opacity-60" />
+                                            </div>
+                                        )}
+                                    </>
+                                ) : (
+                                    <div className="image-placeholder w-full h-auto min-h-[250px] md:min-h-[300px] xl:h-full xl:min-h-[500px] rounded-xl">
+                                        Project Image
+                                    </div>
+                                )}
+                            </div>
+                            <div className={`work-project-content w-full xl:w-[30%] flex flex-col text-center md:text-left ${index % 2 === 0 ? 'xl:order-2' : 'xl:order-1'}`}>
+                                <div className="mb-4 md:mb-8">
+                                    <span className="tag text-[10px] md:text-[11px] lg:text-[12px] tracking-[0.2em]">{project.category}</span>
+                                </div>
+                                <h2 className="font-light work-project-title text-2xl md:text-4xl lg:text-[56px] leading-[1.7] tracking-[0.01em] mb-4 md:mb-6 lg:mb-10 font-[200] text-[#4A4A4A]">
+                                    {project.title}
+                                </h2>
+                                <p className="font-light mb-6 md:mb-8 lg:mb-12 leading-[1.7] text-sm md:text-base lg:text-xl text-[#4A4A4A] opacity-70 font-[300]">
+                                    {project.quote}
+                                </p>
+                                <div className="text-xs md:text-sm lg:text-base text-[#4A4A4A] opacity-50 font-[300]">
+                                    {project.year}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            );
+        };
+
         // Work Section - Clean editorial layout
         const Work = ({ selectedProject, onProjectSelect, projects }) => {
+            const sectionRef = React.useRef(null);
+            const isVisible = useIntersectionObserver(sectionRef, { threshold: 0.1 });
 
             return (
-                <section id="work" className="page-transition py-20 px-6 md:py-32 md:px-12 md:mx-4 md:ml-8 lg:px-16 xl:px-16">
+                <section id="work" ref={sectionRef} className="page-transition py-20 px-6 md:py-32 md:px-12 md:mx-4 md:ml-8 lg:px-16 xl:px-16">
                     <div className="container-wide pl-0 w-full">
                         <div className="max-w-full md:max-w-[600px] lg:max-w-[1200px] mx-auto">
-                            <div className="mb-12 md:mb-20 text-center md:text-left">
-                            <span className="tag text-[10px] md:text-[11px] lg:text-[12px] tracking-[0.2em] font-bold opacity-40">UX & Interaction Design</span>
-                        </div>
+                            <div className={`mb-12 md:mb-20 text-center md:text-left scroll-reveal ${isVisible ? 'revealed' : ''}`}>
+                                <span className="tag tag-animate text-[10px] md:text-[11px] lg:text-[12px] tracking-[0.2em] font-bold opacity-40">UX & Interaction Design</span>
+                            </div>
 
-                        <div className="flex flex-col gap-16 md:gap-24 lg:gap-48 xl:gap-64">
-                            {projects.map((project, index) => {
-                                return (
-                                    <article key={project.id} className="hover-lift work-project relative cursor-pointer group" data-project-id={project.id}>
-                                        <div 
-                                            onClick={() => onProjectSelect(project.id)}
-                                            className="block cursor-pointer"
-                                        >
-                                        <div className="work-project-container flex flex-col xl:flex-row gap-6 md:gap-8 xl:gap-[60px] items-stretch">
-                                            {/* On mobile/tablet, always show image first. On xl, alternate based on index */}
-                                            <div className={`work-project-image w-full xl:w-[70%] flex items-stretch relative ${index % 2 === 0 ? 'xl:order-1' : 'xl:order-2'}`}>
-                                                {project.image ? (
-                                                    <>
-                                                        <img src={project.image} alt={project.title} className="w-full h-auto min-h-[250px] md:min-h-[300px] xl:h-full xl:min-h-[500px] object-cover rounded-xl" />
-                                                        {(project.id === 2 || project.id === 3) && (
-                                                            <div className="work-project-lock-overlay absolute inset-0 flex items-center justify-center bg-black bg-opacity-20 rounded-xl opacity-0 transition-opacity duration-300">
-                                                                <img src="assets/lock.fill.svg" alt="Locked" className="w-20 h-20 md:w-24 md:h-24 lg:w-32 lg:h-32 opacity-60" />
-                                                            </div>
-                                                        )}
-                                                    </>
-                                                ) : (
-                                                    <div className="image-placeholder w-full h-auto min-h-[250px] md:min-h-[300px] xl:h-full xl:min-h-[500px] rounded-xl">
-                                                        Project Image
-                                                    </div>
-                                                )}
-                                            </div>
-                                            <div className={`work-project-content w-full xl:w-[30%] flex flex-col text-center md:text-left ${index % 2 === 0 ? 'xl:order-2' : 'xl:order-1'}`}>
-                                                <div className="mb-4 md:mb-8">
-                                                    <span className="tag text-[10px] md:text-[11px] lg:text-[12px] tracking-[0.2em]">{project.category}</span>
-                                                </div>
-                                                <h2 className="font-light work-project-title text-2xl md:text-4xl lg:text-[56px] leading-[1.7] tracking-[0.01em] mb-4 md:mb-6 lg:mb-10 font-[200] text-[#4A4A4A]">
-                                                    {project.title}
-                                                </h2>
-                                                <p className="font-light mb-6 md:mb-8 lg:mb-12 leading-[1.7] text-sm md:text-base lg:text-xl text-[#4A4A4A] opacity-70 font-[300]">
-                                                    {project.quote}
-                                                </p>
-                                                <div className="text-xs md:text-sm lg:text-base text-[#4A4A4A] opacity-50 font-[300]">
-                                                    {project.year}
-                                                </div>
-                                            </div>
-                                        </div>
-                                        </div>
-                                    </article>
-                                );
-                            })}
+                            <div className="flex flex-col gap-16 md:gap-24 lg:gap-48 xl:gap-64">
+                                {projects.map((project, index) => (
+                                    <WorkItem 
+                                        key={project.id}
+                                        project={project}
+                                        index={index}
+                                        onProjectSelect={onProjectSelect}
+                                    />
+                                ))}
                             </div>
                         </div>
                     </div>
                 </section>
+            );
+        };
+
+        // Art Item Component with Scroll Animation
+        const ArtItem = ({ artwork, index }) => {
+            const itemRef = React.useRef(null);
+            const isVisible = useIntersectionObserver(itemRef, { threshold: 0.2 });
+            
+            return (
+                <div 
+                    ref={itemRef}
+                    className={`hover-lift art-item text-center md:text-left ${isVisible ? 'visible' : ''}`}
+                    style={{ transitionDelay: `${index * 0.08}s` }}
+                >
+                    <div 
+                        className="image-placeholder aspect-[3/4] mb-4 md:mb-6 w-full max-h-[400px] md:max-h-[500px] lg:max-h-[600px]"
+                    >
+                        Artwork Image
+                    </div>
+                    <h3 className="font-light mb-2 md:mb-3 lg:mb-4 text-xl md:text-2xl lg:text-[36px] leading-[1.2] tracking-[0.01em] font-[200] text-[#4A4A4A]">
+                        {artwork.title}
+                    </h3>
+                    <p className="text-xs md:text-sm lg:text-base text-[#4A4A4A] opacity-60 mb-1 md:mb-1.5 lg:mb-2 font-[300]">
+                        {artwork.venue}
+                    </p>
+                    <p className="text-xs md:text-sm lg:text-base text-[#4A4A4A] opacity-50 font-[300]">
+                        {artwork.year}
+                    </p>
+                </div>
             );
         };
 
@@ -625,41 +1000,28 @@
                     year: '2021'
                 }
             ];
+            
+            const sectionRef = React.useRef(null);
+            const isVisible = useIntersectionObserver(sectionRef, { threshold: 0.1 });
 
             return (
-                <section id="art" className="page-transition py-20 px-6 md:py-32 md:px-12 md:mx-4 md:ml-8 lg:px-16 xl:px-16">
+                <section id="art" ref={sectionRef} className="page-transition py-20 px-6 md:py-32 md:px-12 md:mx-4 md:ml-8 lg:px-16 xl:px-16">
                     <div className="container-wide pl-0 w-full">
                         <div className="max-w-full md:max-w-[600px] lg:max-w-[1200px] mx-auto">
-                            <div className="mb-12 md:mb-20 text-center md:text-left">
-                            <span className="tag text-[10px] md:text-[11px] lg:text-[12px] tracking-[0.2em] font-bold opacity-40">New Media Art</span>
-                        </div>
+                            <div className={`mb-12 md:mb-20 text-center md:text-left scroll-reveal ${isVisible ? 'revealed' : ''}`}>
+                                <span className="tag tag-animate text-[10px] md:text-[11px] lg:text-[12px] tracking-[0.2em] font-bold opacity-40">New Media Art</span>
+                            </div>
 
-                        {/* Editorial grid layout - mobile first: 1 column, then 2, then 3 */}
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 max-w-full">
-                            {artworks.map((artwork, index) => {
-                                return (
-                                    <div 
-                                        key={artwork.id} 
-                                        className="hover-lift text-center md:text-left"
-                                    >
-                                        <div 
-                                            className="image-placeholder aspect-[3/4] mb-4 md:mb-6 w-full max-h-[400px] md:max-h-[500px] lg:max-h-[600px]"
-                                        >
-                                            Artwork Image
-                                        </div>
-                                        <h3 className="font-light mb-2 md:mb-3 lg:mb-4 text-xl md:text-2xl lg:text-[36px] leading-[1.2] tracking-[0.01em] font-[200] text-[#4A4A4A]">
-                                            {artwork.title}
-                                        </h3>
-                                        <p className="text-xs md:text-sm lg:text-base text-[#4A4A4A] opacity-60 mb-1 md:mb-1.5 lg:mb-2 font-[300]">
-                                            {artwork.venue}
-                                        </p>
-                                        <p className="text-xs md:text-sm lg:text-base text-[#4A4A4A] opacity-50 font-[300]">
-                                            {artwork.year}
-                                        </p>
-                                    </div>
-                                );
-                            })}
-                        </div>
+                            {/* Editorial grid layout - mobile first: 1 column, then 2, then 3 */}
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 max-w-full">
+                                {artworks.map((artwork, index) => (
+                                    <ArtItem 
+                                        key={artwork.id}
+                                        artwork={artwork}
+                                        index={index}
+                                    />
+                                ))}
+                            </div>
                         </div>
                     </div>
                 </section>
@@ -818,10 +1180,10 @@
                 <div className="min-h-screen bg-rice-paper">
                     <Navigation currentPage={currentPage} onNavigate={handleNavigate} />
                     {/* Left Navigation - Mirror of right nav */}
-                    <nav className="fixed left-0 top-0 bottom-0 z-50 w-[120px] py-16 ml-4 md:ml-0">
+                    <nav className="fixed left-0 top-0 bottom-0 z-50 w-[120px] py-16 ml-4 md:ml-0 slide-in-left">
                         <div className="flex flex-col h-full justify-between">
                             <div className={`flex flex-col items-start md:items-center ${currentPage !== 'home' ? 'hidden md:flex' : ''}`}>
-                                <div className="[writing-mode:vertical-rl] [text-orientation:mixed] rotate-180">
+                                <div className="[writing-mode:vertical-rl] [text-orientation:mixed] rotate-180 fade-in-delay-1">
                                     <div className="text-ink-black text-body-s font-light tracking-[0.2em] opacity-40">
                                         {currentPage === 'home' ? 'Portfolio' : currentPage === 'work' ? 'Work Experience' : currentPage === 'art' ? 'New Media Interactive Art' : 'Portfolio'}
                                     </div>
@@ -831,7 +1193,7 @@
                                 {/* Empty space for nav items if needed */}
                             </div>
                             <div className={`flex flex-col items-start md:items-center gap-0 ${currentPage !== 'home' ? 'hidden md:flex' : ''}`}>
-                                <div className="flex flex-col items-start md:items-center gap-1 mb-2">
+                                <div className="flex flex-col items-start md:items-center gap-1 mb-2 fade-in-delay-3">
                                     {[...Array(8)].map((_, i) => {
                                         const reversedIndex = 7 - i;
                                         const opacity = Math.max(0.2, 1 - (reversedIndex * 0.12));
