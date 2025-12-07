@@ -1008,20 +1008,17 @@
                 return (
                     <div className={`space-y-16 md:space-y-24 fade-in-delay-4 ${isVisible ? 'fade-in-delay-4' : ''}`}>
                         {/* Project Info */}
-                        <div className="space-y-4 w-full md:max-w-[600px] lg:max-w-[1200px]">
-                            <div className="flex flex-wrap gap-4 text-sm md:text-base text-[#4A4A4A] opacity-60 font-[300]">
-                                {content.role && <span>{content.role}</span>}
-                                {content.platforms && <span>· {content.platforms}</span>}
-                                {content.team && <span>· {content.team}</span>}
-                                {content.duration && <span>· {content.duration}</span>}
+                        <div className="w-full md:max-w-[600px] lg:max-w-[1200px]">
+                            <div className="divider mb-4"></div>
+                            <div className="space-y-4">
+                                <div className="flex flex-wrap justify-between gap-4 text-sm md:text-base text-[#4A4A4A] opacity-60 font-[300]">
+                                    {content.role && <span>{content.role}</span>}
+                                    {content.platforms && <span>· {content.platforms}</span>}
+                                    {content.team && <span>· {content.team}</span>}
+                                    {content.duration && <span>· {content.duration}</span>}
+                                </div>
                             </div>
-                        </div>
-
-                        {/* Hero Visual */}
-                        <div className="mb-8 w-full md:max-w-[600px] lg:max-w-[1200px]">
-                            <div className="image-placeholder w-full h-auto min-h-[300px] md:min-h-[400px] rounded-xl">
-                                Hero Visual
-                            </div>
+                            <div className="divider mt-4"></div>
                         </div>
 
                         {/* The Challenge */}
