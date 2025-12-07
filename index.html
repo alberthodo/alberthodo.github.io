@@ -1107,6 +1107,33 @@
                                 <h2 className="font-light text-2xl md:text-3xl lg:text-[36px] leading-[1.2] tracking-[0.01em] font-[200] text-[#4A4A4A] mb-4">
                                     The Insight
                                 </h2>
+                                {/* Sticky Notes */}
+                                <div className="flex flex-wrap gap-4 md:gap-6 mb-8">
+                                    {[
+                                        'Editing happens in waves: quick corrections first, then deeper edits, requiring different editing modes.',
+                                        'Users think in workflows, not features: "I need to turn this into an email" not "I need format X".',
+                                        'Progressive disclosure reduces decision fatigue, showing all options upfront increases abandonment.',
+                                        'Editing accessibility is critical: 92% edit, so editing must be as prominent as capture.'
+                                    ].map((insight, i) => {
+                                        const rotations = [1.5, -1.2, 0.8, -1.8, 1.1];
+                                        return (
+                                            <div 
+                                                key={i}
+                                                className="p-4 md:p-6 min-w-[200px] flex-1 max-w-[280px]"
+                                                style={{
+                                                    transform: `rotate(${rotations[i]}deg)`,
+                                                    backgroundColor: '#FFEB3B',
+                                                    boxShadow: '0 4px 8px rgba(0, 0, 0, 0.15), 0 2px 4px rgba(0, 0, 0, 0.1)',
+                                                    borderRadius: '2px'
+                                                }}
+                                            >
+                                                <div className="text-sm md:text-base text-[#4A4A4A] opacity-90 font-[300] leading-[1.5]">
+                                                    {insight}
+                                                </div>
+                                            </div>
+                                        );
+                                    })}
+                                </div>
                                 <div className="space-y-6 text-base md:text-lg text-[#4A4A4A] opacity-70 font-[300] leading-[1.7]">
                                     <p className="text-lg md:text-xl font-[400] opacity-80">{content.insight.main}</p>
                                     {content.insight.explanation && (
