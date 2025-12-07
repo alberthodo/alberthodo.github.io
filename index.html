@@ -998,7 +998,7 @@
                 return (
                     <div className={`space-y-16 md:space-y-24 fade-in-delay-4 ${isVisible ? 'fade-in-delay-4' : ''}`}>
                         {/* Project Info */}
-                        <div className="space-y-4">
+                        <div className="space-y-4 w-full md:max-w-[600px] lg:max-w-[1200px]">
                             <div className="flex flex-wrap gap-4 text-sm md:text-base text-[#4A4A4A] opacity-60 font-[300]">
                                 {content.role && <span>{content.role}</span>}
                                 {content.platforms && <span>· {content.platforms}</span>}
@@ -1008,7 +1008,7 @@
                         </div>
 
                         {/* Hero Visual */}
-                        <div className="mb-8">
+                        <div className="mb-8 w-full md:max-w-[600px] lg:max-w-[1200px]">
                             <div className="image-placeholder w-full h-auto min-h-[300px] md:min-h-[400px] rounded-xl">
                                 Hero Visual
                             </div>
@@ -1272,9 +1272,16 @@
                             >
                                 ← Back to Portfolio
                             </button>
-                            <div className={`mb-12 md:mb-20 fade-in-delay-1 ${isVisible ? 'fade-in-delay-1' : ''}`}>
-                                <span className="tag tag-animate text-[10px] md:text-[11px] lg:text-[12px] tracking-[0.2em] font-bold opacity-40">{project.category}</span>
-                            </div>
+                            {(project.heroImage || project.image) && (
+                                <div className={`mb-12 md:mb-16 scale-in ${isVisible ? 'scale-in' : ''}`} style={{ animationDelay: '0.1s' }}>
+                                    <img 
+                                        src={project.heroImage || project.image} 
+                                        alt={project.title} 
+                                        className="w-full h-auto rounded-xl"
+                                        onLoad={(e) => e.target.classList.add('loaded')}
+                                    />
+                                </div>
+                            )}
                             <div className={`mb-8 fade-in-delay-2 ${isVisible ? 'fade-in-delay-2' : ''}`}>
                                 <h1 className="font-light text-3xl md:text-5xl lg:text-[64px] leading-[1.2] tracking-[0.01em] mb-4 md:mb-6 font-[200] text-[#4A4A4A]">
                                     {project.title}
@@ -1283,16 +1290,6 @@
                                     {project.quote}
                                 </div>
                             </div>
-                            {project.image && (
-                                <div className={`mb-12 md:mb-16 scale-in ${isVisible ? 'scale-in' : ''}`} style={{ animationDelay: '0.3s' }}>
-                                    <img 
-                                        src={project.image} 
-                                        alt={project.title} 
-                                        className="w-full h-auto rounded-xl"
-                                        onLoad={(e) => e.target.classList.add('loaded')}
-                                    />
-                                </div>
-                            )}
                             {renderContent()}
                         </div>
                     </div>
@@ -1304,7 +1301,7 @@
         const WorkItem = ({ project, index, onProjectSelect }) => {
             const itemRef = React.useRef(null);
             const isVisible = useIntersectionObserver(itemRef, { threshold: 0.15 });
-            
+
             return (
                 <article 
                     ref={itemRef}
@@ -1312,51 +1309,51 @@
                     data-project-id={project.id}
                     style={{ transitionDelay: `${index * 0.1}s` }}
                 >
-                    <div 
-                        onClick={() => onProjectSelect(project.id)}
-                        className="block cursor-pointer"
-                    >
-                        <div className="work-project-container flex flex-col xl:flex-row gap-6 md:gap-8 xl:gap-[60px] items-stretch">
-                            {/* On mobile/tablet, always show image first. On xl, alternate based on index */}
-                            <div className={`work-project-image w-full xl:w-[70%] flex items-stretch relative ${index % 2 === 0 ? 'xl:order-1' : 'xl:order-2'}`}>
-                                {project.image ? (
-                                    <>
+                                        <div 
+                                            onClick={() => onProjectSelect(project.id)}
+                                            className="block cursor-pointer"
+                                        >
+                                        <div className="work-project-container flex flex-col xl:flex-row gap-6 md:gap-8 xl:gap-[60px] items-stretch">
+                                            {/* On mobile/tablet, always show image first. On xl, alternate based on index */}
+                                            <div className={`work-project-image w-full xl:w-[70%] flex items-stretch relative ${index % 2 === 0 ? 'xl:order-1' : 'xl:order-2'}`}>
+                                                {project.image ? (
+                                                    <>
                                         <img 
                                             src={project.image} 
                                             alt={project.title} 
                                             className="w-full h-auto min-h-[250px] md:min-h-[300px] xl:h-full xl:min-h-[500px] object-cover rounded-xl"
                                             onLoad={(e) => e.target.classList.add('loaded')}
                                         />
-                                        {(project.id === 2 || project.id === 3) && (
-                                            <div className="work-project-lock-overlay absolute inset-0 flex items-center justify-center bg-black bg-opacity-20 rounded-xl opacity-0 transition-opacity duration-300">
+                                                        {(project.id === 2 || project.id === 3) && (
+                                                            <div className="work-project-lock-overlay absolute inset-0 flex items-center justify-center bg-black bg-opacity-20 rounded-xl opacity-0 transition-opacity duration-300">
                                                 <img src="assets/lock.fill.svg" alt="Locked" className="w-20 h-20 md:w-24 md:h-24 lg:w-32 lg:h-32 opacity-60 loaded" />
+                                                            </div>
+                                                        )}
+                                                    </>
+                                                ) : (
+                                                    <div className="image-placeholder w-full h-auto min-h-[250px] md:min-h-[300px] xl:h-full xl:min-h-[500px] rounded-xl">
+                                                        Project Image
+                                                    </div>
+                                                )}
                                             </div>
-                                        )}
-                                    </>
-                                ) : (
-                                    <div className="image-placeholder w-full h-auto min-h-[250px] md:min-h-[300px] xl:h-full xl:min-h-[500px] rounded-xl">
-                                        Project Image
-                                    </div>
-                                )}
-                            </div>
-                            <div className={`work-project-content w-full xl:w-[30%] flex flex-col text-center md:text-left ${index % 2 === 0 ? 'xl:order-2' : 'xl:order-1'}`}>
-                                <div className="mb-4 md:mb-8">
-                                    <span className="tag text-[10px] md:text-[11px] lg:text-[12px] tracking-[0.2em]">{project.category}</span>
-                                </div>
-                                <h2 className="font-light work-project-title text-2xl md:text-4xl lg:text-[56px] leading-[1.7] tracking-[0.01em] mb-4 md:mb-6 lg:mb-10 font-[200] text-[#4A4A4A]">
-                                    {project.title}
-                                </h2>
-                                <p className="font-light mb-6 md:mb-8 lg:mb-12 leading-[1.7] text-sm md:text-base lg:text-xl text-[#4A4A4A] opacity-70 font-[300]">
-                                    {project.quote}
-                                </p>
-                                <div className="text-xs md:text-sm lg:text-base text-[#4A4A4A] opacity-50 font-[300]">
-                                    {project.year}
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </article>
-            );
+                                            <div className={`work-project-content w-full xl:w-[30%] flex flex-col text-center md:text-left ${index % 2 === 0 ? 'xl:order-2' : 'xl:order-1'}`}>
+                                                <div className="mb-4 md:mb-8">
+                                                    <span className="tag text-[10px] md:text-[11px] lg:text-[12px] tracking-[0.2em]">{project.category}</span>
+                                                </div>
+                                                <h2 className="font-light work-project-title text-2xl md:text-4xl lg:text-[56px] leading-[1.7] tracking-[0.01em] mb-4 md:mb-6 lg:mb-10 font-[200] text-[#4A4A4A]">
+                                                    {project.title}
+                                                </h2>
+                                                <p className="font-light mb-6 md:mb-8 lg:mb-12 leading-[1.7] text-sm md:text-base lg:text-xl text-[#4A4A4A] opacity-70 font-[300]">
+                                                    {project.quote}
+                                                </p>
+                                                <div className="text-xs md:text-sm lg:text-base text-[#4A4A4A] opacity-50 font-[300]">
+                                                    {project.year}
+                                                </div>
+                                            </div>
+                                        </div>
+                                        </div>
+                                    </article>
+                                );
         };
 
         // Work Section - Clean editorial layout
@@ -1467,18 +1464,18 @@
                         <div className="max-w-full md:max-w-[600px] lg:max-w-[1200px] mx-auto">
                             <div className={`mb-12 md:mb-20 text-center md:text-left scroll-reveal ${isVisible ? 'revealed' : ''}`}>
                                 <span className="tag tag-animate text-[10px] md:text-[11px] lg:text-[12px] tracking-[0.2em] font-bold opacity-40">New Media Art</span>
-                            </div>
+                        </div>
 
-                            {/* Editorial grid layout - mobile first: 1 column, then 2, then 3 */}
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 max-w-full">
+                        {/* Editorial grid layout - mobile first: 1 column, then 2, then 3 */}
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 max-w-full">
                                 {artworks.map((artwork, index) => (
                                     <ArtItem 
-                                        key={artwork.id}
+                                        key={artwork.id} 
                                         artwork={artwork}
                                         index={index}
                                     />
                                 ))}
-                            </div>
+                                        </div>
                         </div>
                     </div>
                 </section>
@@ -1534,9 +1531,9 @@
                             setPasswordModalOpen(true);
                             setPasswordError(false);
                         } else {
-                            setSelectedProject(projectId);
-                            setCurrentPage('work');
-                            window.scrollTo({ top: 0, behavior: 'instant' });
+                        setSelectedProject(projectId);
+                        setCurrentPage('work');
+                        window.scrollTo({ top: 0, behavior: 'instant' });
                         }
                     } else {
                         scrollToSection(hash);
@@ -1556,9 +1553,9 @@
                             setPasswordModalOpen(true);
                             setPasswordError(false);
                         } else {
-                            setSelectedProject(projectId);
-                            setCurrentPage('work');
-                            window.scrollTo({ top: 0, behavior: 'instant' });
+                        setSelectedProject(projectId);
+                        setCurrentPage('work');
+                        window.scrollTo({ top: 0, behavior: 'instant' });
                         }
                     } else {
                         setSelectedProject(null);
@@ -1633,12 +1630,12 @@
                 
                 // Project is unlocked or authenticated, show it
                 setSelectedProject(projectId);
-                window.location.hash = `work/project-${projectId}`;
-                setCurrentPage('work');
-                window.scrollTo({ top: 0, behavior: 'instant' });
-                setTimeout(() => {
+                    window.location.hash = `work/project-${projectId}`;
+                    setCurrentPage('work');
                     window.scrollTo({ top: 0, behavior: 'instant' });
-                }, 0);
+                    setTimeout(() => {
+                        window.scrollTo({ top: 0, behavior: 'instant' });
+                    }, 0);
             };
             
             const handlePasswordSuccess = () => {
@@ -1670,6 +1667,7 @@
                     year: '2025',
                     quote: 'Redesigning a voice-to-content workflow to reduce cognitive load across iOS, iPad, and Mac.',
                     image: 'assets/goodSpeak.png',
+                    heroImage: 'assets/gs-assets/goodSpeak-hero.png',
                     link: '#work/project-1',
                     content: {
                         role: 'Senior UX & Interaction Designer',
