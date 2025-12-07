@@ -1021,40 +1021,79 @@
                             <div className="divider mt-4"></div>
                         </div>
 
-                        {/* The Challenge */}
-                        {content.challenge && (
+                        {/* TLDR */}
+                        {content.tldr && (
                             <div className="space-y-6">
                                 <h2 className="font-light text-2xl md:text-3xl lg:text-[36px] leading-[1.2] tracking-[0.01em] font-[200] text-[#4A4A4A] mb-4">
-                                    The Challenge
+                                    TL;DR
                                 </h2>
-                                <div className="space-y-6 text-base md:text-lg text-[#4A4A4A] opacity-70 font-[300] leading-[1.7]">
-                                    {content.challenge.userProblem && (
-                                        <div>
-                                            <p className="font-[400] mb-2 text-[#4A4A4A] opacity-80">The User Problem</p>
-                                            <p>{content.challenge.userProblem}</p>
-                                        </div>
-                                    )}
-                                    {content.challenge.designChallenge && (
-                                        <div>
-                                            <p className="font-[400] mb-2 text-[#4A4A4A] opacity-80">The Design Challenge</p>
-                                            <div className="space-y-4">
-                                                {content.challenge.designChallenge.split('\n\n').map((para, i) => (
-                                                    <p key={i}>{para}</p>
-                                                ))}
-                                            </div>
-                                        </div>
-                                    )}
-                                    {content.challenge.businessConstraints && (
-                                        <div>
-                                            <p className="font-[400] mb-2 text-[#4A4A4A] opacity-80">Business Constraints</p>
-                                            <p>{content.challenge.businessConstraints}</p>
-                                        </div>
-                                    )}
+                                <div className="text-base md:text-lg text-[#4A4A4A] opacity-70 font-[300] leading-[1.7]">
+                                    <p>{content.tldr}</p>
                                 </div>
-                                {/* Challenge Visual */}
-                                <div className="mt-8 mb-8">
-                                    <div className="image-placeholder w-full h-auto min-h-[300px] md:min-h-[400px] rounded-xl">
-                                        Challenge Visual
+                                {/* Cards */}
+                                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 mt-8">
+                                    {/* Situation Card */}
+                                    <div className="rounded-xl p-6 md:p-8 min-h-[200px] bg-[var(--fog-grey)]" style={{ backgroundColor: 'rgba(217, 214, 210, 0.15)' }}>
+                                        <div className="flex items-center gap-3 mb-4">
+                                            <svg className="w-5 h-5 text-[#4A4A4A] opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                                            </svg>
+                                            <h3 className="text-base md:text-lg font-[400] text-[#4A4A4A] opacity-60">Situation</h3>
+                                        </div>
+                                        <div className="text-sm md:text-base text-[#4A4A4A] opacity-95 font-[300] leading-[1.6]">
+                                            {content.cards && content.cards.situation ? (
+                                                <ul className="space-y-2">
+                                                    {content.cards.situation.split('. ').filter(item => item.trim()).map((item, i) => (
+                                                        <li key={i} className="flex items-start">
+                                                            <span className="mr-2">•</span>
+                                                            <span>{item.replace(/\.$/, '')}.</span>
+                                                        </li>
+                                                    ))}
+                                                </ul>
+                                            ) : ''}
+                                        </div>
+                                    </div>
+                                    {/* Research Card */}
+                                    <div className="rounded-xl p-6 md:p-8 min-h-[200px] bg-[var(--fog-grey)]" style={{ backgroundColor: 'rgba(217, 214, 210, 0.15)' }}>
+                                        <div className="flex items-center gap-3 mb-4">
+                                            <svg className="w-5 h-5 text-[#4A4A4A] opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                                            </svg>
+                                            <h3 className="text-base md:text-lg font-[400] text-[#4A4A4A] opacity-60">Research Findings</h3>
+                                        </div>
+                                        <div className="text-sm md:text-base text-[#4A4A4A] opacity-95 font-[300] leading-[1.6]">
+                                            {content.cards && content.cards.research ? (
+                                                <ul className="space-y-2">
+                                                    {content.cards.research.split('. ').filter(item => item.trim()).map((item, i) => (
+                                                        <li key={i} className="flex items-start">
+                                                            <span className="mr-2">•</span>
+                                                            <span>{item.replace(/\.$/, '')}.</span>
+                                                        </li>
+                                                    ))}
+                                                </ul>
+                                            ) : ''}
+                                        </div>
+                                    </div>
+                                    {/* Constraints Card */}
+                                    <div className="rounded-xl p-6 md:p-8 min-h-[200px] bg-[var(--fog-grey)]" style={{ backgroundColor: 'rgba(217, 214, 210, 0.15)' }}>
+                                        <div className="flex items-center gap-3 mb-4">
+                                            <svg className="w-5 h-5 text-[#4A4A4A] opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                                            </svg>
+                                            <h3 className="text-base md:text-lg font-[400] text-[#4A4A4A] opacity-60">Constraints</h3>
+                                        </div>
+                                        <div className="text-sm md:text-base text-[#4A4A4A] opacity-95 font-[300] leading-[1.6]">
+                                            {content.cards && content.cards.constraints ? (
+                                                <ul className="space-y-2">
+                                                    {content.cards.constraints.split('. ').filter(item => item.trim()).map((item, i) => (
+                                                        <li key={i} className="flex items-start">
+                                                            <span className="mr-2">•</span>
+                                                            <span>{item.replace(/\.$/, '')}.</span>
+                                                        </li>
+                                                    ))}
+                                                </ul>
+                                            ) : ''}
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -1062,7 +1101,9 @@
 
                         {/* The Insight */}
                         {content.insight && (
-                            <div className="space-y-6">
+                            <>
+                                <div className="border-t border-[#4A4A4A] opacity-20 my-6"></div>
+                                <div className="space-y-6">
                                 <h2 className="font-light text-2xl md:text-3xl lg:text-[36px] leading-[1.2] tracking-[0.01em] font-[200] text-[#4A4A4A] mb-4">
                                     The Insight
                                 </h2>
@@ -1087,7 +1128,8 @@
                                         Insights Diagram
                                     </div>
                                 </div>
-                            </div>
+                                </div>
+                            </>
                         )}
 
                         {/* The Approach */}
@@ -1287,13 +1329,13 @@
                                         className="w-full h-auto rounded-xl"
                                         onLoad={(e) => e.target.classList.add('loaded')}
                                     />
-                                </div>
+                            </div>
                             )}
                             <div className={`mb-8 fade-in-delay-2 ${isVisible ? 'fade-in-delay-2' : ''}`}>
                                 <div className="flex items-start justify-between gap-4 mb-4 md:mb-6">
                                     <h1 className="font-light text-3xl md:text-5xl lg:text-[64px] leading-[1.2] tracking-[0.01em] font-[200] text-[#4A4A4A] flex-1">
-                                        {project.title}
-                                    </h1>
+                                    {project.title}
+                                </h1>
                                     {project.id === 1 && (
                                         <a 
                                             href="https://apps.apple.com/us/app/goodspeak/id6755842265" 
@@ -1310,7 +1352,7 @@
                                 </div>
                                 <div className="text-sm md:text-base text-[#4A4A4A] opacity-50 font-[300] mb-8">
                                     {project.quote}
-                                </div>
+                            </div>
                             </div>
                             {renderContent()}
                         </div>
@@ -1696,10 +1738,11 @@
                         platforms: 'iOS · iPadOS · macOS',
                         team: 'Solo project (Design + Development)',
                         duration: '12 weeks',
-                        challenge: {
-                            userProblem: 'Users needed a way to quickly transform spoken ideas into polished written content, but existing solutions created friction through fragmented workflows, high cognitive load, and platform inconsistency. Recording, transcription, editing, and formatting were separate steps across different apps.',
-                            designChallenge: 'The biggest challenge was making the process simple enough for users to not have to think too much. Especially in the process of structuring their text in the exact format they want—while maintaining the ability to switch back to the original, make edits, and check other formats. Users needed all of this functionality without cognitive overload.\n\nWe examined several iterations and tested them to know what worked. The complexity wasn\'t in building the features, but in presenting them in a way that felt effortless. Too many options visible at once created decision paralysis. Too few options hidden away created frustration. The challenge was finding the right moment to show the right thing.',
-                            businessConstraints: 'We needed to balance free tier value (enough to demonstrate capability) with conversion incentives. Manage permission requests without being pushy (per App Store guidelines). Present 15+ format options without overwhelming users. Handle long-form transcriptions (up to 90 minutes) with smooth performance. All while maintaining design system consistency across three platforms while respecting platform-specific interaction patterns.'
+                        tldr: 'Users needed to transform voice to polished content, but existing tools were fragmented and overwhelming. The challenge: make it simple enough that users don\'t have to think, especially when structuring text, switching formats, and editing, while balancing 15+ format options, cross-platform consistency, and business constraints like free tier value and App Store guidelines.',
+                        cards: {
+                            situation: 'Users record in Voice Memos, then split between in-app transcription (40%) and separate apps. After that, most paste into Notes/Word/Pages to edit (65%), and 25% use ChatGPT for formatting—spanning 3–4 apps with frequent context switching.',
+                            research: '92% of users made manual edits after transcription, averaging 3–5 corrections per recording. 65% started on mobile but preferred editing on desktop for longer content. 73% thought in terms of "capture then refine" rather than "plan then execute".',
+                            constraints: '92% edit after transcription, requiring accessible editing without disrupting flow. Features must be discoverable without overwhelming, requiring progressive disclosure. 15+ format options must be accessible without cognitive overload.'
                         },
                         insight: {
                             main: 'The insight that changed everything: if we contextually show users different things they need at different times, it solved the information overload and clutter problem.',
