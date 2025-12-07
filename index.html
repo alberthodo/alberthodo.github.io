@@ -46,6 +46,7 @@
         
         html {
             scroll-behavior: smooth;
+            cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="none" stroke="%234A4A4A" stroke-width="1.5" opacity="0.6"/></svg>') 12 12, auto;
         }
         
         body {
@@ -56,6 +57,15 @@
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
             font-weight: 300;
+            cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="none" stroke="%234A4A4A" stroke-width="1.5" opacity="0.6"/></svg>') 12 12, auto;
+        }
+        
+        * {
+            cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="none" stroke="%234A4A4A" stroke-width="1.5" opacity="0.6"/></svg>') 12 12, auto !important;
+        }
+        
+        a, button, .nav-link, .work-project, .hover-lift, input, textarea, select {
+            cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="none" stroke="%234A4A4A" stroke-width="1.5" opacity="0.6"/></svg>') 12 12, pointer !important;
         }
         
         h1 {
@@ -1273,7 +1283,7 @@
                                 ← Back to Portfolio
                             </button>
                             {(project.heroImage || project.image) && (
-                                <div className={`mb-12 md:mb-16 scale-in ${isVisible ? 'scale-in' : ''}`} style={{ animationDelay: '0.1s' }}>
+                                <div className={`mb-6 md:mb-8 scale-in ${isVisible ? 'scale-in' : ''}`} style={{ animationDelay: '0.1s' }}>
                                     <img 
                                         src={project.heroImage || project.image} 
                                         alt={project.title} 
@@ -1283,9 +1293,24 @@
                                 </div>
                             )}
                             <div className={`mb-8 fade-in-delay-2 ${isVisible ? 'fade-in-delay-2' : ''}`}>
-                                <h1 className="font-light text-3xl md:text-5xl lg:text-[64px] leading-[1.2] tracking-[0.01em] mb-4 md:mb-6 font-[200] text-[#4A4A4A]">
-                                    {project.title}
-                                </h1>
+                                <div className="flex items-start justify-between gap-4 mb-4 md:mb-6">
+                                    <h1 className="font-light text-3xl md:text-5xl lg:text-[64px] leading-[1.2] tracking-[0.01em] font-[200] text-[#4A4A4A] flex-1">
+                                        {project.title}
+                                    </h1>
+                                    {project.id === 1 && (
+                                        <a 
+                                            href="https://apps.apple.com/us/app/goodspeak/id6755842265" 
+                                            target="_blank" 
+                                            rel="noopener noreferrer"
+                                            className="flex items-center gap-2 text-sm md:text-base text-[#4A4A4A] opacity-60 hover:opacity-100 transition-opacity font-[300] whitespace-nowrap mt-2 md:mt-4"
+                                        >
+                                            <span>goodSpeak on the App Store</span>
+                                            <svg className="w-3 h-3 md:w-4 md:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4.5 19.5L19.5 4.5M19.5 4.5H9M19.5 4.5V15" />
+                                            </svg>
+                                        </a>
+                                    )}
+                                </div>
                                 <div className="text-sm md:text-base text-[#4A4A4A] opacity-50 font-[300] mb-8">
                                     {project.quote}
                                 </div>
