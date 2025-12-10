@@ -1165,27 +1165,84 @@
                                                 title: 'Comparison Patterns',
                                                 paragraph: 'The insight that editing is critical (92% edit) and happens in waves required testing how users compare original transcriptions with rewritten versions. We explored comparison patterns that preserve context while supporting the natural editing workflow.',
                                                 images: [
-                                                    'assets/gs-assets/edits/edit1gif.gif',
-                                                    'assets/gs-assets/edits/edit2gif.gif',
-                                                    'assets/gs-assets/edits/edit3gif.gif'
+                                                    {
+                                                        path: 'assets/gs-assets/edits/edit1gif.gif',
+                                                        name: 'Overlay Comparison Mode',
+                                                        pros: ['Novel interaction', 'Engaging', 'Tap to reveal original'],
+                                                        cons: ['Complex to implement', 'Can be confusing'],
+                                                        chosen: false
+                                                    },
+                                                    {
+                                                        path: 'assets/gs-assets/edits/edit2gif.gif',
+                                                        name: 'Side-by-Side Split View',
+                                                        pros: ['Direct comparison', 'No context switching', 'Good for desktop'],
+                                                        cons: ['Requires wide screen', 'Cramped on mobile', 'Poor for phone'],
+                                                        chosen: false
+                                                    },
+                                                    {
+                                                        path: 'assets/gs-assets/edits/edit3gif.gif',
+                                                        name: 'Tabbed Navigation',
+                                                        pros: ['Full-screen content', 'Easy to read', 'Works on all screen sizes', 'Swipe gesture natural'],
+                                                        cons: ['Requires memory to compare'],
+                                                        chosen: true,
+                                                        rationale: '84% preferred tabbed for reading. Mobile-first: 68% usage on iPhone. Swipe reduces friction (2.1s faster).'
+                                                    }
                                                 ]
                                             },
                                             {
                                                 title: 'Format Presentation',
                                                 paragraph: 'Since users think in workflows rather than features, and showing all options upfront increases abandonment, we experimented with format presentation methods. The goal: match their mental model while reducing cognitive load during format selection.',
                                                 images: [
-                                                    'assets/gs-assets/formats/test3gif.gif',
-                                                    'assets/gs-assets/formats/test1gif.gif',
-                                                    'assets/gs-assets/formats/test2gif.gif'
+                                                    {
+                                                        path: 'assets/gs-assets/formats/test3gif.gif',
+                                                        name: 'Horizontal Scrollable Cards',
+                                                        pros: ['Modern', 'Supports previews', 'Encourages exploration', 'Reduced cognitive load (3-4 options at a time)'],
+                                                        cons: ['Hidden options', 'Requires horizontal scroll'],
+                                                        chosen: true,
+                                                        rationale: '68% preferred horizontal scroll for browsing. 41% higher format experimentation rate. Cards allow format previews.'
+                                                    },
+                                                    {
+                                                        path: 'assets/gs-assets/formats/test1gif.gif',
+                                                        name: 'Vertical List with Icons',
+                                                        pros: ['Easy to scan', 'Supports descriptions'],
+                                                        cons: ['Takes vertical space', 'Requires scrolling'],
+                                                        chosen: false
+                                                    },
+                                                    {
+                                                        path: 'assets/gs-assets/formats/test2gif.gif',
+                                                        name: '3-Column Grid',
+                                                        pros: ['Efficient use of space', 'Shows many options', 'Familiar iOS pattern'],
+                                                        cons: ['Hard to scan', 'Feels dense'],
+                                                        chosen: false
+                                                    }
                                                 ]
                                             },
                                             {
                                                 title: 'Content Library',
                                                 paragraph: 'The capture-then-refine mental model means users need quick access to past transcriptions. We tested different presentation patterns; list, grid, and card-based, to find the approach that supports efficient scanning and easy retrieval of previous work.',
                                                 images: [
-                                                    'assets/gs-assets/history/hist2gif.gif',
-                                                    'assets/gs-assets/history/hist1gif.gif',
-                                                    'assets/gs-assets/history/hist3gif.gif'
+                                                    {
+                                                        path: 'assets/gs-assets/history/hist1gif.gif',
+                                                        name: 'Standard List View',
+                                                        pros: ['Familiar iOS pattern', 'Efficient scanning', 'Optimized for text', 'Shows 8-10 items per screen', 'Works better with search'],
+                                                        cons: ['Text-heavy', 'Less visual interest'],
+                                                        chosen: true,
+                                                        rationale: '81% preferred list for finding specific transcription. Content is text-heavy. Smart grouping by date reduces cognitive load.'
+                                                    },
+                                                    {
+                                                        path: 'assets/gs-assets/history/hist2gif.gif',
+                                                        name: 'Grid View (2-3 Columns)',
+                                                        pros: ['More visual', 'Shows previews'],
+                                                        cons: ['Less information density', 'Requires scrolling', 'Less ideal for text'],
+                                                        chosen: false
+                                                    },
+                                                    {
+                                                        path: 'assets/gs-assets/history/hist3gif.gif',
+                                                        name: 'Card-Based Timeline',
+                                                        pros: ['Modern', 'Shows metadata clearly', 'Good for rich content'],
+                                                        cons: ['Takes more space', 'Fewer items visible (4-6 vs 8-10)', 'May be overkill'],
+                                                        chosen: false
+                                                    }
                                                 ]
                                             }
                                         ].map((row, rowIndex) => (
@@ -1195,32 +1252,80 @@
                                                     <p className="text-sm md:text-base text-[#4A4A4A] opacity-70 font-[300] leading-[1.6]">{row.paragraph}</p>
                                                 </div>
                                                 <div className="grid grid-cols-3 gap-x-4 md:gap-x-6 gap-y-6 md:gap-y-8">
-                                                    {row.images.map((imagePath, imgIndex) => (
-                                                        <div key={imgIndex} className="relative w-full aspect-square min-h-[40px] md:min-h-[80px] rounded-xl overflow-hidden bg-[var(--fog-grey)]" style={{ backgroundColor: 'rgba(217, 214, 210, 0.15)' }}>
-                                                            {/* Icon indicator */}
-                                                            <div className="absolute top-8 md:top-10 right-10 md:right-12 z-10">
-                                                                {((rowIndex === 1 && imgIndex === 0) || (rowIndex === 2 && imgIndex === 1) || (rowIndex === 0 && imgIndex === 2)) ? (
-                                                                    <div className="w-4 h-4 md:w-5 md:h-5 rounded-full bg-gray-500 flex items-center justify-center">
-                                                                        <svg className="w-2.5 h-2.5 md:w-3 md:h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
-                                                                        </svg>
+                                                    {row.images.map((image, imgIndex) => {
+                                                        const isChosen = image.chosen;
+                                                        return (
+                                                            <div 
+                                                                key={imgIndex} 
+                                                                className="relative w-full aspect-square min-h-[40px] md:min-h-[80px] rounded-xl overflow-visible bg-[var(--fog-grey)] group" 
+                                                                style={{ backgroundColor: 'rgba(217, 214, 210, 0.15)' }}
+                                                            >
+                                                                {/* Icon indicator */}
+                                                                <div className="absolute top-8 md:top-10 right-10 md:right-12 z-20">
+                                                                    {isChosen ? (
+                                                                        <div className="w-4 h-4 md:w-5 md:h-5 rounded-full bg-gray-500 flex items-center justify-center">
+                                                                            <svg className="w-2.5 h-2.5 md:w-3 md:h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
+                                                                            </svg>
+                                                                        </div>
+                                                                    ) : (
+                                                                        <div className="w-4 h-4 md:w-5 md:h-5 rounded-full border-2 border-gray-300 flex items-center justify-center">
+                                                                            <div className="w-2 h-2 md:w-2.5 md:h-2.5 rounded-full bg-gray-300"></div>
+                                                                        </div>
+                                                                    )}
+                                                                </div>
+                                                                <div className="w-full h-full px-4 py-8 md:py-10 flex items-center justify-center overflow-hidden rounded-xl">
+                                                                    <img 
+                                                                        src={image.path} 
+                                                                        alt={image.name || `${row.title} experiment ${imgIndex + 1}`}
+                                                                        className="max-w-full max-h-full object-contain rounded-lg"
+                                                                        onLoad={(e) => e.target.classList.add('loaded')}
+                                                                    />
+                                                                </div>
+                                                                {/* Hover Tooltip */}
+                                                                <div className="absolute inset-0 bg-[#4A4A4A] bg-opacity-85 rounded-xl p-4 md:p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-30 overflow-y-auto">
+                                                                    {/* Checkmark in tooltip */}
+                                                                    {isChosen && (
+                                                                        <div className="absolute top-8 md:top-10 right-10 md:right-12 z-40">
+                                                                            <div className="w-4 h-4 md:w-5 md:h-5 rounded-full bg-green-500 flex items-center justify-center">
+                                                                                <svg className="w-2.5 h-2.5 md:w-3 md:h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
+                                                                                </svg>
+                                                                            </div>
+                                                                        </div>
+                                                                    )}
+                                                                    <div className="space-y-3 text-white">
+                                                                        <h5 className="text-sm md:text-base font-[500] mb-2">{image.name}</h5>
+                                                                        {image.pros && image.pros.length > 0 && (
+                                                                            <div>
+                                                                                <p className="text-xs md:text-sm font-[500] mb-1 opacity-90">Pros:</p>
+                                                                                <ul className="text-xs md:text-sm font-[300] opacity-80 space-y-1 list-disc list-inside">
+                                                                                    {image.pros.map((pro, i) => (
+                                                                                        <li key={i}>{pro}</li>
+                                                                                    ))}
+                                                                                </ul>
+                                                                            </div>
+                                                                        )}
+                                                                        {image.cons && image.cons.length > 0 && (
+                                                                            <div>
+                                                                                <p className="text-xs md:text-sm font-[500] mb-1 opacity-90">Cons:</p>
+                                                                                <ul className="text-xs md:text-sm font-[300] opacity-80 space-y-1 list-disc list-inside">
+                                                                                    {image.cons.map((con, i) => (
+                                                                                        <li key={i}>{con}</li>
+                                                                                    ))}
+                                                                                </ul>
+                                                                            </div>
+                                                                        )}
+                                                                        {image.rationale && (
+                                                                            <div className="mt-3 pt-3 border-t border-white border-opacity-20">
+                                                                                <p className="text-xs md:text-sm font-[400] opacity-90 italic">{image.rationale}</p>
+                                                                            </div>
+                                                                        )}
                                                                     </div>
-                                                                ) : (
-                                                                    <div className="w-4 h-4 md:w-5 md:h-5 rounded-full border-2 border-gray-300 flex items-center justify-center">
-                                                                        <div className="w-2 h-2 md:w-2.5 md:h-2.5 rounded-full bg-gray-300"></div>
-                                                                    </div>
-                                                                )}
+                                                                </div>
                                                             </div>
-                                                            <div className="w-full h-full px-4 py-8 md:py-10 flex items-center justify-center">
-                                                                <img 
-                                                                    src={imagePath} 
-                                                                    alt={`${row.title} experiment ${imgIndex + 1}`}
-                                                                    className="max-w-full max-h-full object-contain rounded-lg"
-                                                                    onLoad={(e) => e.target.classList.add('loaded')}
-                                                                />
-                                                            </div>
-                                                        </div>
-                                                    ))}
+                                                        );
+                                                    })}
                                                 </div>
                                             </div>
                                         ))}
@@ -1228,37 +1333,6 @@
                                 </div>
                                 </div>
                             </>
-                        )}
-
-                        {/* The Approach */}
-                        {content.approach && (
-                            <div className="space-y-6">
-                                <h2 className="font-light text-2xl md:text-3xl lg:text-[36px] leading-[1.2] tracking-[0.01em] font-[200] text-[#4A4A4A] mb-4">
-                                    The Approach
-                                </h2>
-                                <div className="space-y-6 text-base md:text-lg text-[#4A4A4A] opacity-70 font-[300] leading-[1.7]">
-                                    {content.approach.description && (
-                                        <p className="mb-6">{content.approach.description}</p>
-                                    )}
-                                    {content.approach.principles && content.approach.principles.length > 0 && (
-                                        <div className="space-y-4">
-                                            {content.approach.principles.map((item, i) => (
-                                                <div key={i} className="space-y-2">
-                                                    <p className="font-[400] text-base md:text-lg text-[#4A4A4A] opacity-80">
-                                                        <strong>{item.title}</strong> — {item.description}
-                                                    </p>
-                                                </div>
-                                            ))}
-                                        </div>
-                                    )}
-                                </div>
-                                {/* Interaction Model Diagram */}
-                                <div className="mt-8 mb-8">
-                                    <div className="image-placeholder w-full h-auto min-h-[300px] md:min-h-[400px] rounded-xl">
-                                        Interaction Model Diagram
-                                    </div>
-                                </div>
-                            </div>
                         )}
 
                         {/* Process */}
@@ -1307,69 +1381,11 @@
                             </div>
                         )}
 
-                        {/* The Craft */}
-                        {content.craft && (
-                            <div className="space-y-6">
-                                <h2 className="font-light text-2xl md:text-3xl lg:text-[36px] leading-[1.2] tracking-[0.01em] font-[200] text-[#4A4A4A] mb-4">
-                                    The Craft
-                                </h2>
-                                {content.craft.visualHighlights && content.craft.visualHighlights.length > 0 && (
-                                    <div className="space-y-4 mb-8">
-                                        <ul className="space-y-3 text-base md:text-lg text-[#4A4A4A] opacity-70 font-[300] leading-[1.7]">
-                                            {content.craft.visualHighlights.map((highlight, i) => (
-                                                <li key={i} className="flex items-start">
-                                                    <span className="mr-2">•</span>
-                                                    <span>{highlight}</span>
-                                                </li>
-                                            ))}
-                                        </ul>
-                                        {/* Final Design Screenshots */}
-                                        <div className="mt-6 mb-6">
-                                            <div className="image-placeholder w-full h-auto min-h-[400px] md:min-h-[500px] rounded-xl">
-                                                Final Design Screenshots
-                                            </div>
-                                        </div>
-                                    </div>
-                                )}
-                                {content.craft.platformAdaptations && (
-                                    <div className="space-y-4">
-                                        <p className="font-[400] text-base md:text-lg text-[#4A4A4A] opacity-80 mb-3">Platform-Specific Adaptations</p>
-                                        <div className="space-y-3 text-base md:text-lg text-[#4A4A4A] opacity-70 font-[300] leading-[1.7]">
-                                            {content.craft.platformAdaptations.ios && (
-                                                <div>
-                                                    <p className="font-[400] opacity-80 mb-1">iOS (iPhone)</p>
-                                                    <p>{content.craft.platformAdaptations.ios}</p>
-                                                </div>
-                                            )}
-                                            {content.craft.platformAdaptations.ipad && (
-                                                <div>
-                                                    <p className="font-[400] opacity-80 mb-1">iPad</p>
-                                                    <p>{content.craft.platformAdaptations.ipad}</p>
-                                                </div>
-                                            )}
-                                            {content.craft.platformAdaptations.mac && (
-                                                <div>
-                                                    <p className="font-[400] opacity-80 mb-1">Mac</p>
-                                                    <p>{content.craft.platformAdaptations.mac}</p>
-                                                </div>
-                                            )}
-                                        </div>
-                                        {/* Platform Screenshots */}
-                                        <div className="mt-6 mb-6">
-                                            <div className="image-placeholder w-full h-auto min-h-[300px] md:min-h-[400px] rounded-xl">
-                                                Platform Screenshots
-                                            </div>
-                                        </div>
-                                    </div>
-                                )}
-                            </div>
-                        )}
-
-                        {/* The Impact */}
+                        {/* The Design */}
                         {content.impact && (
                             <div className="space-y-6">
                                 <h2 className="font-light text-2xl md:text-3xl lg:text-[36px] leading-[1.2] tracking-[0.01em] font-[200] text-[#4A4A4A] mb-4">
-                                    The Impact
+                                    The Design
                                 </h2>
                                 {content.impact.metrics && content.impact.metrics.length > 0 && (
                                     <div className="space-y-4">
@@ -1399,9 +1415,20 @@
                                     Reflection
                                 </h2>
                                 <div className="space-y-4 text-base md:text-lg text-[#4A4A4A] opacity-70 font-[300] leading-[1.7]">
-                                    {content.reflection.split('\n\n').map((para, i) => (
-                                        <p key={i}>{para}</p>
-                                    ))}
+                                    {Array.isArray(content.reflection) ? (
+                                        <ul className="space-y-3">
+                                            {content.reflection.map((item, i) => (
+                                                <li key={i} className="flex items-start">
+                                                    <span className="mr-3">•</span>
+                                                    <span>{item}</span>
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    ) : (
+                                        content.reflection.split('\n\n').map((para, i) => (
+                                            <p key={i}>{para}</p>
+                                        ))
+                                    )}
                                 </div>
                             </div>
                         )}
@@ -1847,27 +1874,6 @@
                             explanation: 'By revealing elements only when they become relevant, we eliminated cognitive load. ',
                             quote: 'Users want to capture ideas quickly, then refine them—not manage a complex production workflow.'
                         },
-                        approach: {
-                            description: 'We built a unified interaction model around three principles: contextual navigation, progressive disclosure, and state preservation.',
-                            principles: [
-                                { title: 'Contextual Tab Navigation', description: 'The Edit Transcript tab appears only when transcription exists, eliminating empty states and reducing cognitive load by showing only actionable options.' },
-                                { title: 'Progressive Disclosure', description: 'Format selection appears contextually after recording. Favorite formats surface first, with full format picker available on demand.' },
-                                { title: 'State Preservation', description: 'Recording state persists across tab switches. Transcription text remains accessible while editing. All versions exist as swipeable pages, maintaining history without cluttering the interface.' },
-                                { title: 'Cross-Device Synchronization', description: 'All transcriptions and AI-generated versions sync automatically via iCloud. Transparent sync—no manual save required.' }
-                            ]
-                        },
-                        craft: {
-                            visualHighlights: [
-                                'Minimal Tab Indicators — Thin accent line replaces heavy tab styling, reducing visual noise while maintaining clear hierarchy.',
-                                'Generous Spacing System — 4px, 8px, 16px, 24px, 32px, 48px creates breathing room and editorial rhythm.',
-                                'Japanese Editorial Rhythm — Asymmetric layouts with intentional whitespace, inspired by editorial design principles.'
-                            ],
-                            platformAdaptations: {
-                                ios: 'Optimized for quick capture: Control Center widget for one-tap recording, Live Activities in Dynamic Island showing recording status,  Bottom tab bar for app navigation with full-screen sheets for format picker. Siri Shortcuts enable voice-activated recording.',
-                                ipad: 'Leverages larger canvas for editing: Apple Pencil support for direct transcription editing, Split View to compare original vs. formatted versions side-by-side. 800px max-width constraint maintains readability. Stage Manager optimized for power users. External keyboard shortcuts for efficient editing workflows.',
-                                mac: 'Designed for deep editing workflows: NavigationSplitView with sidebar for transcription library, extensive keyboard shortcuts (Cmd+R to record, Cmd+F to format). Menu bar integration for quick access to recent transcriptions. Multiple windows for comparing versions. Spotlight search integration for finding transcriptions system-wide.'
-                            }
-                        },
                         impact: {
                             metrics: [
                                 'Reduced workflow from 5 steps to 2 — Consolidated multi-app process into single platform, eliminating context switching.',
@@ -1876,7 +1882,12 @@
                                 '32% increase in trial-to-paid conversion through clear free tier communication and value-focused paywall.'
                             ]
                         },
-                        reflection: 'This project reinforced that great design isn\'t about features—it\'s about removing friction. The contextual tab system didn\'t just solve an interface problem; it changed how users think about the workflow. By showing what\'s needed when it\'s needed, we transformed a complex multi-step process into something that feels effortless.\n\nThe cross-platform challenge taught me that consistency doesn\'t mean sameness. By using platform-appropriate patterns while maintaining a unified mental model, we created an experience that feels native everywhere while feeling familiar everywhere.\n\nThe cross-device synchronization feature revealed how users naturally leverage different devices for different tasks. By making sync transparent and automatic, we enabled a workflow where users capture ideas on mobile and refine them on desktop—reinforcing the value of designing for the entire ecosystem, not just individual platforms.'
+                        reflection: [
+                            'Best design decisions emerge from understanding user mental models, not feature parity.',
+                            'Contextual tab system shifted how the interface respects user intent; progressive disclosure reduced cognitive load more than any feature addition.',
+                            'Design leadership means strategic trade-offs: unified mental model while respecting platform conventions.',
+                            '78% cross-device usage validated users think in workflows; our job was making transitions invisible.'
+                        ]
                     }
                 },
                 { 
