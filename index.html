@@ -1107,6 +1107,11 @@
                                 <h2 className="font-light text-2xl md:text-3xl lg:text-[36px] leading-[1.2] tracking-[0.01em] font-[200] text-[#4A4A4A] mb-4">
                                     The Insight
                                 </h2>
+                                {content.insight.quote && (
+                                    <blockquote className="text-xl md:text-2xl text-[#4A4A4A] opacity-80 font-[300] leading-[1.6] italic mt-6 mb-6 pl-4 border-l-2 border-[#4A4A4A] border-opacity-20">
+                                        "{content.insight.quote}"
+                                    </blockquote>
+                                )}
                                 {/* Sticky Notes */}
                                 <div className="flex flex-wrap gap-4 md:gap-6 mb-8">
                                     {[
@@ -1135,7 +1140,14 @@
                                     })}
                                 </div>
                                 <div className="space-y-6 text-base md:text-lg text-[#4A4A4A] opacity-70 font-[300] leading-[1.7]">
-                                    <p className="text-lg md:text-xl font-[400] opacity-80">{content.insight.main}</p>
+                                    <p className="text-lg md:text-xl font-[400] opacity-80">
+                                        {content.insight.main && content.insight.main.includes('aha momnet') ? (
+                                            <>
+                                                <span className="font-[600] opacity-95">The aha moment:  </span>
+                                                {content.insight.main.replace(/The aha momnet:\s?/, '')}
+                                            </>
+                                        ) : content.insight.main}
+                                    </p>
                                     {content.insight.explanation && (
                                         <div className="space-y-4">
                                             {content.insight.explanation.split('\n\n').map((para, i) => (
@@ -1143,16 +1155,59 @@
                                             ))}
                                         </div>
                                     )}
-                                    {content.insight.quote && (
-                                        <blockquote className="text-xl md:text-2xl text-[#4A4A4A] opacity-80 font-[300] leading-[1.6] italic mt-6 pl-4 border-l-2 border-[#4A4A4A] border-opacity-20">
-                                            "{content.insight.quote}"
-                                        </blockquote>
-                                    )}
                                 </div>
                                 {/* Insights Diagram */}
-                                <div className="mt-8 mb-8">
-                                    <div className="image-placeholder w-full h-auto min-h-[200px] md:min-h-[300px] rounded-xl">
-                                        Insights Diagram
+                                <div className="mt-20 md:mt-24 mb-8">
+                                    <h2 className="font-light text-xl md:text-2xl lg:text-3xl leading-[1.2] tracking-[0.01em] font-[200] text-[#4A4A4A] mb-6">micro early experiments</h2>
+                                    <div className="space-y-8 md:space-y-12">
+                                        {[
+                                            {
+                                                title: 'Edits',
+                                                paragraph: 'Exploring different editing approaches and interactions.',
+                                                images: [
+                                                    'assets/gs-assets/edits/edit1gif.gif',
+                                                    'assets/gs-assets/edits/edit2gif.gif',
+                                                    'assets/gs-assets/edits/edit3gif.gif'
+                                                ]
+                                            },
+                                            {
+                                                title: 'Formats',
+                                                paragraph: 'Testing format selection and presentation patterns.',
+                                                images: [
+                                                    'assets/gs-assets/formats/test1gif.gif',
+                                                    'assets/gs-assets/formats/test2gif.gif',
+                                                    'assets/gs-assets/formats/test3gif.gif'
+                                                ]
+                                            },
+                                            {
+                                                title: 'History',
+                                                paragraph: 'Iterating on history and navigation experiences.',
+                                                images: [
+                                                    'assets/gs-assets/history/hist1gif.gif',
+                                                    'assets/gs-assets/history/hist2gif.gif',
+                                                    'assets/gs-assets/history/hist3gif.gif'
+                                                ]
+                                            }
+                                        ].map((row, rowIndex) => (
+                                            <div key={rowIndex} className="space-y-4">
+                                                <div>
+                                                    <h4 className="text-base md:text-lg font-[400] text-[#4A4A4A] opacity-80 mb-2">{row.title}</h4>
+                                                    <p className="text-sm md:text-base text-[#4A4A4A] opacity-70 font-[300] leading-[1.6]">{row.paragraph}</p>
+                                                </div>
+                                                <div className="grid grid-cols-3 gap-4 md:gap-6">
+                                                    {row.images.map((imagePath, imgIndex) => (
+                                                        <div key={imgIndex} className="w-full aspect-square min-h-[40px] md:min-h-[80px] rounded-xl overflow-hidden px-4 py-6 mb-4 bg-[var(--fog-grey)]" style={{ backgroundColor: 'rgba(217, 214, 210, 0.15)' }}>
+                                                            <img 
+                                                                src={imagePath} 
+                                                                alt={`${row.title} experiment ${imgIndex + 1}`}
+                                                                className="w-full h-full object-contain"
+                                                                onLoad={(e) => e.target.classList.add('loaded')}
+                                                            />
+                                                        </div>
+                                                    ))}
+                                                </div>
+                                            </div>
+                                        ))}
                                     </div>
                                 </div>
                                 </div>
@@ -1772,8 +1827,8 @@
                             constraints: '92% edit after transcription, requiring accessible editing without disrupting flow. Features must be discoverable without overwhelming, requiring progressive disclosure. 15+ format options must be accessible without cognitive overload.'
                         },
                         insight: {
-                            main: 'The insight that changed everything: if we contextually show users different things they need at different times, it solved the information overload and clutter problem.',
-                            explanation: 'By revealing elements only when they become relevant, we eliminated cognitive load. The Edit Transcript tab appears only when transcription exists. Format selection surfaces after recording, not before. Favorite formats show first, with the full library available on demand.\n\nThis wasn\'t about hiding features—it was about respecting the user\'s mental model. Users don\'t think in terms of "I need to format this." They think "I want this to be a blog post." The interface should match that thinking.',
+                            main: 'The aha momnet: if we contextually show users different things they need at different times, it solved the information overload and clutter problem.',
+                            explanation: 'By revealing elements only when they become relevant, we eliminated cognitive load. ',
                             quote: 'Users want to capture ideas quickly, then refine them—not manage a complex production workflow.'
                         },
                         approach: {
