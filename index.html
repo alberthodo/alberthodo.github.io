@@ -1568,9 +1568,21 @@
                     style={{ transitionDelay: `${index * 0.08}s` }}
                 >
                     <div 
-                        className="image-placeholder aspect-[3/4] mb-4 md:mb-6 w-full max-h-[400px] md:max-h-[500px] lg:max-h-[600px]"
+                        className="aspect-[3/4] mb-4 md:mb-6 w-full max-h-[400px] md:max-h-[500px] lg:max-h-[600px] overflow-hidden rounded-xl bg-[var(--fog-grey)]"
+                        style={{ backgroundColor: 'rgba(217, 214, 210, 0.25)' }}
                     >
-                        Artwork Image
+                        {artwork.image ? (
+                            <img 
+                                src={artwork.image} 
+                                alt={artwork.title} 
+                                className="w-full h-full object-cover" 
+                                onLoad={(e) => e.target.classList.add('loaded')}
+                            />
+                        ) : (
+                            <div className="w-full h-full flex items-center justify-center text-center text-[#4A4A4A] opacity-40 text-sm md:text-base font-[300]">
+                                Coming Soon
+                            </div>
+                        )}
                     </div>
                     <h3 className="font-light mb-2 md:mb-3 lg:mb-4 text-xl md:text-2xl lg:text-[36px] leading-[1.2] tracking-[0.01em] font-[200] text-[#4A4A4A]">
                         {artwork.title}
@@ -1578,9 +1590,11 @@
                     <p className="text-xs md:text-sm lg:text-base text-[#4A4A4A] opacity-60 mb-1 md:mb-1.5 lg:mb-2 font-[300]">
                         {artwork.venue}
                     </p>
-                    <p className="text-xs md:text-sm lg:text-base text-[#4A4A4A] opacity-50 font-[300]">
-                        {artwork.year}
-                    </p>
+                    {artwork.year && (
+                        <p className="text-xs md:text-sm lg:text-base text-[#4A4A4A] opacity-50 font-[300]">
+                            {artwork.year}
+                        </p>
+                    )}
                 </div>
             );
         };
@@ -1590,21 +1604,31 @@
             const artworks = [
                 { 
                     id: 1, 
-                    title: 'Ma: Digital Spaces', 
-                    venue: 'Contemporary Art Gallery, Tokyo', 
-                    year: '2024'
+                    title: 'Afrotechnohistory', 
+                    venue: 'Jacobs Institute of Design, California', 
+                    year: '2023',
+                    image: 'assets/art/afro.png'
                 },
                 { 
                     id: 2, 
-                    title: 'Wabi-Sabi Algorithms', 
-                    venue: 'New Media Art Center, Berlin', 
-                    year: '2023'
+                    title: 'Dynamic Tangible Interfaces', 
+                    venue: 'Jacobs Institute of Design, California', 
+                    year: '2023',
+                    image: 'assets/art/dtui.jpg'
                 },
                 { 
                     id: 3, 
-                    title: 'Tactile Interfaces', 
-                    venue: 'Art & Technology Biennial', 
-                    year: '2023'
+                    title: 'Mycorrhizae', 
+                    venue: 'Jacobs Institute of Design, California', 
+                    year: '2022',
+                    image: 'assets/art/mycorr.jpeg'
+                },
+                { 
+                    id: 4, 
+                    title: 'Wabi-Sabi Algorithms', 
+                    venue: 'Coming Soon', 
+                    year: '',
+                    image: null
                 }
             ];
             
