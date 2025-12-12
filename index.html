@@ -3,7 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio — Senior UX Designer & New Media Artist</title>
+    <title>Albert Hodo – UX & Interaction Designer | Hodo Studio</title>
+    <meta name="description" content="Portfolio of Albert Hodo — UX & Interaction Designer crafting modern, elegant and intelligent digital experiences.">
+    <link rel="canonical" href="https://hodo.studio" />
+    <meta name="robots" content="index, follow">
     
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -1417,10 +1420,17 @@
                                     </p>
                                 </div>
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mt-8">
-                                    <div className="rounded-xl overflow-hidden" style={{ backgroundColor: '#F5F5F5' }}>
+                                    <div className="rounded-xl overflow-hidden relative" style={{ backgroundColor: '#F5F5F5' }}>
                                         <div className="px-4 md:px-6 py-8 md:py-10">
-                                            <div className="image-placeholder w-full aspect-[4/3]">
-                                                {/* Image 1 */}
+                                            <div className="relative w-full aspect-[4/3] rounded-lg overflow-hidden">
+                                                <div className="w-full h-full p-6 md:p-8 flex items-center justify-center">
+                                                    <img 
+                                                        src="assets/gs-assets/demo.gif" 
+                                                        alt="Demo view"
+                                                        className="max-w-full max-h-full object-contain"
+                                                        onLoad={(e) => e.target.classList.add('loaded')}
+                                                    />
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -2129,6 +2139,11 @@
                             </>
                         )}
                     </main>
+                    <footer className="container-wide py-12 md:py-16">
+                        <div className="text-center text-[#4A4A4A] opacity-60 font-[300] text-xs">
+                            © 2025 Albert Hodo
+                        </div>
+                    </footer>
                 </div>
             );
         };
