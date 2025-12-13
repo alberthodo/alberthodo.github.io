@@ -1439,12 +1439,17 @@
                                         <div className="px-4 md:px-6 py-8 md:py-10">
                                             <div className="relative w-full aspect-[4/3] rounded-lg overflow-hidden">
                                                 <div className="w-full h-full p-6 md:p-8 flex items-center justify-center">
-                                                    <img 
-                                                        src="assets/gs-assets/demo.gif" 
-                                                        alt="Demo view"
+                                                    <video 
+                                                        autoPlay 
+                                                        loop 
+                                                        muted 
+                                                        playsInline
+                                                        preload="auto"
                                                         className="max-w-full max-h-full object-contain"
-                                                        onLoad={(e) => e.target.classList.add('loaded')}
-                                                    />
+                                                        style={{ borderRadius: '1.9rem' }}
+                                                    >
+                                                        <source src="assets/gs-assets/demo.mp4" type="video/mp4" />
+                                                    </video>
                                                 </div>
                                             </div>
                                         </div>
