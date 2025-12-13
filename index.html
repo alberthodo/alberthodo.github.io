@@ -1861,6 +1861,7 @@
             const [passwordModalOpen, setPasswordModalOpen] = useState(false);
             const [pendingProjectId, setPendingProjectId] = useState(null);
             const [passwordError, setPasswordError] = useState(false);
+            const isProgrammaticNavigation = React.useRef(false);
             
             // Get authenticated projects from sessionStorage
             const getAuthenticatedProjects = () => {
@@ -1913,6 +1914,11 @@
 
                 // Handle hash changes
                 const handleHashChange = () => {
+                    // Skip if this is a programmatic navigation (already handled)
+                    if (isProgrammaticNavigation.current) {
+                        return;
+                    }
+                    
                     const newHash = window.location.hash.slice(1) || 'home';
                     const projectMatch = newHash.match(/work\/project-(\d+)/);
                     if (projectMatch) {
@@ -1975,18 +1981,26 @@
             };
 
             const handleNavigate = (page) => {
+                isProgrammaticNavigation.current = true;
                 setCurrentPage(page);
                 setSelectedProject(null);
-                window.location.hash = page;
+                window.history.replaceState(null, '', `#${page}`);
                 scrollToSection(page);
+                setTimeout(() => {
+                    isProgrammaticNavigation.current = false;
+                }, 0);
             };
 
             const handleProjectSelect = (projectId) => {
                 if (!projectId) {
                     setSelectedProject(null);
-                    window.location.hash = 'work';
+                    isProgrammaticNavigation.current = true;
+                    window.history.replaceState(null, '', '#work');
                     setCurrentPage('work');
-                    setTimeout(() => scrollToSection('work'), 100);
+                    setTimeout(() => {
+                        scrollToSection('work');
+                        isProgrammaticNavigation.current = false;
+                    }, 100);
                     return;
                 }
                 
@@ -1999,13 +2013,15 @@
                 }
                 
                 // Project is unlocked or authenticated, show it
+                isProgrammaticNavigation.current = true;
                 setSelectedProject(projectId);
-                    window.location.hash = `work/project-${projectId}`;
-                    setCurrentPage('work');
+                setCurrentPage('work');
+                window.history.replaceState(null, '', `#work/project-${projectId}`);
+                window.scrollTo({ top: 0, behavior: 'instant' });
+                setTimeout(() => {
                     window.scrollTo({ top: 0, behavior: 'instant' });
-                    setTimeout(() => {
-                        window.scrollTo({ top: 0, behavior: 'instant' });
-                    }, 0);
+                    isProgrammaticNavigation.current = false;
+                }, 0);
             };
             
             const handlePasswordSuccess = () => {
@@ -2014,11 +2030,15 @@
                     setPasswordModalOpen(false);
                     setPasswordError(false);
                     // Now show the project
+                    isProgrammaticNavigation.current = true;
                     setSelectedProject(pendingProjectId);
-                    window.location.hash = `work/project-${pendingProjectId}`;
                     setCurrentPage('work');
+                    window.history.replaceState(null, '', `#work/project-${pendingProjectId}`);
                     window.scrollTo({ top: 0, behavior: 'instant' });
                     setPendingProjectId(null);
+                    setTimeout(() => {
+                        isProgrammaticNavigation.current = false;
+                    }, 0);
                 }
             };
             
