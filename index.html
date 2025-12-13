@@ -1664,17 +1664,18 @@
         const WorkItem = ({ project, index, onProjectSelect }) => {
             const itemRef = React.useRef(null);
             const isVisible = useIntersectionObserver(itemRef, { threshold: 0.15 });
+            const isClickable = project.id !== 4; // Knack app is not clickable
 
             return (
                 <article 
                     ref={itemRef}
-                    className={`hover-lift work-project work-item relative cursor-pointer group ${isVisible ? 'visible' : ''}`} 
+                    className={`${isClickable ? 'hover-lift' : ''} work-project work-item relative ${isClickable ? 'cursor-pointer' : 'cursor-default'} group ${isVisible ? 'visible' : ''}`} 
                     data-project-id={project.id}
                     style={{ transitionDelay: `${index * 0.1}s` }}
                 >
                                         <div 
-                                            onClick={() => onProjectSelect(project.id)}
-                                            className="block cursor-pointer"
+                                            onClick={isClickable ? () => onProjectSelect(project.id) : undefined}
+                                            className={`block ${isClickable ? 'cursor-pointer' : 'cursor-default'}`}
                                         >
                                         <div className="work-project-container flex flex-col xl:flex-row gap-6 md:gap-8 xl:gap-[60px] items-stretch">
                                             {/* On mobile/tablet, always show image first. On xl, alternate based on index */}
