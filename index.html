@@ -1749,7 +1749,7 @@
             );
         };
 
-        // Art Item Component with Scroll Animation
+        // Art Item Component with Scroll Animation.
         const ArtItem = ({ artwork, index }) => {
             const itemRef = React.useRef(null);
             const isVisible = useIntersectionObserver(itemRef, { threshold: 0.2 });
