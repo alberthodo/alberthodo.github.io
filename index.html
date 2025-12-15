@@ -1246,12 +1246,12 @@
 
                 const content = project.content;
                 return (
-                    <div className={`space-y-16 md:space-y-24 fade-in-delay-4 ${isVisible ? 'fade-in-delay-4' : ''}`}>
+                    <div className={`space-y-12 md:space-y-24 fade-in-delay-4 ${isVisible ? 'fade-in-delay-4' : ''}`}>
                         {/* Project Info */}
                         <div className="w-full md:max-w-[600px] lg:max-w-[1200px]">
                             <div className="divider mb-4"></div>
                             <div className="space-y-4">
-                                <div className="flex flex-wrap justify-between gap-4 text-sm md:text-base text-[#4A4A4A] opacity-60 font-[300]">
+                                <div className="flex flex-wrap gap-2 md:gap-4 text-xs md:text-sm lg:text-base text-[#4A4A4A] opacity-60 font-[300] justify-center md:justify-start">
                                     {content.role && <span>{content.role}</span>}
                                     {content.platforms && <span>· {content.platforms}</span>}
                                     {content.team && <span>· {content.team}</span>}
@@ -1264,27 +1264,27 @@
                         {/* TLDR */}
                         {content.tldr && (
                             <div className="space-y-6">
-                                <h2 className="font-light text-2xl md:text-3xl lg:text-[36px] leading-[1.2] tracking-[0.01em] font-[200] text-[#4A4A4A] mb-4">
+                                <h2 className="font-light text-2xl md:text-3xl lg:text-[36px] leading-[1.2] tracking-[0.01em] font-[200] text-[#4A4A4A] mb-4 text-center md:text-left">
                                     TL;DR
                                 </h2>
-                                <div className="text-base md:text-lg text-[#4A4A4A] opacity-70 font-[300] leading-[1.7]">
+                                <div className="text-base md:text-lg text-[#4A4A4A] opacity-70 font-[300] leading-[1.7] text-center md:text-left">
                                     <p>{content.tldr}</p>
                                 </div>
                                 {/* Cards */}
-                                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 mt-8">
+                                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 mt-6 md:mt-8">
                                     {/* Situation Card */}
                                     <div className="rounded-xl p-6 md:p-8 min-h-[200px] bg-[var(--fog-grey)]" style={{ backgroundColor: 'rgba(217, 214, 210, 0.15)' }}>
-                                        <div className="flex items-center gap-3 mb-4">
+                                        <div className="flex items-center justify-center md:justify-start gap-3 mb-4">
                                             <svg className="w-5 h-5 text-[#4A4A4A] opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                                             </svg>
                                             <h3 className="text-base md:text-lg font-[400] text-[#4A4A4A] opacity-60">Situation</h3>
                                         </div>
-                                        <div className="text-sm md:text-base text-[#4A4A4A] opacity-95 font-[300] leading-[1.6]">
+                                        <div className="text-sm md:text-base text-[#4A4A4A] opacity-95 font-[300] leading-[1.6] text-center md:text-left">
                                             {content.cards && content.cards.situation ? (
                                                 <ul className="space-y-2">
                                                     {content.cards.situation.split('. ').filter(item => item.trim()).map((item, i) => (
-                                                        <li key={i} className="flex items-start">
+                                                        <li key={i} className="flex items-start justify-center md:justify-start">
                                                             <span className="mr-2">•</span>
                                                             <span>{item.replace(/\.$/, '')}.</span>
                                                         </li>
@@ -1295,17 +1295,17 @@
                                     </div>
                                     {/* Research Card */}
                                     <div className="rounded-xl p-6 md:p-8 min-h-[200px] bg-[var(--fog-grey)]" style={{ backgroundColor: 'rgba(217, 214, 210, 0.15)' }}>
-                                        <div className="flex items-center gap-3 mb-4">
+                                        <div className="flex items-center justify-center md:justify-start gap-3 mb-4">
                                             <svg className="w-5 h-5 text-[#4A4A4A] opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
                                             </svg>
                                             <h3 className="text-base md:text-lg font-[400] text-[#4A4A4A] opacity-60">Research Findings</h3>
                                         </div>
-                                        <div className="text-sm md:text-base text-[#4A4A4A] opacity-95 font-[300] leading-[1.6]">
+                                        <div className="text-sm md:text-base text-[#4A4A4A] opacity-95 font-[300] leading-[1.6] text-center md:text-left">
                                             {content.cards && content.cards.research ? (
                                                 <ul className="space-y-2">
                                                     {content.cards.research.split('. ').filter(item => item.trim()).map((item, i) => (
-                                                        <li key={i} className="flex items-start">
+                                                        <li key={i} className="flex items-start justify-center md:justify-start">
                                                             <span className="mr-2">•</span>
                                                             <span>{item.replace(/\.$/, '')}.</span>
                                                         </li>
@@ -1316,17 +1316,17 @@
                                     </div>
                                     {/* Constraints Card */}
                                     <div className="rounded-xl p-6 md:p-8 min-h-[200px] bg-[var(--fog-grey)]" style={{ backgroundColor: 'rgba(217, 214, 210, 0.15)' }}>
-                                        <div className="flex items-center gap-3 mb-4">
+                                        <div className="flex items-center justify-center md:justify-start gap-3 mb-4">
                                             <svg className="w-5 h-5 text-[#4A4A4A] opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
                                             </svg>
                                             <h3 className="text-base md:text-lg font-[400] text-[#4A4A4A] opacity-60">Constraints</h3>
                                         </div>
-                                        <div className="text-sm md:text-base text-[#4A4A4A] opacity-95 font-[300] leading-[1.6]">
+                                        <div className="text-sm md:text-base text-[#4A4A4A] opacity-95 font-[300] leading-[1.6] text-center md:text-left">
                                             {content.cards && content.cards.constraints ? (
                                                 <ul className="space-y-2">
                                                     {content.cards.constraints.split('. ').filter(item => item.trim()).map((item, i) => (
-                                                        <li key={i} className="flex items-start">
+                                                        <li key={i} className="flex items-start justify-center md:justify-start">
                                                             <span className="mr-2">•</span>
                                                             <span>{item.replace(/\.$/, '')}.</span>
                                                         </li>
@@ -1344,16 +1344,16 @@
                             <>
                                 <div className="border-t border-[#4A4A4A] opacity-20 my-6"></div>
                                 <div className="space-y-6">
-                                <h2 className="font-light text-2xl md:text-3xl lg:text-[36px] leading-[1.2] tracking-[0.01em] font-[200] text-[#4A4A4A] mb-4">
+                                <h2 className="font-light text-2xl md:text-3xl lg:text-[36px] leading-[1.2] tracking-[0.01em] font-[200] text-[#4A4A4A] mb-4 text-center md:text-left">
                                     The Insight
                                 </h2>
                                 {content.insight.quote && (
-                                    <blockquote className="text-xl md:text-2xl text-[#4A4A4A] opacity-80 font-[300] leading-[1.6] italic mt-6 mb-6 pl-4 border-l-2 border-[#4A4A4A] border-opacity-20">
+                                    <blockquote className="text-xl md:text-2xl text-[#4A4A4A] opacity-80 font-[300] leading-[1.6] italic mt-6 mb-6 pl-4 border-l-2 border-[#4A4A4A] border-opacity-20 text-center md:text-left">
                                         "{content.insight.quote}"
                                     </blockquote>
                                 )}
                                 {/* Sticky Notes */}
-                                <div className="flex flex-wrap gap-4 md:gap-6 mb-8">
+                                <div className="flex flex-wrap gap-3 md:gap-6 mb-6 md:mb-8">
                                     {[
                                         'Editing happens in waves: quick corrections first, then deeper edits, requiring different editing modes.',
                                         'Users think in workflows, not features: "I need to turn this into an email" not "I need format X".',
@@ -1364,7 +1364,7 @@
                                         return (
                                             <div 
                                                 key={i}
-                                                className="p-4 md:p-6 min-w-[200px] flex-1 max-w-[280px]"
+                                                className="p-3 md:p-6 w-full md:min-w-[200px] md:flex-1 md:max-w-[280px]"
                                                 style={{
                                                     transform: `rotate(${rotations[i]}deg)`,
                                                     backgroundColor: '#FFEB3B',
@@ -1379,7 +1379,7 @@
                                         );
                                     })}
                                 </div>
-                                <div className="space-y-6 text-base md:text-lg text-[#4A4A4A] opacity-70 font-[300] leading-[1.7]">
+                                <div className="space-y-6 text-base md:text-lg text-[#4A4A4A] opacity-70 font-[300] leading-[1.7] text-center md:text-left">
                                     <p className="text-lg md:text-xl font-[400] opacity-80">
                                         {content.insight.main && content.insight.main.includes('aha momnet') ? (
                                             <>
@@ -1398,7 +1398,7 @@
                                 </div>
                                 {/* Insights Diagram */}
                                 <div className="pt-16 md:pt-20 mb-8">
-                                    <h2 className="font-light text-xl md:text-2xl lg:text-3xl leading-[1.2] tracking-[0.01em] font-[200] text-[#4A4A4A] mb-6">Micro Experiments</h2>
+                                    <h2 className="font-light text-xl md:text-2xl lg:text-3xl leading-[1.2] tracking-[0.01em] font-[200] text-[#4A4A4A] mb-6 text-center md:text-left">Micro Experiments</h2>
                                     <div className="space-y-8 md:space-y-12">
                                         {[
                                             {
@@ -1488,80 +1488,119 @@
                                         ].map((row, rowIndex) => (
                                             <div key={rowIndex} className="space-y-4">
                                                 <div>
-                                                    <h4 className="text-base md:text-lg font-[400] text-[#4A4A4A] opacity-80 mb-2">{row.title}</h4>
-                                                    <p className="text-sm md:text-base text-[#4A4A4A] opacity-70 font-[300] leading-[1.6]">{row.paragraph}</p>
+                                                    <h4 className="text-base md:text-lg font-[400] text-[#4A4A4A] opacity-80 mb-2 text-center md:text-left">{row.title}</h4>
+                                                    <p className="text-sm md:text-base text-[#4A4A4A] opacity-70 font-[300] leading-[1.6] text-center md:text-left">{row.paragraph}</p>
                                                 </div>
-                                                <div className="grid grid-cols-3 gap-x-4 md:gap-x-6 gap-y-6 md:gap-y-8">
+                                                <div className="grid grid-cols-1 md:grid-cols-3 gap-x-4 md:gap-x-6 gap-y-6 md:gap-y-8">
                                                     {row.images.map((image, imgIndex) => {
                                                         const isChosen = image.chosen;
                                                         return (
-                                                            <div 
-                                                                key={imgIndex} 
-                                                                className="relative w-full aspect-square min-h-[40px] md:min-h-[80px] rounded-xl overflow-visible bg-[var(--fog-grey)] group" 
-                                                                style={{ backgroundColor: 'rgba(217, 214, 210, 0.15)' }}
-                                                            >
-                                                                {/* Icon indicator */}
-                                                                <div className="absolute top-8 md:top-10 right-10 md:right-12 z-20">
-                                                                    {isChosen ? (
-                                                                        <div className="w-4 h-4 md:w-5 md:h-5 rounded-full bg-gray-500 flex items-center justify-center">
-                                                                            <svg className="w-2.5 h-2.5 md:w-3 md:h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
-                                                                            </svg>
-                                                                        </div>
-                                                                    ) : (
-                                                                        <div className="w-4 h-4 md:w-5 md:h-5 rounded-full border-2 border-gray-300 flex items-center justify-center">
-                                                                            <div className="w-2 h-2 md:w-2.5 md:h-2.5 rounded-full bg-gray-300"></div>
-                                                                        </div>
-                                                                    )}
-                                                                </div>
-                                                                <div className="w-full h-full px-4 py-8 md:py-10 flex items-center justify-center overflow-hidden rounded-xl">
-                                                                    <img 
-                                                                        src={image.path} 
-                                                                        alt={image.name || `${row.title} experiment ${imgIndex + 1}`}
-                                                                        className="max-w-full max-h-full object-contain rounded-lg"
-                                                                        onLoad={(e) => e.target.classList.add('loaded')}
-                                                                    />
-                                                                </div>
-                                                                {/* Hover Tooltip */}
-                                                                <div className="absolute inset-0 bg-[#4A4A4A] bg-opacity-85 rounded-xl p-4 md:p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-30 overflow-y-auto">
-                                                                    {/* Checkmark in tooltip */}
-                                                                    {isChosen && (
-                                                                        <div className="absolute top-8 md:top-10 right-10 md:right-12 z-40">
-                                                                            <div className="w-4 h-4 md:w-5 md:h-5 rounded-full bg-green-500 flex items-center justify-center">
+                                                            <div key={imgIndex} className="space-y-3 md:space-y-0">
+                                                                <div 
+                                                                    className="relative w-full aspect-square min-h-[40px] md:min-h-[80px] rounded-xl overflow-visible bg-[var(--fog-grey)] group" 
+                                                                    style={{ backgroundColor: 'rgba(217, 214, 210, 0.15)' }}
+                                                                >
+                                                                    {/* Icon indicator */}
+                                                                    <div className="absolute top-4 md:top-8 lg:top-10 right-4 md:right-10 lg:right-12 z-20">
+                                                                        {isChosen ? (
+                                                                            <div className="w-4 h-4 md:w-5 md:h-5 rounded-full bg-gray-500 flex items-center justify-center">
                                                                                 <svg className="w-2.5 h-2.5 md:w-3 md:h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
                                                                                 </svg>
                                                                             </div>
-                                                                        </div>
-                                                                    )}
-                                                                    <div className="space-y-3 text-white">
-                                                                        <h5 className="text-sm md:text-base font-[500] mb-2">{image.name}</h5>
-                                                                        {image.pros && image.pros.length > 0 && (
-                                                                            <div>
-                                                                                <p className="text-xs md:text-sm font-[500] mb-1 opacity-90">Pros:</p>
-                                                                                <ul className="text-xs md:text-sm font-[300] opacity-80 space-y-1 list-disc list-inside">
-                                                                                    {image.pros.map((pro, i) => (
-                                                                                        <li key={i}>{pro}</li>
-                                                                                    ))}
-                                                                                </ul>
-                                                                            </div>
-                                                                        )}
-                                                                        {image.cons && image.cons.length > 0 && (
-                                                                            <div>
-                                                                                <p className="text-xs md:text-sm font-[500] mb-1 opacity-90">Cons:</p>
-                                                                                <ul className="text-xs md:text-sm font-[300] opacity-80 space-y-1 list-disc list-inside">
-                                                                                    {image.cons.map((con, i) => (
-                                                                                        <li key={i}>{con}</li>
-                                                                                    ))}
-                                                                                </ul>
-                                                                            </div>
-                                                                        )}
-                                                                        {image.rationale && (
-                                                                            <div className="mt-3 pt-3 border-t border-white border-opacity-20">
-                                                                                <p className="text-xs md:text-sm font-[400] opacity-90 italic">{image.rationale}</p>
+                                                                        ) : (
+                                                                            <div className="w-4 h-4 md:w-5 md:h-5 rounded-full border-2 border-gray-300 flex items-center justify-center">
+                                                                                <div className="w-2 h-2 md:w-2.5 md:h-2.5 rounded-full bg-gray-300"></div>
                                                                             </div>
                                                                         )}
                                                                     </div>
+                                                                    <div className="w-full h-full px-4 py-6 md:py-8 lg:py-10 flex items-center justify-center overflow-hidden rounded-xl">
+                                                                        <img 
+                                                                            src={image.path} 
+                                                                            alt={image.name || `${row.title} experiment ${imgIndex + 1}`}
+                                                                            className="max-w-full max-h-full object-contain rounded-lg"
+                                                                            onLoad={(e) => e.target.classList.add('loaded')}
+                                                                        />
+                                                                    </div>
+                                                                    {/* Hover Tooltip - Hidden on mobile, shown on hover/click for desktop */}
+                                                                    <div className="absolute inset-0 bg-[#4A4A4A] bg-opacity-85 rounded-xl p-3 md:p-6 opacity-0 md:group-hover:opacity-100 transition-opacity duration-200 z-30 overflow-y-auto hidden md:block">
+                                                                        {/* Checkmark in tooltip */}
+                                                                        {isChosen && (
+                                                                            <div className="absolute top-8 md:top-10 right-10 md:right-12 z-40">
+                                                                                <div className="w-4 h-4 md:w-5 md:h-5 rounded-full bg-green-500 flex items-center justify-center">
+                                                                                    <svg className="w-2.5 h-2.5 md:w-3 md:h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
+                                                                                    </svg>
+                                                                                </div>
+                                                                            </div>
+                                                                        )}
+                                                                        <div className="space-y-3 text-white">
+                                                                            <h5 className="text-sm md:text-base font-[500] mb-2">{image.name}</h5>
+                                                                            {image.pros && image.pros.length > 0 && (
+                                                                                <div>
+                                                                                    <p className="text-xs md:text-sm font-[500] mb-1 opacity-90">Pros:</p>
+                                                                                    <ul className="text-xs md:text-sm font-[300] opacity-80 space-y-1 list-disc list-inside">
+                                                                                        {image.pros.map((pro, i) => (
+                                                                                            <li key={i}>{pro}</li>
+                                                                                        ))}
+                                                                                    </ul>
+                                                                                </div>
+                                                                            )}
+                                                                            {image.cons && image.cons.length > 0 && (
+                                                                                <div>
+                                                                                    <p className="text-xs md:text-sm font-[500] mb-1 opacity-90">Cons:</p>
+                                                                                    <ul className="text-xs md:text-sm font-[300] opacity-80 space-y-1 list-disc list-inside">
+                                                                                        {image.cons.map((con, i) => (
+                                                                                            <li key={i}>{con}</li>
+                                                                                        ))}
+                                                                                    </ul>
+                                                                                </div>
+                                                                            )}
+                                                                            {image.rationale && (
+                                                                                <div className="mt-3 pt-3 border-t border-white border-opacity-20">
+                                                                                    <p className="text-xs md:text-sm font-[400] opacity-90 italic">{image.rationale}</p>
+                                                                                </div>
+                                                                            )}
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                {/* Mobile: Show info below image */}
+                                                                <div className="md:hidden space-y-2 p-3 rounded-lg bg-[var(--fog-grey)] text-center" style={{ backgroundColor: 'rgba(217, 214, 210, 0.15)' }}>
+                                                                    <div className="flex items-center justify-center gap-2">
+                                                                        <h5 className="text-sm font-[500] text-[#4A4A4A]">{image.name}</h5>
+                                                                        {isChosen && (
+                                                                            <div className="w-4 h-4 rounded-full bg-green-500 flex items-center justify-center">
+                                                                                <svg className="w-2.5 h-2.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
+                                                                                </svg>
+                                                                            </div>
+                                                                        )}
+                                                                    </div>
+                                                                    {image.pros && image.pros.length > 0 && (
+                                                                        <div>
+                                                                            <p className="text-xs font-[500] mb-1 text-[#4A4A4A] opacity-80">Pros:</p>
+                                                                            <ul className="text-xs font-[300] text-[#4A4A4A] opacity-70 space-y-1 list-disc list-inside">
+                                                                                {image.pros.map((pro, i) => (
+                                                                                    <li key={i}>{pro}</li>
+                                                                                ))}
+                                                                            </ul>
+                                                                        </div>
+                                                                    )}
+                                                                    {image.cons && image.cons.length > 0 && (
+                                                                        <div>
+                                                                            <p className="text-xs font-[500] mb-1 text-[#4A4A4A] opacity-80">Cons:</p>
+                                                                            <ul className="text-xs font-[300] text-[#4A4A4A] opacity-70 space-y-1 list-disc list-inside">
+                                                                                {image.cons.map((con, i) => (
+                                                                                    <li key={i}>{con}</li>
+                                                                                ))}
+                                                                            </ul>
+                                                                        </div>
+                                                                    )}
+                                                                    {image.rationale && (
+                                                                        <div className="mt-2 pt-2 border-t border-[#4A4A4A] border-opacity-20">
+                                                                            <p className="text-xs font-[400] text-[#4A4A4A] opacity-80 italic">{image.rationale}</p>
+                                                                        </div>
+                                                                    )}
                                                                 </div>
                                                             </div>
                                                         );
@@ -1578,18 +1617,18 @@
                         {/* Process */}
                         {content.process && (
                             <div className="space-y-6">
-                                <h2 className="font-light text-2xl md:text-3xl lg:text-[36px] leading-[1.2] tracking-[0.01em] font-[200] text-[#4A4A4A] mb-4">
+                                <h2 className="font-light text-2xl md:text-3xl lg:text-[36px] leading-[1.2] tracking-[0.01em] font-[200] text-[#4A4A4A] mb-4 text-center md:text-left">
                                     Process
                                 </h2>
                                 {content.process.exploration && content.process.exploration.length > 0 && (
                                     <div className="space-y-4 mb-8">
-                                        <p className="font-[400] text-base md:text-lg text-[#4A4A4A] opacity-80 mb-3">Exploration</p>
+                                        <p className="font-[400] text-base md:text-lg text-[#4A4A4A] opacity-80 mb-3 text-center md:text-left">Exploration</p>
                                         {content.process.exploration.map((item, i) => (
                                             <div key={i} className="space-y-1">
-                                                <p className="font-[400] text-base md:text-lg text-[#4A4A4A] opacity-80">
+                                                <p className="font-[400] text-base md:text-lg text-[#4A4A4A] opacity-80 text-center md:text-left">
                                                     {i + 1}. <strong>{item.name}</strong> — {item.description}
                                                 </p>
-                                                <p className="text-sm md:text-base text-[#4A4A4A] opacity-60 font-[300] ml-4">
+                                                <p className="text-sm md:text-base text-[#4A4A4A] opacity-60 font-[300] ml-0 md:ml-4 text-center md:text-left">
                                                     {item.result}
                                                 </p>
                                             </div>
@@ -1604,13 +1643,13 @@
                                 )}
                                 {content.process.testing && content.process.testing.length > 0 && (
                                     <div className="space-y-3">
-                                        <p className="font-[400] text-base md:text-lg text-[#4A4A4A] opacity-80 mb-3">Testing</p>
-                                        <p className="text-base md:text-lg text-[#4A4A4A] opacity-70 font-[300] leading-[1.7] mb-2">
+                                        <p className="font-[400] text-base md:text-lg text-[#4A4A4A] opacity-80 mb-3 text-center md:text-left">Testing</p>
+                                        <p className="text-base md:text-lg text-[#4A4A4A] opacity-70 font-[300] leading-[1.7] mb-2 text-center md:text-left">
                                             Key learnings from internal testing:
                                         </p>
-                                        <ul className="space-y-2 text-base md:text-lg text-[#4A4A4A] opacity-70 font-[300] leading-[1.7]">
+                                        <ul className="space-y-2 text-base md:text-lg text-[#4A4A4A] opacity-70 font-[300] leading-[1.7] text-center md:text-left">
                                             {content.process.testing.map((learning, i) => (
-                                                <li key={i} className="flex items-start">
+                                                <li key={i} className="flex items-start justify-center md:justify-start">
                                                     <span className="mr-2">•</span>
                                                     <span>{learning}</span>
                                                 </li>
@@ -1624,25 +1663,31 @@
                         {/* The Design */}
                         {content.impact && (
                             <div className="space-y-6">
-                                <h2 className="font-light text-2xl md:text-3xl lg:text-[36px] leading-[1.2] tracking-[0.01em] font-[200] text-[#4A4A4A] mb-4">
+                                <h2 className="font-light text-2xl md:text-3xl lg:text-[36px] leading-[1.2] tracking-[0.01em] font-[200] text-[#4A4A4A] mb-4 text-center md:text-left">
                                     The Design
                                 </h2>
-                                <div className="mt-8 mb-8 relative">
+                                <div className="mt-6 md:mt-8 mb-6 md:mb-8 relative">
                                     <img 
                                         src="assets/gs-assets/artifact.jpg" 
                                         alt="some ux Design artifacts" 
                                         className="w-full h-auto rounded-xl"
                                         onLoad={(e) => e.target.classList.add('loaded')}
                                     />
-                                    <div className="absolute left-0 top-1/2 -translate-y-1/2 w-2/5 max-w-md pl-8 md:pl-16">
-                                        <h3 className="text-lg md:text-xl lg:text-2xl font-medium text-[#4A4A4A] opacity-90 font-[300] leading-[1.4]">
+                                    <div className="absolute left-0 top-1/2 -translate-y-1/2 w-2/5 max-w-md pl-4 md:pl-8 lg:pl-16 hidden md:block">
+                                        <h3 className="text-base md:text-xl lg:text-2xl font-medium text-[#4A4A4A] opacity-90 font-[300] leading-[1.4]">
+                                            <span className="text-blue-600">log your thought in seconds</span>, and let the magic happen! Keep a detailed history and restructure your ideas in any format easily!
+                                        </h3>
+                                    </div>
+                                    {/* Mobile version - below image */}
+                                    <div className="mt-4 md:hidden">
+                                        <h3 className="text-base font-medium text-[#4A4A4A] opacity-90 font-[300] leading-[1.4] text-center">
                                             <span className="text-blue-600">log your thought in seconds</span>, and let the magic happen! Keep a detailed history and restructure your ideas in any format easily!
                                         </h3>
                                     </div>
                                 </div>
                                 <div className="mt-16 md:mt-20">
-                                    <h4 className="text-base md:text-lg font-[400] text-[#4A4A4A] opacity-80 mb-2">Onboarding</h4>
-                                    <p className="text-sm md:text-base text-[#4A4A4A] opacity-70 font-[300] leading-[1.6]">
+                                    <h4 className="text-base md:text-lg font-[400] text-[#4A4A4A] opacity-80 mb-2 text-center md:text-left">Onboarding</h4>
+                                    <p className="text-sm md:text-base text-[#4A4A4A] opacity-70 font-[300] leading-[1.6] text-center md:text-left">
                                         First time onboarding and demo sections to build trust and familiarity.
                                     </p>
                                 </div>
@@ -1681,23 +1726,23 @@
                                                 {carouselIndex > 0 && (
                                                     <button
                                                         onClick={prevImage}
-                                                        className="absolute left-3 top-1/2 w-7 h-7 md:w-8 md:h-8 rounded-full flex items-center justify-center transition-all z-10 backdrop-blur-md"
+                                                        className="absolute left-2 md:left-3 top-1/2 w-10 h-10 md:w-8 md:h-8 rounded-full flex items-center justify-center transition-all z-10 backdrop-blur-md touch-manipulation"
                                                         style={{ 
                                                             transform: 'translateY(-50%)',
-                                                            backgroundColor: 'rgba(0, 0, 0, 0.3)',
-                                                            boxShadow: '0 2px 8px rgba(0, 0, 0, 0.1)'
+                                                            backgroundColor: 'rgba(0, 0, 0, 0.4)',
+                                                            boxShadow: '0 2px 8px rgba(0, 0, 0, 0.2)'
                                                         }}
                                                         onMouseEnter={(e) => {
                                                             e.currentTarget.style.transform = 'translateY(-50%)';
-                                                            e.currentTarget.style.backgroundColor = 'rgba(0, 0, 0, 0.45)';
+                                                            e.currentTarget.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
                                                         }}
                                                         onMouseLeave={(e) => {
                                                             e.currentTarget.style.transform = 'translateY(-50%)';
-                                                            e.currentTarget.style.backgroundColor = 'rgba(0, 0, 0, 0.3)';
+                                                            e.currentTarget.style.backgroundColor = 'rgba(0, 0, 0, 0.4)';
                                                         }}
                                                         aria-label="Previous image"
                                                     >
-                                                        <svg className="w-3.5 h-3.5 md:w-4 md:h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                        <svg className="w-5 h-5 md:w-4 md:h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M15 19l-7-7 7-7" />
                                                         </svg>
                                                     </button>
@@ -1706,23 +1751,23 @@
                                                 {carouselIndex < carouselImages.length - 1 && (
                                                     <button
                                                         onClick={nextImage}
-                                                        className="absolute right-3 top-1/2 w-7 h-7 md:w-8 md:h-8 rounded-full flex items-center justify-center transition-all z-10 backdrop-blur-md"
+                                                        className="absolute right-2 md:right-3 top-1/2 w-10 h-10 md:w-8 md:h-8 rounded-full flex items-center justify-center transition-all z-10 backdrop-blur-md touch-manipulation"
                                                         style={{ 
                                                             transform: 'translateY(-50%)',
-                                                            backgroundColor: 'rgba(0, 0, 0, 0.3)',
-                                                            boxShadow: '0 2px 8px rgba(0, 0, 0, 0.1)'
+                                                            backgroundColor: 'rgba(0, 0, 0, 0.4)',
+                                                            boxShadow: '0 2px 8px rgba(0, 0, 0, 0.2)'
                                                         }}
                                                         onMouseEnter={(e) => {
                                                             e.currentTarget.style.transform = 'translateY(-50%)';
-                                                            e.currentTarget.style.backgroundColor = 'rgba(0, 0, 0, 0.45)';
+                                                            e.currentTarget.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
                                                         }}
                                                         onMouseLeave={(e) => {
                                                             e.currentTarget.style.transform = 'translateY(-50%)';
-                                                            e.currentTarget.style.backgroundColor = 'rgba(0, 0, 0, 0.3)';
+                                                            e.currentTarget.style.backgroundColor = 'rgba(0, 0, 0, 0.4)';
                                                         }}
                                                         aria-label="Next image"
                                                     >
-                                                        <svg className="w-3.5 h-3.5 md:w-4 md:h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                        <svg className="w-5 h-5 md:w-4 md:h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
                                                         </svg>
                                                     </button>
@@ -1730,15 +1775,15 @@
                                             </div>
                                         </div>
                                         {/* Pagination Dots */}
-                                        <div className="flex gap-1.5 justify-center pb-6 md:pb-8">
+                                        <div className="flex gap-2 md:gap-1.5 justify-center pb-4 md:pb-6 lg:pb-8">
                                             {carouselImages.map((_, index) => (
                                                 <button
                                                     key={index}
                                                     onClick={() => setCarouselIndex(index)}
-                                                    className={`rounded-full transition-all ${
+                                                    className={`rounded-full transition-all touch-manipulation ${
                                                         index === carouselIndex 
-                                                            ? 'bg-[#4A4A4A] bg-opacity-30 w-2 h-2' 
-                                                            : 'bg-[#4A4A4A] bg-opacity-15 hover:bg-opacity-25 w-2 h-2'
+                                                            ? 'bg-[#4A4A4A] bg-opacity-40 w-3 h-3 md:w-2 md:h-2' 
+                                                            : 'bg-[#4A4A4A] bg-opacity-20 hover:bg-opacity-25 w-3 h-3 md:w-2 md:h-2'
                                                     }`}
                                                     aria-label={`Go to image ${index + 1}`}
                                                 />
@@ -1746,46 +1791,71 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div className="mt-16 md:mt-20">
-                                    <h4 className="text-base md:text-lg font-[400] text-[#4A4A4A] opacity-80 mb-8">Tools for Faster Workflow</h4>
-                                    <div className="rounded-xl overflow-hidden relative aspect-[20/9] px-4 md:px-6" style={{ backgroundColor: '#EBEBEB' }}>
+                                <div className="mt-12 md:mt-20">
+                                    <h4 className="text-base md:text-lg font-[400] text-[#4A4A4A] opacity-80 mb-6 md:mb-8 text-center md:text-left">Tools for Faster Workflow</h4>
+                                    {/* Mobile: Stack layout, Desktop: Overlay layout */}
+                                    <div className="md:rounded-xl md:overflow-hidden md:relative md:aspect-[20/9] px-0 md:px-6 mb-6 md:mb-0" style={{ backgroundColor: '#EBEBEB' }}>
+                                        <div className="md:hidden rounded-xl overflow-hidden mb-4" style={{ backgroundColor: '#EBEBEB' }}>
+                                            <img 
+                                                src="assets/gs-assets/detailed.png" 
+                                                alt="Detailed view"
+                                                className="w-full h-auto object-contain"
+                                                onLoad={(e) => e.target.classList.add('loaded')}
+                                            />
+                                        </div>
                                         <img 
                                             src="assets/gs-assets/detailed.png" 
                                             alt="Detailed view"
-                                            className="absolute left-8 md:left-12 top-4 md:top-8 h-[110%] object-contain"
+                                            className="hidden md:block absolute left-8 md:left-12 top-4 md:top-8 h-[110%] object-contain"
                                             onLoad={(e) => e.target.classList.add('loaded')}
                                         />
-                                        <div className="absolute right-4 md:right-6 top-1/2 -translate-y-1/2 max-w-[45%] md:max-w-[40%] pr-4 md:pr-6">
-                                            <h4 className="text-base md:text-lg font-[400] mb-2" style={{ color: '#336699' }}>A faster way to access all your previous work</h4>
-                                            <p className="text-sm md:text-base text-[#4A4A4A] opacity-70 font-[300] leading-[1.6]">
+                                        <div className="md:absolute md:right-4 md:right-6 md:top-1/2 md:-translate-y-1/2 md:max-w-[45%] md:max-w-[40%] md:pr-4 md:pr-6 text-center md:text-left">
+                                            <h4 className="text-sm md:text-base lg:text-lg font-[400] mb-2" style={{ color: '#336699' }}>A faster way to access all your previous work</h4>
+                                            <p className="text-xs md:text-sm lg:text-base text-[#4A4A4A] opacity-70 font-[300] leading-[1.6]">
                                                 Based on the insights from the user research, I designed and developed the history page such that it was very easy to look for past work. Users also have access to everything; their original transcript, edits and all other AI rewrites. They can continue their workflow anytime from any of their devices without any hustle.
                                             </p>
                                         </div>
                                     </div>
-                                    <div className="rounded-xl overflow-hidden relative aspect-[20/9] px-4 md:px-6 mt-4 md:mt-6" style={{ backgroundColor: '#EBEBEB' }}>
+                                    <div className="md:rounded-xl md:overflow-hidden md:relative md:aspect-[20/9] px-0 md:px-6 mt-4 md:mt-6 mb-6 md:mb-0" style={{ backgroundColor: '#EBEBEB' }}>
+                                        <div className="md:hidden rounded-xl overflow-hidden mb-4" style={{ backgroundColor: '#EBEBEB' }}>
+                                            <img 
+                                                src="assets/gs-assets/filter.png" 
+                                                alt="Filter view"
+                                                className="w-full h-auto object-contain"
+                                                onLoad={(e) => e.target.classList.add('loaded')}
+                                            />
+                                        </div>
                                         <img 
                                             src="assets/gs-assets/filter.png" 
                                             alt="Filter view"
-                                            className="absolute right-8 md:right-12 -top-16 md:-top-20 h-[110%] object-contain"
+                                            className="hidden md:block absolute right-8 md:right-12 -top-16 md:-top-20 h-[110%] object-contain"
                                             onLoad={(e) => e.target.classList.add('loaded')}
                                         />
-                                        <div className="absolute left-4 md:left-6 top-1/2 -translate-y-1/2 max-w-[45%] md:max-w-[40%] pl-4 md:pl-6">
-                                            <h4 className="text-base md:text-lg font-[400] mb-2" style={{ color: '#336699' }}>A simple edit workflow</h4>
-                                            <p className="text-sm md:text-base text-[#4A4A4A] opacity-70 font-[300] leading-[1.6]">
+                                        <div className="md:absolute md:left-4 md:left-6 md:top-1/2 md:-translate-y-1/2 md:max-w-[45%] md:max-w-[40%] md:pl-4 md:pl-6 text-center md:text-left">
+                                            <h4 className="text-sm md:text-base lg:text-lg font-[400] mb-2" style={{ color: '#336699' }}>A simple edit workflow</h4>
+                                            <p className="text-xs md:text-sm lg:text-base text-[#4A4A4A] opacity-70 font-[300] leading-[1.6]">
                                                 Most users have a few types of content they create regularly so I designed it such that they can choose thoses as favorites and have them in a horizontal scroll at the buttom of their work making it easy to choose the format they want without several steps.
                                             </p>
                                         </div>
                                     </div>
-                                    <div className="rounded-xl overflow-hidden relative aspect-[20/9] px-4 md:px-6 mt-4 md:mt-6" style={{ backgroundColor: '#EBEBEB' }}>
+                                    <div className="md:rounded-xl md:overflow-hidden md:relative md:aspect-[20/9] px-0 md:px-6 mt-4 md:mt-6" style={{ backgroundColor: '#EBEBEB' }}>
+                                        <div className="md:hidden rounded-xl overflow-hidden mb-4" style={{ backgroundColor: '#EBEBEB' }}>
+                                            <img 
+                                                src="assets/gs-assets/aiChat.png" 
+                                                alt="AI Chat view"
+                                                className="w-full h-auto object-contain"
+                                                onLoad={(e) => e.target.classList.add('loaded')}
+                                            />
+                                        </div>
                                         <img 
                                             src="assets/gs-assets/aiChat.png" 
                                             alt="AI Chat view"
-                                            className="absolute -right-8 md:-right-12 top-2 md:top-4 h-[110%] object-contain"
+                                            className="hidden md:block absolute -right-8 md:-right-12 top-2 md:top-4 h-[110%] object-contain"
                                             onLoad={(e) => e.target.classList.add('loaded')}
                                         />
-                                        <div className="absolute left-4 md:left-6 top-1/2 -translate-y-1/2 max-w-[35%] md:max-w-[30%] pl-4 md:pl-6">
-                                            <h4 className="text-base md:text-lg font-[400] mb-2" style={{ color: '#336699' }}>A personal AI chat assistant</h4>
-                                            <p className="text-sm md:text-base text-[#4A4A4A] opacity-70 font-[300] leading-[1.6]">
+                                        <div className="md:absolute md:left-4 md:left-6 md:top-1/2 md:-translate-y-1/2 md:max-w-[35%] md:max-w-[30%] md:pl-4 md:pl-6 text-center md:text-left">
+                                            <h4 className="text-sm md:text-base lg:text-lg font-[400] mb-2" style={{ color: '#336699' }}>A personal AI chat assistant</h4>
+                                            <p className="text-xs md:text-sm lg:text-base text-[#4A4A4A] opacity-70 font-[300] leading-[1.6]">
                                                 Some of our users recorded long sessions of meeting and lectures so I added a personal AI chat assistant to help them with quick answers based on questions they had about the transcript.
                                             </p>
                                         </div>
@@ -1797,14 +1867,14 @@
                         {/* Reflection */}
                         {content.reflection && (
                             <div className="space-y-6">
-                                <h2 className="font-light text-2xl md:text-3xl lg:text-[36px] leading-[1.2] tracking-[0.01em] font-[200] text-[#4A4A4A] mb-4">
+                                <h2 className="font-light text-2xl md:text-3xl lg:text-[36px] leading-[1.2] tracking-[0.01em] font-[200] text-[#4A4A4A] mb-4 text-center md:text-left">
                                     Reflection
                                 </h2>
-                                <div className="space-y-4 text-base md:text-lg text-[#4A4A4A] opacity-70 font-[300] leading-[1.7]">
+                                <div className="space-y-4 text-base md:text-lg text-[#4A4A4A] opacity-70 font-[300] leading-[1.7] text-center md:text-left">
                                     {Array.isArray(content.reflection) ? (
                                         <ul className="space-y-3">
                                             {content.reflection.map((item, i) => (
-                                                <li key={i} className="flex items-start">
+                                                <li key={i} className="flex items-start justify-center md:justify-start">
                                                     <span className="mr-3">•</span>
                                                     <span>{item}</span>
                                                 </li>
@@ -1823,17 +1893,17 @@
             };
 
             return (
-                <section id="work" className="page-transition py-20 px-6 md:py-32 md:px-12 md:mx-4 md:ml-8 lg:px-16 xl:px-16 min-h-screen">
+                <section id="work" className="page-transition py-12 px-4 md:py-32 md:px-12 md:mx-4 md:ml-8 lg:px-16 xl:px-16 min-h-screen">
                     <div ref={containerRef} className="container-wide pl-0 w-full">
                         <div className="max-w-full md:max-w-[600px] lg:max-w-[1200px] mx-auto">
                             <button 
                                 onClick={onBack}
-                                className={`mb-8 text-sm text-[#4A4A4A] opacity-60 hover:opacity-100 transition-opacity font-[300] fade-in ${isVisible ? 'fade-in' : ''}`}
+                                className={`mb-6 md:mb-8 text-sm text-[#4A4A4A] opacity-60 hover:opacity-100 transition-opacity font-[300] fade-in text-center md:text-left w-full md:w-auto ${isVisible ? 'fade-in' : ''}`}
                             >
                                 ← Back to Portfolio
                             </button>
                             {(project.heroImage || project.image) && (
-                                <div className={`mb-6 md:mb-8 scale-in ${isVisible ? 'scale-in' : ''}`} style={{ animationDelay: '0.1s' }}>
+                                <div className={`mb-4 md:mb-8 scale-in ${isVisible ? 'scale-in' : ''}`} style={{ animationDelay: '0.1s' }}>
                                     <img 
                                         src={project.heroImage || project.image} 
                                         alt={project.title} 
@@ -1842,9 +1912,9 @@
                                     />
                             </div>
                             )}
-                            <div className={`mb-8 fade-in-delay-2 ${isVisible ? 'fade-in-delay-2' : ''}`}>
-                                <div className="flex items-start justify-between gap-4 mb-4 md:mb-6">
-                                    <h1 className="font-light text-3xl md:text-5xl lg:text-[64px] leading-[1.2] tracking-[0.01em] font-[200] text-[#4A4A4A] flex-1">
+                            <div className={`mb-6 md:mb-8 fade-in-delay-2 ${isVisible ? 'fade-in-delay-2' : ''}`}>
+                                <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-3 md:gap-4 mb-4 md:mb-6 items-center md:items-start">
+                                    <h1 className="font-light text-2xl md:text-5xl lg:text-[64px] leading-[1.2] tracking-[0.01em] font-[200] text-[#4A4A4A] flex-1 text-center md:text-left">
                                     {project.title}
                                 </h1>
                                     {project.id === 1 && (
@@ -1852,7 +1922,7 @@
                                             href="https://apps.apple.com/us/app/goodspeak/id6755842265" 
                                             target="_blank" 
                                             rel="noopener noreferrer"
-                                            className="flex items-center gap-2 text-sm md:text-base text-[#4A4A4A] opacity-60 hover:opacity-100 transition-opacity font-[300] whitespace-nowrap mt-2 md:mt-4"
+                                            className="flex items-center justify-center md:justify-start gap-2 text-xs md:text-base text-[#4A4A4A] opacity-60 hover:opacity-100 transition-opacity font-[300] md:whitespace-nowrap mt-0 md:mt-4"
                                         >
                                             <span>goodSpeak on the App Store</span>
                                             <svg className="w-3 h-3 md:w-4 md:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1861,7 +1931,7 @@
                                         </a>
                                     )}
                                 </div>
-                                <div className="text-sm md:text-base text-[#4A4A4A] opacity-50 font-[300] mb-8">
+                                <div className="text-sm md:text-base text-[#4A4A4A] opacity-50 font-[300] mb-6 md:mb-8 text-center md:text-left">
                                     {project.quote}
                             </div>
                             </div>
