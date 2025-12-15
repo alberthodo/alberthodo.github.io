@@ -493,6 +493,138 @@
             }
         }
         
+        /* Mobile Menu Styles */
+        .mobile-menu-button {
+            display: none;
+            position: fixed;
+            top: 1.5rem;
+            right: 1.5rem;
+            z-index: 100;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+            width: 44px;
+            height: 44px;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 6px;
+        }
+        
+        @media (max-width: 768px) {
+            .mobile-menu-button {
+                display: flex;
+            }
+        }
+        
+        .mobile-menu-button span {
+            display: block;
+            width: 24px;
+            height: 1.5px;
+            background-color: var(--ink-black);
+            transition: all 0.3s ease;
+            transform-origin: center;
+        }
+        
+        .mobile-menu-button.open span:nth-child(1) {
+            transform: rotate(45deg) translate(6px, 6px);
+        }
+        
+        .mobile-menu-button.open span:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .mobile-menu-button.open span:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -6px);
+        }
+        
+        .mobile-menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: var(--rice-paper);
+            z-index: 99;
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            padding: 2rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .mobile-menu-overlay.open {
+            display: flex;
+            opacity: 1;
+        }
+        
+        .mobile-menu-overlay .mobile-nav-link {
+            font-size: 24px;
+            font-weight: 300;
+            color: var(--ink-black);
+            text-decoration: none;
+            letter-spacing: 0.05em;
+            transition: opacity 0.3s ease, color 0.3s ease;
+            position: relative;
+        }
+        
+        .mobile-menu-overlay .mobile-nav-link:hover,
+        .mobile-menu-overlay .mobile-nav-link:active {
+            opacity: 0.6;
+        }
+        
+        .mobile-menu-overlay .mobile-nav-link.active {
+            color: var(--aizome-blue);
+            font-weight: 500;
+        }
+        
+        .mobile-menu-overlay .mobile-nav-link.active::after {
+            content: '';
+            position: absolute;
+            left: -20px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 6px;
+            height: 6px;
+            background-color: var(--aizome-blue);
+            border-radius: 50%;
+        }
+        
+        @media (min-width: 769px) {
+            .mobile-menu-overlay {
+                display: none !important;
+            }
+        }
+        
+        /* Prevent body scroll when mobile menu is open */
+        body.mobile-menu-open {
+            overflow: hidden;
+        }
+        
+        /* Mobile-specific improvements */
+        @media (max-width: 768px) {
+            /* Better spacing for mobile sections */
+            section {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+            
+            /* Ensure content doesn't get cut off by fixed elements */
+            main {
+                padding-top: 1rem;
+            }
+            
+            /* Better touch targets */
+            a, button {
+                min-height: 44px;
+                min-width: 44px;
+            }
+        }
+        
         /* Hero Title Animation */
         .hero-title {
             opacity: 0;
@@ -797,69 +929,125 @@
 
         // Navigation Component - Vertical, editorial style
         const Navigation = ({ currentPage, onNavigate }) => {
+            const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
             const navItems = [
                 { id: 'home', label: 'Home' },
                 { id: 'work', label: 'Work' },
                 { id: 'art', label: 'Art' }
             ];
 
+            const handleMobileNavClick = (itemId) => {
+                onNavigate(itemId);
+                setMobileMenuOpen(false);
+            };
+
+            // Prevent body scroll when menu is open
+            useEffect(() => {
+                if (mobileMenuOpen) {
+                    document.body.classList.add('mobile-menu-open');
+                } else {
+                    document.body.classList.remove('mobile-menu-open');
+                }
+                return () => {
+                    document.body.classList.remove('mobile-menu-open');
+                };
+            }, [mobileMenuOpen]);
+
             return (
-                <nav className="fixed right-0 top-0 bottom-0 z-50 w-[120px] py-16 mr-4 md:mr-0 nav-animate">
-                    <div className="flex flex-col h-full justify-between">
-                        <div className={`flex flex-col items-end md:items-center ${currentPage !== 'home' ? 'hidden md:flex' : ''}`}>
-                            <div className="[writing-mode:vertical-rl] [text-orientation:mixed] rotate-180 fade-in-delay-1">
-                                <div className="text-ink-black text-body-s font-light tracking-[0.2em] opacity-40">
-                                    Portfolio
+                <>
+                    {/* Mobile Menu Button */}
+                    <button
+                        className={`mobile-menu-button ${mobileMenuOpen ? 'open' : ''}`}
+                        onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                        aria-label="Toggle menu"
+                    >
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+
+                    {/* Mobile Menu Overlay */}
+                    <div className={`mobile-menu-overlay ${mobileMenuOpen ? 'open' : ''}`}>
+                        {navItems.map((item) => (
+                            <a
+                                key={item.id}
+                                href={`#${item.id}`}
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                    handleMobileNavClick(item.id);
+                                }}
+                                className={`mobile-nav-link ${currentPage === item.id ? 'active' : ''}`}
+                            >
+                                {item.label}
+                            </a>
+                        ))}
+                        <a
+                            href="mailto:contact@example.com"
+                            className="mobile-nav-link"
+                            onClick={() => setMobileMenuOpen(false)}
+                        >
+                            Contact
+                        </a>
+                    </div>
+
+                    {/* Desktop Navigation - Hidden on mobile */}
+                    <nav className="hidden md:flex fixed right-0 top-0 bottom-0 z-50 w-[120px] py-16 mr-4 md:mr-0 nav-animate">
+                        <div className="flex flex-col h-full justify-between">
+                            <div className={`flex flex-col items-end md:items-center ${currentPage !== 'home' ? 'hidden md:flex' : ''}`}>
+                                <div className="[writing-mode:vertical-rl] [text-orientation:mixed] rotate-180 fade-in-delay-1">
+                                    <div className="text-ink-black text-body-s font-light tracking-[0.2em] opacity-40">
+                                        Portfolio
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div className="flex flex-col gap-8 items-end md:items-center">
-                            {navItems.map((item, index) => (
-                                <div key={item.id} className={`relative fade-in-delay-${Math.min(index + 2, 4)}`}>
+                            <div className="flex flex-col gap-8 items-end md:items-center">
+                                {navItems.map((item, index) => (
+                                    <div key={item.id} className={`relative fade-in-delay-${Math.min(index + 2, 4)}`}>
+                                        <a
+                                            href={`#${item.id}`}
+                                            onClick={(e) => {
+                                                e.preventDefault();
+                                                onNavigate(item.id);
+                                            }}
+                                            className={`nav-link text-xs relative ${currentPage === item.id ? 'active' : ''}`}
+                                        >
+                                            {item.label}
+                                        </a>
+                                    </div>
+                                ))}
+                                <div className={`relative mt-4 fade-in-delay-4`}>
                                     <a
-                                        href={`#${item.id}`}
-                                        onClick={(e) => {
-                                            e.preventDefault();
-                                            onNavigate(item.id);
-                                        }}
-                                        className={`nav-link text-xs relative ${currentPage === item.id ? 'active' : ''}`}
+                                        href="mailto:contact@example.com"
+                                        className="nav-link text-xs relative"
                                     >
-                                        {item.label}
+                                        Contact
                                     </a>
                                 </div>
-                            ))}
-                            <div className={`relative mt-4 fade-in-delay-4`}>
-                                <a
-                                    href="mailto:contact@example.com"
-                                    className="nav-link text-xs relative"
-                                >
-                                    Contact
-                                </a>
+                            </div>
+                            <div className={`flex flex-col items-end md:items-center gap-0 ${currentPage !== 'home' ? 'hidden md:flex' : ''}`}>
+                                <div className="flex flex-col items-end md:items-center gap-1 mb-2 fade-in-delay-3">
+                                    {[...Array(8)].map((_, i) => {
+                                        const reversedIndex = 7 - i;
+                                        const opacity = Math.max(0.2, 1 - (reversedIndex * 0.12));
+                                        const isDot = reversedIndex >= 4;
+                                        return (
+                                            <div
+                                                key={i}
+                                                className="w-px bg-[var(--fog-grey)]"
+                                                style={{
+                                                    height: isDot ? '2px' : '8px',
+                                                    opacity: opacity,
+                                                    borderRadius: isDot ? '50%' : '0'
+                                                }}
+                                            />
+                                        );
+                                    })}
+                                </div>
+                                <div className="w-px h-16 bg-[var(--fog-grey)] ml-auto md:mx-auto"></div>
                             </div>
                         </div>
-                        <div className={`flex flex-col items-end md:items-center gap-0 ${currentPage !== 'home' ? 'hidden md:flex' : ''}`}>
-                            <div className="flex flex-col items-end md:items-center gap-1 mb-2 fade-in-delay-3">
-                                {[...Array(8)].map((_, i) => {
-                                    const reversedIndex = 7 - i;
-                                    const opacity = Math.max(0.2, 1 - (reversedIndex * 0.12));
-                                    const isDot = reversedIndex >= 4;
-                                    return (
-                                        <div
-                                            key={i}
-                                            className="w-px bg-[var(--fog-grey)]"
-                                            style={{
-                                                height: isDot ? '2px' : '8px',
-                                                opacity: opacity,
-                                                borderRadius: isDot ? '50%' : '0'
-                                            }}
-                                        />
-                                    );
-                                })}
-                            </div>
-                            <div className="w-px h-16 bg-[var(--fog-grey)] ml-auto md:mx-auto"></div>
-                        </div>
-                    </div>
-                </nav>
+                    </nav>
+                </>
             );
         };
 
@@ -2154,8 +2342,8 @@
                         onError={(show) => setPasswordError(show !== false)}
                     />
                     <Navigation currentPage={currentPage} onNavigate={handleNavigate} />
-                    {/* Left Navigation - Mirror of right nav */}
-                    <nav className="fixed left-0 top-0 bottom-0 z-50 w-[120px] py-16 ml-4 md:ml-0 slide-in-left">
+                    {/* Left Navigation - Mirror of right nav - Hidden on mobile */}
+                    <nav className="hidden md:flex fixed left-0 top-0 bottom-0 z-50 w-[120px] py-16 ml-4 md:ml-0 slide-in-left">
                         <div className="flex flex-col h-full justify-between">
                             <div className={`flex flex-col items-start md:items-center ${currentPage !== 'home' ? 'hidden md:flex' : ''}`}>
                                 <div className="[writing-mode:vertical-rl] [text-orientation:mixed] rotate-180 fade-in-delay-1">
