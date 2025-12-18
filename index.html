@@ -933,7 +933,7 @@
             const navItems = [
                 { id: 'home', label: 'Home' },
                 { id: 'work', label: 'Work' },
-                { id: 'art', label: 'Art' }
+                { id: 'art', label: 'Exhibitions' }
             ];
 
             const handleMobileNavClick = (itemId) => {
@@ -1106,7 +1106,14 @@
             
             const handleSubmit = (e) => {
                 e.preventDefault();
-                if (password === '!HodoDesign') {
+                // Obfuscated password check to prevent plain text exposure
+                const check = (pwd) => {
+                    if (pwd.length !== 12) return false;
+                    const expected = [33, 72, 111, 100, 111, 68, 101, 115, 105, 103, 110];
+                    const actual = pwd.split('').map(c => c.charCodeAt(0));
+                    return expected.every((val, idx) => actual[idx] === val);
+                };
+                if (check(password)) {
                     onSuccess();
                     setPassword('');
                 } else {
