@@ -1057,7 +1057,7 @@
             const [subtitleWidth, setSubtitleWidth] = React.useState(null);
             const [letterSpacing, setLetterSpacing] = React.useState(0.65);
 
-            React.useEffect(() => {
+            const calculateSubtitle = React.useCallback(() => {
                 if (titleRef.current) {
                     const titleWidth = titleRef.current.offsetWidth;
                     setSubtitleWidth(titleWidth);
@@ -1070,6 +1070,35 @@
                     setLetterSpacing(calculatedSpacing);
                 }
             }, []);
+
+            React.useEffect(() => {
+                // Initial calculation
+                calculateSubtitle();
+
+                // Use ResizeObserver to watch for size changes
+                if (titleRef.current && typeof ResizeObserver !== 'undefined') {
+                    const resizeObserver = new ResizeObserver(() => {
+                        calculateSubtitle();
+                    });
+                    
+                    resizeObserver.observe(titleRef.current);
+                    
+                    return () => {
+                        resizeObserver.disconnect();
+                    };
+                } else {
+                    // Fallback to window resize for older browsers
+                    const handleResize = () => {
+                        calculateSubtitle();
+                    };
+                    
+                    window.addEventListener('resize', handleResize);
+                    
+                    return () => {
+                        window.removeEventListener('resize', handleResize);
+                    };
+                }
+            }, [calculateSubtitle]);
 
             return (
                 <section id="home" className="min-h-screen page-transition hero-section py-20 px-6 md:py-32 md:px-12 md:mx-4 md:ml-8 lg:px-16 flex flex-col justify-center items-center md:items-start">
