@@ -1258,7 +1258,7 @@
                         <div className="w-full md:max-w-[600px] lg:max-w-[1200px]">
                             <div className="divider mb-4"></div>
                             <div className="space-y-4">
-                                <div className="flex flex-wrap gap-2 md:gap-4 text-xs md:text-sm lg:text-base text-[#4A4A4A] opacity-60 font-[300] justify-center md:justify-start">
+                                <div className="flex flex-wrap gap-2 md:gap-4 text-xs md:text-sm lg:text-base text-[#4A4A4A] opacity-60 font-[300] justify-center md:justify-between">
                                     {content.role && <span>{content.role}</span>}
                                     {content.platforms && <span>· {content.platforms}</span>}
                                     {content.team && <span>· {content.team}</span>}
@@ -1269,7 +1269,7 @@
                         </div>
 
                         {/* TLDR */}
-                        {content.tldr && (
+                        {content.tldr && project.id !== 2 && (
                             <div className="space-y-6">
                                 <h2 className="font-light text-2xl md:text-3xl lg:text-[36px] leading-[1.2] tracking-[0.01em] font-[200] text-[#4A4A4A] mb-4 text-center md:text-left">
                                     TL;DR
@@ -1675,7 +1675,7 @@
                                 </h2>
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
                                     {content.impact.experiments.map((experiment, index) => (
-                                        <div key={index} className="space-y-4">
+                                        <div key={index} className="space-y-4 mb-8 md:mb-0">
                                             <div className="rounded-xl overflow-hidden bg-[var(--fog-grey)] aspect-square" style={{ backgroundColor: 'rgba(217, 214, 210, 0.25)' }}>
                                                 <img 
                                                     src={experiment.gif} 
@@ -1686,7 +1686,7 @@
                                             </div>
                                             <div>
                                                 <h3 className="text-lg md:text-xl font-[400] text-[#4A4A4A] mb-2 text-center md:text-left">{experiment.title}</h3>
-                                                <p className="text-sm md:text-base text-[#4A4A4A] opacity-70 font-[300] leading-[1.6] text-center md:text-left">{experiment.description}</p>
+                                                <div className="text-sm md:text-base text-[#4A4A4A] opacity-70 font-[300] leading-[1.6] text-center md:text-left whitespace-pre-line">{experiment.description}</div>
                                             </div>
                                         </div>
                                     ))}
@@ -2455,15 +2455,15 @@
                     link: '#work/project-2',
                     content: {
                         role: 'Interaction Designer',
-                        platforms: 'Research · Prototyping',
-                        team: 'Solo project',
+                        platforms: 'Exploration · Prototyping',
+                        team: 'Solo project (SwiftUI prototyping)',
                         duration: 'Ongoing',
                         tldr: 'Exploring how interaction design conveys meanings, emotions and a sense of presence or consciousness.',
                         impact: {
                             experiments: [
                                 {
-                                    title: 'Dark Mode Interface',
-                                    description: 'Exploring how visual design and interaction patterns can convey different emotional states and meanings.',
+                                    title: 'Dark Mode Toggle',
+                                    description: 'Can a playful toggle maintain clarity, accessibility, and delight at the same time?',
                                     gif: 'assets/lab/darkmode.gif'
                                 },
                                 {
