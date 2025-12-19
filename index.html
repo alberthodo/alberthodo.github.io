@@ -2088,9 +2088,9 @@
             );
         };
 
-        // Art Section - Bento grid layout for Interface Lab
+        // Art Section - Clean 2x2 grid for Interface Lab
         const Art = () => {
-            const cards = Array.from({ length: 8 }, (_, i) => ({ id: i + 1 }));
+            const cards = Array.from({ length: 4 }, (_, i) => ({ id: i + 1 }));
             
             const sectionRef = React.useRef(null);
             const isVisible = useIntersectionObserver(sectionRef, { threshold: 0.1 });
@@ -2103,27 +2103,25 @@
                                 <span className="tag tag-animate text-[10px] md:text-[11px] lg:text-[12px] tracking-[0.2em] font-bold opacity-40">Interface Lab</span>
                         </div>
 
-                        {/* Bento grid layout - Clean and balanced */}
-                        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-5 max-w-full">
+                        {/* Clean 2x2 grid layout */}
+                        <div className="grid grid-cols-2 gap-4 md:gap-6 max-w-full">
                             {cards.map((card, index) => {
-                                // All cards are 1 column wide, but can vary in height
-                                const isTall = index === 1 || index === 4 || index === 6;
-                                const hasGif = index === 0; // First card has the darkmode gif
+                                const hasGif = index === 0 || index === 1; // First two cards have gifs
+                                const gifSrc = index === 0 ? 'assets/lab/darkmode.gif' : 'assets/lab/search.gif';
+                                const gifAlt = index === 0 ? 'Dark mode interface' : 'Search interface';
                                 
                                 return (
                                     <div
                                         key={card.id}
-                                        className={`rounded-xl bg-[var(--fog-grey)] overflow-hidden ${isTall ? 'row-span-2' : ''}`}
+                                        className="rounded-xl bg-[var(--fog-grey)] overflow-hidden aspect-square"
                                         style={{
-                                            backgroundColor: 'rgba(217, 214, 210, 0.25)',
-                                            minHeight: isTall ? '240px' : '120px',
-                                            aspectRatio: isTall ? '1/2' : '1/1'
+                                            backgroundColor: 'rgba(217, 214, 210, 0.25)'
                                         }}
                                     >
                                         {hasGif ? (
                                             <img 
-                                                src="assets/lab/darkmode.gif" 
-                                                alt="Dark mode interface"
+                                                src={gifSrc} 
+                                                alt={gifAlt}
                                                 className="w-full h-full object-cover loaded"
                                                 onLoad={(e) => e.target.classList.add('loaded')}
                                             />
@@ -2137,7 +2135,7 @@
                                     </div>
                                 );
                             })}
-                                        </div>
+                        </div>
                         </div>
                     </div>
                 </section>
