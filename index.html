@@ -343,6 +343,7 @@
         }
         
         .work-project:hover .work-project-image img,
+        .work-project:hover .work-project-image video,
         .work-project:hover .work-project-image .image-placeholder {
             transform: scale(1.02);
             transition: transform 0.3s ease;
@@ -932,7 +933,6 @@
             const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
             const navItems = [
                 { id: 'home', label: 'Home' },
-                { id: 'art', label: 'Interface Lab' },
                 { id: 'work', label: 'Work' }
             ];
 
@@ -1667,8 +1667,35 @@
                             </div>
                         )}
 
+                        {/* Experiments - For Interaction Design Lab */}
+                        {content.impact && content.impact.experiments && (
+                            <div className="space-y-6">
+                                <h2 className="font-light text-2xl md:text-3xl lg:text-[36px] leading-[1.2] tracking-[0.01em] font-[200] text-[#4A4A4A] mb-6 md:mb-8 text-center md:text-left">
+                                    Experiments
+                                </h2>
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+                                    {content.impact.experiments.map((experiment, index) => (
+                                        <div key={index} className="space-y-4">
+                                            <div className="rounded-xl overflow-hidden bg-[var(--fog-grey)] aspect-square" style={{ backgroundColor: 'rgba(217, 214, 210, 0.25)' }}>
+                                                <img 
+                                                    src={experiment.gif} 
+                                                    alt={experiment.title}
+                                                    className="w-full h-full object-cover loaded"
+                                                    onLoad={(e) => e.target.classList.add('loaded')}
+                                                />
+                                            </div>
+                                            <div>
+                                                <h3 className="text-lg md:text-xl font-[400] text-[#4A4A4A] mb-2 text-center md:text-left">{experiment.title}</h3>
+                                                <p className="text-sm md:text-base text-[#4A4A4A] opacity-70 font-[300] leading-[1.6] text-center md:text-left">{experiment.description}</p>
+                                            </div>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                        )}
+
                         {/* The Design */}
-                        {content.impact && (
+                        {content.impact && !content.impact.experiments && (
                             <div className="space-y-6">
                                 <h2 className="font-light text-2xl md:text-3xl lg:text-[36px] leading-[1.2] tracking-[0.01em] font-[200] text-[#4A4A4A] mb-4 text-center md:text-left">
                                     The Design
@@ -1917,13 +1944,27 @@
                                 ← Back to Portfolio
                             </button>
                             {(project.heroImage || project.image) && (
-                                <div className={`mb-4 md:mb-8 scale-in ${isVisible ? 'scale-in' : ''}`} style={{ animationDelay: '0.1s' }}>
-                                    <img 
-                                        src={project.heroImage || project.image} 
-                                        alt={project.title} 
-                                        className="w-full h-auto rounded-xl"
-                                        onLoad={(e) => e.target.classList.add('loaded')}
-                                    />
+                                <div className={`mb-4 md:mb-8 scale-in ${isVisible ? 'scale-in' : ''} ${project.id === 2 ? 'overflow-hidden rounded-xl' : ''}`} style={{ animationDelay: '0.1s' }}>
+                                    {project.id === 2 ? (
+                                        <video 
+                                            src={project.image}
+                                            className="w-full h-auto rounded-xl"
+                                            style={{ transform: 'scale(1.15)', transformOrigin: 'center center', width: '100%', height: 'auto' }}
+                                            autoPlay
+                                            loop
+                                            muted
+                                            playsInline
+                                            controls={false}
+                                            onLoadedData={(e) => e.target.classList.add('loaded')}
+                                        />
+                                    ) : (
+                                        <img 
+                                            src={project.heroImage || project.image} 
+                                            alt={project.title} 
+                                            className="w-full h-auto rounded-xl"
+                                            onLoad={(e) => e.target.classList.add('loaded')}
+                                        />
+                                    )}
                             </div>
                             )}
                             <div className={`mb-6 md:mb-8 fade-in-delay-2 ${isVisible ? 'fade-in-delay-2' : ''}`}>
@@ -1957,10 +1998,10 @@
         };
 
         // Work Item Component with Scroll Animation
-        const WorkItem = ({ project, index, onProjectSelect }) => {
+        const WorkItem = ({ project, index, onProjectSelect, isProjectLocked }) => {
             const itemRef = React.useRef(null);
             const isVisible = useIntersectionObserver(itemRef, { threshold: 0.15 });
-            const isClickable = project.id !== 4; // Knack app is not clickable
+            const isClickable = true; // All projects are clickable
 
             return (
                 <article 
@@ -1978,13 +2019,26 @@
                                             <div className={`work-project-image w-full xl:w-[70%] flex items-stretch relative ${index % 2 === 0 ? 'xl:order-1' : 'xl:order-2'}`}>
                                                 {project.image ? (
                                                     <>
-                                        <img 
-                                            src={project.image} 
-                                            alt={project.title} 
-                                            className="w-full h-auto min-h-[250px] md:min-h-[300px] xl:h-full xl:min-h-[500px] object-cover rounded-xl"
-                                            onLoad={(e) => e.target.classList.add('loaded')}
-                                        />
-                                                        {(project.id === 2 || project.id === 3) && (
+                                                        {project.id === 2 ? (
+                                                            <video 
+                                                                src={project.image}
+                                                                className="w-full h-auto min-h-[250px] md:min-h-[300px] xl:h-full xl:min-h-[500px] object-cover rounded-xl"
+                                                                autoPlay
+                                                                loop
+                                                                muted
+                                                                playsInline
+                                                                controls={false}
+                                                                onLoadedData={(e) => e.target.classList.add('loaded')}
+                                                            />
+                                                        ) : (
+                                                            <img 
+                                                                src={project.image} 
+                                                                alt={project.title} 
+                                                                className="w-full h-auto min-h-[250px] md:min-h-[300px] xl:h-full xl:min-h-[500px] object-cover rounded-xl"
+                                                                onLoad={(e) => e.target.classList.add('loaded')}
+                                                            />
+                                                        )}
+                                                        {isProjectLocked && isProjectLocked(project.id) && (
                                                             <div className="work-project-lock-overlay absolute inset-0 flex items-center justify-center bg-black bg-opacity-20 rounded-xl opacity-0 transition-opacity duration-300">
                                                 <img src="assets/lock.fill.svg" alt="Locked" className="w-20 h-20 md:w-24 md:h-24 lg:w-32 lg:h-32 opacity-60 loaded" />
                                                             </div>
@@ -2017,7 +2071,7 @@
         };
 
         // Work Section - Clean editorial layout
-        const Work = ({ selectedProject, onProjectSelect, projects }) => {
+        const Work = ({ selectedProject, onProjectSelect, projects, isProjectLocked }) => {
             const sectionRef = React.useRef(null);
             const isVisible = useIntersectionObserver(sectionRef, { threshold: 0.1 });
 
@@ -2036,6 +2090,7 @@
                                         project={project}
                                         index={index}
                                         onProjectSelect={onProjectSelect}
+                                        isProjectLocked={isProjectLocked}
                                     />
                                 ))}
                             </div>
@@ -2135,7 +2190,7 @@
                                     </div>
                                 );
                             })}
-                        </div>
+                                        </div>
                         </div>
                     </div>
                 </section>
@@ -2175,7 +2230,7 @@
             
             // Check if project is locked
             const isProjectLocked = (projectId) => {
-                return projectId === 2 || projectId === 3;
+                return projectId === 3 || projectId === 4;
             };
 
             useEffect(() => {
@@ -2192,14 +2247,17 @@
                             setPasswordModalOpen(true);
                             setPasswordError(false);
                         } else {
-                        setSelectedProject(projectId);
-                        setCurrentPage('work');
-                        window.scrollTo({ top: 0, behavior: 'instant' });
+                            setSelectedProject(projectId);
+                            setCurrentPage('work');
+                            window.scrollTo({ top: 0, behavior: 'instant' });
                         }
                     } else {
                         scrollToSection(hash);
                         setCurrentPage(hash);
                     }
+                } else {
+                    // No hash, check if we should default to home
+                    setCurrentPage('home');
                 }
 
                 // Handle hash changes
@@ -2232,7 +2290,12 @@
 
                 // Handle scroll to update active nav (only when not viewing project detail)
                 const handleScroll = () => {
-                    if (selectedProject) return; // Don't update nav when viewing project detail
+                    // Don't update nav when viewing project detail or during programmatic navigation
+                    if (selectedProject || isProgrammaticNavigation.current) return;
+                    
+                    // Don't update if URL contains a project hash
+                    const currentHash = window.location.hash.slice(1);
+                    if (currentHash && currentHash.match(/work\/project-(\d+)/)) return;
                     
                     const sections = ['home', 'work', 'art'];
                     const scrollPosition = window.scrollY + 200;
@@ -2304,14 +2367,15 @@
                 
                 // Project is unlocked or authenticated, show it
                 isProgrammaticNavigation.current = true;
+                // Update URL first, then set state
+                window.history.replaceState(null, '', `#work/project-${projectId}`);
                 setSelectedProject(projectId);
                 setCurrentPage('work');
-                window.history.replaceState(null, '', `#work/project-${projectId}`);
                 window.scrollTo({ top: 0, behavior: 'instant' });
                 setTimeout(() => {
                     window.scrollTo({ top: 0, behavior: 'instant' });
                     isProgrammaticNavigation.current = false;
-                }, 0);
+                }, 100);
             };
             
             const handlePasswordSuccess = () => {
@@ -2383,29 +2447,50 @@
                 },
                 { 
                     id: 2, 
+                    title: 'Interaction Design Lab', 
+                    category: 'Experiments', 
+                    year: '2025',
+                    quote: 'Exploring how interaction design conveys meanings, emotions and a sense of presence or consciousness.',
+                    image: 'assets/lab/ixd.mov',
+                    link: '#work/project-2',
+                    content: {
+                        role: 'Interaction Designer',
+                        platforms: 'Research · Prototyping',
+                        team: 'Solo project',
+                        duration: 'Ongoing',
+                        tldr: 'Exploring how interaction design conveys meanings, emotions and a sense of presence or consciousness.',
+                        impact: {
+                            experiments: [
+                                {
+                                    title: 'Dark Mode Interface',
+                                    description: 'Exploring how visual design and interaction patterns can convey different emotional states and meanings.',
+                                    gif: 'assets/lab/darkmode.gif'
+                                },
+                                {
+                                    title: 'Search Interface',
+                                    description: 'Investigating how search interactions can create a sense of presence and responsiveness.',
+                                    gif: 'assets/lab/search.gif'
+                                }
+                            ]
+                        }
+                    }
+                },
+                { 
+                    id: 3, 
                     title: 'Apple Retail Experience Design', 
                     category: 'Service Design', 
                     year: '2024',
                     quote: 'Identifying customer needs through UX research and designing new service approaches for business clients, contributing to market-leading performance.',
                     image: 'assets/apple.png',
-                    link: '#work/project-2'
+                    link: '#work/project-3'
                 },
                 { 
-                    id: 3, 
+                    id: 4, 
                     title: 'Meta Internal Tools', 
                     category: 'Software Engineering', 
                     year: '2020',
                     quote: 'Solving software engineering problems under the guidance of Engineering managers, with focus on technical mentorship and growth.',
                     image: 'assets/meta.png',
-                    link: '#work/project-3'
-                },
-                { 
-                    id: 4, 
-                    title: 'KnackApp Mobile UX Redesign', 
-                    category: 'UX Design', 
-                    year: '2019',
-                    quote: "Leading the UX design for a multi-award-winning game, driving a 67% increase in user base, and redesigning the platform's app ecosystem.",
-                    image: 'assets/knack.png',
                     link: '#work/project-4'
                 }
             ];
@@ -2465,8 +2550,7 @@
                         ) : (
                             <>
                                 <Home />
-                                <Art />
-                                <Work selectedProject={selectedProject} onProjectSelect={handleProjectSelect} projects={projects} />
+                                <Work selectedProject={selectedProject} onProjectSelect={handleProjectSelect} projects={projects} isProjectLocked={isProjectLocked} />
                             </>
                         )}
                     </main>
