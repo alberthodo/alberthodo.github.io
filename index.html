@@ -932,8 +932,8 @@
             const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
             const navItems = [
                 { id: 'home', label: 'Home' },
-                { id: 'work', label: 'Work' },
-                { id: 'art', label: 'Exhibitions' }
+                { id: 'art', label: 'Interface Lab' },
+                { id: 'work', label: 'Work' }
             ];
 
             const handleMobileNavClick = (itemId) => {
@@ -994,59 +994,59 @@
                     <nav className="hidden md:flex fixed top-0 bottom-0 z-50 w-[120px] py-16 pr-0 nav-animate" style={{ right: '2rem' }}>
                         <div className="flex flex-col h-full justify-between w-full items-end pr-4">
                             <div className={`flex flex-col items-end ${currentPage !== 'home' ? 'hidden md:flex' : ''}`}>
-                                <div className="[writing-mode:vertical-rl] [text-orientation:mixed] rotate-180 fade-in-delay-1">
-                                    <div className="text-ink-black text-body-s font-light tracking-[0.2em] opacity-40">
-                                        Portfolio
-                                    </div>
+                            <div className="[writing-mode:vertical-rl] [text-orientation:mixed] rotate-180 fade-in-delay-1">
+                                <div className="text-ink-black text-body-s font-light tracking-[0.2em] opacity-40">
+                                    Portfolio
                                 </div>
-                            </div>
-                            <div className="flex flex-col gap-8 items-end">
-                                {navItems.map((item, index) => (
-                                    <div key={item.id} className={`relative fade-in-delay-${Math.min(index + 2, 4)}`}>
-                                        <a
-                                            href={`#${item.id}`}
-                                            onClick={(e) => {
-                                                e.preventDefault();
-                                                onNavigate(item.id);
-                                            }}
-                                            className={`nav-link text-xs relative ${currentPage === item.id ? 'active' : ''}`}
-                                        >
-                                            {item.label}
-                                        </a>
-                                    </div>
-                                ))}
-                                <div className={`relative mt-4 fade-in-delay-4`}>
-                                    <a
-                                        href="mailto:contact@example.com"
-                                        className="nav-link text-xs relative"
-                                    >
-                                        Contact
-                                    </a>
-                                </div>
-                            </div>
-                            <div className={`flex flex-col items-end gap-0 ${currentPage !== 'home' ? 'hidden md:flex' : ''}`}>
-                                <div className="flex flex-col items-end gap-1 mb-2 fade-in-delay-3">
-                                    {[...Array(8)].map((_, i) => {
-                                        const reversedIndex = 7 - i;
-                                        const opacity = Math.max(0.2, 1 - (reversedIndex * 0.12));
-                                        const isDot = reversedIndex >= 4;
-                                        return (
-                                            <div
-                                                key={i}
-                                                className="w-px bg-[var(--fog-grey)]"
-                                                style={{
-                                                    height: isDot ? '2px' : '8px',
-                                                    opacity: opacity,
-                                                    borderRadius: isDot ? '50%' : '0'
-                                                }}
-                                            />
-                                        );
-                                    })}
-                                </div>
-                                <div className="w-px h-16 bg-[var(--fog-grey)]"></div>
                             </div>
                         </div>
-                    </nav>
+                            <div className="flex flex-col gap-8 items-end">
+                            {navItems.map((item, index) => (
+                                <div key={item.id} className={`relative fade-in-delay-${Math.min(index + 2, 4)}`}>
+                                    <a
+                                        href={`#${item.id}`}
+                                        onClick={(e) => {
+                                            e.preventDefault();
+                                            onNavigate(item.id);
+                                        }}
+                                        className={`nav-link text-xs relative ${currentPage === item.id ? 'active' : ''}`}
+                                    >
+                                        {item.label}
+                                    </a>
+                                </div>
+                            ))}
+                            <div className={`relative mt-4 fade-in-delay-4`}>
+                                <a
+                                    href="mailto:contact@example.com"
+                                    className="nav-link text-xs relative"
+                                >
+                                    Contact
+                                </a>
+                            </div>
+                        </div>
+                            <div className={`flex flex-col items-end gap-0 ${currentPage !== 'home' ? 'hidden md:flex' : ''}`}>
+                                <div className="flex flex-col items-end gap-1 mb-2 fade-in-delay-3">
+                                {[...Array(8)].map((_, i) => {
+                                    const reversedIndex = 7 - i;
+                                    const opacity = Math.max(0.2, 1 - (reversedIndex * 0.12));
+                                    const isDot = reversedIndex >= 4;
+                                    return (
+                                        <div
+                                            key={i}
+                                            className="w-px bg-[var(--fog-grey)]"
+                                            style={{
+                                                height: isDot ? '2px' : '8px',
+                                                opacity: opacity,
+                                                borderRadius: isDot ? '50%' : '0'
+                                            }}
+                                        />
+                                    );
+                                })}
+                            </div>
+                                <div className="w-px h-16 bg-[var(--fog-grey)]"></div>
+                        </div>
+                    </div>
+                </nav>
                 </>
             );
         };
@@ -1503,72 +1503,72 @@
                                                         const isChosen = image.chosen;
                                                         return (
                                                             <div key={imgIndex} className="space-y-3 md:space-y-0">
-                                                                <div 
-                                                                    className="relative w-full aspect-square min-h-[40px] md:min-h-[80px] rounded-xl overflow-visible bg-[var(--fog-grey)] group" 
-                                                                    style={{ backgroundColor: 'rgba(217, 214, 210, 0.15)' }}
-                                                                >
-                                                                    {/* Icon indicator */}
+                                                            <div 
+                                                                className="relative w-full aspect-square min-h-[40px] md:min-h-[80px] rounded-xl overflow-visible bg-[var(--fog-grey)] group" 
+                                                                style={{ backgroundColor: 'rgba(217, 214, 210, 0.15)' }}
+                                                            >
+                                                                {/* Icon indicator */}
                                                                     <div className="absolute top-4 md:top-8 lg:top-10 right-4 md:right-10 lg:right-12 z-20">
-                                                                        {isChosen ? (
-                                                                            <div className="w-4 h-4 md:w-5 md:h-5 rounded-full bg-gray-500 flex items-center justify-center">
+                                                                    {isChosen ? (
+                                                                        <div className="w-4 h-4 md:w-5 md:h-5 rounded-full bg-gray-500 flex items-center justify-center">
+                                                                            <svg className="w-2.5 h-2.5 md:w-3 md:h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
+                                                                            </svg>
+                                                                        </div>
+                                                                    ) : (
+                                                                        <div className="w-4 h-4 md:w-5 md:h-5 rounded-full border-2 border-gray-300 flex items-center justify-center">
+                                                                            <div className="w-2 h-2 md:w-2.5 md:h-2.5 rounded-full bg-gray-300"></div>
+                                                                        </div>
+                                                                    )}
+                                                                </div>
+                                                                    <div className="w-full h-full px-4 py-6 md:py-8 lg:py-10 flex items-center justify-center overflow-hidden rounded-xl">
+                                                                    <img 
+                                                                        src={image.path} 
+                                                                        alt={image.name || `${row.title} experiment ${imgIndex + 1}`}
+                                                                        className="max-w-full max-h-full object-contain rounded-lg"
+                                                                        onLoad={(e) => e.target.classList.add('loaded')}
+                                                                    />
+                                                                </div>
+                                                                    {/* Hover Tooltip - Hidden on mobile, shown on hover/click for desktop */}
+                                                                    <div className="absolute inset-0 bg-[#4A4A4A] bg-opacity-85 rounded-xl p-3 md:p-6 opacity-0 md:group-hover:opacity-100 transition-opacity duration-200 z-30 overflow-y-auto hidden md:block">
+                                                                    {/* Checkmark in tooltip */}
+                                                                    {isChosen && (
+                                                                        <div className="absolute top-8 md:top-10 right-10 md:right-12 z-40">
+                                                                            <div className="w-4 h-4 md:w-5 md:h-5 rounded-full bg-green-500 flex items-center justify-center">
                                                                                 <svg className="w-2.5 h-2.5 md:w-3 md:h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
                                                                                 </svg>
                                                                             </div>
-                                                                        ) : (
-                                                                            <div className="w-4 h-4 md:w-5 md:h-5 rounded-full border-2 border-gray-300 flex items-center justify-center">
-                                                                                <div className="w-2 h-2 md:w-2.5 md:h-2.5 rounded-full bg-gray-300"></div>
-                                                                            </div>
-                                                                        )}
-                                                                    </div>
-                                                                    <div className="w-full h-full px-4 py-6 md:py-8 lg:py-10 flex items-center justify-center overflow-hidden rounded-xl">
-                                                                        <img 
-                                                                            src={image.path} 
-                                                                            alt={image.name || `${row.title} experiment ${imgIndex + 1}`}
-                                                                            className="max-w-full max-h-full object-contain rounded-lg"
-                                                                            onLoad={(e) => e.target.classList.add('loaded')}
-                                                                        />
-                                                                    </div>
-                                                                    {/* Hover Tooltip - Hidden on mobile, shown on hover/click for desktop */}
-                                                                    <div className="absolute inset-0 bg-[#4A4A4A] bg-opacity-85 rounded-xl p-3 md:p-6 opacity-0 md:group-hover:opacity-100 transition-opacity duration-200 z-30 overflow-y-auto hidden md:block">
-                                                                        {/* Checkmark in tooltip */}
-                                                                        {isChosen && (
-                                                                            <div className="absolute top-8 md:top-10 right-10 md:right-12 z-40">
-                                                                                <div className="w-4 h-4 md:w-5 md:h-5 rounded-full bg-green-500 flex items-center justify-center">
-                                                                                    <svg className="w-2.5 h-2.5 md:w-3 md:h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
-                                                                                    </svg>
-                                                                                </div>
-                                                                            </div>
-                                                                        )}
-                                                                        <div className="space-y-3 text-white">
-                                                                            <h5 className="text-sm md:text-base font-[500] mb-2">{image.name}</h5>
-                                                                            {image.pros && image.pros.length > 0 && (
-                                                                                <div>
-                                                                                    <p className="text-xs md:text-sm font-[500] mb-1 opacity-90">Pros:</p>
-                                                                                    <ul className="text-xs md:text-sm font-[300] opacity-80 space-y-1 list-disc list-inside">
-                                                                                        {image.pros.map((pro, i) => (
-                                                                                            <li key={i}>{pro}</li>
-                                                                                        ))}
-                                                                                    </ul>
-                                                                                </div>
-                                                                            )}
-                                                                            {image.cons && image.cons.length > 0 && (
-                                                                                <div>
-                                                                                    <p className="text-xs md:text-sm font-[500] mb-1 opacity-90">Cons:</p>
-                                                                                    <ul className="text-xs md:text-sm font-[300] opacity-80 space-y-1 list-disc list-inside">
-                                                                                        {image.cons.map((con, i) => (
-                                                                                            <li key={i}>{con}</li>
-                                                                                        ))}
-                                                                                    </ul>
-                                                                                </div>
-                                                                            )}
-                                                                            {image.rationale && (
-                                                                                <div className="mt-3 pt-3 border-t border-white border-opacity-20">
-                                                                                    <p className="text-xs md:text-sm font-[400] opacity-90 italic">{image.rationale}</p>
-                                                                                </div>
-                                                                            )}
                                                                         </div>
+                                                                    )}
+                                                                    <div className="space-y-3 text-white">
+                                                                        <h5 className="text-sm md:text-base font-[500] mb-2">{image.name}</h5>
+                                                                        {image.pros && image.pros.length > 0 && (
+                                                                            <div>
+                                                                                <p className="text-xs md:text-sm font-[500] mb-1 opacity-90">Pros:</p>
+                                                                                <ul className="text-xs md:text-sm font-[300] opacity-80 space-y-1 list-disc list-inside">
+                                                                                    {image.pros.map((pro, i) => (
+                                                                                        <li key={i}>{pro}</li>
+                                                                                    ))}
+                                                                                </ul>
+                                                                            </div>
+                                                                        )}
+                                                                        {image.cons && image.cons.length > 0 && (
+                                                                            <div>
+                                                                                <p className="text-xs md:text-sm font-[500] mb-1 opacity-90">Cons:</p>
+                                                                                <ul className="text-xs md:text-sm font-[300] opacity-80 space-y-1 list-disc list-inside">
+                                                                                    {image.cons.map((con, i) => (
+                                                                                        <li key={i}>{con}</li>
+                                                                                    ))}
+                                                                                </ul>
+                                                                            </div>
+                                                                        )}
+                                                                        {image.rationale && (
+                                                                            <div className="mt-3 pt-3 border-t border-white border-opacity-20">
+                                                                                <p className="text-xs md:text-sm font-[400] opacity-90 italic">{image.rationale}</p>
+                                                                            </div>
+                                                                        )}
+                                                                    </div>
                                                                     </div>
                                                                 </div>
                                                                 {/* Mobile: Show info below image */}
@@ -1810,12 +1810,12 @@
                                     {/* Mobile: Stack layout, Desktop: Overlay layout */}
                                     <div className="md:rounded-xl md:overflow-hidden md:relative md:aspect-[20/9] px-0 md:px-6 mb-6 md:mb-0" style={{ backgroundColor: '#EBEBEB' }}>
                                         <div className="md:hidden rounded-xl overflow-hidden mb-4 p-4" style={{ backgroundColor: '#EBEBEB' }}>
-                                            <img 
-                                                src="assets/gs-assets/detailed.png" 
-                                                alt="Detailed view"
+                                        <img 
+                                            src="assets/gs-assets/detailed.png" 
+                                            alt="Detailed view"
                                                 className="w-full h-auto object-contain"
-                                                onLoad={(e) => e.target.classList.add('loaded')}
-                                            />
+                                            onLoad={(e) => e.target.classList.add('loaded')}
+                                        />
                                         </div>
                                         <img 
                                             src="assets/gs-assets/detailed.png" 
@@ -1832,12 +1832,12 @@
                                     </div>
                                     <div className="md:rounded-xl md:overflow-hidden md:relative md:aspect-[20/9] px-0 md:px-6 mt-4 md:mt-6 mb-6 md:mb-0" style={{ backgroundColor: '#EBEBEB' }}>
                                         <div className="md:hidden rounded-xl overflow-hidden mb-4 p-4" style={{ backgroundColor: '#EBEBEB' }}>
-                                            <img 
-                                                src="assets/gs-assets/filter.png" 
-                                                alt="Filter view"
+                                        <img 
+                                            src="assets/gs-assets/filter.png" 
+                                            alt="Filter view"
                                                 className="w-full h-auto object-contain"
-                                                onLoad={(e) => e.target.classList.add('loaded')}
-                                            />
+                                            onLoad={(e) => e.target.classList.add('loaded')}
+                                        />
                                         </div>
                                         <img 
                                             src="assets/gs-assets/filter.png" 
@@ -1854,12 +1854,12 @@
                                     </div>
                                     <div className="md:rounded-xl md:overflow-hidden md:relative md:aspect-[20/9] px-0 md:px-6 mt-4 md:mt-6" style={{ backgroundColor: '#EBEBEB' }}>
                                         <div className="md:hidden rounded-xl overflow-hidden mb-4 p-4" style={{ backgroundColor: '#EBEBEB' }}>
-                                            <img 
-                                                src="assets/gs-assets/aiChat.png" 
-                                                alt="AI Chat view"
+                                        <img 
+                                            src="assets/gs-assets/aiChat.png" 
+                                            alt="AI Chat view"
                                                 className="w-full h-auto object-contain"
-                                                onLoad={(e) => e.target.classList.add('loaded')}
-                                            />
+                                            onLoad={(e) => e.target.classList.add('loaded')}
+                                        />
                                         </div>
                                         <img 
                                             src="assets/gs-assets/aiChat.png" 
@@ -2088,59 +2088,55 @@
             );
         };
 
-        // Art Section - Editorial grid layout
+        // Art Section - Bento grid layout for Interface Lab
         const Art = () => {
-            const artworks = [
-                { 
-                    id: 1, 
-                    title: 'Afrotechnohistory', 
-                    venue: 'Jacobs Institute of Design, California', 
-                    year: '2023',
-                    image: 'assets/art/afro.png'
-                },
-                { 
-                    id: 2, 
-                    title: 'Dynamic Tangible Interfaces', 
-                    venue: 'Jacobs Institute of Design, California', 
-                    year: '2023',
-                    image: 'assets/art/dtui.jpg'
-                },
-                { 
-                    id: 3, 
-                    title: 'Mycorrhizae', 
-                    venue: 'Jacobs Institute of Design, California', 
-                    year: '2022',
-                    image: 'assets/art/mycorr.jpeg'
-                },
-                { 
-                    id: 4, 
-                    title: 'Wabi-Sabi Algorithms', 
-                    venue: 'Coming Soon', 
-                    year: '',
-                    image: null
-                }
-            ];
+            const cards = Array.from({ length: 8 }, (_, i) => ({ id: i + 1 }));
             
             const sectionRef = React.useRef(null);
             const isVisible = useIntersectionObserver(sectionRef, { threshold: 0.1 });
 
             return (
-                <section id="art" ref={sectionRef} className="page-transition py-20 px-6 md:py-32 md:px-12 md:mx-4 md:ml-8 lg:px-16 xl:px-16">
+                <section id="art" ref={sectionRef} className="page-transition py-12 px-6 md:py-16 md:px-12 md:mx-4 md:ml-8 lg:px-16 xl:px-16 min-h-screen flex items-center">
                     <div className="container-wide pl-0 w-full">
                         <div className="max-w-full md:max-w-[600px] lg:max-w-[1200px] mx-auto">
-                            <div className={`mb-12 md:mb-20 text-center md:text-left scroll-reveal ${isVisible ? 'revealed' : ''}`}>
-                                <span className="tag tag-animate text-[10px] md:text-[11px] lg:text-[12px] tracking-[0.2em] font-bold opacity-40">New Media Art</span>
+                            <div className={`mb-8 md:mb-10 text-center md:text-left scroll-reveal ${isVisible ? 'revealed' : ''}`}>
+                                <span className="tag tag-animate text-[10px] md:text-[11px] lg:text-[12px] tracking-[0.2em] font-bold opacity-40">Interface Lab</span>
                         </div>
 
-                        {/* Editorial grid layout - mobile first: 1 column, then 2, then 3 */}
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 max-w-full">
-                                {artworks.map((artwork, index) => (
-                                    <ArtItem 
-                                        key={artwork.id} 
-                                        artwork={artwork}
-                                        index={index}
-                                    />
-                                ))}
+                        {/* Bento grid layout - Clean and balanced */}
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-5 max-w-full">
+                            {cards.map((card, index) => {
+                                // All cards are 1 column wide, but can vary in height
+                                const isTall = index === 1 || index === 4 || index === 6;
+                                const hasGif = index === 0; // First card has the darkmode gif
+                                
+                                return (
+                                    <div
+                                        key={card.id}
+                                        className={`rounded-xl bg-[var(--fog-grey)] overflow-hidden ${isTall ? 'row-span-2' : ''}`}
+                                        style={{
+                                            backgroundColor: 'rgba(217, 214, 210, 0.25)',
+                                            minHeight: isTall ? '240px' : '120px',
+                                            aspectRatio: isTall ? '1/2' : '1/1'
+                                        }}
+                                    >
+                                        {hasGif ? (
+                                            <img 
+                                                src="assets/lab/darkmode.gif" 
+                                                alt="Dark mode interface"
+                                                className="w-full h-full object-cover loaded"
+                                                onLoad={(e) => e.target.classList.add('loaded')}
+                                            />
+                                        ) : (
+                                            <div className="w-full h-full flex items-center justify-center p-4 md:p-6">
+                                                <div className="text-center text-[#4A4A4A] opacity-20 text-xs md:text-sm font-[300]">
+                                                    {card.id}
+                                                </div>
+                                            </div>
+                                        )}
+                                    </div>
+                                );
+                            })}
                                         </div>
                         </div>
                     </div>
@@ -2471,8 +2467,8 @@
                         ) : (
                             <>
                                 <Home />
-                                <Work selectedProject={selectedProject} onProjectSelect={handleProjectSelect} projects={projects} />
                                 <Art />
+                                <Work selectedProject={selectedProject} onProjectSelect={handleProjectSelect} projects={projects} />
                             </>
                         )}
                     </main>
