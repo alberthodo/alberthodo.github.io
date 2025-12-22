@@ -47,6 +47,15 @@
     }
     </script>
     
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-KBQXLMZL6B"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-KBQXLMZL6B');
+    </script>
+    
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -928,6 +937,62 @@
     <script type="text/babel">
         const { useState, useEffect } = React;
 
+        // Google Analytics Tracking Functions
+        const trackEvent = (eventName, eventParams = {}) => {
+            if (typeof gtag !== 'undefined') {
+                gtag('event', eventName, eventParams);
+            }
+        };
+
+        const trackPageView = (pageName, pagePath) => {
+            if (typeof gtag !== 'undefined') {
+                gtag('config', 'G-KBQXLMZL6B', {
+                    page_path: pagePath,
+                    page_title: pageName
+                });
+            }
+        };
+
+        // Scroll depth tracking - tracks per page
+        let trackedThresholds = new Set();
+        let currentPagePath = '';
+        
+        const setupScrollTracking = () => {
+            const scrollThresholds = [25, 50, 75, 100];
+            
+            // Reset thresholds when page changes
+            const newPagePath = window.location.pathname + window.location.hash;
+            if (newPagePath !== currentPagePath) {
+                trackedThresholds.clear();
+                currentPagePath = newPagePath;
+            }
+            
+            const handleScroll = () => {
+                const windowHeight = window.innerHeight;
+                const documentHeight = document.documentElement.scrollHeight;
+                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                const scrollPercentage = Math.round((scrollTop / (documentHeight - windowHeight)) * 100);
+                
+                scrollThresholds.forEach(threshold => {
+                    const thresholdKey = `${currentPagePath}_${threshold}`;
+                    if (scrollPercentage >= threshold && !trackedThresholds.has(thresholdKey)) {
+                        trackedThresholds.add(thresholdKey);
+                        trackEvent('scroll_depth', {
+                            scroll_percentage: threshold,
+                            page_path: currentPagePath
+                        });
+                    }
+                });
+            };
+
+            window.addEventListener('scroll', handleScroll, { passive: true });
+            
+            // Return cleanup function
+            return () => {
+                window.removeEventListener('scroll', handleScroll);
+            };
+        };
+
         // Navigation Component - Vertical, editorial style
         const Navigation = ({ currentPage, onNavigate }) => {
             const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -937,6 +1002,11 @@
             ];
 
             const handleMobileNavClick = (itemId) => {
+                trackEvent('navigation_click', {
+                    navigation_type: 'mobile',
+                    destination: itemId,
+                    current_page: currentPage
+                });
                 onNavigate(itemId);
                 setMobileMenuOpen(false);
             };
@@ -984,7 +1054,13 @@
                         <a
                             href="mailto:contact@example.com"
                             className="mobile-nav-link"
-                            onClick={() => setMobileMenuOpen(false)}
+                            onClick={() => {
+                                trackEvent('contact_click', {
+                                    contact_type: 'email',
+                                    location: 'mobile_nav'
+                                });
+                                setMobileMenuOpen(false);
+                            }}
                         >
                             Contact
                         </a>
@@ -1007,6 +1083,11 @@
                                         href={`#${item.id}`}
                                         onClick={(e) => {
                                             e.preventDefault();
+                                            trackEvent('navigation_click', {
+                                                navigation_type: 'desktop',
+                                                destination: item.id,
+                                                current_page: currentPage
+                                            });
                                             onNavigate(item.id);
                                         }}
                                         className={`nav-link text-xs relative ${currentPage === item.id ? 'active' : ''}`}
@@ -1019,6 +1100,12 @@
                                 <a
                                     href="mailto:contact@example.com"
                                     className="nav-link text-xs relative"
+                                    onClick={() => {
+                                        trackEvent('contact_click', {
+                                            contact_type: 'email',
+                                            location: 'desktop_nav'
+                                        });
+                                    }}
                                 >
                                     Contact
                                 </a>
@@ -1143,9 +1230,17 @@
                     return expected.every((val, idx) => actual[idx] === val);
                 };
                 if (check(password)) {
+                    trackEvent('password_success', {
+                        event_category: 'authentication',
+                        event_label: 'password_verified'
+                    });
                     onSuccess();
                     setPassword('');
                 } else {
+                    trackEvent('password_failed', {
+                        event_category: 'authentication',
+                        event_label: 'password_incorrect'
+                    });
                     if (onError) {
                         onError(true);
                     }
@@ -1158,6 +1253,10 @@
             
             const handleKeyDown = (e) => {
                 if (e.key === 'Escape') {
+                    trackEvent('password_modal_close', {
+                        event_category: 'authentication',
+                        method: 'escape_key'
+                    });
                     onClose();
                 }
             };
@@ -1165,7 +1264,13 @@
             if (!isOpen) return null;
             
             return (
-                <div className="password-modal-overlay" onClick={onClose} onKeyDown={handleKeyDown}>
+                <div className="password-modal-overlay" onClick={() => {
+                    trackEvent('password_modal_close', {
+                        event_category: 'authentication',
+                        method: 'overlay_click'
+                    });
+                    onClose();
+                }} onKeyDown={handleKeyDown}>
                     <div className="password-modal" onClick={(e) => e.stopPropagation()}>
                         <div className="mb-8 md:mb-12">
                             <span className="tag text-[10px] md:text-[11px] tracking-[0.2em] font-bold opacity-40 mb-4 block">
@@ -1201,7 +1306,13 @@
                             <div className="flex flex-col sm:flex-row gap-4 mt-12">
                                 <button
                                     type="button"
-                                    onClick={onClose}
+                                    onClick={() => {
+                                        trackEvent('password_modal_close', {
+                                            event_category: 'authentication',
+                                            method: 'cancel_button'
+                                        });
+                                        onClose();
+                                    }}
                                     className="text-sm md:text-base text-[#4A4A4A] opacity-60 hover:opacity-100 transition-opacity font-[300] px-0 py-2 text-left"
                                 >
                                     Cancel
@@ -2063,7 +2174,13 @@
                     <div ref={containerRef} className="container-wide pl-0 w-full">
                         <div className="max-w-full md:max-w-[600px] lg:max-w-[1200px] mx-auto">
                             <button 
-                                onClick={onBack}
+                                onClick={() => {
+                                    trackEvent('back_button_click', {
+                                        project_id: project.id,
+                                        project_title: project.title
+                                    });
+                                    onBack();
+                                }}
                                 className={`mb-6 md:mb-8 text-sm text-[#4A4A4A] opacity-60 hover:opacity-100 transition-opacity font-[300] fade-in text-center md:text-left w-full md:w-auto ${isVisible ? 'fade-in' : ''}`}
                             >
                                 ← Back to Portfolio
@@ -2083,12 +2200,12 @@
                                             onLoadedData={(e) => e.target.classList.add('loaded')}
                                         />
                                     ) : (
-                                        <img 
-                                            src={project.heroImage || project.image} 
-                                            alt={project.title} 
-                                            className="w-full h-auto rounded-xl"
-                                            onLoad={(e) => e.target.classList.add('loaded')}
-                                        />
+                                    <img 
+                                        src={project.heroImage || project.image} 
+                                        alt={project.title} 
+                                        className="w-full h-auto rounded-xl"
+                                        onLoad={(e) => e.target.classList.add('loaded')}
+                                    />
                                     )}
                             </div>
                             )}
@@ -2136,7 +2253,15 @@
                     style={{ transitionDelay: `${index * 0.1}s` }}
                 >
                                         <div 
-                                            onClick={isClickable ? () => onProjectSelect(project.id) : undefined}
+                                            onClick={isClickable ? () => {
+                                                trackEvent('project_click', {
+                                                    project_id: project.id,
+                                                    project_title: project.title,
+                                                    project_category: project.category,
+                                                    is_locked: isProjectLocked(project.id)
+                                                });
+                                                onProjectSelect(project.id);
+                                            } : undefined}
                                             className={`block ${isClickable ? 'cursor-pointer' : 'cursor-default'}`}
                                         >
                                         <div className="work-project-container flex flex-col xl:flex-row gap-6 md:gap-8 xl:gap-[60px] items-stretch">
@@ -2156,12 +2281,12 @@
                                                                 onLoadedData={(e) => e.target.classList.add('loaded')}
                                                             />
                                                         ) : (
-                                                            <img 
-                                                                src={project.image} 
-                                                                alt={project.title} 
-                                                                className="w-full h-auto min-h-[250px] md:min-h-[300px] xl:h-full xl:min-h-[500px] object-cover rounded-xl"
-                                                                onLoad={(e) => e.target.classList.add('loaded')}
-                                                            />
+                                        <img 
+                                            src={project.image} 
+                                            alt={project.title} 
+                                            className="w-full h-auto min-h-[250px] md:min-h-[300px] xl:h-full xl:min-h-[500px] object-cover rounded-xl"
+                                            onLoad={(e) => e.target.classList.add('loaded')}
+                                        />
                                                         )}
                                                         {isProjectLocked && isProjectLocked(project.id) && (
                                                             <div className="work-project-lock-overlay absolute inset-0 flex items-center justify-center bg-black bg-opacity-20 rounded-xl opacity-0 transition-opacity duration-300">
@@ -2359,6 +2484,24 @@
             };
 
             useEffect(() => {
+                // Initialize scroll tracking
+                const scrollCleanup = setupScrollTracking();
+                
+                // Track initial page view
+                const initialHash = window.location.hash.slice(1);
+                if (initialHash) {
+                    const projectMatch = initialHash.match(/work\/project-(\d+)/);
+                    if (projectMatch) {
+                        const projectId = parseInt(projectMatch[1]);
+                        const project = projects.find(p => p.id === projectId);
+                        trackPageView(project ? project.title : `Project ${projectId}`, `/#${initialHash}`);
+                    } else {
+                        trackPageView(initialHash.charAt(0).toUpperCase() + initialHash.slice(1), `/#${initialHash}`);
+                    }
+                } else {
+                    trackPageView('Home', '/');
+                }
+                
                 // Handle initial hash
                 const hash = window.location.hash.slice(1);
                 if (hash) {
@@ -2371,10 +2514,14 @@
                             setPendingProjectId(projectId);
                             setPasswordModalOpen(true);
                             setPasswordError(false);
+                            trackEvent('password_modal_open', {
+                                project_id: projectId,
+                                trigger: 'initial_load'
+                            });
                         } else {
-                            setSelectedProject(projectId);
-                            setCurrentPage('work');
-                            window.scrollTo({ top: 0, behavior: 'instant' });
+                        setSelectedProject(projectId);
+                        setCurrentPage('work');
+                        window.scrollTo({ top: 0, behavior: 'instant' });
                         }
                     } else {
                         scrollToSection(hash);
@@ -2401,12 +2548,19 @@
                             setPendingProjectId(projectId);
                             setPasswordModalOpen(true);
                             setPasswordError(false);
+                            trackEvent('password_modal_open', {
+                                project_id: projectId,
+                                trigger: 'hash_change'
+                            });
                         } else {
+                            const project = projects.find(p => p.id === projectId);
+                            trackPageView(project ? project.title : `Project ${projectId}`, `/#${newHash}`);
                         setSelectedProject(projectId);
                         setCurrentPage('work');
                         window.scrollTo({ top: 0, behavior: 'instant' });
                         }
                     } else {
+                        trackPageView(newHash.charAt(0).toUpperCase() + newHash.slice(1), `/#${newHash}`);
                         setSelectedProject(null);
                         scrollToSection(newHash);
                         setCurrentPage(newHash);
@@ -2441,6 +2595,7 @@
                 return () => {
                     window.removeEventListener('hashchange', handleHashChange);
                     window.removeEventListener('scroll', handleScroll);
+                    if (scrollCleanup) scrollCleanup();
                 };
             }, [selectedProject]);
 
@@ -2459,6 +2614,7 @@
             };
 
             const handleNavigate = (page) => {
+                trackPageView(page.charAt(0).toUpperCase() + page.slice(1), `/#${page}`);
                 isProgrammaticNavigation.current = true;
                 setCurrentPage(page);
                 setSelectedProject(null);
@@ -2487,10 +2643,16 @@
                     setPendingProjectId(projectId);
                     setPasswordModalOpen(true);
                     setPasswordError(false);
+                    trackEvent('password_modal_open', {
+                        project_id: projectId,
+                        trigger: 'project_click'
+                    });
                     return;
                 }
                 
                 // Project is unlocked or authenticated, show it
+                const project = projects.find(p => p.id === projectId);
+                trackPageView(project ? project.title : `Project ${projectId}`, `/#work/project-${projectId}`);
                 isProgrammaticNavigation.current = true;
                 // Update URL first, then set state
                 window.history.replaceState(null, '', `#work/project-${projectId}`);
@@ -2505,6 +2667,8 @@
             
             const handlePasswordSuccess = () => {
                 if (pendingProjectId) {
+                    const project = projects.find(p => p.id === pendingProjectId);
+                    trackPageView(project ? project.title : `Project ${pendingProjectId}`, `/#work/project-${pendingProjectId}`);
                     setAuthenticatedProject(pendingProjectId);
                     setPasswordModalOpen(false);
                     setPasswordError(false);
@@ -2522,6 +2686,13 @@
             };
             
             const handlePasswordClose = () => {
+                if (pendingProjectId) {
+                    trackEvent('password_modal_close', {
+                        event_category: 'authentication',
+                        project_id: pendingProjectId,
+                        method: 'close_handler'
+                    });
+                }
                 setPasswordModalOpen(false);
                 setPendingProjectId(null);
                 setPasswordError(false);
