@@ -1408,6 +1408,15 @@
                             <div className="divider mt-4"></div>
                         </div>
 
+                        {/* Confidentiality Banner - Projects 3 & 4 */}
+                        {(project.id === 3 || project.id === 4) && (
+                            <div className="w-full rounded-xl p-6 md:p-8 mb-8 md:mb-12" style={{ backgroundColor: 'rgba(51, 102, 153, 0.08)' }}>
+                                <p className="text-sm md:text-base text-[#4A4A4A] opacity-70 font-[300] leading-[1.6] text-center md:text-left">
+                                    🔐 Due to the nature of my work, I cannot share detailed information about specific designs, processes, or outcomes.<br />This project summary provides a high-level overview of my contributions and learnings.
+                                </p>
+                            </div>
+                        )}
+
                         {/* TLDR */}
                         {content.tldr && (
                             <div className="space-y-6">
@@ -1418,6 +1427,7 @@
                                     <p>{content.tldr}</p>
                                 </div>
                                 {/* Cards */}
+                                {project.id !== 4 && content.cards && (content.cards.situation || content.cards.research || content.cards.constraints) && (
                                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 mt-6 md:mt-8">
                                     {/* Situation/Lab Focus Card */}
                                     <div className="rounded-xl p-6 md:p-8 min-h-[200px] bg-[var(--fog-grey)]" style={{ backgroundColor: 'rgba(217, 214, 210, 0.15)' }}>
@@ -1425,7 +1435,9 @@
                                             <svg className="w-5 h-5 text-[#4A4A4A] opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                                             </svg>
-                                            <h3 className="text-base md:text-lg font-[400] text-[#4A4A4A] opacity-60">{project.id === 2 ? 'Lab Focus' : 'Situation'}</h3>
+                                            <h3 className="text-base md:text-lg font-[400] text-[#4A4A4A] opacity-60">
+                                                {project.id === 2 ? 'Lab Focus' : project.id === 3 ? 'Challenge' : 'Situation'}
+                                            </h3>
                                         </div>
                                         <div className="text-sm md:text-base text-[#4A4A4A] opacity-95 font-[300] leading-[1.6] text-center md:text-left">
                                             {content.cards && content.cards.situation ? (
@@ -1446,7 +1458,9 @@
                                             <svg className="w-5 h-5 text-[#4A4A4A] opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
                                             </svg>
-                                            <h3 className="text-base md:text-lg font-[400] text-[#4A4A4A] opacity-60">{project.id === 2 ? 'Methods' : 'Research Findings'}</h3>
+                                            <h3 className="text-base md:text-lg font-[400] text-[#4A4A4A] opacity-60">
+                                                {project.id === 2 ? 'Methods' : project.id === 3 ? 'Research' : 'Research Findings'}
+                                            </h3>
                                         </div>
                                         <div className="text-sm md:text-base text-[#4A4A4A] opacity-95 font-[300] leading-[1.6] text-center md:text-left">
                                             {content.cards && content.cards.research ? (
@@ -1467,7 +1481,9 @@
                                             <svg className="w-5 h-5 text-[#4A4A4A] opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
                                             </svg>
-                                            <h3 className="text-base md:text-lg font-[400] text-[#4A4A4A] opacity-60">Constraints</h3>
+                                            <h3 className="text-base md:text-lg font-[400] text-[#4A4A4A] opacity-60">
+                                                {project.id === 3 ? 'Considerations' : 'Constraints'}
+                                            </h3>
                                         </div>
                                         <div className="text-sm md:text-base text-[#4A4A4A] opacity-95 font-[300] leading-[1.6] text-center md:text-left">
                                             {content.cards && content.cards.constraints ? (
@@ -1483,6 +1499,7 @@
                                         </div>
                                     </div>
                                 </div>
+                                )}
                             </div>
                         )}
 
@@ -2137,6 +2154,29 @@
                                             </p>
                                         </div>
                                     </div>
+                                </div>
+                            </div>
+                        )}
+
+                        {/* Outcomes */}
+                        {content.outcomes && content.outcomes.length > 0 && project.id !== 4 && (
+                            <div className="space-y-6">
+                                <h2 className="font-light text-2xl md:text-3xl lg:text-[36px] leading-[1.2] tracking-[0.01em] font-[200] text-[#4A4A4A] mb-4 text-center md:text-left">
+                                    Outcomes
+                                </h2>
+                                <div className="space-y-4 text-base md:text-lg text-[#4A4A4A] opacity-70 font-[300] leading-[1.7] text-center md:text-left">
+                                    {Array.isArray(content.outcomes) ? (
+                                        <ul className="space-y-3">
+                                            {content.outcomes.map((item, i) => (
+                                                <li key={i} className="flex items-start justify-center md:justify-start">
+                                                    <span className="mr-3">•</span>
+                                                    <span>{item}</span>
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    ) : (
+                                        <p>{content.outcomes}</p>
+                                    )}
                                 </div>
                             </div>
                         )}
@@ -2824,9 +2864,26 @@
                     title: 'Retail Experience Design', 
                     category: 'Service Design', 
                     year: '2024',
-                    quote: 'Identifying customer needs through UX research and designing new service approaches for business clients, contributing to market-leading performance.',
+                    quote: 'UX research and service design approaches for business clients, contributing to market-leading performance.',
                     image: 'assets/apple.png',
-                    link: '#work/project-3'
+                    link: '#work/project-3',
+                    content: {
+                        role: 'UX Researcher & Service Designer',
+                        platforms: 'In-Store · Digital · Service Design',
+                        team: 'Cross-functional team',
+                        duration: '6 months',
+                        tldr: 'Through comprehensive UX research and service design methodologies, identified critical customer pain points in retail experiences and designed new service approaches that improved customer satisfaction and contributed to market-leading performance for business clients.',
+                        cards: {
+                            situation: 'There was a disconnect between business clients and Apple. Apple needed a way to better introduce business services to the right clientele when they walk into the store. For customers, Apple wanted to make the retail experience better.',
+                            research: 'Working as a specialist in the retail space gave me deep, firsthand understanding of the in-store experience. Conducted user interviews, observational studies, and journey mapping to identify key insights. Analyzed customer behavior patterns and service touchpoints across physical and digital channels.',
+                            constraints: 'Journey must align with Apple\'s retail experience standards while supporting business objectives. Maintain consistency with existing service touchpoints while elevating the experience. Must be feasible for deployment and training across the retail organization.'
+                        },
+                        outcomes: [
+                            'Prototyped an Apple Shortcuts tool for retail that streamlined the journey for 8% of customers, reducing wait times by removing them from the standard queue flow.',
+                            'Explored and implemented new service tactics for business clients that contributed to market-leading performance across 6 major cities.',
+                            'Gained deep understanding of Apple\'s retail culture and what makes it a distinctive workplace, informing design decisions that align with company values.'
+                        ]
+                    }
                 },
                 { 
                     id: 4, 
@@ -2835,7 +2892,14 @@
                     year: '2020',
                     quote: 'Solving software engineering problems under the guidance of Engineering managers, with focus on technical mentorship and growth.',
                     image: 'assets/meta.png',
-                    link: '#work/project-4'
+                    link: '#work/project-4',
+                    content: {
+                        role: 'Software Engineer',
+                        platforms: 'Internal Tools · Web',
+                        team: 'Engineering Team',
+                        duration: '6 months',
+                        tldr: 'Participated in a 6-month early career mentorship program, working on internal tools and software engineering solutions under the guidance of two Engineering managers. While this was a software engineering role, it laid the foundation for becoming a better designer by learning to collaborate effectively with cross-functional teams, gaining firsthand experience of the software engineering perspective, and experiencing a progressive workplace culture that values collaboration and continuous learning.'
+                    }
                 }
             ];
 
