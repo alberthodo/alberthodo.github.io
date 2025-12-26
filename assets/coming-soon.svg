@@ -1,0 +1,73 @@
+<svg width="1200" height="800" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Grey wash overlay -->
+    <rect id="grey-wash" width="1200" height="800" fill="#E8E6E3" opacity="0.3"/>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="800" fill="#FAF8F5"/>
+  
+  <!-- Grey wash overlay -->
+  <use href="#grey-wash"/>
+  
+  <!-- Coming Soon Text -->
+  <text 
+    id="coming-soon-text"
+    x="600" 
+    y="380" 
+    font-family="system-ui, -apple-system, sans-serif" 
+    font-size="64" 
+    font-weight="200" 
+    fill="#4A4A4A" 
+    text-anchor="middle" 
+    letter-spacing="0.05em"
+    opacity="0.6">
+    Coming Soon
+  </text>
+  
+  <!-- Subtitle -->
+  <text 
+    x="600" 
+    y="440" 
+    font-family="system-ui, -apple-system, sans-serif" 
+    font-size="18" 
+    font-weight="300" 
+    fill="#4A4A4A" 
+    text-anchor="middle" 
+    letter-spacing="0.2em"
+    opacity="0.4">
+    PROJECT IN PROGRESS
+  </text>
+  
+  <!-- Bouncing Ball -->
+  <g>
+    <circle cx="450" cy="200" r="8" fill="#4A4A4A" opacity="0.7">
+      <!-- X position animation -->
+      <animate
+        attributeName="cx"
+        values="450;450;480;510;540;570;600;600;750"
+        keyTimes="0;0.15;0.25;0.35;0.45;0.55;0.65;0.75;0.85;1"
+        dur="3s"
+        repeatCount="indefinite"
+        calcMode="linear"/>
+      <!-- Y position animation with bounces -->
+      <animate
+        attributeName="cy"
+        values="200;372;360;348;336;324;312;312;440"
+        keyTimes="0;0.15;0.25;0.35;0.45;0.55;0.65;0.75;0.85;1"
+        dur="3s"
+        repeatCount="indefinite"
+        calcMode="spline"
+        keySplines="0.5 0 0.8 0.3; 0.3 0.7 0.7 1; 0.3 0.7 0.7 1; 0.3 0.7 0.7 1; 0.3 0.7 0.7 1; 0.3 0.7 0.7 1; 0.3 0.7 0.7 1; 0.5 0 0.8 0.3"/>
+      <!-- Scale animation for bounce effect -->
+      <animate
+        attributeName="r"
+        values="8;10;8;9;8;9;8;9;8;8"
+        keyTimes="0;0.15;0.25;0.35;0.45;0.55;0.65;0.75;0.85;1"
+        dur="3s"
+        repeatCount="indefinite"
+        calcMode="spline"
+        keySplines="0.5 0 0.8 0.3; 0.3 0.7 0.7 1; 0.3 0.7 0.7 1; 0.3 0.7 0.7 1; 0.3 0.7 0.7 1; 0.3 0.7 0.7 1; 0.3 0.7 0.7 1; 0.5 0 0.8 0.3"/>
+    </circle>
+  </g>
+</svg>

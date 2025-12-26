@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coming Soon</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            width: 1200px;
+            height: 800px;
+            background: #FAF8F5;
+            position: relative;
+            overflow: hidden;
+            font-family: system-ui, -apple-system, sans-serif;
+        }
+        
+        /* Grey wash overlay */
+        .grey-wash {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #E8E6E3;
+            opacity: 0.3;
+            z-index: 1;
+        }
+        
+        /* Coming Soon Text */
+        .coming-soon-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 64px;
+            font-weight: 200;
+            color: #4A4A4A;
+            opacity: 0.6;
+            letter-spacing: 0.05em;
+            z-index: 2;
+            margin-top: -30px;
+        }
+        
+        /* Subtitle */
+        .subtitle {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 18px;
+            font-weight: 300;
+            color: #4A4A4A;
+            opacity: 0.4;
+            letter-spacing: 0.2em;
+            z-index: 2;
+            margin-top: 40px;
+        }
+        
+        /* Bouncing Ball */
+        .ball {
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            background: #4A4A4A;
+            border-radius: 50%;
+            opacity: 0.7;
+            z-index: 3;
+            left: 450px;
+            top: 200px;
+            animation: bounce 3s infinite;
+        }
+        
+        @keyframes bounce {
+            0% {
+                left: 450px;
+                top: 200px;
+                transform: scale(1);
+            }
+            15% {
+                left: 450px;
+                top: 372px;
+                transform: scale(1.25);
+            }
+            25% {
+                left: 480px;
+                top: 360px;
+                transform: scale(1.125);
+            }
+            35% {
+                left: 510px;
+                top: 348px;
+                transform: scale(1.125);
+            }
+            45% {
+                left: 540px;
+                top: 336px;
+                transform: scale(1.125);
+            }
+            55% {
+                left: 570px;
+                top: 324px;
+                transform: scale(1.125);
+            }
+            65% {
+                left: 600px;
+                top: 312px;
+                transform: scale(1.125);
+            }
+            75% {
+                left: 600px;
+                top: 312px;
+                transform: scale(1);
+            }
+            85% {
+                left: 750px;
+                top: 312px;
+                transform: scale(1);
+            }
+            100% {
+                left: 750px;
+                top: 440px;
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="grey-wash"></div>
+    <div class="coming-soon-text">Coming Soon</div>
+    <div class="subtitle">PROJECT IN PROGRESS</div>
+    <div class="ball"></div>
+</body>
+</html>
+

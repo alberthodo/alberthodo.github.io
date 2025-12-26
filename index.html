@@ -358,6 +358,7 @@
             transition: transform 0.3s ease;
         }
         
+        /* Lock overlay CSS commented out
         .work-project-lock-overlay {
             pointer-events: none;
         }
@@ -365,6 +366,7 @@
         .work-project:hover .work-project-lock-overlay {
             opacity: 1;
         }
+        */
         
         /* Page Load Animation */
         body {
@@ -935,7 +937,156 @@
     <div id="root"></div>
 
     <script type="text/babel">
-        const { useState, useEffect } = React;
+        const { useState, useEffect, useRef } = React;
+
+        // Coming Soon Bouncing Ball Component with Realistic Physics
+        const ComingSoonBall = () => {
+            const [position, setPosition] = useState({ x: 0.375, y: 0.25 });
+            const [scale, setScale] = useState(1);
+            const animationFrameRef = useRef(null);
+            const startTimeRef = useRef(null);
+            
+            // Realistic physics constants
+            const GRAVITY = 0.0008; // Acceleration due to gravity (pixels per frame^2)
+            const RESTITUTION = 0.65; // Coefficient of restitution (energy loss on bounce)
+            const HORIZONTAL_FRICTION = 0.98; // Horizontal friction/damping
+            
+            // Ground level (where bounces happen)
+            const groundY = 0.465; // Y position of the "C" in "Coming"
+            
+            useEffect(() => {
+                let pos = { x: 0.375, y: 0.25 };
+                let vel = { x: 0, y: 0 };
+                let bounceCount = 0;
+                let lastFrameTime = null;
+                let isFalling = true;
+                let lastBounceX = 0.375;
+                
+                const animate = (timestamp) => {
+                    if (!startTimeRef.current) {
+                        startTimeRef.current = timestamp;
+                        lastFrameTime = timestamp;
+                    }
+                    
+                    // Calculate delta time in seconds
+                    const deltaTime = Math.min((timestamp - lastFrameTime) / 1000, 0.02); // Cap at 20ms
+                    lastFrameTime = timestamp;
+                    
+                    const elapsed = (timestamp - startTimeRef.current) / 1000;
+                    const cycleDuration = 4.0;
+                    
+                    // Reset cycle
+                    if (elapsed >= cycleDuration) {
+                        startTimeRef.current = timestamp;
+                        lastFrameTime = timestamp;
+                        pos = { x: 0.375, y: 0.25 };
+                        vel = { x: 0, y: 0 };
+                        bounceCount = 0;
+                        isFalling = true;
+                        lastBounceX = 0.375;
+                    }
+                    
+                    // Apply gravity (always)
+                    vel.y += GRAVITY;
+                    
+                    // Update position based on velocity
+                    pos.x += vel.x;
+                    pos.y += vel.y;
+                    
+                    // Check for ground collision
+                    if (pos.y >= groundY && vel.y > 0 && bounceCount < 3) {
+                        // Bounce!
+                        pos.y = groundY;
+                        const impactVelocity = Math.abs(vel.y);
+                        vel.y = -impactVelocity * RESTITUTION; // Bounce with energy loss
+                        
+                        // Add slight horizontal velocity on bounce (natural scatter)
+                        if (bounceCount === 0) {
+                            vel.x = 0.003; // First bounce: move right slightly
+                            lastBounceX = pos.x;
+                        } else if (bounceCount === 1) {
+                            vel.x = 0.002; // Second bounce: less horizontal movement
+                        } else {
+                            vel.x = 0.001; // Third bounce: minimal horizontal movement
+                        }
+                        
+                        bounceCount++;
+                        
+                        // Squash on impact
+                        setScale(0.85);
+                        
+                        // After 3 bounces, stop horizontal movement
+                        if (bounceCount >= 3) {
+                            vel.x = 0;
+                            isFalling = true;
+                        }
+                    } else {
+                        // Apply horizontal friction when in air
+                        vel.x *= HORIZONTAL_FRICTION;
+                        
+                        // Squash and stretch based on velocity
+                        if (vel.y > 0.01) {
+                            // Falling fast - stretch
+                            setScale(1 + Math.min(vel.y * 8, 0.2));
+                        } else if (vel.y < -0.01) {
+                            // Rising - slight stretch
+                            setScale(1 + Math.min(Math.abs(vel.y) * 4, 0.1));
+                        } else {
+                            // Near peak or impact - normal
+                            setScale(1);
+                        }
+                    }
+                    
+                    // Clamp horizontal position
+                    pos.x = Math.max(0.375, Math.min(0.55, pos.x));
+                    
+                    // Allow Y to go below ground (falling off card)
+                    pos.y = Math.max(0.25, pos.y);
+                    
+                    setPosition({ x: pos.x, y: pos.y });
+                    
+                    animationFrameRef.current = requestAnimationFrame(animate);
+                };
+                
+                animationFrameRef.current = requestAnimationFrame(animate);
+                
+                return () => {
+                    if (animationFrameRef.current) {
+                        cancelAnimationFrame(animationFrameRef.current);
+                    }
+                };
+            }, []);
+            
+            return (
+                <div
+                    style={{
+                        position: 'absolute',
+                        left: `${position.x * 100}%`,
+                        top: `${position.y * 100}%`,
+                        width: '16px',
+                        height: '16px',
+                        background: '#4A4A4A',
+                        borderRadius: '50%',
+                        opacity: 0.7,
+                        zIndex: 3,
+                        transform: `translate(-50%, -50%) scale(${Math.max(0.85, Math.min(1.2, scale))})`,
+                        willChange: 'transform',
+                    }}
+                />
+            );
+        };
+
+        // Coming Soon Container Component
+        const ComingSoonContainer = ({ className = '' }) => {
+            return (
+                <div className={`w-full h-auto min-h-[250px] md:min-h-[300px] xl:h-full xl:min-h-[500px] rounded-xl relative overflow-hidden ${className}`} style={{ background: '#FAF8F5' }}>
+                    <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', background: '#E8E6E3', opacity: 0.3, zIndex: 1 }}></div>
+                    <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', fontSize: 'clamp(32px, 5vw, 64px)', fontWeight: 200, color: '#4A4A4A', opacity: 0.6, letterSpacing: '0.05em', zIndex: 2, marginTop: '-30px', whiteSpace: 'nowrap' }}>Coming Soon</div>
+                    <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', fontSize: 'clamp(12px, 1.5vw, 18px)', fontWeight: 300, color: '#4A4A4A', opacity: 0.4, letterSpacing: '0.2em', zIndex: 2, marginTop: '40px', whiteSpace: 'nowrap' }}>PROJECT IN PROGRESS</div>
+                    <ComingSoonBall />
+                </div>
+            );
+        };
 
         // Google Analytics Tracking Functions
         const trackEvent = (eventName, eventParams = {}) => {
@@ -1223,32 +1374,35 @@
             const handleSubmit = (e) => {
                 e.preventDefault();
                 // Obfuscated password check to prevent plain text exposure
-                const check = (pwd) => {
-                    if (pwd.length !== 12) return false;
-                    const expected = [33, 72, 111, 100, 111, 68, 101, 115, 105, 103, 110];
-                    const actual = pwd.split('').map(c => c.charCodeAt(0));
-                    return expected.every((val, idx) => actual[idx] === val);
-                };
-                if (check(password)) {
-                    trackEvent('password_success', {
-                        event_category: 'authentication',
-                        event_label: 'password_verified'
-                    });
+                // const check = (pwd) => {
+                //     if (pwd.length !== 12) return false;
+                //     const expected = [33, 72, 111, 100, 111, 68, 101, 115, 105, 103, 110];
+                //     const actual = pwd.split('').map(c => c.charCodeAt(0));
+                //     return expected.every((val, idx) => actual[idx] === val);
+                // };
+                // if (check(password)) {
+                //     trackEvent('password_success', {
+                //         event_category: 'authentication',
+                //         event_label: 'password_verified'
+                //     });
+                //     onSuccess();
+                //     setPassword('');
+                // } else {
+                //     trackEvent('password_failed', {
+                //         event_category: 'authentication',
+                //         event_label: 'password_incorrect'
+                //     });
+                //     if (onError) {
+                //         onError(true);
+                //     }
+                //     setPassword('');
+                //     if (inputRef.current) {
+                //         inputRef.current.focus();
+                //     }
+                // }
+                // Always succeed for now (passwords commented out)
                     onSuccess();
                     setPassword('');
-                } else {
-                    trackEvent('password_failed', {
-                        event_category: 'authentication',
-                        event_label: 'password_incorrect'
-                    });
-                    if (onError) {
-                        onError(true);
-                    }
-                    setPassword('');
-                    if (inputRef.current) {
-                        inputRef.current.focus();
-                    }
-                }
             };
             
             const handleKeyDown = (e) => {
@@ -2227,7 +2381,9 @@
                             </button>
                             {(project.heroImage || project.image) && (
                                 <div className={`mb-4 md:mb-8 scale-in ${isVisible ? 'scale-in' : ''} ${project.id === 2 ? 'overflow-hidden rounded-xl' : ''}`} style={{ animationDelay: '0.1s' }}>
-                                    {project.id === 2 ? (
+                                    {project.id === 0 ? (
+                                        <ComingSoonContainer />
+                                    ) : project.id === 2 ? (
                                         <video 
                                             src={project.image}
                                             className="w-full h-auto rounded-xl"
@@ -2309,7 +2465,9 @@
                                             <div className={`work-project-image w-full xl:w-[70%] flex items-stretch relative ${index % 2 === 0 ? 'xl:order-1' : 'xl:order-2'}`}>
                                                 {project.image ? (
                                                     <>
-                                                        {project.id === 2 ? (
+                                                        {project.id === 0 ? (
+                                                            <ComingSoonContainer />
+                                                        ) : project.id === 2 ? (
                                                             <video 
                                                                 src={project.image}
                                                                 className="w-full h-auto min-h-[250px] md:min-h-[300px] xl:h-full xl:min-h-[500px] object-cover rounded-xl"
@@ -2328,11 +2486,13 @@
                                             onLoad={(e) => e.target.classList.add('loaded')}
                                         />
                                                         )}
+                                                        {/* Lock overlay commented out
                                                         {isProjectLocked && isProjectLocked(project.id) && (
                                                             <div className="work-project-lock-overlay absolute inset-0 flex items-center justify-center bg-black bg-opacity-20 rounded-xl opacity-0 transition-opacity duration-300">
                                                 <img src="assets/lock.fill.svg" alt="Locked" className="w-20 h-20 md:w-24 md:h-24 lg:w-32 lg:h-32 opacity-60 loaded" />
                                                             </div>
                                                         )}
+                                                        */}
                                                     </>
                                                 ) : (
                                                     <div className="image-placeholder w-full h-auto min-h-[250px] md:min-h-[300px] xl:h-full xl:min-h-[500px] rounded-xl">
@@ -2520,7 +2680,8 @@
             
             // Check if project is locked
             const isProjectLocked = (projectId) => {
-                return projectId === 3 || projectId === 4;
+                // return projectId === 3 || projectId === 4;
+                return false; // Passwords commented out for projects 3 and 4
             };
 
             useEffect(() => {
@@ -2545,10 +2706,13 @@
                 // Handle initial hash
                 const hash = window.location.hash.slice(1);
                 if (hash) {
-                    // Check if hash is a project link (e.g., work/project-1)
-                    const projectMatch = hash.match(/work\/project-(\d+)/);
+                    // Check if hash is a project link (e.g., work/ai-voice-notes)
+                    const projectMatch = hash.match(/work\/([a-z0-9-]+)/);
                     if (projectMatch) {
-                        const projectId = parseInt(projectMatch[1]);
+                        const projectSlug = projectMatch[1];
+                        const project = projects.find(p => p.slug === projectSlug);
+                        if (project) {
+                            const projectId = project.id;
                         // Check if project is locked and not authenticated
                         if (isProjectLocked(projectId) && !isProjectAuthenticated(projectId)) {
                             setPendingProjectId(projectId);
@@ -2562,6 +2726,7 @@
                         setSelectedProject(projectId);
                         setCurrentPage('work');
                         window.scrollTo({ top: 0, behavior: 'instant' });
+                            }
                         }
                     } else {
                         scrollToSection(hash);
@@ -2580,9 +2745,12 @@
                     }
                     
                     const newHash = window.location.hash.slice(1) || 'home';
-                    const projectMatch = newHash.match(/work\/project-(\d+)/);
+                    const projectMatch = newHash.match(/work\/([a-z0-9-]+)/);
                     if (projectMatch) {
-                        const projectId = parseInt(projectMatch[1]);
+                        const projectSlug = projectMatch[1];
+                        const project = projects.find(p => p.slug === projectSlug);
+                        if (project) {
+                            const projectId = project.id;
                         // Check if project is locked and not authenticated
                         if (isProjectLocked(projectId) && !isProjectAuthenticated(projectId)) {
                             setPendingProjectId(projectId);
@@ -2593,11 +2761,11 @@
                                 trigger: 'hash_change'
                             });
                         } else {
-                            const project = projects.find(p => p.id === projectId);
                             trackPageView(project ? project.title : `Project ${projectId}`, `/#${newHash}`);
                         setSelectedProject(projectId);
                         setCurrentPage('work');
                         window.scrollTo({ top: 0, behavior: 'instant' });
+                        }
                         }
                     } else {
                         trackPageView(newHash.charAt(0).toUpperCase() + newHash.slice(1), `/#${newHash}`);
@@ -2614,7 +2782,7 @@
                     
                     // Don't update if URL contains a project hash
                     const currentHash = window.location.hash.slice(1);
-                    if (currentHash && currentHash.match(/work\/project-(\d+)/)) return;
+                    if (currentHash && currentHash.match(/work\/([a-z0-9-]+)/)) return;
                     
                     const sections = ['home', 'work', 'art'];
                     const scrollPosition = window.scrollY + 200;
@@ -2692,10 +2860,11 @@
                 
                 // Project is unlocked or authenticated, show it
                 const project = projects.find(p => p.id === projectId);
-                trackPageView(project ? project.title : `Project ${projectId}`, `/#work/project-${projectId}`);
+                const projectSlug = project ? project.slug : `project-${projectId}`;
+                trackPageView(project ? project.title : `Project ${projectId}`, `/#work/${projectSlug}`);
                 isProgrammaticNavigation.current = true;
                 // Update URL first, then set state
-                window.history.replaceState(null, '', `#work/project-${projectId}`);
+                window.history.replaceState(null, '', `#work/${projectSlug}`);
                 setSelectedProject(projectId);
                 setCurrentPage('work');
                 window.scrollTo({ top: 0, behavior: 'instant' });
@@ -2708,7 +2877,8 @@
             const handlePasswordSuccess = () => {
                 if (pendingProjectId) {
                     const project = projects.find(p => p.id === pendingProjectId);
-                    trackPageView(project ? project.title : `Project ${pendingProjectId}`, `/#work/project-${pendingProjectId}`);
+                    const projectSlug = project ? project.slug : `project-${pendingProjectId}`;
+                    trackPageView(project ? project.title : `Project ${pendingProjectId}`, `/#work/${projectSlug}`);
                     setAuthenticatedProject(pendingProjectId);
                     setPasswordModalOpen(false);
                     setPasswordError(false);
@@ -2716,7 +2886,7 @@
                     isProgrammaticNavigation.current = true;
                     setSelectedProject(pendingProjectId);
                     setCurrentPage('work');
-                    window.history.replaceState(null, '', `#work/project-${pendingProjectId}`);
+                    window.history.replaceState(null, '', `#work/${projectSlug}`);
                     window.scrollTo({ top: 0, behavior: 'instant' });
                     setPendingProjectId(null);
                     setTimeout(() => {
@@ -2741,6 +2911,45 @@
             // Define projects array at App level so it can be shared
             const projects = [
                 { 
+                    id: 0, 
+                    title: 'OS-Level Idea Bucket', 
+                    category: 'UX Design', 
+                    year: '2025',
+                    quote: 'An operationg system-level design concept for capturing, contextualizing, and resurfacing unfinished thoughts',
+                    image: 'assets/coming-soon.svg',
+                    slug: 'os-idea-bucket',
+                    link: '#work/os-idea-bucket',
+                    content: {
+                        role: 'Your Role',
+                        platforms: 'Platforms',
+                        team: 'Team',
+                        duration: 'Duration',
+                        tldr: 'Brief summary of the project and challenge.',
+                        cards: {
+                            situation: 'Situation or challenge description.',
+                            research: 'Research findings or approach.',
+                            constraints: 'Constraints or considerations.'
+                        },
+                        insight: {
+                            main: 'Main insight or key finding.',
+                            explanation: 'Explanation of the insight.',
+                            quote: 'Key quote or takeaway.'
+                        },
+                        impact: {
+                            metrics: [
+                                'Impact metric 1',
+                                'Impact metric 2',
+                                'Impact metric 3'
+                            ]
+                        },
+                        reflection: [
+                            'Reflection point 1',
+                            'Reflection point 2',
+                            'Reflection point 3'
+                        ]
+                    }
+                },
+                { 
                     id: 1, 
                     title: 'AI Voice Notes Workflow', 
                     category: 'UX Design', 
@@ -2748,7 +2957,8 @@
                     quote: 'Redesigning a voice-to-content workflow to reduce cognitive load across iOS, iPad, and Mac.',
                     image: 'assets/goodSpeak.png',
                     heroImage: 'assets/gs-assets/goodSpeak-hero.png',
-                    link: '#work/project-1',
+                    slug: 'ai-voice-notes',
+                    link: '#work/ai-voice-notes',
                     content: {
                         role: 'Senior UX & Interaction Designer',
                         platforms: 'iOS · iPadOS · macOS',
@@ -2788,7 +2998,8 @@
                     year: '2025',
                     quote: 'Exploring how interaction design conveys meanings, emotions and a sense of presence or consciousness.',
                     image: 'assets/lab/ixd.mov',
-                    link: '#work/project-2',
+                    slug: 'interaction-design-lab',
+                    link: '#work/interaction-design-lab',
                     content: {
                         role: 'Interaction Designer',
                         platforms: 'Exploration · Prototyping',
@@ -2866,7 +3077,8 @@
                     year: '2024',
                     quote: 'UX research and service design approaches for business clients, contributing to market-leading performance.',
                     image: 'assets/apple.png',
-                    link: '#work/project-3',
+                    slug: 'retail-experience',
+                    link: '#work/retail-experience',
                     content: {
                         role: 'UX Researcher & Service Designer',
                         platforms: 'In-Store · Digital · Service Design',
@@ -2892,7 +3104,8 @@
                     year: '2020',
                     quote: 'Solving software engineering problems under the guidance of Engineering managers, with focus on technical mentorship and growth.',
                     image: 'assets/meta.png',
-                    link: '#work/project-4',
+                    slug: 'meta-internal-tools',
+                    link: '#work/meta-internal-tools',
                     content: {
                         role: 'Software Engineer',
                         platforms: 'Internal Tools · Web',
