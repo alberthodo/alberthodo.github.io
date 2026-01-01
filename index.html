@@ -2464,7 +2464,17 @@
                                                 {project.image ? (
                                                     <>
                                                         {project.id === 0 ? (
-                                                            <ComingSoonContainer />
+                                                            <div className="relative w-full h-auto min-h-[250px] md:min-h-[300px] xl:h-full xl:min-h-[500px] rounded-xl overflow-hidden">
+                                                                <img 
+                                                                    src={project.image} 
+                                                                    alt={project.title} 
+                                                                    className="w-full h-auto min-h-[250px] md:min-h-[300px] xl:h-full xl:min-h-[500px] object-cover rounded-xl transition-opacity duration-300 group-hover:opacity-0"
+                                                                    onLoad={(e) => e.target.classList.add('loaded')}
+                                                                />
+                                                                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                                                                    <ComingSoonContainer />
+                                                                </div>
+                                                            </div>
                                                         ) : project.id === 2 ? (
                                                             <video 
                                                                 src={project.image}
@@ -2907,11 +2917,11 @@
             const projects = [
                 { 
                     id: 0, 
-                    title: 'OS-Level Idea Bucket', 
+                    title: 'Redesign of NASA APoD', 
                     category: 'UX Design', 
                     year: '2025',
-                    quote: 'An operationg system-level design concept for capturing, contextualizing, and resurfacing unfinished thoughts',
-                    image: 'assets/coming-soon.svg',
+                    quote: 'A redesign of NASA\'s Astronomy Picture of the Day app to make the cosmos more accessible and inspires public engagement with astronomy',
+                    image: 'assets/allastronomy.png',
                     slug: 'os-idea-bucket',
                     link: '#work/os-idea-bucket',
                     content: {
