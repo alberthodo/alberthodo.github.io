@@ -1578,8 +1578,20 @@
                                 <div className="text-base md:text-lg text-[#4A4A4A] opacity-70 font-[300] leading-[1.7] text-center md:text-left">
                                     <p>{content.tldr}</p>
                                 </div>
+                                {/* Image for Project 0 */}
+                                {project.id === 0 && (
+                                    <div className="mt-6 md:mt-8 mb-6 md:mb-8">
+                                        <img 
+                                            src="assets/astro-assets/hero2.png" 
+                                            alt="All Astronomy Hero" 
+                                            className="w-full h-auto rounded-xl"
+                                            style={{ minHeight: '600px' }}
+                                            onLoad={(e) => e.target.classList.add('loaded')}
+                                        />
+                                    </div>
+                                )}
                                 {/* Cards */}
-                                {project.id !== 4 && content.cards && (content.cards.situation || content.cards.research || content.cards.constraints) && (
+                                {project.id !== 4 && project.id !== 0 && content.cards && (content.cards.situation || content.cards.research || content.cards.constraints) && (
                                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 mt-6 md:mt-8">
                                     {/* Situation/Lab Focus Card */}
                                     <div className="rounded-xl p-6 md:p-8 min-h-[200px] bg-[var(--fog-grey)]" style={{ backgroundColor: 'rgba(217, 214, 210, 0.15)' }}>
@@ -1655,8 +1667,128 @@
                             </div>
                         )}
 
+                        {/* Current Situation - Project 0 */}
+                        {project.id === 0 && (
+                            <div className="space-y-6 mt-12 md:mt-16">
+                                <h2 className="font-light text-2xl md:text-3xl lg:text-[36px] leading-[1.2] tracking-[0.01em] font-[200] text-[#4A4A4A] mb-4 text-center md:text-left">
+                                    Current Situation
+                                </h2>
+                                {/* Two Images with Problems */}
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+                                    {/* First Image with Problems */}
+                                    <div className="space-y-4">
+                                        <div className="w-full h-[400px] md:h-[500px] lg:h-[600px] rounded-xl bg-gray-300 flex items-center justify-center">
+                                            <span className="text-[#4A4A4A] opacity-40 font-[300] text-sm md:text-base">Image Placeholder</span>
+                                        </div>
+                                        <div className="space-y-4">
+                                            <h3 className="text-lg md:text-xl font-[400] text-[#4A4A4A] opacity-80 mb-4 text-center md:text-left">Problems</h3>
+                                            <ul className="space-y-3 text-base md:text-lg text-[#4A4A4A] opacity-70 font-[300] leading-[1.7]">
+                                                <li className="flex items-start justify-center md:justify-start">
+                                                    <span className="mr-3 mt-1">•</span>
+                                                    <span>Problem description 1</span>
+                                                </li>
+                                                <li className="flex items-start justify-center md:justify-start">
+                                                    <span className="mr-3 mt-1">•</span>
+                                                    <span>Problem description 2</span>
+                                                </li>
+                                                <li className="flex items-start justify-center md:justify-start">
+                                                    <span className="mr-3 mt-1">•</span>
+                                                    <span>Problem description 3</span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    {/* Second Image with Problems */}
+                                    <div className="space-y-4">
+                                        <div className="w-full h-[400px] md:h-[500px] lg:h-[600px] rounded-xl bg-gray-300 flex items-center justify-center">
+                                            <span className="text-[#4A4A4A] opacity-40 font-[300] text-sm md:text-base">Image Placeholder</span>
+                                        </div>
+                                        <div className="space-y-4">
+                                            <h3 className="text-lg md:text-xl font-[400] text-[#4A4A4A] opacity-80 mb-4 text-center md:text-left">Problems</h3>
+                                            <ul className="space-y-3 text-base md:text-lg text-[#4A4A4A] opacity-70 font-[300] leading-[1.7]">
+                                                <li className="flex items-start justify-center md:justify-start">
+                                                    <span className="mr-3 mt-1">•</span>
+                                                    <span>Problem description 1</span>
+                                                </li>
+                                                <li className="flex items-start justify-center md:justify-start">
+                                                    <span className="mr-3 mt-1">•</span>
+                                                    <span>Problem description 2</span>
+                                                </li>
+                                                <li className="flex items-start justify-center md:justify-start">
+                                                    <span className="mr-3 mt-1">•</span>
+                                                    <span>Problem description 3</span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        )}
+
+                        {/* How does all-astronomy stand out? - Project 0 */}
+                        {project.id === 0 && (
+                            <div className="space-y-6 mt-12 md:mt-16">
+                                <h2 className="font-light text-2xl md:text-3xl lg:text-[36px] leading-[1.2] tracking-[0.01em] font-[200] text-[#4A4A4A] mb-4 text-center md:text-left">
+                                    How does all-astronomy stand out?
+                                </h2>
+                                {/* Single Image Placeholder */}
+                                <div className="w-full h-[400px] md:h-[500px] lg:h-[600px] rounded-xl bg-gray-300 flex items-center justify-center">
+                                    <span className="text-[#4A4A4A] opacity-40 font-[300] text-sm md:text-base">Image Placeholder</span>
+                                </div>
+                                {/* Two Image Placeholders */}
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+                                    <div className="w-full h-[400px] md:h-[500px] lg:h-[600px] rounded-xl bg-gray-300 flex items-center justify-center">
+                                        <span className="text-[#4A4A4A] opacity-40 font-[300] text-sm md:text-base">Image Placeholder</span>
+                                    </div>
+                                    <div className="w-full h-[400px] md:h-[500px] lg:h-[600px] rounded-xl bg-gray-300 flex items-center justify-center">
+                                        <span className="text-[#4A4A4A] opacity-40 font-[300] text-sm md:text-base">Image Placeholder</span>
+                                    </div>
+                                </div>
+                            </div>
+                        )}
+
+                        {/* My Artifact: all-astronomy - Project 0 */}
+                        {project.id === 0 && (
+                            <div className="space-y-6 mt-12 md:mt-16">
+                                <h2 className="font-light text-2xl md:text-3xl lg:text-[36px] leading-[1.2] tracking-[0.01em] font-[200] text-[#4A4A4A] mb-4 text-center md:text-left">
+                                    My Artifact: all-astronomy
+                                </h2>
+                                {/* Single Image Placeholder */}
+                                <div className="w-full h-[400px] md:h-[500px] lg:h-[600px] rounded-xl bg-gray-300 flex items-center justify-center">
+                                    <span className="text-[#4A4A4A] opacity-40 font-[300] text-sm md:text-base">Image Placeholder</span>
+                                </div>
+                                {/* Two Image Placeholders */}
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+                                    <div className="w-full h-[400px] md:h-[500px] lg:h-[600px] rounded-xl bg-gray-300 flex items-center justify-center">
+                                        <span className="text-[#4A4A4A] opacity-40 font-[300] text-sm md:text-base">Image Placeholder</span>
+                                    </div>
+                                    <div className="w-full h-[400px] md:h-[500px] lg:h-[600px] rounded-xl bg-gray-300 flex items-center justify-center">
+                                        <span className="text-[#4A4A4A] opacity-40 font-[300] text-sm md:text-base">Image Placeholder</span>
+                                    </div>
+                                </div>
+                            </div>
+                        )}
+
+                        {/* Miscellaneous - Project 0 */}
+                        {project.id === 0 && (
+                            <div className="space-y-6 mt-12 md:mt-16">
+                                <h2 className="font-light text-2xl md:text-3xl lg:text-[36px] leading-[1.2] tracking-[0.01em] font-[200] text-[#4A4A4A] mb-4 text-center md:text-left">
+                                    Miscellaneous
+                                </h2>
+                                {/* Two Image Placeholders */}
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+                                    <div className="w-full h-[400px] md:h-[500px] lg:h-[600px] rounded-xl bg-gray-300 flex items-center justify-center">
+                                        <span className="text-[#4A4A4A] opacity-40 font-[300] text-sm md:text-base">Image Placeholder</span>
+                                    </div>
+                                    <div className="w-full h-[400px] md:h-[500px] lg:h-[600px] rounded-xl bg-gray-300 flex items-center justify-center">
+                                        <span className="text-[#4A4A4A] opacity-40 font-[300] text-sm md:text-base">Image Placeholder</span>
+                                    </div>
+                                </div>
+                            </div>
+                        )}
+
                         {/* The Insight */}
-                        {content.insight && (
+                        {content.insight && project.id !== 0 && (
                             <>
                                 <div className="border-t border-[#4A4A4A] opacity-20 my-6"></div>
                                 <div className="space-y-6">
@@ -1931,7 +2063,7 @@
                         )}
 
                         {/* Process */}
-                        {content.process && (
+                        {content.process && project.id !== 0 && (
                             <div className="space-y-6">
                                 <h2 className="font-light text-2xl md:text-3xl lg:text-[36px] leading-[1.2] tracking-[0.01em] font-[200] text-[#4A4A4A] mb-4 text-center md:text-left">
                                     Process
@@ -2100,7 +2232,7 @@
                         )}
 
                         {/* The Design */}
-                        {content.impact && !content.impact.experiments && (
+                        {content.impact && !content.impact.experiments && project.id !== 0 && (
                             <div className="space-y-6">
                                 <h2 className="font-light text-2xl md:text-3xl lg:text-[36px] leading-[1.2] tracking-[0.01em] font-[200] text-[#4A4A4A] mb-4 text-center md:text-left">
                                     The Design
@@ -2311,7 +2443,7 @@
                         )}
 
                         {/* Outcomes */}
-                        {content.outcomes && content.outcomes.length > 0 && project.id !== 4 && (
+                        {content.outcomes && content.outcomes.length > 0 && project.id !== 4 && project.id !== 0 && (
                             <div className="space-y-6">
                                 <h2 className="font-light text-2xl md:text-3xl lg:text-[36px] leading-[1.2] tracking-[0.01em] font-[200] text-[#4A4A4A] mb-4 text-center md:text-left">
                                     Outcomes
@@ -2334,7 +2466,7 @@
                         )}
 
                         {/* Reflection */}
-                        {content.reflection && (
+                        {content.reflection && project.id !== 0 && (
                             <div className="space-y-6">
                                 <h2 className="font-light text-2xl md:text-3xl lg:text-[36px] leading-[1.2] tracking-[0.01em] font-[200] text-[#4A4A4A] mb-4 text-center md:text-left">
                                     Reflection
@@ -2379,9 +2511,7 @@
                             </button>
                             {(project.heroImage || project.image) && (
                                 <div className={`mb-4 md:mb-8 scale-in ${isVisible ? 'scale-in' : ''} ${project.id === 2 ? 'overflow-hidden rounded-xl' : ''}`} style={{ animationDelay: '0.1s' }}>
-                                    {project.id === 0 ? (
-                                        <ComingSoonContainer />
-                                    ) : project.id === 2 ? (
+                                    {project.id === 2 ? (
                                         <video 
                                             src={project.image}
                                             className="w-full h-auto rounded-xl"
@@ -2442,20 +2572,20 @@
             return (
                 <article 
                     ref={itemRef}
+                    onClick={isClickable ? () => {
+                        trackEvent('project_click', {
+                            project_id: project.id,
+                            project_title: project.title,
+                            project_category: project.category,
+                            is_locked: isProjectLocked(project.id)
+                        });
+                        onProjectSelect(project.id);
+                    } : undefined}
                     className={`${isClickable ? 'hover-lift' : ''} work-project work-item relative ${isClickable ? 'cursor-pointer' : 'cursor-default'} group ${isVisible ? 'visible' : ''}`} 
                     data-project-id={project.id}
                     style={{ transitionDelay: `${index * 0.1}s` }}
                 >
                                         <div 
-                                            onClick={isClickable ? () => {
-                                                trackEvent('project_click', {
-                                                    project_id: project.id,
-                                                    project_title: project.title,
-                                                    project_category: project.category,
-                                                    is_locked: isProjectLocked(project.id)
-                                                });
-                                                onProjectSelect(project.id);
-                                            } : undefined}
                                             className={`block ${isClickable ? 'cursor-pointer' : 'cursor-default'}`}
                                         >
                                         <div className="work-project-container flex flex-col xl:flex-row gap-6 md:gap-8 xl:gap-[60px] items-stretch">
@@ -2783,7 +2913,7 @@
                 // Handle scroll to update active nav (only when not viewing project detail)
                 const handleScroll = () => {
                     // Don't update nav when viewing project detail or during programmatic navigation
-                    if (selectedProject || isProgrammaticNavigation.current) return;
+                    if ((selectedProject !== null && selectedProject !== undefined) || isProgrammaticNavigation.current) return;
                     
                     // Don't update if URL contains a project hash
                     const currentHash = window.location.hash.slice(1);
@@ -2839,7 +2969,7 @@
             };
 
             const handleProjectSelect = (projectId) => {
-                if (!projectId) {
+                if (projectId === null || projectId === undefined) {
                     setSelectedProject(null);
                     isProgrammaticNavigation.current = true;
                     window.history.replaceState(null, '', '#work');
@@ -2920,16 +3050,17 @@
                     title: 'Redesign of NASA APoD', 
                     category: 'UX Design', 
                     year: '2025',
-                    quote: 'A redesign of NASA\'s Astronomy Picture of the Day app to make the cosmos more accessible and inspires public engagement with astronomy',
+                    quote: 'A redesign of NASA\'s Astronomy Picture of the Day app to make the cosmos more accessible and inspire public engagement with astronomy',
                     image: 'assets/allastronomy.png',
-                    slug: 'os-idea-bucket',
-                    link: '#work/os-idea-bucket',
+                    heroImage: 'assets/astro-assets/astrohero.png',
+                    slug: 'all-astronomy',
+                    link: '#work/all-astronomy',
                     content: {
-                        role: 'Your Role',
-                        platforms: 'Platforms',
-                        team: 'Team',
-                        duration: 'Duration',
-                        tldr: 'Brief summary of the project and challenge.',
+                        role: 'Design & Engineering',
+                        platforms: 'Xcode · Figma',
+                        team: 'Solo project (Full stack design + engineering)',
+                        duration: 'Ongoing',
+                        tldr: 'As an astronomy enthusiast, I noticed that NASA\'s Astronomy Picture of the Day website lacks thoughtful design, and third-party mobile apps fail to truly help people appreciate the cosmos. This project is a complete redesign of the APoD experience by designing and building an app that transforms how people engage with astronomy. By reimagining the interface and user journey around the NASA APoD API, the goal is to inspire curiosity, make the cosmos more accessible, and help people develop a deeper appreciation for astronomy through thoughtful design and interaction.',
                         cards: {
                             situation: 'Situation or challenge description.',
                             research: 'Research findings or approach.',
@@ -3168,7 +3299,7 @@
                         </div>
                     </nav>
                     <main>
-                        {selectedProject ? (
+                        {selectedProject !== null && selectedProject !== undefined ? (
                             <ProjectDetail 
                                 project={projects.find(p => p.id === selectedProject)} 
                                 onBack={() => handleProjectSelect(null)} 
