@@ -1673,50 +1673,70 @@
                                 <h2 className="font-light text-2xl md:text-3xl lg:text-[36px] leading-[1.2] tracking-[0.01em] font-[200] text-[#4A4A4A] mb-4 text-center md:text-left">
                                     Current Situation
                                 </h2>
-                                {/* Two Images with Problems */}
+                                {/* Two Videos with Problems */}
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-                                    {/* First Image with Problems */}
+                                    {/* First Video with Problems */}
                                     <div className="space-y-4">
-                                        <div className="w-full h-[400px] md:h-[500px] lg:h-[600px] rounded-xl bg-gray-300 flex items-center justify-center">
-                                            <span className="text-[#4A4A4A] opacity-40 font-[300] text-sm md:text-base">Image Placeholder</span>
+                                        <div className="rounded-xl overflow-hidden relative" style={{ backgroundColor: '#F5F5F5' }}>
+                                            <div className="relative w-full h-[400px] md:h-[500px] lg:h-[600px] rounded-lg overflow-hidden">
+                                                <div className="w-full h-full p-6 md:p-8 flex items-center justify-center">
+                                                    <video 
+                                                        autoPlay 
+                                                        loop 
+                                                        muted 
+                                                        playsInline
+                                                        preload="auto"
+                                                        className="max-w-full max-h-full object-contain rounded-lg"
+                                                    >
+                                                        <source src="assets/astro-assets/nasaapod.mp4" type="video/mp4" />
+                                                    </video>
+                                                </div>
+                                            </div>
                                         </div>
                                         <div className="space-y-4">
-                                            <h3 className="text-lg md:text-xl font-[400] text-[#4A4A4A] opacity-80 mb-4 text-center md:text-left">Problems</h3>
+                                            <p className="text-sm md:text-base text-[#4A4A4A] opacity-60 font-[300] italic text-center md:text-left">NASA astronomy picture of the day website</p>
+                                            <h3 className="text-lg md:text-xl font-[400] text-[#4A4A4A] opacity-80 mb-4 text-center md:text-left">Pain Points</h3>
                                             <ul className="space-y-3 text-base md:text-lg text-[#4A4A4A] opacity-70 font-[300] leading-[1.7]">
                                                 <li className="flex items-start justify-center md:justify-start">
                                                     <span className="mr-3 mt-1">•</span>
-                                                    <span>Problem description 1</span>
+                                                    <span>Feels like raw data rather than an engaging experience</span>
                                                 </li>
                                                 <li className="flex items-start justify-center md:justify-start">
                                                     <span className="mr-3 mt-1">•</span>
-                                                    <span>Problem description 2</span>
-                                                </li>
-                                                <li className="flex items-start justify-center md:justify-start">
-                                                    <span className="mr-3 mt-1">•</span>
-                                                    <span>Problem description 3</span>
+                                                    <span>Low incentive for casual users to return, limiting its appeal to non-enthusiasts</span>
                                                 </li>
                                             </ul>
                                         </div>
                                     </div>
-                                    {/* Second Image with Problems */}
+                                    {/* Second Video with Problems */}
                                     <div className="space-y-4">
-                                        <div className="w-full h-[400px] md:h-[500px] lg:h-[600px] rounded-xl bg-gray-300 flex items-center justify-center">
-                                            <span className="text-[#4A4A4A] opacity-40 font-[300] text-sm md:text-base">Image Placeholder</span>
+                                        <div className="rounded-xl overflow-hidden relative" style={{ backgroundColor: '#F5F5F5' }}>
+                                            <div className="relative w-full h-[400px] md:h-[500px] lg:h-[600px] rounded-lg overflow-hidden">
+                                                <div className="w-full h-full p-6 md:p-8 flex items-center justify-center">
+                                                    <video 
+                                                        autoPlay 
+                                                        loop 
+                                                        muted 
+                                                        playsInline
+                                                        preload="auto"
+                                                        className="max-w-full max-h-full object-contain rounded-lg"
+                                                    >
+                                                        <source src="assets/astro-assets/apodother.mp4" type="video/mp4" />
+                                                    </video>
+                                                </div>
+                                            </div>
                                         </div>
                                         <div className="space-y-4">
-                                            <h3 className="text-lg md:text-xl font-[400] text-[#4A4A4A] opacity-80 mb-4 text-center md:text-left">Problems</h3>
+                                            <p className="text-sm md:text-base text-[#4A4A4A] opacity-60 font-[300] italic text-center md:text-left">A popular astronomy picture of the day app on app store</p>
+                                            <h3 className="text-lg md:text-xl font-[400] text-[#4A4A4A] opacity-80 mb-4 text-center md:text-left">Pain Points</h3>
                                             <ul className="space-y-3 text-base md:text-lg text-[#4A4A4A] opacity-70 font-[300] leading-[1.7]">
                                                 <li className="flex items-start justify-center md:justify-start">
                                                     <span className="mr-3 mt-1">•</span>
-                                                    <span>Problem description 1</span>
+                                                    <span>An Instagram-like feed on endless scroll with a date picker</span>
                                                 </li>
                                                 <li className="flex items-start justify-center md:justify-start">
                                                     <span className="mr-3 mt-1">•</span>
-                                                    <span>Problem description 2</span>
-                                                </li>
-                                                <li className="flex items-start justify-center md:justify-start">
-                                                    <span className="mr-3 mt-1">•</span>
-                                                    <span>Problem description 3</span>
+                                                    <span>Doesn't tell any story or take users on a journe, however it has a comment section (engaging)</span>
                                                 </li>
                                             </ul>
                                         </div>
@@ -1729,20 +1749,37 @@
                         {project.id === 0 && (
                             <div className="space-y-6 mt-12 md:mt-16">
                                 <h2 className="font-light text-2xl md:text-3xl lg:text-[36px] leading-[1.2] tracking-[0.01em] font-[200] text-[#4A4A4A] mb-4 text-center md:text-left">
-                                    How does all-astronomy stand out?
+                                    Designed to Inspire Curiosity
                                 </h2>
-                                {/* Single Image Placeholder */}
-                                <div className="w-full h-[400px] md:h-[500px] lg:h-[600px] rounded-xl bg-gray-300 flex items-center justify-center">
-                                    <span className="text-[#4A4A4A] opacity-40 font-[300] text-sm md:text-base">Image Placeholder</span>
+                                {/* Paragraph */}
+                                <div className="text-base md:text-lg text-[#4A4A4A] opacity-70 font-[300] leading-[1.7] text-center md:text-left">
+                                    <p>The core stack is powered by natural language processing (NLP) via a server that intelligently curates astronomy pictures and content. This system takes users on a journey through the cosmos, creating an editorial experience that feels thoughtfully crafted—all without human intervention.</p>
                                 </div>
-                                {/* Two Image Placeholders */}
-                                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
-                                    <div className="w-full h-[400px] md:h-[500px] lg:h-[600px] rounded-xl bg-gray-300 flex items-center justify-center">
-                                        <span className="text-[#4A4A4A] opacity-40 font-[300] text-sm md:text-base">Image Placeholder</span>
-                                    </div>
-                                    <div className="w-full h-[400px] md:h-[500px] lg:h-[600px] rounded-xl bg-gray-300 flex items-center justify-center">
-                                        <span className="text-[#4A4A4A] opacity-40 font-[300] text-sm md:text-base">Image Placeholder</span>
-                                    </div>
+                                {/* Bento Image */}
+                                <div className="w-full mt-6 md:mt-8 mb-6 md:mb-8">
+                                    <img 
+                                        src="assets/astro-assets/bento.webp" 
+                                        alt="All Astronomy Bento" 
+                                        className="w-full h-auto rounded-xl"
+                                        onLoad={(e) => e.target.classList.add('loaded')}
+                                    />
+                                </div>
+                                {/* Intelligent Curation Overview Subheading */}
+                                <h3 className="text-lg md:text-xl lg:text-2xl font-[300] text-[#4A4A4A] mb-4 md:mb-6 mt-20 md:mt-24 text-center md:text-left">
+                                    Intelligent Curation Overview
+                                </h3>
+                                {/* Overview Image */}
+                                <div className="w-full mt-6 md:mt-8 mb-6 md:mb-8">
+                                    <img 
+                                        src="assets/astro-assets/overview.webp" 
+                                        alt="All Astronomy Overview" 
+                                        className="w-full h-auto rounded-xl"
+                                        onLoad={(e) => e.target.classList.add('loaded')}
+                                    />
+                                </div>
+                                {/* Image Placeholder */}
+                                <div className="w-full h-[400px] md:h-[500px] lg:h-[600px] rounded-xl bg-gray-300 flex items-center justify-center mt-6 md:mt-8">
+                                    <span className="text-[#4A4A4A] opacity-40 font-[300] text-sm md:text-base">Image Placeholder</span>
                                 </div>
                             </div>
                         )}
