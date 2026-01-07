@@ -1756,7 +1756,7 @@
                                     <p>The core stack is powered by natural language processing (NLP) via a server that intelligently curates astronomy pictures and content. This system takes users on a journey through the cosmos, creating an editorial experience that feels thoughtfully crafted—all without human intervention.</p>
                                 </div>
                                 {/* Bento Image */}
-                                <div className="w-full mt-6 md:mt-8 mb-6 md:mb-8">
+                                <div className="w-full mt-6 md:mt-8" style={{ marginBottom: '80px' }}>
                                     <img 
                                         src="assets/astro-assets/bento.webp" 
                                         alt="All Astronomy Bento" 
@@ -1764,9 +1764,9 @@
                                         onLoad={(e) => e.target.classList.add('loaded')}
                                     />
                                 </div>
-                                {/* Intelligent Curation Overview Subheading */}
-                                <h3 className="text-lg md:text-xl lg:text-2xl font-[300] text-[#4A4A4A] mb-4 md:mb-6 mt-20 md:mt-24 text-center md:text-left">
-                                    Intelligent Curation Overview
+                                {/* System Design Overview Subheading */}
+                                <h3 className="text-lg md:text-xl lg:text-2xl font-[300] text-[#4A4A4A] mb-4 md:mb-6 mt-0 text-center md:text-left">
+                                    System Design Overview
                                 </h3>
                                 {/* Overview Image */}
                                 <div className="w-full mt-6 md:mt-8 mb-6 md:mb-8">
@@ -1776,10 +1776,21 @@
                                         className="w-full h-auto rounded-xl"
                                         onLoad={(e) => e.target.classList.add('loaded')}
                                     />
+                                    <p className="text-sm md:text-base text-[#4A4A4A] opacity-60 font-[300] italic text-center md:text-left mt-3 md:mt-4">
+                                        High level overview of entire server for intelligent curation
+                                    </p>
                                 </div>
-                                {/* Image Placeholder */}
-                                <div className="w-full h-[400px] md:h-[500px] lg:h-[600px] rounded-xl bg-gray-300 flex items-center justify-center mt-6 md:mt-8">
-                                    <span className="text-[#4A4A4A] opacity-40 font-[300] text-sm md:text-base">Image Placeholder</span>
+                                {/* NLP Image */}
+                                <div className="w-full mt-6 md:mt-8 mb-6 md:mb-8">
+                                    <img 
+                                        src="assets/astro-assets/nlp.webp" 
+                                        alt="NLP Smart Curation Algorithm" 
+                                        className="w-full h-auto rounded-xl"
+                                        onLoad={(e) => e.target.classList.add('loaded')}
+                                    />
+                                    <p className="text-sm md:text-base text-[#4A4A4A] opacity-60 font-[300] italic text-center md:text-left mt-3 md:mt-4">
+                                        NLP smart curation algorithm for taking users through a curated journey
+                                    </p>
                                 </div>
                             </div>
                         )}
@@ -1820,6 +1831,18 @@
                                     <div className="w-full h-[400px] md:h-[500px] lg:h-[600px] rounded-xl bg-gray-300 flex items-center justify-center">
                                         <span className="text-[#4A4A4A] opacity-40 font-[300] text-sm md:text-base">Image Placeholder</span>
                                     </div>
+                                </div>
+                                {/* Code Image */}
+                                <div className="w-full mt-6 md:mt-8 mb-6 md:mb-8">
+                                    <img 
+                                        src="assets/astro-assets/code.png" 
+                                        alt="Code" 
+                                        className="w-full h-auto rounded-xl"
+                                        onLoad={(e) => e.target.classList.add('loaded')}
+                                    />
+                                    <p className="text-sm md:text-base text-[#4A4A4A] opacity-60 font-[300] italic text-center md:text-left mt-3 md:mt-4">
+                                        Process of building all-astronomy app on xcode
+                                    </p>
                                 </div>
                             </div>
                         )}
@@ -2630,6 +2653,7 @@
                                             <div className={`work-project-image w-full xl:w-[70%] flex items-stretch relative ${index % 2 === 0 ? 'xl:order-1' : 'xl:order-2'}`}>
                                                 {project.image ? (
                                                     <>
+                                                        {/* Coming Soon hover animation commented out - project 0 now behaves like other projects
                                                         {project.id === 0 ? (
                                                             <div className="relative w-full h-auto min-h-[250px] md:min-h-[300px] xl:h-full xl:min-h-[500px] rounded-xl overflow-hidden">
                                                                 <img 
@@ -2642,7 +2666,7 @@
                                                                     <ComingSoonContainer />
                                                                 </div>
                                                             </div>
-                                                        ) : project.id === 2 ? (
+                                                        ) : */ project.id === 2 ? (
                                                             <video 
                                                                 src={project.image}
                                                                 className="w-full h-auto min-h-[250px] md:min-h-[300px] xl:h-full xl:min-h-[500px] object-cover rounded-xl"
