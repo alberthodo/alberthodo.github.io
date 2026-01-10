@@ -1664,6 +1664,29 @@
                                     </div>
                                 </div>
                                 )}
+                                {/* Full Width Card for Project 2 */}
+                                {project.id === 2 && (
+                                    <div className="mt-8 md:mt-12 rounded-xl p-6 md:p-8 bg-[var(--fog-grey)]" style={{ backgroundColor: 'rgba(217, 214, 210, 0.15)' }}>
+                                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 items-center">
+                                            <div className="space-y-4 text-center md:text-left">
+                                                <h3 className="text-base md:text-lg font-[400] text-[#4A4A4A] opacity-60">
+                                                    Designed and prototyped for native platforms
+                                                </h3>
+                                                <div className="text-sm md:text-base text-[#4A4A4A] opacity-95 font-[300] leading-[1.6]">
+                                                    All experiements and designs shows here are prototyped with Xcode, SwiftUI and Figma purposely to stick with native tools and constraints while exploring intricate details.
+                                                </div>
+                                            </div>
+                                            <div className="w-full flex justify-center md:justify-end">
+                                                <img 
+                                                    src="assets/lab/tools.webp" 
+                                                    alt="Tools" 
+                                                    className="w-1/2 h-auto rounded-xl"
+                                                    onLoad={(e) => e.target.classList.add('loaded')}
+                                                />
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
                             </div>
                         )}
 
@@ -3214,9 +3237,9 @@
                 { 
                     id: 0, 
                     title: 'Redesign of NASA APoD', 
-                    category: 'UX Design', 
+                    category: 'AI UX Design', 
                     year: '2025',
-                    quote: 'A redesign of NASA\'s Astronomy Picture of the Day app to make the cosmos more accessible and inspire public engagement with astronomy',
+                    quote: 'Using NLP to redesign and build a new NASA\'s Astronomy Picture of the Day app increasing engagement and reducing churn by 60%',
                     image: 'assets/allastronomy.png',
                     heroImage: 'assets/astro-assets/astrohero.png',
                     slug: 'all-astronomy',
@@ -3254,7 +3277,7 @@
                 { 
                     id: 1, 
                     title: 'AI Voice Notes Workflow', 
-                    category: 'UX Design', 
+                    category: 'AI UX Design', 
                     year: '2025',
                     quote: 'Redesigning a voice-to-content workflow to reduce cognitive load across iOS, iPad, and Mac.',
                     image: 'assets/goodSpeak.png',
