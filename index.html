@@ -22,14 +22,14 @@
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://www.hodo.studio" />
     <meta property="og:title" content="Hodo Portfolio / Studio" />
-    <meta property="og:description" content="Designer | New Media Artist. Design, Engineering, & Emerging Technology. This collection includes work in ux design, interactive exhibitions, and AI." />
+    <meta name="description" content="AI Systems & UX Designer. Design, Prototyping, & Emerging Technology. This collection includes work in ux design, interactive exhibitions, and AI." />
     <meta property="og:image" content="https://www.hodo.studio/assets/ash.png" />
     
     <!-- X (Twitter) -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content="https://www.hodo.studio" />
     <meta property="twitter:title" content="Hodo Portfolio / Studio" />
-    <meta property="twitter:description" content="Designer | New Media Artist. Design, Engineering, & Emerging Technology. This collection includes work in ux design, interactive exhibitions, and AI." />
+    <meta name="description" content="AI Systems & UX Designer. Design, Prototyping, & Emerging Technology. This collection includes work in ux design, interactive exhibitions, and AI." />
     <meta property="twitter:image" content="https://www.hodo.studio/assets/ash.png" />
     
     <!-- Schema.org Structured Data -->
@@ -1087,18 +1087,121 @@
         };
 
         // Google Analytics Tracking Functions
-        const trackEvent = (eventName, eventParams = {}) => {
-            if (typeof gtag !== 'undefined') {
-                gtag('event', eventName, eventParams);
+        // User Journey Tracking
+        const getUserJourney = () => {
+            try {
+                const journey = sessionStorage.getItem('user_journey');
+                return journey ? JSON.parse(journey) : [];
+            } catch (e) {
+                return [];
             }
         };
 
-        const trackPageView = (pageName, pagePath) => {
+        const addToJourney = (pageName, pagePath, additionalData = {}) => {
+            try {
+                const journey = getUserJourney();
+                const journeyEntry = {
+                    page: pageName,
+                    path: pagePath,
+                    timestamp: Date.now(),
+                    ...additionalData
+                };
+                journey.push(journeyEntry);
+                // Keep last 20 pages to avoid storage issues
+                const trimmedJourney = journey.slice(-20);
+                sessionStorage.setItem('user_journey', JSON.stringify(trimmedJourney));
+                return trimmedJourney;
+            } catch (e) {
+                return [];
+            }
+        };
+
+        const getEntryPoint = () => {
+            try {
+                return sessionStorage.getItem('entry_point') || 'unknown';
+            } catch (e) {
+                return 'unknown';
+            }
+        };
+
+        const setEntryPoint = (point) => {
+            try {
+                if (!sessionStorage.getItem('entry_point')) {
+                    sessionStorage.setItem('entry_point', point);
+                }
+            } catch (e) {
+                // Ignore storage errors
+            }
+        };
+
+        // Track navigation patterns
+        const trackNavigation = (fromPage, toPage, navigationType = 'click') => {
+            const journey = getUserJourney();
+            trackEvent('navigation', {
+                from_page: fromPage,
+                to_page: toPage,
+                navigation_type: navigationType,
+                journey_length: journey.length,
+                entry_point: getEntryPoint()
+            });
+        };
+
+        const trackEvent = (eventName, eventParams = {}) => {
             if (typeof gtag !== 'undefined') {
+                // Add user journey context to events
+                const journey = getUserJourney();
+                const entryPoint = getEntryPoint();
+                gtag('event', eventName, {
+                    ...eventParams,
+                    journey_length: journey.length,
+                    entry_point: entryPoint,
+                    user_agent: navigator.userAgent,
+                    screen_resolution: `${window.screen.width}x${window.screen.height}`,
+                    viewport_size: `${window.innerWidth}x${window.innerHeight}`
+                });
+            }
+        };
+
+        const trackPageView = (pageName, pagePath, additionalParams = {}) => {
+            if (typeof gtag !== 'undefined') {
+                // Track entry point if this is the first page
+                const journey = getUserJourney();
+                if (journey.length === 0) {
+                    setEntryPoint(pagePath);
+                }
+                
+                // Add to journey
+                const updatedJourney = addToJourney(pageName, pagePath, additionalParams);
+                
+                // Determine navigation pattern
+                const previousPage = updatedJourney.length > 1 ? updatedJourney[updatedJourney.length - 2] : null;
+                const navigationPattern = previousPage ? `${previousPage.page} → ${pageName}` : 'entry';
+                
                 gtag('config', 'G-KBQXLMZL6B', {
                     page_path: pagePath,
-                    page_title: pageName
+                    page_title: pageName,
+                    ...additionalParams
                 });
+                
+                // Enhanced page view event with journey data
+                gtag('event', 'page_view', {
+                    page_title: pageName,
+                    page_location: window.location.href,
+                    page_path: pagePath,
+                    journey_length: updatedJourney.length,
+                    entry_point: getEntryPoint(),
+                    navigation_pattern: navigationPattern,
+                    previous_page: previousPage ? previousPage.page : 'none',
+                    ...additionalParams
+                });
+                
+                // Track user journey milestone
+                if (updatedJourney.length === 1) {
+                    gtag('event', 'session_start', {
+                        entry_point: pagePath,
+                        entry_page: pageName
+                    });
+                }
             }
         };
 
@@ -1517,11 +1620,27 @@
             const isVisible = useIntersectionObserver(containerRef, { threshold: 0 });
             const [carouselIndex, setCarouselIndex] = React.useState(0);
             const carouselImages = Array.from({ length: 7 }, (_, i) => `assets/gs-assets/${i + 1}.png`);
+            const startTimeRef = React.useRef(Date.now());
             
             // Scroll to top when component mounts
             useEffect(() => {
                 window.scrollTo({ top: 0, behavior: 'instant' });
-            }, []);
+                startTimeRef.current = Date.now();
+                
+                // Track engagement time when component unmounts
+                return () => {
+                    const timeSpent = Math.round((Date.now() - startTimeRef.current) / 1000); // in seconds
+                    if (timeSpent > 0 && typeof gtag !== 'undefined') {
+                        gtag('event', 'project_engagement', {
+                            project_id: project.id,
+                            project_title: project.title,
+                            project_category: project.category,
+                            engagement_time_msec: timeSpent * 1000,
+                            engagement_time_sec: timeSpent
+                        });
+                    }
+                };
+            }, [project]);
 
             const nextImage = () => {
                 setCarouselIndex((prev) => prev < carouselImages.length - 1 ? prev + 1 : prev);
@@ -3130,6 +3249,19 @@
                 // Initialize scroll tracking
                 const scrollCleanup = setupScrollTracking();
                 
+                // Track audience insights on initial load
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', 'audience_insights', {
+                        device_type: /Mobile|Android|iPhone|iPad/.test(navigator.userAgent) ? 'mobile' : 'desktop',
+                        browser: navigator.userAgent,
+                        screen_resolution: `${window.screen.width}x${window.screen.height}`,
+                        viewport_size: `${window.innerWidth}x${window.innerHeight}`,
+                        language: navigator.language,
+                        timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+                        referrer: document.referrer || 'direct'
+                    });
+                }
+                
                 // Track initial page view
                 const initialHash = window.location.hash.slice(1);
                 if (initialHash) {
@@ -3137,7 +3269,16 @@
                     if (projectMatch) {
                         const projectId = parseInt(projectMatch[1]);
                         const project = projects.find(p => p.id === projectId);
-                        trackPageView(project ? project.title : `Project ${projectId}`, `/#${initialHash}`);
+                        trackPageView(
+                            project ? `${project.title} - Project Detail` : `Project ${projectId} - Project Detail`, 
+                            `/#${initialHash}`,
+                            {
+                                project_id: projectId,
+                                project_title: project ? project.title : `Project ${projectId}`,
+                                project_category: project ? project.category : 'Unknown',
+                                content_type: 'project_detail'
+                            }
+                        );
                     } else {
                         trackPageView(initialHash.charAt(0).toUpperCase() + initialHash.slice(1), `/#${initialHash}`);
                     }
@@ -3203,7 +3344,16 @@
                                 trigger: 'hash_change'
                             });
                         } else {
-                            trackPageView(project ? project.title : `Project ${projectId}`, `/#${newHash}`);
+                            trackPageView(
+                                project ? `${project.title} - Project Detail` : `Project ${projectId} - Project Detail`, 
+                                `/#${newHash}`,
+                                {
+                                    project_id: projectId,
+                                    project_title: project ? project.title : `Project ${projectId}`,
+                                    project_category: project ? project.category : 'Unknown',
+                                    content_type: 'project_detail'
+                                }
+                            );
                         setSelectedProject(projectId);
                         setCurrentPage('work');
                         window.scrollTo({ top: 0, behavior: 'instant' });
@@ -3239,12 +3389,48 @@
                     }
                 };
 
+                // Exit point tracking
+                const trackExit = (exitType) => {
+                    const journey = getUserJourney();
+                    const currentPageName = selectedProject 
+                        ? projects.find(p => p.id === selectedProject)?.title || 'Unknown Project'
+                        : currentPage;
+                    
+                    if (typeof gtag !== 'undefined' && journey.length > 0) {
+                        gtag('event', 'exit', {
+                            exit_type: exitType,
+                            exit_page: currentPageName,
+                            exit_path: window.location.hash || '/',
+                            journey_length: journey.length,
+                            entry_point: getEntryPoint(),
+                            total_pages_viewed: journey.length,
+                            journey_summary: journey.map(j => j.page).join(' → ')
+                        });
+                    }
+                };
+
+                // Track page visibility changes
+                const handleVisibilityChange = () => {
+                    if (document.hidden) {
+                        trackExit('tab_switch');
+                    }
+                };
+
+                // Track beforeunload (user leaving)
+                const handleBeforeUnload = () => {
+                    trackExit('page_leave');
+                };
+
                 window.addEventListener('hashchange', handleHashChange);
                 window.addEventListener('scroll', handleScroll, { passive: true });
+                document.addEventListener('visibilitychange', handleVisibilityChange);
+                window.addEventListener('beforeunload', handleBeforeUnload);
 
                 return () => {
                     window.removeEventListener('hashchange', handleHashChange);
                     window.removeEventListener('scroll', handleScroll);
+                    document.removeEventListener('visibilitychange', handleVisibilityChange);
+                    window.removeEventListener('beforeunload', handleBeforeUnload);
                     if (scrollCleanup) scrollCleanup();
                 };
             }, [selectedProject]);
@@ -3264,7 +3450,9 @@
             };
 
             const handleNavigate = (page) => {
+                const previousPage = currentPage;
                 trackPageView(page.charAt(0).toUpperCase() + page.slice(1), `/#${page}`);
+                trackNavigation(previousPage, page, 'navigation_click');
                 isProgrammaticNavigation.current = true;
                 setCurrentPage(page);
                 setSelectedProject(null);
@@ -3303,10 +3491,21 @@
                 // Project is unlocked or authenticated, show it
                 const project = projects.find(p => p.id === projectId);
                 const projectSlug = project ? project.slug : `project-${projectId}`;
-                trackPageView(project ? project.title : `Project ${projectId}`, `/#work/${projectSlug}`);
+                const previousPage = currentPage;
+                trackPageView(
+                    project ? `${project.title} - Project Detail` : `Project ${projectId} - Project Detail`, 
+                    `/#work/${projectSlug}`,
+                    {
+                        project_id: projectId,
+                        project_title: project ? project.title : `Project ${projectId}`,
+                        project_category: project ? project.category : 'Unknown',
+                        content_type: 'project_detail'
+                    }
+                );
+                trackNavigation(previousPage, `${project ? project.title : `Project ${projectId}`} - Project Detail`, 'project_click');
                 isProgrammaticNavigation.current = true;
                 // Update URL first, then set state
-                window.history.replaceState(null, '', `#work/${projectSlug}`);
+                window.history.pushState(null, '', `#work/${projectSlug}`);
                 setSelectedProject(projectId);
                 setCurrentPage('work');
                 window.scrollTo({ top: 0, behavior: 'instant' });
@@ -3320,7 +3519,16 @@
                 if (pendingProjectId) {
                     const project = projects.find(p => p.id === pendingProjectId);
                     const projectSlug = project ? project.slug : `project-${pendingProjectId}`;
-                    trackPageView(project ? project.title : `Project ${pendingProjectId}`, `/#work/${projectSlug}`);
+                    trackPageView(
+                        project ? `${project.title} - Project Detail` : `Project ${pendingProjectId} - Project Detail`, 
+                        `/#work/${projectSlug}`,
+                        {
+                            project_id: pendingProjectId,
+                            project_title: project ? project.title : `Project ${pendingProjectId}`,
+                            project_category: project ? project.category : 'Unknown',
+                            content_type: 'project_detail'
+                        }
+                    );
                     setAuthenticatedProject(pendingProjectId);
                     setPasswordModalOpen(false);
                     setPasswordError(false);
@@ -3328,7 +3536,7 @@
                     isProgrammaticNavigation.current = true;
                     setSelectedProject(pendingProjectId);
                     setCurrentPage('work');
-                    window.history.replaceState(null, '', `#work/${projectSlug}`);
+                    window.history.pushState(null, '', `#work/${projectSlug}`);
                     window.scrollTo({ top: 0, behavior: 'instant' });
                     setPendingProjectId(null);
                     setTimeout(() => {
