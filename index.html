@@ -398,26 +398,41 @@
         /* Staggered Fade In */
         .fade-in {
             opacity: 0;
+        }
+        
+        body.animations-enabled .fade-in {
             animation: fadeInUp 0.8s ease-out forwards;
         }
         
         .fade-in-delay-1 {
             opacity: 0;
+        }
+        
+        body.animations-enabled .fade-in-delay-1 {
             animation: fadeInUp 0.8s ease-out 0.1s forwards;
         }
         
         .fade-in-delay-2 {
             opacity: 0;
+        }
+        
+        body.animations-enabled .fade-in-delay-2 {
             animation: fadeInUp 0.8s ease-out 0.2s forwards;
         }
         
         .fade-in-delay-3 {
             opacity: 0;
+        }
+        
+        body.animations-enabled .fade-in-delay-3 {
             animation: fadeInUp 0.8s ease-out 0.3s forwards;
         }
         
         .fade-in-delay-4 {
             opacity: 0;
+        }
+        
+        body.animations-enabled .fade-in-delay-4 {
             animation: fadeInUp 0.8s ease-out 0.4s forwards;
         }
         
@@ -638,6 +653,9 @@
         /* Hero Title Animation */
         .hero-title {
             opacity: 0;
+        }
+        
+        body.animations-enabled .hero-title {
             animation: heroTitleIn 1.2s ease-out 0.2s forwards;
         }
         
@@ -655,6 +673,9 @@
         /* Hero Subtitle Animation */
         .hero-subtitle {
             opacity: 0;
+        }
+        
+        body.animations-enabled .hero-subtitle {
             animation: heroSubtitleIn 1s ease-out 0.6s forwards;
         }
         
@@ -3209,16 +3230,132 @@
             );
         };
 
+        // Splash Screen Component
+        const SplashScreen = ({ onComplete }) => {
+            const [fillProgress, setFillProgress] = React.useState(0);
+            const [opacity, setOpacity] = React.useState(1);
+            const containerRef = React.useRef(null);
 
+            React.useEffect(() => {
+                // Start with dim grey text
+                // Then animate fluid fill
+                const fillDuration = 2000; // 2 seconds for fill
+                const fadeStartTime = 1400; // Start fading when fill is 70% done
+                const fadeDuration = 600; // 0.6 seconds to fade out smoothly
+                const startTime = Date.now();
+
+                const animate = () => {
+                    const elapsed = Date.now() - startTime;
+                    
+                    if (elapsed < fillDuration) {
+                        // Fluid fill animation using easing function for non-linear effect
+                        const progress = elapsed / fillDuration;
+                        // Custom easing for fluid feel - ease-out cubic with slight variation
+                        // Creates organic, non-linear fill that feels like liquid
+                        const eased = 1 - Math.pow(1 - progress, 2.8);
+                        setFillProgress(eased);
+                        
+                        // Start fading while fill is still happening
+                        if (elapsed >= fadeStartTime) {
+                            const fadeProgress = (elapsed - fadeStartTime) / fadeDuration;
+                            setOpacity(Math.max(0, 1 - fadeProgress));
+                        }
+                        
+                        requestAnimationFrame(animate);
+                    } else {
+                        // Fill complete, continue fading if needed
+                        setFillProgress(1);
+                        const fadeProgress = (elapsed - fadeStartTime) / fadeDuration;
+                        if (fadeProgress >= 1) {
+                            setOpacity(0);
+                            onComplete();
+                        } else {
+                            setOpacity(1 - fadeProgress);
+                            requestAnimationFrame(animate);
+                        }
+                    }
+                };
+
+                requestAnimationFrame(animate);
+            }, [onComplete]);
+
+            return (
+                <div
+                    ref={containerRef}
+                    className="fixed inset-0 z-50 bg-white flex items-center justify-center"
+                    style={{
+                        opacity: opacity,
+                        pointerEvents: opacity > 0 ? 'auto' : 'none'
+                    }}
+                >
+                    <div className="relative">
+                        <h1
+                            className="text-3xl md:text-4xl lg:text-5xl font-[300] tracking-tight"
+                            style={{
+                                color: '#F5F5F5', // Very dim grey, closer to white
+                                position: 'relative',
+                                display: 'inline-block',
+                                fontFamily: 'inherit'
+                            }}
+                        >
+                            Hodo
+                            {/* Fluid fill overlay using mask for smoother, non-linear effect */}
+                            <span
+                                className="absolute inset-0"
+                                style={{
+                                    color: '#9A9A9A', // Clearer grey
+                                    // Create fluid, non-linear fill with gradient stops that create wave-like effect
+                                    maskImage: `linear-gradient(
+                                        to right, 
+                                        black 0%, 
+                                        black ${Math.max(0, (fillProgress * 100) - 5)}%, 
+                                        rgba(0,0,0,0.8) ${fillProgress * 100}%, 
+                                        transparent ${Math.min(100, fillProgress * 100 + 8)}%
+                                    )`,
+                                    WebkitMaskImage: `linear-gradient(
+                                        to right, 
+                                        black 0%, 
+                                        black ${Math.max(0, (fillProgress * 100) - 5)}%, 
+                                        rgba(0,0,0,0.8) ${fillProgress * 100}%, 
+                                        transparent ${Math.min(100, fillProgress * 100 + 8)}%
+                                    )`,
+                                    maskSize: '100% 100%',
+                                    WebkitMaskSize: '100% 100%',
+                                    maskRepeat: 'no-repeat',
+                                    WebkitMaskRepeat: 'no-repeat',
+                                    maskPosition: 'left center',
+                                    WebkitMaskPosition: 'left center'
+                                }}
+                            >
+                                Hodo
+                            </span>
+                        </h1>
+                    </div>
+                </div>
+            );
+        };
 
         // Main App Component
         const App = () => {
+            const [showSplash, setShowSplash] = React.useState(true);
+            const [animationsEnabled, setAnimationsEnabled] = React.useState(false);
             const [currentPage, setCurrentPage] = useState('home');
             const [selectedProject, setSelectedProject] = useState(null);
             const [passwordModalOpen, setPasswordModalOpen] = useState(false);
             const [pendingProjectId, setPendingProjectId] = useState(null);
             const [passwordError, setPasswordError] = useState(false);
             const isProgrammaticNavigation = React.useRef(false);
+            
+            // Enable animations after splash completes
+            React.useEffect(() => {
+                if (!showSplash && !animationsEnabled) {
+                    // Small delay to ensure smooth transition
+                    setTimeout(() => {
+                        setAnimationsEnabled(true);
+                        document.body.classList.add('animations-enabled');
+                    }, 100);
+                }
+            }, [showSplash, animationsEnabled]);
             
             // Get authenticated projects from sessionStorage
             const getAuthenticatedProjects = () => {
@@ -3769,6 +3906,9 @@
 
             return (
                 <div className="min-h-screen bg-rice-paper">
+                    {showSplash && (
+                        <SplashScreen onComplete={() => setShowSplash(false)} />
+                    )}
                     <PasswordModal
                         isOpen={passwordModalOpen}
                         onClose={handlePasswordClose}
@@ -3776,7 +3916,8 @@
                         showError={passwordError}
                         onError={(show) => setPasswordError(show !== false)}
                     />
-                    <Navigation currentPage={currentPage} onNavigate={handleNavigate} />
+                    <div style={{ opacity: showSplash ? 0 : 1, transition: 'opacity 0.6s ease-in' }}>
+                        <Navigation currentPage={currentPage} onNavigate={handleNavigate} />
                     {/* Left Navigation - Mirror of right nav - Hidden on mobile */}
                     <nav className="hidden md:flex fixed left-0 top-0 bottom-0 z-50 w-[140px] py-16 ml-8 slide-in-left">
                         <div className="flex flex-col h-full justify-between">
@@ -3834,6 +3975,7 @@
                             Designed and built with HTML 📄, Tailwind CSS 🎨, React.js ⚛️, and coffee ☕
                         </div>
                     </footer>
+                    </div>
                 </div>
             );
         };
