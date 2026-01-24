@@ -3167,7 +3167,7 @@
                                 {project.image ? (
                                     <>
                                         {project.id === 2 ? (
-                                            <div className="w-full max-w-4xl overflow-hidden rounded-xl" style={{ aspectRatio: '16/9' }}>
+                                            <div className="w-full md:max-w-4xl overflow-hidden md:rounded-xl" style={{ aspectRatio: '16/9' }}>
                                                 <video 
                                                     src={project.image}
                                                     className="w-full h-full object-cover"
@@ -3189,7 +3189,7 @@
                                             <img 
                                                 src={project.image} 
                                                 alt={project.title} 
-                                                className="w-full max-w-4xl h-auto rounded-xl object-contain"
+                                                className="w-full md:max-w-4xl h-auto md:rounded-xl object-contain"
                                                 onLoad={(e) => e.target.classList.add('loaded')}
                                             />
                                         )}
