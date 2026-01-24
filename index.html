@@ -1339,7 +1339,7 @@
                             </a>
                         ))}
                         <a
-                            href="mailto:contact@example.com"
+                            href="mailto:albert.hodo@icloud.com?subject=Let's Connect"
                             className="mobile-nav-link"
                             onClick={() => {
                                 trackEvent('contact_click', {
@@ -1357,28 +1357,28 @@
                     <nav className={`hidden md:flex fixed top-0 left-0 right-0 z-50 w-full px-8 py-4 nav-animate ${isNasaVisible ? 'nav-white' : ''}`}>
                         <div className="flex flex-row w-full justify-center items-center max-w-[1200px] mx-auto">
                             <div className={`flex flex-row gap-1 items-center px-1.5 py-1.5 rounded-full backdrop-blur-xl ${isNasaVisible ? 'bg-[rgba(255,255,255,0.1)]' : 'bg-[rgba(0,0,0,0.05)]'}`}>
-                                {navItems.map((item, index) => (
+                            {navItems.map((item, index) => (
                                     <div key={item.id} className="relative">
-                                        <a
-                                            href={`#${item.id}`}
-                                            onClick={(e) => {
-                                                e.preventDefault();
-                                                trackEvent('navigation_click', {
-                                                    navigation_type: 'desktop',
-                                                    destination: item.id,
-                                                    current_page: currentPage
-                                                });
-                                                onNavigate(item.id);
-                                            }}
+                                    <a
+                                        href={`#${item.id}`}
+                                        onClick={(e) => {
+                                            e.preventDefault();
+                                            trackEvent('navigation_click', {
+                                                navigation_type: 'desktop',
+                                                destination: item.id,
+                                                current_page: currentPage
+                                            });
+                                            onNavigate(item.id);
+                                        }}
                                             className={`nav-link ${currentPage === item.id ? 'active' : ''} ${isNasaVisible ? 'text-white' : ''}`}
-                                        >
-                                            {item.label}
-                                        </a>
-                                    </div>
-                                ))}
+                                    >
+                                        {item.label}
+                                    </a>
+                                </div>
+                            ))}
                                 <div className="relative">
                                     <a
-                                        href="mailto:contact@example.com"
+                                        href="mailto:albert.hodo@icloud.com?subject=Let's Connect"
                                         className={`nav-link ${isNasaVisible ? 'text-white' : ''}`}
                                         onClick={() => {
                                             trackEvent('contact_click', {
@@ -1390,9 +1390,9 @@
                                         Contact
                                     </a>
                                 </div>
-                            </div>
                         </div>
-                    </nav>
+                    </div>
+                </nav>
                 </>
             );
         };
@@ -1475,18 +1475,18 @@
                                     onMouseEnter={handleMouseEnter}
                                     onMouseLeave={handleMouseLeave}
                                 >
-                                    <p className="text-sm md:text-base lg:text-lg tracking-[0.01em] text-[#4A4A4A] opacity-70 font-[300] mb-0">
-                                        Albert Hodo
-                                    </p>
-                                    <div className="-mt-2 md:-mt-3">
-                                        <h1 className="font-bold text-2xl md:text-3xl lg:text-4xl leading-[1.2] tracking-[0.01em] mb-0 text-[#4A4A4A]">
-                                            Senior Product Designer
-                                        </h1>
-                                        <p className="text-sm md:text-base lg:text-lg tracking-[0.01em] text-[#4A4A4A] opacity-70 font-[300] mt-1 inline-block">
+                                <p className="text-sm md:text-base lg:text-lg tracking-[0.01em] text-[#4A4A4A] opacity-70 font-[300] mb-0">
+                                    Albert Hodo
+                                </p>
+                                <div className="-mt-2 md:-mt-3">
+                                    <h1 className="font-bold text-2xl md:text-3xl lg:text-4xl leading-[1.2] tracking-[0.01em] mb-0 text-[#4A4A4A]">
+                                        Senior Product Designer
+                                    </h1>
+                                    <p className="text-sm md:text-base lg:text-lg tracking-[0.01em] text-[#4A4A4A] opacity-70 font-[300] mt-1 inline-block">
                                             ios & desktop experiences | AI systems
-                                        </p>
-                                    </div>
-                                    <p className="text-base md:text-lg lg:text-xl text-[#4A4A4A] opacity-70 font-[300] leading-[1.7] max-w-2xl -mt-2 md:-mt-3">
+                                    </p>
+                                </div>
+                                <p className="text-base md:text-lg lg:text-xl text-[#4A4A4A] opacity-70 font-[300] leading-[1.7] max-w-2xl -mt-2 md:-mt-3">
                                         Designer with a <strong style={{ color: '#000000', textDecoration: 'underline' }}>technical vocabulary</strong> specializing in taking systems from <strong style={{ color: '#000000', textDecoration: 'underline' }}>0-1</strong> across <strong style={{ color: '#000000', textDecoration: 'underline' }}>AI systems</strong>, <strong style={{ color: '#000000', textDecoration: 'underline' }}>b2c workflows</strong> and a deep understanding of engineering realities.
                                     </p>
                                     {/* Company logos */}
@@ -3133,25 +3133,25 @@
                         document.body
                     )}
                     <section 
-                        ref={itemRef}
-                        onClick={isClickable ? () => {
-                            trackEvent('project_click', {
-                                project_id: project.id,
-                                project_title: project.title,
-                                project_category: project.category,
-                                is_locked: isProjectLocked(project.id)
-                            });
-                            onProjectSelect(project.id);
-                        } : undefined}
+                    ref={itemRef}
+                    onClick={isClickable ? () => {
+                        trackEvent('project_click', {
+                            project_id: project.id,
+                            project_title: project.title,
+                            project_category: project.category,
+                            is_locked: isProjectLocked(project.id)
+                        });
+                        onProjectSelect(project.id);
+                    } : undefined}
                         className={`h-screen work-project work-item relative ${isClickable ? 'cursor-pointer' : 'cursor-default'} ${isVisible ? 'visible' : ''} snap-start flex items-center justify-center`} 
-                        data-project-id={project.id}
-                        style={{ transitionDelay: `${index * 0.1}s` }}
+                    data-project-id={project.id}
+                    style={{ transitionDelay: `${index * 0.1}s` }}
                         onMouseEnter={handleMouseEnter}
                         onMouseLeave={() => setShowTooltip(false)}
                     >
                     <div className={`w-full h-full flex items-center ${
                         project.id === 0 ? 'bg-black' : 
-                        project.id === 1 || project.id === 2 ? 'bg-white' : 
+                        project.id === 1 || project.id === 2 || project.id === 3 ? 'bg-white' : 
                         'bg-[var(--rice-paper)]'
                     }`}>
                         <div className="flex flex-col w-full">
@@ -3164,12 +3164,12 @@
                             
                             {/* Image centered in card */}
                             <div className="relative w-full flex items-center justify-center">
-                                {project.image ? (
-                                    <>
+                                                {project.image ? (
+                                                    <>
                                         {project.id === 2 ? (
                                             <div className="w-full md:max-w-4xl overflow-hidden md:rounded-xl" style={{ aspectRatio: '16/9' }}>
-                                                <video 
-                                                    src={project.image}
+                                                            <video 
+                                                                src={project.image}
                                                     className="w-full h-full object-cover"
                                                     style={{ 
                                                         objectPosition: 'center',
@@ -3177,40 +3177,40 @@
                                                         height: '100%',
                                                         transform: 'scale(1.2)'
                                                     }}
-                                                    autoPlay
-                                                    loop
-                                                    muted
-                                                    playsInline
-                                                    controls={false}
-                                                    onLoadedData={(e) => e.target.classList.add('loaded')}
-                                                />
+                                                                autoPlay
+                                                                loop
+                                                                muted
+                                                                playsInline
+                                                                controls={false}
+                                                                onLoadedData={(e) => e.target.classList.add('loaded')}
+                                                            />
                                             </div>
-                                        ) : (
-                                            <img 
-                                                src={project.image} 
-                                                alt={project.title} 
+                                                        ) : (
+                                        <img 
+                                            src={project.image} 
+                                            alt={project.title} 
                                                 className="w-full md:max-w-4xl h-auto md:rounded-xl object-contain"
-                                                onLoad={(e) => e.target.classList.add('loaded')}
-                                            />
-                                        )}
-                                        {isProjectLocked && isProjectLocked(project.id) && (
-                                            <div className="work-project-lock-overlay absolute inset-0 flex items-center justify-center bg-black bg-opacity-20 rounded-xl opacity-0 transition-opacity duration-300">
+                                            onLoad={(e) => e.target.classList.add('loaded')}
+                                        />
+                                                        )}
+                                        {/* {isProjectLocked && isProjectLocked(project.id) && (
+                                                            <div className="work-project-lock-overlay absolute inset-0 flex items-center justify-center bg-black bg-opacity-20 rounded-xl opacity-0 transition-opacity duration-300">
                                                 <img src="assets/lock.fill.svg" alt="Locked" className="w-20 h-20 md:w-24 md:h-24 lg:w-32 lg:h-32 opacity-60 loaded" />
-                                            </div>
-                                        )}
-                                    </>
-                                ) : (
+                                                            </div>
+                                        )} */}
+                                                    </>
+                                                ) : (
                                     <div className="image-placeholder w-full max-w-4xl h-auto min-h-[250px] md:min-h-[300px] rounded-xl flex items-center justify-center">
-                                        Project Image
-                                    </div>
-                                )}
+                                                        Project Image
+                                                    </div>
+                                                )}
                                 
-                            </div>
-                        </div>
-                    </div>
+                                            </div>
+                                                </div>
+                                                </div>
                 </section>
                 </>
-            );
+                                );
         };
 
         // Work Section - Clean editorial layout
@@ -3291,17 +3291,17 @@
                                     transformOrigin: 'top'
                                 }}
                             />
-                        </div>
+                            </div>
                     )}
-                    {projects.map((project, index) => (
-                        <WorkItem 
-                            key={project.id}
-                            project={project}
-                            index={index}
-                            onProjectSelect={onProjectSelect}
-                            isProjectLocked={isProjectLocked}
-                        />
-                    ))}
+                                {projects.map((project, index) => (
+                                    <WorkItem 
+                                        key={project.id}
+                                        project={project}
+                                        index={index}
+                                        onProjectSelect={onProjectSelect}
+                                        isProjectLocked={isProjectLocked}
+                                    />
+                                ))}
                 </>
             );
         };
@@ -4132,8 +4132,7 @@
                     }
                         }
                     }
-                }
-                /*,
+                },
                 { 
                     id: 3, 
                     title: 'Retail Experience Design', 
@@ -4160,7 +4159,8 @@
                             'Gained deep understanding of Apple\'s retail culture and what makes it a distinctive workplace, informing design decisions that align with company values.'
                         ]
                     }
-                },
+                }
+                /*,
                 { 
                     id: 4, 
                     title: 'Meta Internal Tools', 
