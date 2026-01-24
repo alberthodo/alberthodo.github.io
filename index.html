@@ -1565,9 +1565,33 @@
                 //         inputRef.current.focus();
                 //     }
                 // }
-                // Always succeed for now (passwords commented out)
+                // Obfuscated password check to prevent plain text exposure
+                const check = (pwd) => {
+                    if (pwd.length !== 12) return false;
+                    const expected = [33, 72, 111, 100, 111, 68, 101, 115, 105, 103, 110];
+                    const actual = pwd.split('').map(c => c.charCodeAt(0));
+                    return expected.every((val, idx) => actual[idx] === val);
+                };
+                if (check(password)) {
+                    trackEvent('password_success', {
+                        event_category: 'authentication',
+                        event_label: 'password_verified'
+                    });
                     onSuccess();
                     setPassword('');
+                } else {
+                    trackEvent('password_failed', {
+                        event_category: 'authentication',
+                        event_label: 'password_incorrect'
+                    });
+                    if (onError) {
+                        onError(true);
+                    }
+                    setPassword('');
+                    if (inputRef.current) {
+                        inputRef.current.focus();
+                    }
+                }
             };
             
             const handleKeyDown = (e) => {
