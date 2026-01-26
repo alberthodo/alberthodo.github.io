@@ -1764,13 +1764,73 @@
                         {/* Project Info */}
                         <div className="w-full md:max-w-[600px] lg:max-w-[1200px]">
                             <div className="divider mb-4"></div>
-                            <div className="space-y-4">
-                                <div className="flex flex-wrap gap-2 md:gap-4 text-xs md:text-sm lg:text-base text-[#4A4A4A] opacity-60 font-[300] justify-center md:justify-between">
-                                    {content.role && <span>{content.role}</span>}
-                                    {content.platforms && <span>· {content.platforms}</span>}
-                                    {content.team && <span>· {content.team}</span>}
-                                    {content.duration && <span>· {content.duration}</span>}
-                                </div>
+                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 text-center md:text-left">
+                                {content.role && (
+                                    <div>
+                                        {typeof content.role === 'object' ? (
+                                            <>
+                                                <div className="font-[500] text-xs md:text-sm lg:text-base text-[#4A4A4A] mb-2">{content.role.title}</div>
+                                                <div className="text-xs md:text-sm lg:text-base text-[#4A4A4A] opacity-60 font-[300]">
+                                                    <span dangerouslySetInnerHTML={{ __html: content.role.details }} />
+                                                </div>
+                                            </>
+                                        ) : (
+                                            <>
+                                                <div className="font-[500] text-xs md:text-sm lg:text-base text-[#4A4A4A] mb-2">Role</div>
+                                                <div className="text-xs md:text-sm lg:text-base text-[#4A4A4A] opacity-60 font-[300]">{content.role}</div>
+                                            </>
+                                        )}
+                                    </div>
+                                )}
+                                {content.platforms && (
+                                    <div>
+                                        {typeof content.platforms === 'object' ? (
+                                            <>
+                                                <div className="font-[500] text-xs md:text-sm lg:text-base text-[#4A4A4A] mb-2">{content.platforms.title}</div>
+                                                <div className="text-xs md:text-sm lg:text-base text-[#4A4A4A] opacity-60 font-[300]">
+                                                    <span dangerouslySetInnerHTML={{ __html: content.platforms.details }} />
+                                                </div>
+                                            </>
+                                        ) : (
+                                            <>
+                                                <div className="font-[500] text-xs md:text-sm lg:text-base text-[#4A4A4A] mb-2">Platforms</div>
+                                                <div className="text-xs md:text-sm lg:text-base text-[#4A4A4A] opacity-60 font-[300]">{content.platforms}</div>
+                                            </>
+                                        )}
+                                    </div>
+                                )}
+                                {content.team && (
+                                    <div>
+                                        {typeof content.team === 'object' ? (
+                                            <>
+                                                <div className="font-[500] text-xs md:text-sm lg:text-base text-[#4A4A4A] mb-2">{content.team.title}</div>
+                                                <div className="text-xs md:text-sm lg:text-base text-[#4A4A4A] opacity-60 font-[300]">
+                                                    <span dangerouslySetInnerHTML={{ __html: content.team.details }} />
+                                                </div>
+                                            </>
+                                        ) : (
+                                            <>
+                                                <div className="font-[500] text-xs md:text-sm lg:text-base text-[#4A4A4A] mb-2">Team</div>
+                                                <div className="text-xs md:text-sm lg:text-base text-[#4A4A4A] opacity-60 font-[300]">{content.team}</div>
+                                            </>
+                                        )}
+                                    </div>
+                                )}
+                                {content.duration && (
+                                    <div>
+                                        {typeof content.duration === 'object' ? (
+                                            <>
+                                                <div className="font-[500] text-xs md:text-sm lg:text-base text-[#4A4A4A] mb-2">{content.duration.title}</div>
+                                                <div className="text-xs md:text-sm lg:text-base text-[#4A4A4A] opacity-60 font-[300]">{content.duration.details}</div>
+                                            </>
+                                        ) : (
+                                            <>
+                                                <div className="font-[500] text-xs md:text-sm lg:text-base text-[#4A4A4A] mb-2">Duration</div>
+                                                <div className="text-xs md:text-sm lg:text-base text-[#4A4A4A] opacity-60 font-[300]">{content.duration}</div>
+                                            </>
+                                        )}
+                                    </div>
+                                )}
                             </div>
                             <div className="divider mt-4"></div>
                         </div>
@@ -1977,9 +2037,242 @@
                                                 </li>
                                                 <li className="flex items-start justify-center md:justify-start">
                                                     <span className="mr-3 mt-1">•</span>
-                                                    <span>Doesn't tell any story or take users on a journey, however it has a comment section (engaging)</span>
+                                                    <span>Doesn't tell any story or take users on a journey, however it has a comment section</span>
                                                 </li>
                                             </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        )}
+
+                        {/* API Analysis & AI Integration - Project 0 */}
+                        {project.id === 0 && (
+                            <div className="space-y-6">
+                                <h2 className="font-light text-2xl md:text-3xl lg:text-[36px] leading-[1.2] tracking-[0.01em] font-[200] text-[#4A4A4A] mb-6 md:mb-8 text-center md:text-left">
+                                    API Analysis & AI Integration
+                                </h2>
+                                
+                                {/* API Understanding Section */}
+                                <div className="space-y-6 mb-8 md:mb-12">
+                                    <h3 className="text-xl md:text-2xl font-[300] text-[#4A4A4A] mb-4 text-center md:text-left">
+                                        Understanding the NASA APoD API
+                                    </h3>
+                                    <div className="text-base md:text-lg text-[#4A4A4A] opacity-70 font-[300] leading-[1.7] text-center md:text-left mb-8">
+                                        <p>The NASA Astronomy Picture of the Day API provides raw data: a daily image URL, title, and technical description. While comprehensive, it lacks narrative structure, emotional context, and the editorial curation that transforms data into an engaging experience.</p>
+                                    </div>
+                                    
+                                    {/* API Endpoint Card with Response Structure */}
+                                    <div className="mb-8 md:mb-10 relative">
+                                        <h4 className="text-lg md:text-xl font-[400] text-[#4A4A4A] mb-4 text-center md:text-left">API Endpoint</h4>
+                                        <div 
+                                            className="w-full p-6 md:p-8 relative"
+                                            style={{
+                                                transform: 'rotate(-0.5deg)',
+                                                backgroundColor: '#424242',
+                                                boxShadow: '0 4px 8px rgba(0, 0, 0, 0.15), 0 2px 4px rgba(0, 0, 0, 0.1)',
+                                                borderRadius: '2px'
+                                            }}
+                                        >
+                                            <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-6">
+                                                <div className="flex-1">
+                                                    <div className="flex items-center gap-3 mb-4">
+                                                        <span className="px-3 py-1 rounded text-xs md:text-sm font-[500] text-white bg-[#1A1A1A]">GET</span>
+                                                        <code className="text-sm md:text-base font-mono text-white opacity-90">https://api.nasa.gov/planetary/apod</code>
+                                                    </div>
+                                                    <div className="space-y-3 text-sm md:text-base text-white opacity-90 font-[300]">
+                                                        <div className="flex items-start gap-2">
+                                                            <span className="text-white opacity-60">•</span>
+                                                            <span>Returns JSON response with daily astronomy picture data</span>
+                                                        </div>
+                                                        <div className="flex items-start gap-2">
+                                                            <span className="text-white opacity-60">•</span>
+                                                            <span>Requires API key for authentication</span>
+                                                        </div>
+                                                        <div className="flex items-start gap-2">
+                                                            <span className="text-white opacity-60">•</span>
+                                                            <span>Rate limit: 1000 requests per hour</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div 
+                                                    className="p-4 md:p-5 flex-shrink-0"
+                                                    style={{
+                                                        transform: 'rotate(2deg)',
+                                                        backgroundColor: '#E3F2FD',
+                                                        boxShadow: '0 3px 6px rgba(0, 0, 0, 0.12), 0 1px 3px rgba(0, 0, 0, 0.08)',
+                                                        borderRadius: '2px',
+                                                        border: '1px solid rgba(33, 150, 243, 0.2)',
+                                                        maxWidth: '280px',
+                                                        width: '100%'
+                                                    }}
+                                                >
+                                                    <h5 className="text-xs md:text-sm font-[500] text-[#1976D2] mb-3">Response Structure</h5>
+                                                    <div className="space-y-1 font-mono text-xs md:text-sm">
+                                                        <div className="text-[#1976D2] opacity-90">{'{'}</div>
+                                                        <div className="pl-3 md:pl-4 space-y-1">
+                                                            <div className="text-[#1976D2] opacity-80">
+                                                                <span className="opacity-60">"</span>date<span className="opacity-60">"</span>: <span className="opacity-60">"</span><span className="opacity-50">YYYY-MM-DD</span><span className="opacity-60">"</span>
+                                                            </div>
+                                                            <div className="text-[#1976D2] opacity-80">
+                                                                <span className="opacity-60">"</span>title<span className="opacity-60">"</span>: <span className="opacity-60">"</span><span className="opacity-50">string</span><span className="opacity-60">"</span>
+                                                            </div>
+                                                            <div className="text-[#1976D2] opacity-80">
+                                                                <span className="opacity-60">"</span>explanation<span className="opacity-60">"</span>: <span className="opacity-60">"</span><span className="opacity-50">text</span><span className="opacity-60">"</span>
+                                                            </div>
+                                                            <div className="text-[#1976D2] opacity-80">
+                                                                <span className="opacity-60">"</span>url<span className="opacity-60">"</span>: <span className="opacity-60">"</span><span className="opacity-50">image URL</span><span className="opacity-60">"</span>
+                                                            </div>
+                                                            <div className="text-[#1976D2] opacity-80">
+                                                                <span className="opacity-60">"</span>copyright<span className="opacity-60">"</span>: <span className="opacity-60">"</span><span className="opacity-50">string</span><span className="opacity-60">"</span>
+                                                            </div>
+                                                        </div>
+                                                        <div className="text-[#1976D2] opacity-90">{'}'}</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    {/* Enhancement Strategy Cards */}
+                                    <div className="mt-8 md:mt-12">
+                                        <h4 className="text-lg md:text-xl font-[400] text-[#4A4A4A] mb-6 text-center md:text-left">Enhancement Strategy</h4>
+                                        <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-6">
+                                            <div 
+                                                className="p-3 md:p-6 w-full md:w-auto md:flex-1"
+                                                style={{
+                                                    transform: 'rotate(-1.2deg)',
+                                                    backgroundColor: 'rgba(0, 0, 0, 0.05)',
+                                                    boxShadow: '0 4px 8px rgba(0, 0, 0, 0.15), 0 2px 4px rgba(0, 0, 0, 0.1)',
+                                                    borderRadius: '2px'
+                                                }}
+                                            >
+                                                <div className="flex items-center gap-3 mb-3">
+                                                    <svg className="w-5 h-5 text-[#4A4A4A] opacity-80 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01" />
+                                                    </svg>
+                                                    <h5 className="text-sm md:text-base font-[500] text-[#4A4A4A]">API Provides</h5>
+                                                </div>
+                                                <ul className="space-y-2 text-sm md:text-base text-[#4A4A4A] opacity-90 font-[300] leading-[1.5]">
+                                                    <li>• Daily image URL (HD quality)</li>
+                                                    <li>• Title and date metadata</li>
+                                                    <li>• Technical description text</li>
+                                                </ul>
+                                            </div>
+                                            <div className="text-2xl md:text-3xl text-[#4A4A4A] opacity-60 font-[300] flex-shrink-0">+</div>
+                                            <div 
+                                                className="p-3 md:p-6 w-full md:w-auto md:flex-1"
+                                                style={{
+                                                    transform: 'rotate(1.5deg)',
+                                                    backgroundColor: 'rgba(0, 0, 0, 0.05)',
+                                                    boxShadow: '0 4px 8px rgba(0, 0, 0, 0.15), 0 2px 4px rgba(0, 0, 0, 0.1)',
+                                                    borderRadius: '2px'
+                                                }}
+                                            >
+                                                <div className="flex items-center gap-3 mb-3">
+                                                    <svg className="w-5 h-5 text-[#4A4A4A] opacity-80 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                                                    </svg>
+                                                    <h5 className="text-sm md:text-base font-[500] text-[#4A4A4A]">AI Capabilities</h5>
+                                                </div>
+                                                <ul className="space-y-2 text-sm md:text-base text-[#4A4A4A] opacity-90 font-[300] leading-[1.5]">
+                                                    <li>• NLP processing for narrative structure</li>
+                                                    <li>• Content curation and themes </li>
+                                                    <li>• Context extraction and storytelling</li>
+                                                    <li>• Intelligent content organization</li>
+                                                </ul>
+                                            </div>
+                                            <div className="text-2xl md:text-3xl text-[#4A4A4A] opacity-60 font-[300] flex-shrink-0">=</div>
+                                            <div 
+                                                className="p-3 md:p-6 w-full md:w-auto md:flex-1"
+                                                style={{
+                                                    transform: 'rotate(-0.8deg)',
+                                                    backgroundColor: 'rgba(76, 175, 80, 0.1)',
+                                                    boxShadow: '0 4px 8px rgba(0, 0, 0, 0.15), 0 2px 4px rgba(0, 0, 0, 0.1)',
+                                                    borderRadius: '2px'
+                                                }}
+                                            >
+                                                <div className="flex items-center gap-3 mb-3">
+                                                    <svg className="w-5 h-5 text-[#4A4A4A] opacity-80 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
+                                                    </svg>
+                                                    <h5 className="text-sm md:text-base font-[500] text-[#4A4A4A]">Design Opportunities</h5>
+                                                </div>
+                                                <ul className="space-y-2 text-sm md:text-base text-[#4A4A4A] opacity-90 font-[300] leading-[1.5]">
+                                                    <li className="flex items-start gap-2">
+                                                        <svg className="w-4 h-4 text-green-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                                                        </svg>
+                                                        <span>Transform data into editorial experience</span>
+                                                    </li>
+                                                    <li className="flex items-start gap-2">
+                                                        <svg className="w-4 h-4 text-green-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                                                        </svg>
+                                                        <span>Create immersive discovery journeys</span>
+                                                    </li>
+                                                    <li className="flex items-start gap-2">
+                                                        <svg className="w-4 h-4 text-green-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                                                        </svg>
+                                                        <span>Build emotional connections with content</span>
+                                                    </li>
+                                                    <li className="flex items-start gap-2">
+                                                        <svg className="w-4 h-4 text-green-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                                                        </svg>
+                                                        <span>Enable thematic exploration</span>
+                                                    </li>
+                                                    <li className="flex items-start gap-2">
+                                                        <svg className="w-4 h-4 text-green-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                                                        </svg>
+                                                        <span>Craft narrative-driven interactions</span>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {/* Integration Architecture */}
+                                <div className="space-y-6">
+                                    <h3 className="text-xl md:text-2xl font-[300] text-[#4A4A4A] mb-4 text-center md:text-left">
+                                        Integration Architecture
+                                    </h3>
+                                    <div className="text-base md:text-lg text-[#4A4A4A] opacity-70 font-[300] leading-[1.7] text-center md:text-left mb-6">
+                                        <p>The system architecture integrates the NASA API with AI processing on Google Cloud Platform, creating a seamless flow from raw data to curated experience.</p>
+                                    </div>
+                                    <div className="rounded-xl p-6 md:p-8 bg-[var(--fog-grey)]" style={{ backgroundColor: 'rgba(217, 214, 210, 0.15)' }}>
+                                        <div className="space-y-4">
+                                            <div className="flex items-start gap-4">
+                                                <div className="flex-shrink-0 w-8 h-8 rounded-full bg-[#4A4A4A] bg-opacity-10 flex items-center justify-center text-sm font-[400] text-[#4A4A4A]">1</div>
+                                                <div>
+                                                    <h4 className="text-base md:text-lg font-[400] text-[#4A4A4A] mb-2">API Data Fetch</h4>
+                                                    <p className="text-sm md:text-base text-[#4A4A4A] opacity-70 font-[300] leading-[1.6]">Daily fetch from NASA APoD API retrieves image, title, and description.</p>
+                                                </div>
+                                            </div>
+                                            <div className="flex items-start gap-4">
+                                                <div className="flex-shrink-0 w-8 h-8 rounded-full bg-[#4A4A4A] bg-opacity-10 flex items-center justify-center text-sm font-[400] text-[#4A4A4A]">2</div>
+                                                <div>
+                                                    <h4 className="text-base md:text-lg font-[400] text-[#4A4A4A] mb-2">NLP Processing</h4>
+                                                    <p className="text-sm md:text-base text-[#4A4A4A] opacity-70 font-[300] leading-[1.6]">Natural language processing extracts key concepts, themes, and scientific significance from descriptions.</p>
+                                                </div>
+                                            </div>
+                                            <div className="flex items-start gap-4">
+                                                <div className="flex-shrink-0 w-8 h-8 rounded-full bg-[#4A4A4A] bg-opacity-10 flex items-center justify-center text-sm font-[400] text-[#4A4A4A]">3</div>
+                                                <div>
+                                                    <h4 className="text-base md:text-lg font-[400] text-[#4A4A4A] mb-2">Content Curation</h4>
+                                                    <p className="text-sm md:text-base text-[#4A4A4A] opacity-70 font-[300] leading-[1.6]">AI identifies relationships and themes to create curated journeys through related content.</p>
+                                                </div>
+                                            </div>
+                                            <div className="flex items-start gap-4">
+                                                <div className="flex-shrink-0 w-8 h-8 rounded-full bg-[#4A4A4A] bg-opacity-10 flex items-center justify-center text-sm font-[400] text-[#4A4A4A]">4</div>
+                                                <div>
+                                                    <h4 className="text-base md:text-lg font-[400] text-[#4A4A4A] mb-2">Enhanced Experience</h4>
+                                                    <p className="text-sm md:text-base text-[#4A4A4A] opacity-70 font-[300] leading-[1.6]">Processed content is delivered to the iOS app, creating an editorial experience that feels thoughtfully crafted.</p>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -2242,12 +2535,16 @@
                             <>
                                 <div className="border-t border-[#4A4A4A] opacity-20 my-6"></div>
                                 <div className="space-y-6">
-                                <h2 className="font-light text-2xl md:text-3xl lg:text-[36px] leading-[1.2] tracking-[0.01em] font-[200] text-[#4A4A4A] mb-4 text-center md:text-left">
-                                    The Insight
-                                </h2>
                                 {content.insight.quote && (
+                                    <h2 className="font-light text-2xl md:text-3xl lg:text-[36px] leading-[1.2] tracking-[0.01em] font-[200] text-[#4A4A4A] mb-4 text-center md:text-left">
+                                        {content.insight.quote}
+                                    </h2>
+                                )}
+                                {content.insight.main && (
                                     <blockquote className="text-xl md:text-2xl text-[#4A4A4A] opacity-80 font-[300] leading-[1.6] italic mt-6 mb-6 pl-4 border-l-2 border-[#4A4A4A] border-opacity-20 text-center md:text-left">
-                                        "{content.insight.quote}"
+                                        {content.insight.main && content.insight.main.includes('aha momnet') ? (
+                                            content.insight.main.replace(/The aha momnet:\s?/, '')
+                                        ) : content.insight.main}
                                     </blockquote>
                                 )}
                                 {/* Sticky Notes */}
@@ -2278,14 +2575,6 @@
                                     })}
                                 </div>
                                 <div className="space-y-6 text-base md:text-lg text-[#4A4A4A] opacity-70 font-[300] leading-[1.7] text-center md:text-left">
-                                    <p className="text-lg md:text-xl font-[400] opacity-80">
-                                        {content.insight.main && content.insight.main.includes('aha momnet') ? (
-                                            <>
-                                                <span className="font-[600] opacity-95">The aha moment:  </span>
-                                                {content.insight.main.replace(/The aha momnet:\s?/, '')}
-                                            </>
-                                        ) : content.insight.main}
-                                    </p>
                                     {content.insight.explanation && (
                                         <div className="space-y-4">
                                             {content.insight.explanation.split('\n\n').map((para, i) => (
@@ -4073,10 +4362,22 @@
                     slug: 'ai-voice-notes',
                     link: '#work/ai-voice-notes',
                     content: {
-                        role: 'Senior UX & Interaction Designer',
-                        platforms: 'iOS · iPadOS · macOS',
-                        team: 'Solo project (Design + Development)',
-                        duration: '12 weeks',
+                        role: {
+                            title: 'Responsibilities',
+                            details: '- user research<br />- ui design<br />- interaction design<br />- product owner'
+                        },
+                        platforms: {
+                            title: 'Platforms',
+                            details: 'iOS · iPadOS · macOS'
+                        },
+                        team: {
+                            title: 'Team of 3',
+                            details: '1 AI backend engineer<br />1 iOS developer<br />1 full stack designer (myself)'
+                        },
+                        duration: {
+                            title: 'Duration',
+                            details: '12 weeks'
+                        },
                         tldr: 'Users needed to transform voice to polished content, but existing tools were fragmented and overwhelming. The challenge: make it simple enough that users don\'t have to think, especially when structuring text, switching formats, and editing, while balancing 15+ format options, cross-platform consistency, and business constraints like free tier value and App Store guidelines.',
                         cards: {
                             situation: 'Users record in Voice Memos, then split between in-app transcription (40%) and separate apps. After that, most paste into Notes/Word/Pages to edit (65%), and 25% use ChatGPT for formatting—spanning 3–4 apps with frequent context switching.',
@@ -4086,7 +4387,7 @@
                         insight: {
                             main: 'The aha momnet: if we contextually show users different things they need at different times, it solved the information overload and clutter problem.',
                             explanation: 'By revealing elements only when they become relevant, we eliminated cognitive load. ',
-                            quote: 'Users want to capture ideas quickly, then refine them—not manage a complex production workflow.'
+                            quote: 'Users want to capture ideas quickly, then refine them, not manage a complex production workflow.'
                         },
                         impact: {
                             metrics: [
@@ -4115,10 +4416,22 @@
                     slug: 'all-astronomy',
                     link: '#work/all-astronomy',
                     content: {
-                        role: 'Design & Engineering',
-                        platforms: 'Xcode · Figma',
-                        team: 'Solo project (Full stack design + engineering)',
-                        duration: 'Ongoing',
+                        role: {
+                            title: 'Responsibilities',
+                            details: '- AI data curation<br />- user research<br />- ui design<br />- interaction design<br />- implementation'
+                        },
+                        platforms: {
+                            title: 'Platforms',
+                            details: '- Xcode<br />- Figma<br />- Google Cloud Platform'
+                        },
+                        team: {
+                            title: 'Product Owner',
+                            details: '- Full stack design<br />- iOS development'
+                        },
+                        duration: {
+                            title: 'Duration',
+                            details: 'Ongoing'
+                        },
                         tldr: 'As an astronomy enthusiast, I noticed that NASA\'s Astronomy Picture of the Day website lacks thoughtful design, and third-party mobile apps fail to truly help people appreciate the cosmos. This project is a complete redesign of the APoD experience by designing and building an app that transforms how people engage with astronomy. By reimagining the interface and user journey around the NASA APoD API, the goal is to inspire curiosity, make the cosmos more accessible, and help people develop a deeper appreciation for astronomy through thoughtful design and interaction.',
                         cards: {
                             situation: 'Situation or challenge description.',
@@ -4284,7 +4597,7 @@
                         onError={(show) => setPasswordError(show !== false)}
                     />
                     <div style={{ opacity: showSplash ? 0 : 1, transition: 'opacity 0.6s ease-in' }}>
-                        <Navigation currentPage={currentPage} onNavigate={handleNavigate} isNasaVisible={isNasaVisible} />
+                        <Navigation currentPage={currentPage} onNavigate={handleNavigate} isNasaVisible={selectedProject === null ? isNasaVisible : false} />
                     <main>
                         {selectedProject !== null && selectedProject !== undefined ? (
                             <ProjectDetail 
