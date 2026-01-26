@@ -105,6 +105,14 @@
             overflow-x: hidden;
         }
         
+        video:focus {
+            outline: none;
+        }
+        
+        video {
+            outline: none;
+        }
+        
         body {
             font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif;
             background-color: var(--rice-paper);
@@ -3022,19 +3030,28 @@
                                 ← Back to Portfolio
                             </button>
                             {(project.heroImage || project.image) && (
-                                <div className={`mb-2 md:mb-4 scale-in ${isVisible ? 'scale-in' : ''} ${project.id === 2 ? 'overflow-hidden rounded-xl' : ''}`} style={{ animationDelay: '0.1s' }}>
+                                <div className={`mb-2 md:mb-4 scale-in ${isVisible ? 'scale-in' : ''} ${project.id === 2 ? 'overflow-hidden rounded-xl relative' : ''}`} style={{ animationDelay: '0.1s' }}>
                                     {project.id === 2 ? (
-                                        <video 
-                                            src={project.image}
-                                            className="w-full h-auto rounded-xl"
-                                            style={{ transform: 'scale(1.15)', transformOrigin: 'center center', width: '100%', height: 'auto' }}
-                                            autoPlay
-                                            loop
-                                            muted
-                                            playsInline
-                                            controls={false}
-                                            onLoadedData={(e) => e.target.classList.add('loaded')}
-                                        />
+                                        <div className="relative">
+                                            <video 
+                                                src={project.image}
+                                                className="w-full h-auto rounded-xl"
+                                                style={{ width: '100%', height: 'auto', display: 'block', outline: 'none', border: 'none' }}
+                                                autoPlay
+                                                loop
+                                                muted
+                                                playsInline
+                                                controls={false}
+                                                tabIndex={-1}
+                                                onLoadedData={(e) => e.target.classList.add('loaded')}
+                                            />
+                                            {/* White overlay on edges */}
+                                            <div className="absolute inset-0 pointer-events-none rounded-xl" style={{
+                                                background: 'linear-gradient(to right, white 0%, transparent 3%, transparent 97%, white 100%), linear-gradient(to bottom, white 0%, transparent 3%, transparent 97%, white 100%)',
+                                                backgroundBlendMode: 'normal',
+                                                mixBlendMode: 'normal'
+                                            }}></div>
+                                        </div>
                                     ) : (
                                     <img 
                                         src={project.heroImage || project.image} 
@@ -3158,7 +3175,9 @@
                     )}
                     <section 
                     ref={itemRef}
-                    onClick={isClickable ? () => {
+                    onClick={isClickable ? (e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
                         trackEvent('project_click', {
                             project_id: project.id,
                             project_title: project.title,
@@ -3191,7 +3210,7 @@
                                                 {project.image ? (
                                                     <>
                                         {project.id === 2 ? (
-                                            <div className="w-full md:max-w-4xl overflow-hidden md:rounded-xl" style={{ aspectRatio: '16/9' }}>
+                                            <div className="w-full md:max-w-4xl overflow-hidden md:rounded-xl relative" style={{ aspectRatio: '16/9', backgroundColor: 'transparent' }}>
                                                             <video 
                                                                 src={project.image}
                                                     className="w-full h-full object-cover"
@@ -3199,15 +3218,24 @@
                                                         objectPosition: 'center',
                                                         width: '100%',
                                                         height: '100%',
-                                                        transform: 'scale(1.2)'
+                                                        display: 'block',
+                                                        outline: 'none',
+                                                        border: 'none'
                                                     }}
                                                                 autoPlay
                                                                 loop
                                                                 muted
                                                                 playsInline
                                                                 controls={false}
+                                                                tabIndex={-1}
                                                                 onLoadedData={(e) => e.target.classList.add('loaded')}
                                                             />
+                                                            {/* White overlay on edges */}
+                                                            <div className="absolute inset-0 pointer-events-none" style={{
+                                                                background: 'linear-gradient(to right, white 0%, transparent 3%, transparent 97%, white 100%), linear-gradient(to bottom, white 0%, transparent 3%, transparent 97%, white 100%)',
+                                                                backgroundBlendMode: 'normal',
+                                                                mixBlendMode: 'normal'
+                                                            }}></div>
                                             </div>
                                                         ) : (
                                         <img 
@@ -3591,6 +3619,7 @@
             const [passwordError, setPasswordError] = useState(false);
             const [isNasaVisible, setIsNasaVisible] = useState(false);
             const isProgrammaticNavigation = React.useRef(false);
+            const isSelectingProject = React.useRef(false);
             
             // Enable animations after splash completes
             React.useEffect(() => {
@@ -3755,9 +3784,12 @@
                     // Don't update nav when viewing project detail or during programmatic navigation
                     if ((selectedProject !== null && selectedProject !== undefined) || isProgrammaticNavigation.current) return;
                     
-                    // Don't update if URL contains a project hash
+                    // Don't update if URL contains a project hash (check this first to avoid any race conditions)
                     const currentHash = window.location.hash.slice(1);
                     if (currentHash && currentHash.match(/work\/([a-z0-9-]+)/)) return;
+                    
+                    // Double-check isProgrammaticNavigation in case it was set after this function started
+                    if (isProgrammaticNavigation.current) return;
                     
                     const scrollPosition = window.scrollY + 200;
                     const viewportHeight = window.innerHeight;
@@ -3776,8 +3808,11 @@
                     // Check philosophy section first (it comes after work)
                     const philosophySection = document.getElementById('philosophy');
                     if (philosophySection && philosophySection.offsetTop <= scrollPosition) {
-                        setCurrentPage('philosophy');
-                        window.history.replaceState(null, '', '#philosophy');
+                        const currentHash = window.location.hash.slice(1);
+                        if (currentHash !== 'philosophy') {
+                            setCurrentPage('philosophy');
+                            window.history.replaceState(null, '', '#philosophy');
+                        }
                         return;
                     }
                     
@@ -3788,8 +3823,11 @@
                         const homeSection = document.getElementById('home');
                         const isBeforePhilosophy = !philosophySection || firstWorkItem.offsetTop < philosophySection.offsetTop;
                         if (homeSection && firstWorkItem.offsetTop > homeSection.offsetTop + homeSection.offsetHeight / 2 && isBeforePhilosophy) {
-                            setCurrentPage('work');
-                            window.history.replaceState(null, '', '#work');
+                            const currentHash = window.location.hash.slice(1);
+                            if (currentHash !== 'work') {
+                                setCurrentPage('work');
+                                window.history.replaceState(null, '', '#work');
+                            }
                             return;
                         }
                     }
@@ -3797,8 +3835,11 @@
                     // Check home section
                     const homeSection = document.getElementById('home');
                     if (homeSection && homeSection.offsetTop <= scrollPosition) {
-                        setCurrentPage('home');
-                        window.history.replaceState(null, '', '#home');
+                        const currentHash = window.location.hash.slice(1);
+                        if (currentHash !== 'home' && currentHash !== '') {
+                            setCurrentPage('home');
+                            window.history.replaceState(null, '', '#home');
+                        }
                         return;
                     }
                 };
@@ -3900,9 +3941,14 @@
             };
 
             const handleProjectSelect = (projectId) => {
+                // Prevent multiple rapid calls
+                if (isSelectingProject.current) {
+                    return;
+                }
+                
                 if (projectId === null || projectId === undefined) {
-                    setSelectedProject(null);
                     isProgrammaticNavigation.current = true;
+                    setSelectedProject(null);
                     window.history.replaceState(null, '', '#work');
                     setCurrentPage('work');
                     setTimeout(() => {
@@ -3925,12 +3971,27 @@
                 }
                 
                 // Project is unlocked or authenticated, show it
+                // Set flags FIRST to prevent scroll handler interference and multiple calls
+                isSelectingProject.current = true;
+                isProgrammaticNavigation.current = true;
+                
                 const project = projects.find(p => p.id === projectId);
                 const projectSlug = project ? project.slug : `project-${projectId}`;
+                const targetHash = `work/${projectSlug}`;
+                
+                // Check if we're already on this project to avoid unnecessary pushState calls
+                const currentHash = window.location.hash.slice(1);
+                if (currentHash === targetHash && selectedProject === projectId) {
+                    // Already on this project, just reset the flags
+                    isProgrammaticNavigation.current = false;
+                    isSelectingProject.current = false;
+                    return;
+                }
+                
                 const previousPage = currentPage;
                 trackPageView(
                     project ? `${project.title} - Project Detail` : `Project ${projectId} - Project Detail`, 
-                    `/#work/${projectSlug}`,
+                    `/#${targetHash}`,
                     {
                         project_id: projectId,
                         project_title: project ? project.title : `Project ${projectId}`,
@@ -3939,16 +4000,21 @@
                     }
                 );
                 trackNavigation(previousPage, `${project ? project.title : `Project ${projectId}`} - Project Detail`, 'project_click');
-                isProgrammaticNavigation.current = true;
-                // Update URL first, then set state
-                window.history.pushState(null, '', `#work/${projectSlug}`);
+                
+                // Update URL and state
+                window.history.pushState(null, '', `#${targetHash}`);
                 setSelectedProject(projectId);
                 setCurrentPage('work');
-                window.scrollTo({ top: 0, behavior: 'instant' });
-                setTimeout(() => {
+                
+                // Use requestAnimationFrame to ensure state updates are processed before scrolling
+                requestAnimationFrame(() => {
                     window.scrollTo({ top: 0, behavior: 'instant' });
-                    isProgrammaticNavigation.current = false;
-                }, 100);
+                    // Keep flag true longer to prevent scroll handler interference
+                    setTimeout(() => {
+                        isProgrammaticNavigation.current = false;
+                        isSelectingProject.current = false;
+                    }, 300);
+                });
             };
             
             const handlePasswordSuccess = () => {
