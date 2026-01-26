@@ -2235,42 +2235,222 @@
                                     </div>
                                 </div>
 
-                                {/* Integration Architecture */}
+                                {/* Integration Architecture - Whiteboard Style */}
                                 <div className="space-y-6">
                                     <h3 className="text-xl md:text-2xl font-[300] text-[#4A4A4A] mb-4 text-center md:text-left">
                                         Integration Architecture
                                     </h3>
-                                    <div className="text-base md:text-lg text-[#4A4A4A] opacity-70 font-[300] leading-[1.7] text-center md:text-left mb-6">
+                                    <div className="text-base md:text-lg text-[#4A4A4A] opacity-70 font-[300] leading-[1.7] text-center md:text-left mb-8">
                                         <p>The system architecture integrates the NASA API with AI processing on Google Cloud Platform, creating a seamless flow from raw data to curated experience.</p>
                                     </div>
-                                    <div className="rounded-xl p-6 md:p-8 bg-[var(--fog-grey)]" style={{ backgroundColor: 'rgba(217, 214, 210, 0.15)' }}>
-                                        <div className="space-y-4">
-                                            <div className="flex items-start gap-4">
-                                                <div className="flex-shrink-0 w-8 h-8 rounded-full bg-[#4A4A4A] bg-opacity-10 flex items-center justify-center text-sm font-[400] text-[#4A4A4A]">1</div>
-                                                <div>
-                                                    <h4 className="text-base md:text-lg font-[400] text-[#4A4A4A] mb-2">API Data Fetch</h4>
-                                                    <p className="text-sm md:text-base text-[#4A4A4A] opacity-70 font-[300] leading-[1.6]">Daily fetch from NASA APoD API retrieves image, title, and description.</p>
+                                    <div className="relative rounded-xl overflow-hidden w-full" style={{ 
+                                        backgroundColor: '#F9F9F7',
+                                        backgroundImage: 'repeating-linear-gradient(0deg, transparent, transparent 31px, rgba(0,0,0,0.03) 31px, rgba(0,0,0,0.03) 32px), repeating-linear-gradient(90deg, transparent, transparent 31px, rgba(0,0,0,0.03) 31px, rgba(0,0,0,0.03) 32px)',
+                                        border: '2px solid rgba(0,0,0,0.1)',
+                                        boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)',
+                                        minHeight: '500px'
+                                    }}>
+                                        <div className="p-8 md:p-12">
+                                            {/* Whiteboard Flow Diagram */}
+                                            <div className="relative">
+                                                {/* Flow Container - Horizontal Layout */}
+                                                <div className="flex flex-col md:flex-row items-start justify-between gap-6 md:gap-8">
+                                                    {/* Step 1: API Data Fetch */}
+                                                    <div className="relative flex-shrink-0" style={{ width: '100%', maxWidth: '180px' }}>
+                                                        <div style={{
+                                                            border: '2px solid #4A4A4A',
+                                                            borderRadius: '8px',
+                                                            padding: '16px',
+                                                            backgroundColor: 'white',
+                                                            boxShadow: '2px 2px 0 rgba(0,0,0,0.1)',
+                                                            transform: 'rotate(-1deg)'
+                                                        }}>
+                                                            <div className="text-xs font-[600] text-[#4A4A4A] mb-2" style={{ fontFamily: 'monospace' }}>NASA APoD API</div>
+                                                            <div className="text-xs text-[#4A4A4A] opacity-70 font-[300] leading-relaxed">
+                                                                Daily fetch<br/>
+                                                                Image + Title<br/>
+                                                                Description
+                                                            </div>
+                                                        </div>
+                                                        <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 text-[#4A4A4A] opacity-40" style={{ fontFamily: 'monospace', fontSize: '10px' }}>raw data</div>
+                                                    </div>
+
+                                                    {/* Arrow 1 */}
+                                                    <div className="hidden md:block flex-shrink-0" style={{ width: '40px', height: '2px', backgroundColor: '#4A4A4A', position: 'relative', marginTop: '20px' }}>
+                                                        <div style={{
+                                                            position: 'absolute',
+                                                            right: '-6px',
+                                                            top: '-4px',
+                                                            width: 0,
+                                                            height: 0,
+                                                            borderLeft: '8px solid #4A4A4A',
+                                                            borderTop: '4px solid transparent',
+                                                            borderBottom: '4px solid transparent'
+                                                        }}></div>
+                                                    </div>
+                                                    <div className="md:hidden flex-shrink-0" style={{ width: '2px', height: '40px', backgroundColor: '#4A4A4A', position: 'relative', marginLeft: 'auto', marginRight: 'auto' }}>
+                                                        <div style={{
+                                                            position: 'absolute',
+                                                            bottom: '-6px',
+                                                            left: '-4px',
+                                                            width: 0,
+                                                            height: 0,
+                                                            borderTop: '8px solid #4A4A4A',
+                                                            borderLeft: '4px solid transparent',
+                                                            borderRight: '4px solid transparent'
+                                                        }}></div>
+                                                    </div>
+
+                                                    {/* Step 2: AI Processing Layer - Expanded Detail */}
+                                                    <div className="relative flex-1" style={{ minWidth: '400px', maxWidth: '100%' }}>
+                                                        <div style={{
+                                                            border: '2px dashed #4A4A4A',
+                                                            borderRadius: '8px',
+                                                            padding: '24px',
+                                                            backgroundColor: 'rgba(76, 175, 80, 0.05)',
+                                                            boxShadow: '2px 2px 0 rgba(0,0,0,0.1)',
+                                                            transform: 'rotate(0.5deg)'
+                                                        }}>
+                                                            <div className="text-xs font-[600] text-[#4A4A4A] mb-4" style={{ fontFamily: 'monospace' }}>AI Processing Server<br/><span className="text-[10px] opacity-60">(Google Cloud Platform)</span></div>
+                                                            
+                                                            {/* Data Ingestion */}
+                                                            <div className="mb-4 pb-4" style={{ borderBottom: '1px dashed rgba(74,74,74,0.2)' }}>
+                                                                <div className="text-[10px] font-[500] text-[#4A4A4A] mb-2" style={{ fontFamily: 'monospace' }}>1. Data Ingestion</div>
+                                                                <div className="text-[10px] text-[#4A4A4A] opacity-70 font-[300] leading-relaxed pl-2">
+                                                                    • Receive API response<br/>
+                                                                    • Parse JSON structure<br/>
+                                                                    • Store raw data
+                                                                </div>
+                                                            </div>
+
+                                                            {/* NLP Text Processing */}
+                                                            <div className="mb-4 pb-4" style={{ borderBottom: '1px dashed rgba(74,74,74,0.2)' }}>
+                                                                <div className="text-[10px] font-[500] text-[#4A4A4A] mb-2" style={{ fontFamily: 'monospace' }}>2. NLP Text Processing</div>
+                                                                <div className="text-[10px] text-[#4A4A4A] opacity-70 font-[300] leading-relaxed pl-2">
+                                                                    • Extract key concepts<br/>
+                                                                    • Identify scientific terms<br/>
+                                                                    • Transform technical → narrative<br/>
+                                                                    • Preserve accuracy
+                                                                </div>
+                                                            </div>
+
+                                                            {/* Content Curation */}
+                                                            <div className="mb-4 pb-4" style={{ borderBottom: '1px dashed rgba(74,74,74,0.2)' }}>
+                                                                <div className="text-[10px] font-[500] text-[#4A4A4A] mb-2" style={{ fontFamily: 'monospace' }}>3. Content Curation</div>
+                                                                <div className="text-[10px] text-[#4A4A4A] opacity-70 font-[300] leading-relaxed pl-2">
+                                                                    • Find thematic connections<br/>
+                                                                    • Group by categories:<br/>
+                                                                    <span className="pl-3">→ Space missions</span><br/>
+                                                                    <span className="pl-3">→ Cosmic events</span><br/>
+                                                                    <span className="pl-3">→ Discoveries</span><br/>
+                                                                    <span className="pl-3">→ Rare phenomena</span>
+                                                                </div>
+                                                            </div>
+
+                                                            {/* Journey Creation */}
+                                                            <div>
+                                                                <div className="text-[10px] font-[500] text-[#4A4A4A] mb-2" style={{ fontFamily: 'monospace' }}>4. Journey Creation</div>
+                                                                <div className="text-[10px] text-[#4A4A4A] opacity-70 font-[300] leading-relaxed pl-2">
+                                                                    • Build narrative flow<br/>
+                                                                    • Create curated paths<br/>
+                                                                    • Link related content<br/>
+                                                                    • Structure editorial experience
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 text-[#4A4A4A] opacity-40" style={{ fontFamily: 'monospace', fontSize: '10px' }}>enhanced + curated</div>
+                                                    </div>
+
+                                                    {/* Arrow 2 */}
+                                                    <div className="hidden md:block flex-shrink-0" style={{ width: '40px', height: '2px', backgroundColor: '#4A4A4A', position: 'relative', marginTop: '20px' }}>
+                                                        <div style={{
+                                                            position: 'absolute',
+                                                            right: '-6px',
+                                                            top: '-4px',
+                                                            width: 0,
+                                                            height: 0,
+                                                            borderLeft: '8px solid #4A4A4A',
+                                                            borderTop: '4px solid transparent',
+                                                            borderBottom: '4px solid transparent'
+                                                        }}></div>
+                                                    </div>
+                                                    <div className="md:hidden flex-shrink-0" style={{ width: '2px', height: '40px', backgroundColor: '#4A4A4A', position: 'relative', marginLeft: 'auto', marginRight: 'auto' }}>
+                                                        <div style={{
+                                                            position: 'absolute',
+                                                            bottom: '-6px',
+                                                            left: '-4px',
+                                                            width: 0,
+                                                            height: 0,
+                                                            borderTop: '8px solid #4A4A4A',
+                                                            borderLeft: '4px solid transparent',
+                                                            borderRight: '4px solid transparent'
+                                                        }}></div>
+                                                    </div>
+
+                                                    {/* Step 3: iOS App */}
+                                                    <div className="relative flex-shrink-0" style={{ width: '100%', maxWidth: '180px' }}>
+                                                        <div style={{
+                                                            border: '2px solid #4A4A4A',
+                                                            borderRadius: '8px',
+                                                            padding: '16px',
+                                                            backgroundColor: 'white',
+                                                            boxShadow: '2px 2px 0 rgba(0,0,0,0.1)',
+                                                            transform: 'rotate(-0.5deg)'
+                                                        }}>
+                                                            <div className="text-xs font-[600] text-[#4A4A4A] mb-2" style={{ fontFamily: 'monospace' }}>iOS App</div>
+                                                            <div className="text-xs text-[#4A4A4A] opacity-70 font-[300] leading-relaxed">
+                                                                Editorial<br/>
+                                                                Experience<br/>
+                                                                Curated Journey
+                                                            </div>
+                                                        </div>
+                                                        <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 text-[#4A4A4A] opacity-40" style={{ fontFamily: 'monospace', fontSize: '10px' }}>delivered</div>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div className="flex items-start gap-4">
-                                                <div className="flex-shrink-0 w-8 h-8 rounded-full bg-[#4A4A4A] bg-opacity-10 flex items-center justify-center text-sm font-[400] text-[#4A4A4A]">2</div>
-                                                <div>
-                                                    <h4 className="text-base md:text-lg font-[400] text-[#4A4A4A] mb-2">NLP Processing</h4>
-                                                    <p className="text-sm md:text-base text-[#4A4A4A] opacity-70 font-[300] leading-[1.6]">Natural language processing extracts key concepts, themes, and scientific significance from descriptions.</p>
-                                                </div>
-                                            </div>
-                                            <div className="flex items-start gap-4">
-                                                <div className="flex-shrink-0 w-8 h-8 rounded-full bg-[#4A4A4A] bg-opacity-10 flex items-center justify-center text-sm font-[400] text-[#4A4A4A]">3</div>
-                                                <div>
-                                                    <h4 className="text-base md:text-lg font-[400] text-[#4A4A4A] mb-2">Content Curation</h4>
-                                                    <p className="text-sm md:text-base text-[#4A4A4A] opacity-70 font-[300] leading-[1.6]">AI identifies relationships and themes to create curated journeys through related content.</p>
-                                                </div>
-                                            </div>
-                                            <div className="flex items-start gap-4">
-                                                <div className="flex-shrink-0 w-8 h-8 rounded-full bg-[#4A4A4A] bg-opacity-10 flex items-center justify-center text-sm font-[400] text-[#4A4A4A]">4</div>
-                                                <div>
-                                                    <h4 className="text-base md:text-lg font-[400] text-[#4A4A4A] mb-2">Enhanced Experience</h4>
-                                                    <p className="text-sm md:text-base text-[#4A4A4A] opacity-70 font-[300] leading-[1.6]">Processed content is delivered to the iOS app, creating an editorial experience that feels thoughtfully crafted.</p>
+
+                                                {/* Annotations */}
+                                                <div className="mt-12 md:mt-16 space-y-4">
+                                                    <div className="flex flex-wrap gap-4 md:gap-6">
+                                                        <div style={{
+                                                            border: '1px dashed #4A4A4A',
+                                                            borderRadius: '4px',
+                                                            padding: '8px 12px',
+                                                            backgroundColor: 'rgba(255,255,255,0.8)',
+                                                            transform: 'rotate(-0.3deg)',
+                                                            fontSize: '11px',
+                                                            color: '#4A4A4A',
+                                                            opacity: 0.8,
+                                                            fontStyle: 'italic'
+                                                        }}>
+                                                            Daily automated fetch
+                                                        </div>
+                                                        <div style={{
+                                                            border: '1px dashed #4A4A4A',
+                                                            borderRadius: '4px',
+                                                            padding: '8px 12px',
+                                                            backgroundColor: 'rgba(255,255,255,0.8)',
+                                                            transform: 'rotate(0.4deg)',
+                                                            fontSize: '11px',
+                                                            color: '#4A4A4A',
+                                                            opacity: 0.8,
+                                                            fontStyle: 'italic'
+                                                        }}>
+                                                            Real-time NLP processing
+                                                        </div>
+                                                        <div style={{
+                                                            border: '1px dashed #4A4A4A',
+                                                            borderRadius: '4px',
+                                                            padding: '8px 12px',
+                                                            backgroundColor: 'rgba(255,255,255,0.8)',
+                                                            transform: 'rotate(-0.2deg)',
+                                                            fontSize: '11px',
+                                                            color: '#4A4A4A',
+                                                            opacity: 0.8,
+                                                            fontStyle: 'italic'
+                                                        }}>
+                                                            Seamless user experience
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
