@@ -1711,7 +1711,7 @@
         };
 
         // Project Detail Component
-        const ProjectDetail = ({ project, onBack }) => {
+        const ProjectDetail = ({ project, onBack, projects, onNavigate }) => {
             const containerRef = React.useRef(null);
             const isVisible = useIntersectionObserver(containerRef, { threshold: 0 });
             const [carouselIndex, setCarouselIndex] = React.useState(0);
@@ -3558,6 +3558,99 @@
                             </div>
                             </div>
                             {renderContent()}
+
+                            {/* Prev / Next navigation with thumbnails */}
+                            {projects && project && (() => {
+                                const idx = projects.findIndex(p => p.id === project.id);
+                                const prev = idx > 0 ? projects[idx - 1] : null;
+                                const next = (idx >= 0 && idx < projects.length - 1) ? projects[idx + 1] : null;
+                                return (
+                                    (prev || next) && (
+                                        <div className={`mt-20 md:mt-32 fade-in-delay-4 ${isVisible ? 'fade-in-delay-4' : ''}`}>
+                                            <div className="divider mb-8 md:mb-12"></div>
+                                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 lg:gap-12 items-center">
+                                                {prev ? (
+                                                    <button
+                                                        onClick={() => {
+                                                            trackEvent('project_navigation', { from: project.id, to: prev.id, direction: 'previous' });
+                                                            if (onNavigate) onNavigate(prev.id);
+                                                        }}
+                                                        className="group flex items-center gap-3 text-left hover:opacity-90 transition-all duration-300 p-2"
+                                                    >
+                                                        <div className="w-20 h-20 md:w-24 md:h-24 rounded-md overflow-hidden bg-gray-100 flex-shrink-0">
+                                                            {prev.image || prev.heroImage ? (
+                                                                prev.id === 2 ? (
+                                                                    <video
+                                                                        src={prev.image}
+                                                                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 loaded"
+                                                                        autoPlay
+                                                                        loop
+                                                                        muted
+                                                                        playsInline
+                                                                    />
+                                                                ) : (
+                                                                    <img
+                                                                        src={prev.heroImage || prev.image}
+                                                                        alt={prev.title}
+                                                                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 loaded"
+                                                                    />
+                                                                )
+                                                            ) : (
+                                                                <div className="w-full h-full flex items-center justify-center bg-gray-200">
+                                                                    <span className="text-gray-400 text-xs">No image</span>
+                                                                </div>
+                                                            )}
+                                                        </div>
+                                                        <div>
+                                                            <div className="text-xs md:text-sm text-[#4A4A4A] opacity-60 group-hover:opacity-80 transition-opacity font-[300]">Previous</div>
+                                                            <div className="text-sm md:text-base text-[#4A4A4A] font-[300] group-hover:opacity-80 transition-opacity">{prev.title}</div>
+                                                        </div>
+                                                    </button>
+                                                ) : <div />}
+
+                                                {next ? (
+                                                    <button
+                                                        onClick={() => {
+                                                            trackEvent('project_navigation', { from: project.id, to: next.id, direction: 'next' });
+                                                            if (onNavigate) onNavigate(next.id);
+                                                        }}
+                                                        className="group flex items-center gap-3 justify-end ml-auto text-right hover:opacity-90 transition-all duration-300 p-2"
+                                                    >
+                                                        <div className="mr-3 text-right">
+                                                            <div className="text-xs md:text-sm text-[#4A4A4A] opacity-60 group-hover:opacity-80 transition-opacity font-[300]">Next</div>
+                                                            <div className="text-sm md:text-base text-[#4A4A4A] font-[300] group-hover:opacity-80 transition-opacity">{next.title}</div>
+                                                        </div>
+                                                        <div className="w-20 h-20 md:w-24 md:h-24 rounded-md overflow-hidden bg-gray-100 flex-shrink-0">
+                                                            {next.image || next.heroImage ? (
+                                                                next.id === 2 ? (
+                                                                    <video
+                                                                        src={next.image}
+                                                                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 loaded"
+                                                                        autoPlay
+                                                                        loop
+                                                                        muted
+                                                                        playsInline
+                                                                    />
+                                                                ) : (
+                                                                    <img
+                                                                        src={next.heroImage || next.image}
+                                                                        alt={next.title}
+                                                                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 loaded"
+                                                                    />
+                                                                )
+                                                            ) : (
+                                                                <div className="w-full h-full flex items-center justify-center bg-gray-200">
+                                                                    <span className="text-gray-400 text-xs">No image</span>
+                                                                </div>
+                                                            )}
+                                                        </div>
+                                                    </button>
+                                                ) : <div />}
+                                            </div>
+                                        </div>
+                                    )
+                                );
+                            })()}
                         </div>
                     </div>
                 </section>
@@ -4786,6 +4879,8 @@
                             <ProjectDetail 
                                 project={projects.find(p => p.id === selectedProject)} 
                                 onBack={() => handleProjectSelect(null)} 
+                                projects={projects}
+                                onNavigate={(id) => handleProjectSelect(id)}
                             />
                         ) : (
                             <>
