@@ -971,6 +971,7 @@
                 gap: 20px;
             }
         }
+
     </style>
 </head>
 <body>
@@ -3528,7 +3529,7 @@
                                     <img 
                                         src={project.heroImage || project.image} 
                                         alt={project.title} 
-                                        className="w-full h-auto rounded-xl"
+                                        className={project.id === 5 ? "w-full md:max-w-3xl mx-auto h-auto rounded-xl object-contain" : "w-full h-auto rounded-xl"}
                                         onLoad={(e) => e.target.classList.add('loaded')}
                                     />
                                     )}
@@ -3661,7 +3662,7 @@
         const WorkItem = ({ project, index, onProjectSelect, isProjectLocked }) => {
             const itemRef = React.useRef(null);
             const isVisible = useIntersectionObserver(itemRef, { threshold: 0.15 });
-            const isClickable = true; // All projects are clickable
+            const isClickable = project.id !== 5; // Flux case study is not open yet
             const [showTooltip, setShowTooltip] = useState(false);
             const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
             const [displayPosition, setDisplayPosition] = useState({ x: 0, y: 0 });
@@ -3759,7 +3760,7 @@
                     >
                     <div className={`w-full h-full flex items-center ${
                         project.id === 0 ? 'bg-black' : 
-                        project.id === 1 || project.id === 2 || project.id === 3 ? 'bg-white' : 
+                        project.id === 1 || project.id === 2 || project.id === 3 || project.id === 5 ? 'bg-white' : 
                         'bg-[var(--rice-paper)]'
                     }`}>
                         <div className="flex flex-col w-full">
@@ -3803,12 +3804,21 @@
                                                             }}></div>
                                             </div>
                                                         ) : (
+                                                            <>
+                                        {project.id === 5 && (
+                                            <div className="absolute inset-x-0 bottom-0 flex items-end justify-center pb-0 pointer-events-none z-0 translate-y-4 md:translate-y-5">
+                                                <span className="text-[clamp(44px,10vw,140px)] font-[400] tracking-[0.04em] text-[#4A4A4A] opacity-20 select-none leading-none">
+                                                    {'Coming\u00A0Soon'}
+                                                </span>
+                                            </div>
+                                        )}
                                         <img 
                                             src={project.image} 
                                             alt={project.title} 
-                                                className="w-full md:max-w-4xl h-auto md:rounded-xl object-contain"
+                                                className={project.id === 5 ? "relative z-10 w-full md:max-w-3xl h-auto md:rounded-xl object-contain mt-2 md:mt-3" : (project.id === 1 ? "relative z-10 w-full md:max-w-4xl h-auto md:rounded-xl object-contain mt-2 md:mt-3" : (project.id === 0 ? "w-full md:max-w-5xl h-auto md:rounded-xl object-contain" : "w-full md:max-w-4xl h-auto md:rounded-xl object-contain"))}
                                             onLoad={(e) => e.target.classList.add('loaded')}
                                         />
+                                                            </>
                                                         )}
                                         {/* {isProjectLocked && isProjectLocked(project.id) && (
                                                             <div className="work-project-lock-overlay absolute inset-0 flex items-center justify-center bg-black bg-opacity-20 rounded-xl opacity-0 transition-opacity duration-300">
@@ -4522,6 +4532,11 @@
                     }, 100);
                     return;
                 }
+
+                // Flux case study is intentionally unavailable until complete.
+                if (projectId === 5) {
+                    return;
+                }
                 
                 // Check if project is locked and not authenticated
                 if (isProjectLocked(projectId) && !isProjectAuthenticated(projectId)) {
@@ -4627,13 +4642,42 @@
 
             // Define projects array at App level so it can be shared
             const projects = [
+                {
+                    id: 5,
+                    title: 'Project in Progress',
+                    category: 'Product Design',
+                    year: '2026',
+                    quote: 'An end-to-end design of an enterprise tool for Flux logistics shipping agents. Full acse study coming soon.',
+                    image: 'assets/flux.png',
+                    slug: 'project-in-progress',
+                    link: '#work/project-in-progress',
+                    content: {
+                        role: {
+                            title: 'Responsibilities',
+                            details: '- product strategy<br />- ux design<br />- interaction design'
+                        },
+                        platforms: {
+                            title: 'Platforms',
+                            details: 'Mobile · Desktop'
+                        },
+                        team: {
+                            title: 'Team of 5',
+                            details: '3 UX designers<br />2 engineers'
+                        },
+                        duration: {
+                            title: 'Duration',
+                            details: 'In progress'
+                        },
+                        tldr: 'This project is currently in progress. Full case study details will be published once research, design, and validation milestones are complete.'
+                    }
+                },
                 { 
                     id: 1, 
                     title: 'AI Voice Notes Workflow', 
                     category: 'AI UX Design', 
                     year: '2025',
                     quote: 'Redesigning a voice-to-content workflow to reduce cognitive load across iOS, iPad, and Mac.',
-                    image: 'assets/goodSpeak.png',
+                    image: 'assets/voice_work.png',
                     heroImage: 'assets/gs-assets/goodSpeak-hero.png',
                     slug: 'ai-voice-notes',
                     link: '#work/ai-voice-notes',
