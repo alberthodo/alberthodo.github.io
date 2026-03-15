@@ -3817,12 +3817,12 @@
                                                             }}></div>
                                             </div>
                                                         ) : project.id === 0 ? (
-                                        <div className="w-full md:max-w-5xl h-[62vh] md:h-[68vh] overflow-hidden md:rounded-xl">
+                                        <div className="w-full md:max-w-5xl md:rounded-xl">
                                             <video
                                                 ref={nasaVideoRef}
                                                 src="assets/nasa_home.mp4"
-                                                className="w-full h-full object-cover object-center"
-                                                style={{ display: 'block', outline: 'none', border: 'none' }}
+                                                className="w-full h-auto object-contain"
+                                                style={{ display: 'block', outline: 'none', border: 'none', maxHeight: '100vh' }}
                                                 loop
                                                 muted
                                                 playsInline
